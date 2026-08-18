@@ -793,15 +793,21 @@
 
     const actionsHtml = `<div class="publication-actions">${bibButton}${paperLink}${websiteLink}</div>`;
 
+    const hasFigure = Boolean(row.Figure && row.Figure.trim());
+    const cardClass = hasFigure ? "publication-card" : "publication-card publication-card-text-only";
+    const figureHtml = hasFigure
+      ? `<a class="publication-figure" href="${escapeHtml(row.Figure)}" target="_blank" rel="noopener" title="Click to view full diagram"><img src="${escapeHtml(row.Figure)}" alt="Figure for ${escapeHtml(row.Title)}" loading="lazy"></a>`
+      : "";
+
     return `
-      <article id="${cardId}" class="publication-card publication-card-text-only" data-region="international" data-type="${categorySlug}" data-year="${year}" data-venue="${venueSlug}">
+      <article id="${cardId}" class="${cardClass}" data-region="international" data-type="${categorySlug}" data-year="${year}" data-venue="${venueSlug}">
         <div class="publication-body">
           <div class="publication-title-row">
             <span class="pub-badge pub-year">${escapeHtml(year)}</span>
             <span class="pub-badge badge-region-international">International</span>
             <span class="pub-badge badge-type-${categorySlug}">${escapeHtml(category)}</span>
             <span class="pub-badge aprl">RASL</span>
-            <h3>${escapeHtml(row.Title)}</h3>
+            <h3><a href="${escapeHtml(paperUrl)}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${escapeHtml(row.Title)}</a></h3>
           </div>
           <div class="publication-meta">
             <span><b>Venue/Book</b>${venueDisplay}</span>
@@ -810,6 +816,7 @@
           </div>
           ${actionsHtml}
         </div>
+        ${figureHtml}
       </article>
     `;
   }
