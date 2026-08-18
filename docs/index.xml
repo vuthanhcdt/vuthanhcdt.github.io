@@ -103,52 +103,57 @@ referrerpolicy="no-referrer-when-downgrade">
 &lt;li>&lt;strong>Talent Scholarship&lt;/strong>, Foxconn Technology Group, Vietnam &lt;em>(2017, 2018)&lt;/em>.&lt;/li>
 &lt;/ul>
 &lt;hr>
+&lt;style>
+.cv-container a { text-decoration: none; }
+.cv-pub-title { color: #0f172a; text-decoration: none; }
+.cv-pub-title:hover { color: #005bac; }
+&lt;/style>
 &lt;h2 id="selected-publications-14-peer-reviewed-papers">Selected Publications (14 Peer-Reviewed Papers)&lt;/h2>
 &lt;h3 id="refereed-journal-articles">Refereed Journal Articles&lt;/h3>
 &lt;ol>
-&lt;li>&lt;a href="https://www.sciencedirect.com/science/article/pii/S0168169926006873" target="_blank" rel="noopener">&lt;strong>Context-Aware Adaptive Pesticide Spraying for Agricultural Robots under Changing Weather and Terrain Using Vision-Language Models&lt;/strong>&lt;/a>&lt;br>
+&lt;li>&lt;a href="https://www.sciencedirect.com/science/article/pii/S0168169926006873" target="_blank" class="cv-pub-title">&lt;strong>Context-Aware Adaptive Pesticide Spraying for Agricultural Robots under Changing Weather and Terrain Using Vision-Language Models&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Yen-Chen Liu&lt;br>
-&lt;a href="https://www.sciencedirect.com/science/article/pii/S0168169926006873" target="_blank" rel="noopener">&lt;em>Computers and Electronics in Agriculture (COMPAG)&lt;/em>&lt;/a>, Vol. 252, pp. 112092, Sep. 2026; ISSN 0168-1699; DOI: &lt;a href="https://doi.org/10.1016/j.compag.2026.112092" target="_blank" rel="noopener">10.1016/j.compag.2026.112092&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener">&lt;strong>Towards Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning&lt;/strong>&lt;/a>&lt;br>
+&lt;em>Computers and Electronics in Agriculture (COMPAG)&lt;/em>, Vol. 252, pp. 112092, Sep. 2026; ISSN 0168-1699; DOI 10.1016/j.compag.2026.112092&lt;/li>
+&lt;li>&lt;a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" class="cv-pub-title">&lt;strong>Towards Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Yen-Chen Liu&lt;br>
 &lt;em>IEEE Transactions on Systems, Man, and Cybernetics: Systems (TSMC)&lt;/em>, accepted, 2026.&lt;/li>
 &lt;/ol>
 &lt;h3 id="refereed-conference-proceedings">Refereed Conference Proceedings&lt;/h3>
 &lt;ol>
-&lt;li>&lt;a href="https://arxiv.org/abs/2607.01287" target="_blank" rel="noopener">&lt;strong>Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations&lt;/strong>&lt;/a>&lt;br>
+&lt;li>&lt;a href="https://arxiv.org/abs/2607.01287" target="_blank" class="cv-pub-title">&lt;strong>Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Yen-Chen Liu&lt;br>
-&lt;a href="https://2026.ieee-iros.org/" target="_blank" rel="noopener">&lt;em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)&lt;/em>&lt;/a>, Pittsburgh, USA, accepted, 2026.&lt;/li>
-&lt;li>&lt;a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener">&lt;strong>Gimbal-Based Human Tracking for Companion Robots Using Continual Learning&lt;/strong>&lt;/a>&lt;br>
+&lt;em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)&lt;/em>, Pittsburgh, USA, accepted, 2026.&lt;/li>
+&lt;li>&lt;a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" class="cv-pub-title">&lt;strong>Gimbal-Based Human Tracking for Companion Robots Using Continual Learning&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Ching-Chieh Liu, Yen-Chen Liu&lt;br>
-&lt;a href="https://aim2026.com/" target="_blank" rel="noopener">&lt;em>IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)&lt;/em>&lt;/a>, Genova, Italy, accepted, 2026.&lt;/li>
-&lt;li>&lt;a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener">&lt;strong>Multimodal-Language-Model–Driven Interaction and Companionship for Service Robots in Elderly-Care Facilities&lt;/strong>&lt;/a>&lt;br>
+&lt;em>IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)&lt;/em>, Genova, Italy, accepted, 2026.&lt;/li>
+&lt;li>&lt;a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" class="cv-pub-title">&lt;strong>Multimodal-Language-Model–Driven Interaction and Companionship for Service Robots in Elderly-Care Facilities&lt;/strong>&lt;/a>&lt;br>
 Ching-Chieh Liu, &lt;strong>Cong-Thanh Vu&lt;/strong>, Yen-Chen Liu&lt;br>
-&lt;a href="https://aim2026.com/" target="_blank" rel="noopener">&lt;em>IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)&lt;/em>&lt;/a>, Genova, Italy, accepted, 2026.&lt;/li>
-&lt;li>&lt;a href="https://arxiv.org/abs/2607.21648" target="_blank" rel="noopener">&lt;strong>Learning Diverse Humanoid Tasks via Synthetic Video Scenarios without Real World Data&lt;/strong>&lt;/a>&lt;br>
+&lt;em>IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)&lt;/em>, Genova, Italy, accepted, 2026.&lt;/li>
+&lt;li>&lt;a href="https://arxiv.org/abs/2607.21648" target="_blank" class="cv-pub-title">&lt;strong>Learning Diverse Humanoid Tasks via Synthetic Video Scenarios without Real World Data&lt;/strong>&lt;/a>&lt;br>
 Yun-Hao Tsai, &lt;strong>Cong-Thanh Vu&lt;/strong>, Yen-Chen Liu&lt;br>
-&lt;a href="https://aim2026.com/" target="_blank" rel="noopener">&lt;em>IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)&lt;/em>&lt;/a>, Genova, Italy, accepted, 2026.&lt;/li>
-&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/11246444/" target="_blank" rel="noopener">&lt;strong>Autonomous Adjustment of Tracking Position in Dynamic Environments for Human-Following Robots Using Deep Reinforcement Learning&lt;/strong>&lt;/a>&lt;br>
+&lt;em>IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)&lt;/em>, Genova, Italy, accepted, 2026.&lt;/li>
+&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/11246444/" target="_blank" class="cv-pub-title">&lt;strong>Autonomous Adjustment of Tracking Position in Dynamic Environments for Human-Following Robots Using Deep Reinforcement Learning&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Yen-Chen Liu&lt;br>
-&lt;a href="https://www.iros25.org/" target="_blank" rel="noopener">&lt;em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)&lt;/em>&lt;/a>, pp. 16863-16869, Hangzhou, China, Oct. 2025.&lt;/li>
-&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/11203150/" target="_blank" rel="noopener">&lt;strong>Learning Virtual Passive Dynamic Walking Using the Kneed Walker Model for Guiding Policies&lt;/strong>&lt;/a>&lt;br>
+&lt;em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)&lt;/em>, pp. 16863-16869, Hangzhou, China, Oct. 2025.&lt;/li>
+&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/11203150/" target="_blank" class="cv-pub-title">&lt;strong>Learning Virtual Passive Dynamic Walking Using the Kneed Walker Model for Guiding Policies&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Chi Cheng Lai, Yen-Chen Liu&lt;br>
 &lt;em>IEEE-RAS International Conference on Humanoid Robots (Humanoids)&lt;/em>, pp. 1094-1100, Sep.-Oct. 2025.&lt;/li>
-&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/11093565/" target="_blank" rel="noopener">&lt;strong>Autonomous Navigation for Human-Following Robots Based on Optimized Position Tracking&lt;/strong>&lt;/a>&lt;br>
+&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/11093565/" target="_blank" class="cv-pub-title">&lt;strong>Autonomous Navigation for Human-Following Robots Based on Optimized Position Tracking&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Hsin-Hui Huang, Yen-Chen Liu&lt;br>
 &lt;em>International Conference on Control and Robotics Engineering (ICCRE)&lt;/em>, pp. 23-27, Nagoya, Japan, May 2025.&lt;/li>
-&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/10773736/" target="_blank" rel="noopener">&lt;strong>Toward Autonomous Navigation for Agriculture Robots in Orchard Farming&lt;/strong>&lt;/a>&lt;br>
+&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/10773736/" target="_blank" class="cv-pub-title">&lt;strong>Toward Autonomous Navigation for Agriculture Robots in Orchard Farming&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Hsin-Chia Chen, Yen-Chen Liu&lt;br>
 &lt;em>IEEE International Conference on Recent Advances in Systems Science and Engineering (RASSE)&lt;/em>, pp. 1-8, Taichung, Taiwan, Nov. 2024.&lt;/li>
-&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/10604387/" target="_blank" rel="noopener">&lt;strong>Deep Reinforcement Learning for Multi-Robot Local Path Planning in Dynamic Environments&lt;/strong>&lt;/a>&lt;br>
+&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/10604387/" target="_blank" class="cv-pub-title">&lt;strong>Deep Reinforcement Learning for Multi-Robot Local Path Planning in Dynamic Environments&lt;/strong>&lt;/a>&lt;br>
 &lt;strong>Cong-Thanh Vu&lt;/strong>, Yen-Chen Liu&lt;br>
 &lt;em>International Workshop on Robot Motion and Control (ROMOCO)&lt;/em>, pp. 267-272, Poznan, Poland, Jul. 2024.&lt;/li>
-&lt;li>&lt;a href="https://link.springer.com/chapter/10.1007/978-981-19-3394-3_56" target="_blank" rel="noopener">&lt;strong>Mobile robot motion control using a combination of fuzzy logic method and kinematic model&lt;/strong>&lt;/a>&lt;br>
+&lt;li>&lt;a href="https://link.springer.com/chapter/10.1007/978-981-19-3394-3_56" target="_blank" class="cv-pub-title">&lt;strong>Mobile robot motion control using a combination of fuzzy logic method and kinematic model&lt;/strong>&lt;/a>&lt;br>
 Anh-Tu Nguyen, &lt;strong>Cong-Thanh Vu&lt;/strong>&lt;br>
 &lt;em>Intelligent Systems and Networks (ICISN)&lt;/em>, pp. 495-503, Hanoi, Vietnam, Jul. 2022.&lt;/li>
-&lt;li>&lt;a href="https://link.springer.com/chapter/10.1007/978-3-030-99666-6_118" target="_blank" rel="noopener">&lt;strong>Obstacle avoidance for autonomous mobile robots based on mapping method&lt;/strong>&lt;/a>&lt;br>
+&lt;li>&lt;a href="https://link.springer.com/chapter/10.1007/978-3-030-99666-6_118" target="_blank" class="cv-pub-title">&lt;strong>Obstacle avoidance for autonomous mobile robots based on mapping method&lt;/strong>&lt;/a>&lt;br>
 Anh-Tu Nguyen, &lt;strong>Cong-Thanh Vu&lt;/strong>&lt;br>
 &lt;em>Advanced Mechanical Engineering, Automation and Sustainable Development (AMAS)&lt;/em>, pp. 810-816, Halong, Vietnam, May 2022.&lt;/li>
-&lt;li>&lt;a href="https://link.springer.com/chapter/10.1007/978-981-16-2094-2_49" target="_blank" rel="noopener">&lt;strong>Development of a multiple-sensor navigation system for autonomous guided vehicle localization&lt;/strong>&lt;/a>&lt;br>
+&lt;li>&lt;a href="https://link.springer.com/chapter/10.1007/978-981-16-2094-2_49" target="_blank" class="cv-pub-title">&lt;strong>Development of a multiple-sensor navigation system for autonomous guided vehicle localization&lt;/strong>&lt;/a>&lt;br>
 Anh-Tu Nguyen, Van-Truong Nguyen, Xuan-Thuan Nguyen, &lt;strong>Cong-Thanh Vu&lt;/strong>&lt;br>
 &lt;em>Intelligent Systems and Networks (ICISN)&lt;/em>, pp. 402-410, Hanoi, Vietnam, Jul. 2021.&lt;/li>
 &lt;/ol>

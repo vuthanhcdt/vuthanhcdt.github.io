@@ -2,14 +2,13 @@
 """
 Builds a professional Academic Curriculum Vitae (PDF) for Director Dr. Cong-Thanh Vu.
 Reads publication data from static/data/profile-sections.json, embeds Director avatar photo,
-formats clickable hyperlinks on all publication titles and DOIs/venues,
+formats clean clickable hyperlinks strictly on publication titles without underlines,
 and uses headless Chrome to generate a high-quality vector PDF.
 """
 
 import base64
 import json
 import os
-import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -53,23 +52,12 @@ def generate_html(data):
                         (item.get("Website") or "").strip() or \
                         (item.get("Link") or "").strip() or \
                         "https://scholar.google.com/citations?user=7FEW5b8AAAAJ"
-            
-            venue_url = (item.get("Venue Link") or "").strip()
-
-            # Format DOI into clickable link
-            def doi_repl(m):
-                doi = m.group(1).rstrip(".,;)")
-                return f'<a href="https://doi.org/{doi}" target="_blank" style="color: #005bac; font-weight: 600; text-decoration: underline;">{doi}</a>'
-            formatted_info = re.sub(r"(10\.\d{4,9}/[-._;()/:A-Za-z0-9]+)", doi_repl, info)
 
             detail_parts = []
             if venue:
-                if venue_url:
-                    detail_parts.append(f'<a href="{venue_url}" target="_blank" style="color: inherit; text-decoration: underline;"><em>{venue}</em></a>')
-                else:
-                    detail_parts.append(f"<em>{venue}</em>")
-            if formatted_info:
-                detail_parts.append(formatted_info)
+                detail_parts.append(f"<em>{venue}</em>")
+            if info:
+                detail_parts.append(info)
             elif note:
                 detail_parts.append(f"({note})")
             elif year:
@@ -79,9 +67,9 @@ def generate_html(data):
             
             html_items.append(f"""
             <li style="margin-bottom: 9px; line-height: 1.42;">
-                <div><a href="{paper_url}" target="_blank" style="color: #0f172a; text-decoration: none; font-weight: 650; border-bottom: 1px dotted #94a3b8;">{title}</a></div>
+                <div><a href="{paper_url}" target="_blank" style="color: #0f172a; text-decoration: none; font-weight: 650;">{title}</a></div>
                 <div style="color: #475569; font-size: 0.91rem;">{authors}</div>
-                <div style="color: #005bac; font-size: 0.87rem;">{details_str}</div>
+                <div style="color: #475569; font-size: 0.87rem;">{details_str}</div>
             </li>
             """)
         return "".join(html_items)
@@ -116,6 +104,9 @@ def generate_html(data):
     font-size: 9.6pt;
     margin: 0;
     padding: 0;
+  }}
+  a {{
+    text-decoration: none;
   }}
   .header {{
     border-bottom: 2px solid #005bac;
@@ -361,7 +352,7 @@ def build_pdf():
     print("1. Loading profile data...")
     data = load_data()
     
-    print("2. Generating HTML CV template with Director photo and hyperlinks...")
+    print("2. Generating HTML CV template with clean titles and photo...")
     html_content = generate_html(data)
     
     OUTPUT_PDF.parent.mkdir(parents=True, exist_ok=True)
