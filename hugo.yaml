@@ -2,6 +2,7 @@ baseURL: 'https://vuthanhcdt.github.io/'
 title: 'RASL | Robotics and Autonomous Systems Laboratory'
 languageCode: en-us
 defaultContentLanguage: en
+publishDir: 'docs'
 googleAnalytics: ''
 
 module:
