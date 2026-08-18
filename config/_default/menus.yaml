@@ -1,0 +1,27 @@
+main:
+  - name: Home
+    url: /
+    weight: 10
+  - name: Director
+    url: /director/
+    weight: 20
+  - name: Members
+    url: /members/
+    weight: 30
+  - name: Publications
+    url: /publications/
+    weight: 40
+  - name: News
+    url: /news/
+    weight: 50
+  - name: Contact
+    url: /contact/
+    weight: 60
+  - name: Joining RASL
+    url: /contact/#positions
+    weight: 70
+
+
+
+
+

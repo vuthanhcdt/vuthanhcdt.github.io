@@ -1,0 +1,37 @@
+appearance:
+  theme_day: minimal
+  theme_night: minimal
+  font: minimal
+  font_size: M
+
+marketing:
+  analytics:
+    google_analytics: ''
+
+features:
+  math:
+    enable: true
+  privacy_pack:
+    enable: false
+
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'
+
+header:
+  navbar:
+    enable: true
+    fixed: true
+
+sharing: false
+
+footer:
+  copyright:
+    notice: '&copy; {year} Cong-Thanh Vu (vuthanh-cdt). All rights reserved.'
+
+contact:
+  email: vuthanh.cdt@gmail.com
+  address:
+    city: Hanoi
+    country: Vietnam
+    country_code: VN
