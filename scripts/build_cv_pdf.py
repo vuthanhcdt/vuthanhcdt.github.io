@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 Builds a professional Academic Curriculum Vitae (PDF) for Director Dr. Cong-Thanh Vu.
-Reads publication data from static/data/profile-sections.json and uses headless Chrome
-to generate a high-quality, printable vector PDF at static/files/CV_Cong_Thanh_Vu.pdf.
+Reads publication data from static/data/profile-sections.json, embeds Director avatar photo,
+and uses headless Chrome to generate a high-quality, printable vector PDF at static/files/CV_Cong_Thanh_Vu.pdf.
 """
 
+import base64
 import json
 import os
 import subprocess
@@ -13,6 +14,7 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT_DIR / "static" / "data" / "profile-sections.json"
+AVATAR_FILE = ROOT_DIR / "content" / "authors" / "admin" / "avatar.png"
 OUTPUT_PDF = ROOT_DIR / "static" / "files" / "CV_Cong_Thanh_Vu.pdf"
 DOCS_PDF = ROOT_DIR / "docs" / "files" / "CV_Cong_Thanh_Vu.pdf"
 
@@ -20,8 +22,16 @@ def load_data():
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
+def load_avatar_base64():
+    if AVATAR_FILE.exists():
+        with open(AVATAR_FILE, "rb") as f:
+            encoded = base64.b64encode(f.read()).decode("utf-8")
+            return f"data:image/png;base64,{encoded}"
+    return ""
+
 def generate_html(data):
     pubs = data.get("sections", {}).get("publications", {}).get("rows", [])
+    avatar_uri = load_avatar_base64()
     
     # Sort publications by Year desc
     journals = [p for p in pubs if p.get("Category", "").lower() == "journal"]
@@ -61,6 +71,10 @@ def generate_html(data):
     journal_html = format_pub_list(journals)
     conf_html = format_pub_list(conferences)
 
+    avatar_html = ""
+    if avatar_uri:
+        avatar_html = f'<img src="{avatar_uri}" alt="Cong-Thanh Vu" style="width: 82px; height: 82px; border-radius: 50%; object-fit: cover; border: 2.5px solid #005bac; box-shadow: 0 2px 5px rgba(0,0,0,0.08);">'
+
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +83,7 @@ def generate_html(data):
 <style>
   @page {{
     size: A4;
-    margin: 18mm 16mm 18mm 16mm;
+    margin: 16mm 15mm 16mm 15mm;
   }}
   * {{
     box-sizing: border-box;
@@ -80,40 +94,45 @@ def generate_html(data):
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #1e293b;
     background: #ffffff;
-    line-height: 1.5;
-    font-size: 10pt;
+    line-height: 1.45;
+    font-size: 9.8pt;
     margin: 0;
     padding: 0;
   }}
   .header {{
     border-bottom: 2px solid #005bac;
     padding-bottom: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+  }}
+  .header-left {{
+    display: flex;
+    gap: 14px;
+    align-items: center;
   }}
   .name {{
-    font-size: 20pt;
+    font-size: 19pt;
     font-weight: 800;
     color: #0f172a;
     letter-spacing: -0.5px;
-    margin: 0 0 4px 0;
-  }}
-  .title {{
-    font-size: 11pt;
-    font-weight: 600;
-    color: #005bac;
     margin: 0 0 3px 0;
   }}
+  .title {{
+    font-size: 10.5pt;
+    font-weight: 650;
+    color: #005bac;
+    margin: 0 0 2px 0;
+  }}
   .affiliation {{
-    font-size: 9.5pt;
+    font-size: 9.2pt;
     color: #475569;
     margin: 0;
   }}
   .contact-info {{
     text-align: right;
-    font-size: 9pt;
+    font-size: 8.8pt;
     color: #334155;
     line-height: 1.45;
   }}
@@ -122,23 +141,23 @@ def generate_html(data):
     text-decoration: none;
   }}
   h2 {{
-    font-size: 12pt;
+    font-size: 11.5pt;
     font-weight: 700;
     color: #0f172a;
     border-bottom: 1.5px solid #e2e8f0;
-    padding-bottom: 4px;
-    margin: 16px 0 10px 0;
+    padding-bottom: 3px;
+    margin: 15px 0 9px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }}
   h3 {{
-    font-size: 10pt;
+    font-size: 9.8pt;
     font-weight: 700;
     color: #334155;
-    margin: 12px 0 6px 0;
+    margin: 11px 0 5px 0;
   }}
   .entry {{
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     page-break-inside: avoid;
   }}
   .entry-header {{
@@ -151,10 +170,10 @@ def generate_html(data):
     display: flex;
     justify-content: space-between;
     color: #475569;
-    font-size: 9.5pt;
+    font-size: 9.2pt;
   }}
   .entry-desc {{
-    font-size: 9.2pt;
+    font-size: 9pt;
     color: #334155;
     margin-top: 2px;
   }}
@@ -165,25 +184,18 @@ def generate_html(data):
   li {{
     margin-bottom: 4px;
   }}
-  .badge {{
-    display: inline-block;
-    padding: 2px 6px;
-    background: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    border-radius: 4px;
-    font-size: 8pt;
-    font-weight: 600;
-    color: #334155;
-  }}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div>
-    <div class="name">Cong-Thanh Vu, Ph.D.</div>
-    <div class="title">Director, Robotics and Autonomous Systems Laboratory (RASL)</div>
-    <div class="affiliation">Assistant Professor, Department of Mechatronics Engineering, HAUI, Vietnam</div>
+  <div class="header-left">
+    {avatar_html}
+    <div>
+      <div class="name">Cong-Thanh Vu, Ph.D.</div>
+      <div class="title">Director, Robotics and Autonomous Systems Laboratory (RASL)</div>
+      <div class="affiliation">Assistant Professor, Department of Mechatronics Engineering, HAUI, Vietnam</div>
+    </div>
   </div>
   <div class="contact-info">
     <div><strong>Email:</strong> <a href="mailto:vuthanh.cdt@gmail.com">vuthanh.cdt@gmail.com</a></div>
@@ -194,7 +206,7 @@ def generate_html(data):
 </div>
 
 <h2>Research Interests</h2>
-<p style="margin: 0 0 12px 0; color: #334155; font-size: 9.5pt;">
+<p style="margin: 0 0 10px 0; color: #334155; font-size: 9.2pt; line-height: 1.45;">
   <strong>Human–Robot Interaction & Social Robotics:</strong> Adaptive companionship, proactive assistance, human-aware mobile robot navigation, and group following.<br>
   <strong>Field & Legged Robotics:</strong> Agricultural mobile robots, adaptive pesticide spraying, passive dynamic walking, and humanoid locomotion.<br>
   <strong>Robot Learning & AI:</strong> Deep reinforcement learning, continual learning for tracking, and Vision-Language-Action (VLA) multimodal models.
@@ -299,7 +311,7 @@ def generate_html(data):
 </ol>
 
 <h2>Professional Services & Activities</h2>
-<div style="font-size: 9.5pt; color: #334155; line-height: 1.5;">
+<div style="font-size: 9.2pt; color: #334155; line-height: 1.45;">
   <strong>Journal Reviewer:</strong>
   <ul>
     <li><em>IEEE/ASME Transactions on Mechatronics</em> (TMECH)</li>
@@ -325,7 +337,7 @@ def build_pdf():
     print("1. Loading profile data...")
     data = load_data()
     
-    print("2. Generating HTML CV template...")
+    print("2. Generating HTML CV template with Director photo...")
     html_content = generate_html(data)
     
     OUTPUT_PDF.parent.mkdir(parents=True, exist_ok=True)

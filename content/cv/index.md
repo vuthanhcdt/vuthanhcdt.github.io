@@ -19,11 +19,14 @@ aliases:
   </div>
 </div>
 
-<div style="border-bottom: 2px solid #005bac; padding-bottom: 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
-  <div>
-    <h1 style="margin: 0 0 0.3rem 0; font-size: 1.8rem; font-weight: 800; color: #0f172a;">Cong-Thanh Vu, Ph.D.</h1>
-    <div style="color: #005bac; font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem;">Director, Robotics and Autonomous Systems Laboratory (RASL)</div>
-    <div style="color: #475569; font-size: 0.95rem;">Assistant Professor, Department of Mechatronics Engineering, HAUI, Vietnam</div>
+<div style="border-bottom: 2px solid #005bac; padding-bottom: 1.2rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+  <div style="display: flex; gap: 1.2rem; align-items: center;">
+    <img src="/authors/admin/avatar.png" alt="Cong-Thanh Vu" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #005bac; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
+    <div>
+      <h1 style="margin: 0 0 0.3rem 0; font-size: 1.8rem; font-weight: 800; color: #0f172a;">Cong-Thanh Vu, Ph.D.</h1>
+      <div style="color: #005bac; font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem;">Director, Robotics and Autonomous Systems Laboratory (RASL)</div>
+      <div style="color: #475569; font-size: 0.95rem;">Assistant Professor, Department of Mechatronics Engineering, HAUI, Vietnam</div>
+    </div>
   </div>
   <div style="font-size: 0.9rem; color: #334155; line-height: 1.5;">
     <div><strong>Email:</strong> <a href="mailto:vuthanh.cdt@gmail.com" style="color: #005bac;">vuthanh.cdt@gmail.com</a></div>
