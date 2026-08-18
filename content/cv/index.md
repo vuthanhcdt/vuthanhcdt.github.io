@@ -71,8 +71,9 @@ aliases:
 
 <style>
 .cv-container a { text-decoration: none; }
-.cv-pub-title { color: #0f172a; text-decoration: none; }
+.cv-pub-title { color: #0f172a; font-weight: 700; text-decoration: none; display: block; margin-bottom: 2px; }
 .cv-pub-title:hover { color: #005bac; }
+.cv-container ol li em { color: #005bac; font-style: italic; }
 </style>
 
 ## Selected Publications (14 Peer-Reviewed Papers)

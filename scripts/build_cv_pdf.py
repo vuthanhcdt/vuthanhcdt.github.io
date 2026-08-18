@@ -2,8 +2,8 @@
 """
 Builds a professional Academic Curriculum Vitae (PDF) for Director Dr. Cong-Thanh Vu.
 Reads publication data from static/data/profile-sections.json, embeds Director avatar photo,
-formats clean clickable hyperlinks strictly on publication titles without underlines,
-and uses headless Chrome to generate a high-quality vector PDF.
+formats publication titles with clean hyperlinks (no underlines), bold author highlight,
+and the entire venue/info line in elegant italic blue (#005bac).
 """
 
 import base64
@@ -55,11 +55,11 @@ def generate_html(data):
 
             detail_parts = []
             if venue:
-                detail_parts.append(f"<em>{venue}</em>")
+                detail_parts.append(venue)
             if info:
                 detail_parts.append(info)
             elif note:
-                detail_parts.append(f"({note})")
+                detail_parts.append(f"{note}")
             elif year:
                 detail_parts.append(str(year))
                 
@@ -67,9 +67,9 @@ def generate_html(data):
             
             html_items.append(f"""
             <li style="margin-bottom: 9px; line-height: 1.42;">
-                <div><a href="{paper_url}" target="_blank" style="color: #0f172a; text-decoration: none; font-weight: 650;">{title}</a></div>
-                <div style="color: #475569; font-size: 0.91rem;">{authors}</div>
-                <div style="color: #475569; font-size: 0.87rem;">{details_str}</div>
+                <div><a href="{paper_url}" target="_blank" style="color: #0f172a; text-decoration: none; font-weight: 700;">{title}</a></div>
+                <div style="color: #475569; font-size: 0.91rem; margin-top: 1px;">{authors}</div>
+                <div style="color: #005bac; font-size: 0.88rem; font-style: italic; margin-top: 1px;">{details_str}</div>
             </li>
             """)
         return "".join(html_items)
@@ -193,6 +193,10 @@ def generate_html(data):
     font-size: 9pt;
   }}
   ul {{
+    margin: 4px 0 8px 18px;
+    padding: 0;
+  }}
+  ol {{
     margin: 4px 0 8px 18px;
     padding: 0;
   }}
@@ -352,7 +356,7 @@ def build_pdf():
     print("1. Loading profile data...")
     data = load_data()
     
-    print("2. Generating HTML CV template with clean titles and photo...")
+    print("2. Generating HTML CV template...")
     html_content = generate_html(data)
     
     OUTPUT_PDF.parent.mkdir(parents=True, exist_ok=True)
