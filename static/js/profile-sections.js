@@ -191,6 +191,14 @@
         '<a href="https://2026.ieee-iros.org/" target="_blank" rel="noopener">IROS 2026</a>'
       )
       .replace(
+        /\bIROS 2025\b/g,
+        '<a href="https://www.iros25.org/" target="_blank" rel="noopener">IROS 2025</a>'
+      )
+      .replace(
+        /\bAIM 2026\b/g,
+        '<a href="https://aim2026.com/" target="_blank" rel="noopener">AIM 2026</a>'
+      )
+      .replace(
         /\bICRA 2026\b/g,
         '<a href="https://2026.ieee-icra.org/" target="_blank" rel="noopener">ICRA 2026</a>'
       )
@@ -786,8 +794,16 @@
       ? row["BibTeX"].trim()
       : `@${bibType}{${bibKey},\n  title={${row.Title}},\n  author={${row.Authors}},\n  ${venueField},\n  year={${year}}\n}`;
 
-    // Venue/Book plain text (no link)
-    const venueDisplay = escapeHtml(row["Venue/Book Title"] || "");
+    // Venue/Book link (AIM 2026, IROS 2025, IROS 2026, or custom Venue Link)
+    const venueLink = (row["Venue Link"] && row["Venue Link"].trim()) ||
+                      (row["Venue Website"] && row["Venue Website"].trim()) ||
+                      (/AIM/i.test(row["Venue/Book Title"] || "") && String(year) === "2026" ? "https://aim2026.com/" : "") ||
+                      (/IROS/i.test(row["Venue/Book Title"] || "") && String(year) === "2026" ? "https://2026.ieee-iros.org/" : "") ||
+                      (/IROS/i.test(row["Venue/Book Title"] || "") && String(year) === "2025" ? "https://www.iros25.org/" : "");
+
+    const venueDisplay = venueLink
+      ? `<a href="${escapeHtml(venueLink)}" target="_blank" rel="noopener noreferrer">${escapeHtml(row["Venue/Book Title"] || "")}</a>`
+      : escapeHtml(row["Venue/Book Title"] || "");
 
     const rawInfo = String(row.Info || row["Journal Info"] || "").trim();
     const rawNote = String(row.Note || "").trim();

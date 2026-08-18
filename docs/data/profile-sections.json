@@ -60,6 +60,7 @@
           "Note": "accepted, to appear",
           "Download Link": "https://arxiv.org/abs/2607.01287",
           "Website": "",
+          "Venue Link": "https://2026.ieee-iros.org/",
           "Figure": "",
           "Bibtex": "@inproceedings{vu2026adaptive,\n  title={Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  year={2026}\n}"
         },
@@ -75,6 +76,7 @@
           "Note": "accepted, to appear",
           "Download Link": "https://scholar.google.com/citations?user=7FEW5b8AAAAJ",
           "Website": "",
+          "Venue Link": "https://aim2026.com/",
           "Figure": "",
           "Bibtex": "@inproceedings{vu2026gimbal,\n  title={Gimbal-Based Human Tracking for Companion Robots Using Continual Learning},\n  author={Vu, Cong-Thanh and Liu, Ching-Chieh and Liu, Yen-Chen},\n  booktitle={IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)},\n  year={2026}\n}"
         },
@@ -90,6 +92,7 @@
           "Note": "accepted, to appear",
           "Download Link": "https://scholar.google.com/citations?user=7FEW5b8AAAAJ",
           "Website": "",
+          "Venue Link": "https://aim2026.com/",
           "Figure": "",
           "Bibtex": "@inproceedings{liu2026multimodal,\n  title={Multimodal-Language-Model--Driven Interaction and Companionship for Service Robots in Elderly-Care Facilities},\n  author={Liu, Ching-Chieh and Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)},\n  year={2026}\n}"
         },
@@ -105,6 +108,7 @@
           "Note": "accepted, to appear",
           "Download Link": "https://arxiv.org/abs/2607.21648",
           "Website": "",
+          "Venue Link": "https://aim2026.com/",
           "Figure": "",
           "Bibtex": "@inproceedings{tsai2026learning,\n  title={Learning Diverse Humanoid Tasks via Synthetic Video Scenarios without Real World Data},\n  author={Tsai, Yun-Hao and Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)},\n  year={2026}\n}"
         },
@@ -120,6 +124,7 @@
           "Note": "",
           "Download Link": "https://ieeexplore.ieee.org/abstract/document/11246444/",
           "Website": "",
+          "Venue Link": "https://www.iros25.org/",
           "Figure": "",
           "Bibtex": "@inproceedings{vu2025autonomous,\n  title={Autonomous Adjustment of Tracking Position in Dynamic Environments for Human-Following Robots Using Deep Reinforcement Learning},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  pages={16863--16869},\n  year={2025},\n  organization={IEEE}\n}"
         },
