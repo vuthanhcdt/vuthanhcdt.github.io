@@ -1,363 +1,435 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Robotics and Autonomous Systems Laboratory (RASL) | RASL | Robotics and Autonomous Systems Laboratory</title><link>https://vuthanhcdt.github.io/</link><atom:link href="https://vuthanhcdt.github.io/index.xml" rel="self" type="application/rss+xml"/><description>Robotics and Autonomous Systems Laboratory (RASL)</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 18 Aug 2026 00:00:00 +0000</lastBuildDate><item><title>Contact</title><link>https://vuthanhcdt.github.io/contact/</link><pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate><guid>https://vuthanhcdt.github.io/contact/</guid><description>&lt;div class="contact-page" style="padding-top: 0;">
-&lt;div style="margin-bottom: 2rem;">
-&lt;h1 style="font-size: 2rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">Contact&lt;/h1>
-&lt;p style="font-size: 0.95rem; color: #64748b; margin: 0;">Robotics and Autonomous Systems Laboratory (RASL), HAUI.&lt;/p>
-&lt;/div>
-&lt;div style="display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 18px; margin-bottom: 22px;">
-&lt;div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;h2 style="font-size: 1.15rem; font-weight: 750; color: #0f172a; margin: 0 0 16px;">Contact information&lt;/h2>
-&lt;div style="margin-bottom: 14px;">
-&lt;div style="font-weight: 800; font-size: 0.88rem; color: #1e293b; margin-bottom: 4px;">Email&lt;/div>
-&lt;div style="font-size: 0.92rem;">&lt;a href="mailto:vuthanh.cdt@gmail.com" style="color: #005bac; font-weight: 600; text-decoration: none;">vuthanh.cdt@gmail.com&lt;/a>&lt;/div>
-&lt;/div>
-&lt;div>
-&lt;div style="font-weight: 800; font-size: 0.88rem; color: #1e293b; margin-bottom: 4px;">Director&lt;/div>
-&lt;div style="font-size: 0.92rem;">&lt;a href="https://vuthanhcdt.github.io/director/" style="color: #005bac; font-weight: 600; text-decoration: none;">Cong-Thanh Vu&lt;/a>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;h2 style="font-size: 1.15rem; font-weight: 750; color: #0f172a; margin: 0 0 16px;">Office Address&lt;/h2>
-&lt;div style="margin-bottom: 14px;">
-&lt;div style="font-weight: 800; font-size: 0.85rem; color: #1e293b; margin-bottom: 4px;">ENG&lt;/div>
-&lt;div style="font-size: 0.9rem; color: #334155; line-height: 1.6;">Building A10, Department of Mechatronics Engineering, School of Mechanical and Automotive Engineering (SMAE), Hanoi University of Industry (HAUI), 298 Cau Dien Street, Bac Tu Liem, Hanoi, Vietnam&lt;/div>
-&lt;/div>
-&lt;div>
-&lt;div style="font-weight: 800; font-size: 0.85rem; color: #1e293b; margin-bottom: 4px;">VIE&lt;/div>
-&lt;div style="font-size: 0.9rem; color: #334155; line-height: 1.6;">Tòa nhà A10, Bộ môn Cơ điện tử, Trường Cơ khí - Ô tô, Trường Đại học Công nghiệp Hà Nội (HAUI), Số 298 đường Cầu Diễn, Phường Minh Khai, Quận Bắc Từ Liêm, Hà Nội, Việt Nam&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;div style="border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.02); height: 460px; margin-bottom: 2rem;">
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Robotics and Autonomous Systems Laboratory (RASL) | RASL | Robotics and Autonomous Systems Laboratory</title>
+    <link>http://localhost:1313/</link>
+      <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <description>Robotics and Autonomous Systems Laboratory (RASL)</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 18 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>&lt;div class=&#34;contact-page&#34; style=&#34;padding-top: 0;&#34;&gt;
+&lt;div style=&#34;margin-bottom: 2rem;&#34;&gt;
+&lt;h1 style=&#34;font-size: 2rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;&#34;&gt;Contact&lt;/h1&gt;
+&lt;p style=&#34;font-size: 0.95rem; color: #64748b; margin: 0;&#34;&gt;Robotics and Autonomous Systems Laboratory (RASL), HAUI.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style=&#34;display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 18px; margin-bottom: 22px;&#34;&gt;
+&lt;div style=&#34;background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;h2 style=&#34;font-size: 1.15rem; font-weight: 750; color: #0f172a; margin: 0 0 16px;&#34;&gt;Contact information&lt;/h2&gt;
+&lt;div style=&#34;margin-bottom: 14px;&#34;&gt;
+&lt;div style=&#34;font-weight: 800; font-size: 0.88rem; color: #1e293b; margin-bottom: 4px;&#34;&gt;Email&lt;/div&gt;
+&lt;div style=&#34;font-size: 0.92rem;&#34;&gt;&lt;a href=&#34;mailto:vuthanh.cdt@gmail.com&#34; style=&#34;color: #005bac; font-weight: 600; text-decoration: none;&#34;&gt;vuthanh.cdt@gmail.com&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;div style=&#34;font-weight: 800; font-size: 0.88rem; color: #1e293b; margin-bottom: 4px;&#34;&gt;Director&lt;/div&gt;
+&lt;div style=&#34;font-size: 0.92rem;&#34;&gt;&lt;a href=&#34;http://localhost:1313/director/&#34; style=&#34;color: #005bac; font-weight: 600; text-decoration: none;&#34;&gt;Cong-Thanh Vu&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;h2 style=&#34;font-size: 1.15rem; font-weight: 750; color: #0f172a; margin: 0 0 16px;&#34;&gt;Office Address&lt;/h2&gt;
+&lt;div style=&#34;margin-bottom: 14px;&#34;&gt;
+&lt;div style=&#34;font-weight: 800; font-size: 0.85rem; color: #1e293b; margin-bottom: 4px;&#34;&gt;ENG&lt;/div&gt;
+&lt;div style=&#34;font-size: 0.9rem; color: #334155; line-height: 1.6;&#34;&gt;Building A10, Department of Mechatronics Engineering, School of Mechanical and Automotive Engineering (SMAE), Hanoi University of Industry (HAUI), 298 Cau Dien Street, Bac Tu Liem, Hanoi, Vietnam&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;div style=&#34;font-weight: 800; font-size: 0.85rem; color: #1e293b; margin-bottom: 4px;&#34;&gt;VIE&lt;/div&gt;
+&lt;div style=&#34;font-size: 0.9rem; color: #334155; line-height: 1.6;&#34;&gt;Tòa nhà A10, Bộ môn Cơ điện tử, Trường Cơ khí - Ô tô, Trường Đại học Công nghiệp Hà Nội (HAUI), Số 298 đường Cầu Diễn, Phường Minh Khai, Quận Bắc Từ Liêm, Hà Nội, Việt Nam&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&#34;border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.02); height: 460px; margin-bottom: 2rem;&#34;&gt;
 &lt;iframe
-title="Building A10, Hanoi University of Industry Map"
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1861.921356561142!2d105.734463!3d21.0550217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134556fbb4d10df%3A0x820e9cd42d6c7d68!2sA10!5e0!3m2!1svi!2svn!4v1700000000000!5m2!1svi!2svn"
-width="100%"
-height="100%"
-style="border:0; display: block;"
-allowfullscreen=""
-loading="lazy"
-referrerpolicy="no-referrer-when-downgrade">
-&lt;/iframe>
-&lt;/div>
-&lt;div id="positions" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px;">
-&lt;div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-&lt;span style="background: #fee2e2; color: #dc2626; padding: 3px 10px; border-radius: 4px; font-weight: 750; font-size: 0.78rem; text-transform: uppercase;">Recruiting&lt;/span>
-&lt;h2 style="margin: 0; font-size: 1.35rem; font-weight: 800; color: #0f172a;">Open Positions &amp; Joining RASL&lt;/h2>
-&lt;/div>
-&lt;p style="font-size: 0.95rem; color: #334155; line-height: 1.65; margin: 0 0 1rem;">The &lt;strong>Robotics and Autonomous Systems Laboratory (RASL)&lt;/strong> is actively recruiting motivated graduate students (M.S. &amp; Ph.D.) and passionate undergraduate student researchers.&lt;/p>
-&lt;p style="font-size: 0.92rem; color: #475569; margin: 0;">Interested candidates please email your CV and transcripts to &lt;a href="mailto:vuthanh.cdt@gmail.com" style="color: #005bac; font-weight: 700;">vuthanh.cdt@gmail.com&lt;/a>.&lt;/p>
-&lt;/div>
-&lt;/div></description></item><item><title>Director</title><link>https://vuthanhcdt.github.io/director/</link><pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate><guid>https://vuthanhcdt.github.io/director/</guid><description>&lt;div class="director-page-container">
-&lt;div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 2rem; margin-top: 1rem; margin-bottom: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-&lt;img src="https://vuthanhcdt.github.io/authors/admin/avatar.png" alt="Cong-Thanh Vu" style="width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 4px solid #f1f5f9;">
-&lt;div style="flex: 1; min-width: 280px;">
-&lt;h2 style="margin: 0 0 0.3rem; font-size: 1.7rem; font-weight: 800; color: #0f172a;">Cong-Thanh Vu&lt;/h2>
-&lt;p style="color: #1565c0; font-weight: 600; margin: 0 0 0.5rem; font-size: 1.05rem;">Director, Robotics and Autonomous Systems Laboratory (RASL)&lt;/p>
-&lt;p style="color: #475569; font-weight: 500; margin: 0 0 1rem; font-size: 0.95rem;">Assistant Professor, Department of Mechatronics Engineering, School of Mechanical and Automotive Engineering (SMAE), Hanoi University of Industry (HAUI)&lt;/p>
-&lt;p style="font-size: 0.95rem; margin: 0 0 0.8rem; color: #334155;">
-&lt;strong>Email&lt;/strong>: &lt;a href="mailto:vuthanh.cdt@gmail.com">vuthanh.cdt@gmail.com&lt;/a>
-&lt;/p>
-&lt;div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.8rem;">
-&lt;a href="https://vuthanhcdt.github.io/publications/" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #005bac; color: #ffffff; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">Publications (14 Papers)&lt;/a>
-&lt;a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #f8fafc; color: #1e293b; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">Google Scholar&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;h2 id="education">Education&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Ph.D.&lt;/strong>, Mechanical Engineering, &lt;strong>National Cheng Kung University (NCKU)&lt;/strong>, Tainan, Taiwan, 2026.&lt;/li>
-&lt;li>&lt;strong>M.S.&lt;/strong>, Department of Mechatronics Engineering, &lt;strong>Hanoi University of Industry (HAUI)&lt;/strong>, Hanoi, Vietnam, 2021.&lt;/li>
-&lt;li>&lt;strong>B.S.&lt;/strong>, Department of Mechatronics Engineering, &lt;strong>Hanoi University of Industry (HAUI)&lt;/strong>, Hanoi, Vietnam, 2019.&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="experience">Experience&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Assistant Professor&lt;/strong>, Department of Mechatronics Engineering, &lt;strong>School of Mechanical and Automotive Engineering (SMAE)&lt;/strong>, &lt;strong>Hanoi University of Industry (HAUI)&lt;/strong>, Hanoi, Vietnam. (Aug. 2026 - present).&lt;/li>
-&lt;li>&lt;strong>Graduate Research Assistant&lt;/strong>, Department of Mechanical Engineering, &lt;strong>National Cheng Kung University (NCKU)&lt;/strong>, Tainan, Taiwan. (Mar. 2022 - Jun. 2026).&lt;/li>
-&lt;li>&lt;strong>Research Assistant&lt;/strong>, Department of Mechanical Engineering, &lt;strong>University of Economics - Technology for Industries (UNETI)&lt;/strong>, Hanoi, Vietnam. (Aug. 2021 - Feb. 2022).&lt;/li>
-&lt;li>&lt;strong>Graduate Research Assistant&lt;/strong>, Department of Mechanical Engineering, &lt;strong>Hanoi University of Industry (HAUI)&lt;/strong>, Hanoi, Vietnam. (Aug. 2019 - Jun. 2021).&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="honors-and-awards">Honors and Awards&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Full Scholarship&lt;/strong>, National Cheng Kung University (NCKU), Taiwan, 2022 – 2026.&lt;/li>
-&lt;li>&lt;strong>Travel Award&lt;/strong>, National Science and Technology Council (NSTC), Taiwan, 2024.&lt;/li>
-&lt;li>&lt;strong>Talent Scholarship&lt;/strong>, Foxconn Technology Group, Vietnam, 2017, 2018.&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="services-and-activities">Services and Activities&lt;/h2>
-&lt;h3 id="journal-reviewer">Journal Reviewer:&lt;/h3>
-&lt;ul>
-&lt;li>&lt;em>IEEE/ASME Transactions on Mechatronics&lt;/em> (&lt;strong>TMECH&lt;/strong>)&lt;/li>
-&lt;li>&lt;em>IEEE Transactions on Systems, Man, and Cybernetics: Systems&lt;/em> (&lt;strong>TSMC&lt;/strong>)&lt;/li>
-&lt;li>&lt;em>Journal of the Franklin Institute&lt;/em> (&lt;strong>JFI&lt;/strong>)&lt;/li>
-&lt;/ul>
-&lt;h3 id="conference-reviewer">Conference Reviewer:&lt;/h3>
-&lt;ul>
-&lt;li>&lt;em>IEEE International Conference on Robotics and Automation&lt;/em> (&lt;strong>ICRA&lt;/strong>)&lt;/li>
-&lt;li>&lt;em>IEEE/RSJ International Conference on Intelligent Robots and Systems&lt;/em> (&lt;strong>IROS&lt;/strong>)&lt;/li>
-&lt;li>&lt;em>IEEE/ASME International Conference on Advanced Intelligent Mechatronics&lt;/em> (&lt;strong>AIM&lt;/strong>)&lt;/li>
-&lt;li>&lt;em>IEEE International Conference on Systems, Man, and Cybernetics&lt;/em> (&lt;strong>SMC&lt;/strong>)&lt;/li>
-&lt;li>&lt;em>IEEE-RAS International Conference on Humanoid Robots&lt;/em> (&lt;strong>Humanoids&lt;/strong>)&lt;/li>
-&lt;/ul>
-&lt;/div></description></item><item><title>Members</title><link>https://vuthanhcdt.github.io/members/</link><pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate><guid>https://vuthanhcdt.github.io/members/</guid><description>&lt;div class="members-page-container">
-&lt;h2 id="director">Director&lt;/h2>
-&lt;div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 1.8rem; margin-top: 1rem; margin-bottom: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-&lt;img src="https://vuthanhcdt.github.io/authors/admin/avatar.png" alt="Cong-Thanh Vu" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid #f1f5f9;">
-&lt;div style="flex: 1; min-width: 260px;">
-&lt;h3 style="margin: 0 0 0.3rem; font-size: 1.4rem; font-weight: 800; color: #0f172a;">Cong-Thanh Vu&lt;/h3>
-&lt;p style="color: #1565c0; font-weight: 600; margin: 0 0 0.6rem; font-size: 0.95rem;">Director, Robotics and Autonomous Systems Laboratory (RASL)&lt;/p>
-&lt;p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin-bottom: 0.8rem;">
-Assistant Professor, Department of Mechatronics Engineering, School of Mechanical and Automotive Engineering (SMAE), Hanoi University of Industry (HAUI)
-&lt;/p>
-&lt;div style="display: flex; gap: 0.8rem; flex-wrap: wrap; font-size: 0.9rem;">
-&lt;a href="https://vuthanhcdt.github.io/director/">Full Biography →&lt;/a>
-&lt;a href="mailto:vuthanh.cdt@gmail.com">vuthanh.cdt@gmail.com&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;h2 id="phd-students">Ph.D. Students&lt;/h2>
-&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
-&lt;div style="border: 2px dashed #cbd5e1; border-radius: 12px; padding: 1.8rem 1.2rem; text-align: center; background: #f8fafc;">
-&lt;h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;">Ph.D. Students&lt;/h4>
-&lt;p style="font-size: 0.88rem; color: #64748b; margin-bottom: 0.8rem;">Positions available for upcoming semesters.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/contact/#positions" class="btn btn-outline-primary btn-sm">Apply as Ph.D. Student →&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;h2 id="master-students">Master Students&lt;/h2>
-&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
-&lt;div style="border: 2px dashed #cbd5e1; border-radius: 12px; padding: 1.8rem 1.2rem; text-align: center; background: #f8fafc;">
-&lt;h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;">Master Students&lt;/h4>
-&lt;p style="font-size: 0.88rem; color: #64748b; margin-bottom: 0.8rem;">Positions available for upcoming semesters.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/contact/#positions" class="btn btn-outline-primary btn-sm">Apply as Master Student →&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;h2 id="undergraduate-students">Undergraduate Students&lt;/h2>
-&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
-&lt;div style="border: 2px dashed #cbd5e1; border-radius: 12px; padding: 1.8rem 1.2rem; text-align: center; background: #f8fafc;">
-&lt;h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;">Undergraduate Students &amp; Interns&lt;/h4>
-&lt;p style="font-size: 0.88rem; color: #64748b; margin-bottom: 0.8rem;">Research opportunities for motivated HAUI students.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/contact/#positions" class="btn btn-outline-primary btn-sm">Apply for Research Internship →&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;/div></description></item><item><title>News</title><link>https://vuthanhcdt.github.io/news/</link><pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate><guid>https://vuthanhcdt.github.io/news/</guid><description>&lt;div class="news-page-container">
-&lt;div class="news-filter-panel" aria-label="News category filters" style="margin-bottom: 1.5rem;">
-&lt;span>Category&lt;/span>
-&lt;div class="news-filter-buttons">
-&lt;button type="button" class="is-active" data-news-filter="all">All&lt;/button>
-&lt;button type="button" data-news-filter="funding">Funding&lt;/button>
-&lt;button type="button" data-news-filter="award">Award&lt;/button>
-&lt;button type="button" data-news-filter="publication">Publication&lt;/button>
-&lt;button type="button" data-news-filter="people">People&lt;/button>
-&lt;/div>
-&lt;/div>
-&lt;div class="news-collapse-actions" style="display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 1.5rem;">
-&lt;button type="button" data-news-action="expand" style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; font-size: 0.82rem; font-weight: 700; color: #005bac; background: #f0f7ff; border: 1px solid #bae6fd; border-radius: 999px; cursor: pointer;">Expand all&lt;/button>
-&lt;button type="button" data-news-action="collapse" style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; font-size: 0.82rem; font-weight: 700; color: #475569; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 999px; cursor: pointer;">Collapse all&lt;/button>
-&lt;/div>
-&lt;!-- 2026 -->
-&lt;div class="news-year-group" data-year="2026" style="margin-bottom: 2.5rem;">
-&lt;div class="news-year-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; cursor: pointer; user-select: none;">
-&lt;button type="button" class="news-year-toggle-btn" aria-label="Toggle 2026" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #005bac; font-size: 0.85rem; font-weight: 800; pointer-events: none;">
-&lt;span class="news-arrow" style="display: inline-block; transition: transform 0.2s ease;">▼&lt;/span>
-&lt;/button>
-&lt;h2 style="margin: 0; font-size: 1.55rem; font-weight: 800; color: #005bac;">2026&lt;/h2>
-&lt;span class="news-year-count" style="font-size: 0.88rem; color: #64748b; font-weight: 600;">(4 Announcements)&lt;/span>
-&lt;/div>
-&lt;ul class="news-year-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem;">
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #167a3a; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Journal&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">Aug. 2026&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Paper accepted to IEEE Transactions on Systems, Man, and Cybernetics: Systems (TSMC)&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">"Towards Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning" has been accepted in IEEE TSMC: Systems.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=TSMC#tsmc-adaptive-interaction-2026" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">View in Publications →&lt;/a>
-&lt;/div>
-&lt;/li>
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #167a3a; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Journal&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">Jul. 2026&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Paper accepted to Computers and Electronics in Agriculture (COMPAG)&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">"Context-Aware Adaptive Pesticide Spraying for Agricultural Robots under Changing Weather and Terrain Using Vision-Language Models" has been accepted and published in COMPAG (Vol. 252).&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=COMPAG#compag-pesticide-spraying-2026" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">View in Publications →&lt;/a>
-&lt;/div>
-&lt;/li>
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Conference&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">Jun. 2026&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Paper accepted to IEEE/RSJ IROS 2026&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">"Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations" accepted to IEEE/RSJ IROS 2026 in Pittsburgh, USA.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=IROS#iros-2026-group-following" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">View in Publications →&lt;/a>
-&lt;/div>
-&lt;/li>
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Conference&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">May 2026&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Three papers accepted to IEEE/ASME AIM 2026&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">Three papers accepted to the IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM 2026) in Genova, Italy.&lt;/p>
-&lt;div style="display: flex; gap: 10px; flex-wrap: wrap;">
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=AIM#aim-2026-gimbal-tracking" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">[Paper 1: Gimbal Tracking] →&lt;/a>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=AIM#aim-2026-multimodal-elderly" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">[Paper 2: Elderly-Care Robots] →&lt;/a>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=AIM#aim-2026-humanoid-tasks" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">[Paper 3: Humanoid Tasks] →&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;/li>
-&lt;/ul>
-&lt;/div>
-&lt;!-- 2025 -->
-&lt;div class="news-year-group" data-year="2025" style="margin-bottom: 2.5rem;">
-&lt;div class="news-year-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; cursor: pointer; user-select: none;">
-&lt;button type="button" class="news-year-toggle-btn" aria-label="Toggle 2025" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #005bac; font-size: 0.85rem; font-weight: 800; pointer-events: none;">
-&lt;span class="news-arrow" style="display: inline-block; transition: transform 0.2s ease;">▼&lt;/span>
-&lt;/button>
-&lt;h2 style="margin: 0; font-size: 1.55rem; font-weight: 800; color: #005bac;">2025&lt;/h2>
-&lt;span class="news-year-count" style="font-size: 0.88rem; color: #64748b; font-weight: 600;">(3 Announcements)&lt;/span>
-&lt;/div>
-&lt;ul class="news-year-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem;">
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Conference&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">Oct. 2025&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Paper accepted to IEEE-RAS Humanoids 2025&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">"Learning Virtual Passive Dynamic Walking Using the Kneed Walker Model for Guiding Policies" accepted to IEEE-RAS Humanoids 2025.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=Humanoids#humanoids-2025-walking" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">View in Publications →&lt;/a>
-&lt;/div>
-&lt;/li>
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Conference&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">Oct. 2025&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Paper accepted to IEEE/RSJ IROS 2025&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">"Autonomous Adjustment of Tracking Position in Dynamic Environments for Human-Following Robots Using Deep Reinforcement Learning" accepted to IEEE/RSJ IROS 2025 in Hangzhou, China.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=IROS#iros-2025-human-following" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">View in Publications →&lt;/a>
-&lt;/div>
-&lt;/li>
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Conference&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">May 2025&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Paper accepted to ICCRE 2025&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">"Autonomous Navigation for Human-Following Robots Based on Optimized Position Tracking" accepted to the 10th International Conference on Control and Robotics Engineering (ICCRE 2025) in Nagoya, Japan.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=ICCRE#iccre-2025-navigation" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">View in Publications →&lt;/a>
-&lt;/div>
-&lt;/li>
-&lt;/ul>
-&lt;/div>
-&lt;!-- 2024 -->
-&lt;div class="news-year-group" data-year="2024" style="margin-bottom: 2.5rem;">
-&lt;div class="news-year-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; cursor: pointer; user-select: none;">
-&lt;button type="button" class="news-year-toggle-btn" aria-label="Toggle 2024" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #005bac; font-size: 0.85rem; font-weight: 800; pointer-events: none;">
-&lt;span class="news-arrow" style="display: inline-block; transition: transform 0.2s ease;">▼&lt;/span>
-&lt;/button>
-&lt;h2 style="margin: 0; font-size: 1.55rem; font-weight: 800; color: #005bac;">2024&lt;/h2>
-&lt;span class="news-year-count" style="font-size: 0.88rem; color: #64748b; font-weight: 600;">(2 Announcements)&lt;/span>
-&lt;/div>
-&lt;ul class="news-year-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem;">
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Conference&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">Nov. 2024&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Paper accepted to IEEE RASSE 2024&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">"Toward Autonomous Navigation for Agriculture Robots in Orchard Farming" presented at IEEE RASSE 2024 in Taichung, Taiwan.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=RASSE#rasse-2024-orchard" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">View in Publications →&lt;/a>
-&lt;/div>
-&lt;/li>
-&lt;li data-news-category="publication" style="padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
-&lt;div style="flex: 1;">
-&lt;div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-&lt;span style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Publication&lt;/span>
-&lt;span style="background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;">Conference&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.82rem; font-weight: 600;">Jul. 2024&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;">Paper accepted to ROMOCO 2024&lt;/h3>
-&lt;p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;">"Deep Reinforcement Learning for Multi-Robot Local Path Planning in Dynamic Environments" presented at the International Workshop on Robot Motion and Control (ROMOCO 2024) in Poznan, Poland.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/publications/?venue=ROMOCO#romoco-2024-multi-robot" style="font-size: 0.88rem; font-weight: 700; color: #005bac;">View in Publications →&lt;/a>
-&lt;/div>
-&lt;/li>
-&lt;/ul>
-&lt;/div>
-&lt;/div></description></item><item><title>Projects</title><link>https://vuthanhcdt.github.io/projects/</link><pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate><guid>https://vuthanhcdt.github.io/projects/</guid><description>&lt;div class="projects-page-container">
-&lt;p style="font-size: 1.05rem; color: #475569; margin-bottom: 2rem;">
-Explore active research initiatives, funded grants, and engineering prototypes developed at &lt;strong>MARL&lt;/strong>.
-&lt;/p>
-&lt;h2 id="featured--ongoing-projects">Featured &amp;amp; Ongoing Projects&lt;/h2>
-&lt;div class="profile-data" data-profile-section="personal_projects" data-profile-view="cards">&lt;/div>
-&lt;h2 id="funded-research--grants">Funded Research &amp;amp; Grants&lt;/h2>
-&lt;div style="display: grid; gap: 1.25rem; margin-top: 1.5rem;">
-&lt;div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; background: #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.02);">
-&lt;div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-&lt;span style="background: #dcfce7; color: #15803d; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase;">Ongoing (2026–2028)&lt;/span>
-&lt;span style="color: #64748b; font-size: 0.85rem;">HAUI University Grant&lt;/span>
-&lt;/div>
-&lt;h3 style="font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; color: #0f172a;">Advanced Control and Navigation for Autonomous Mobile Robots in Industrial Environments&lt;/h3>
-&lt;p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin: 0;">
-&lt;strong>Role&lt;/strong>: Principal Investigator (PI) · &lt;strong>Funding Source&lt;/strong>: Hanoi University of Industry (HAUI)&lt;br>
-Investigating robust adaptive trajectory tracking algorithms and multi-sensor SLAM integration for industrial mobile robotics platforms.
-&lt;/p>
-&lt;/div>
-&lt;/div>
-&lt;script src="https://vuthanhcdt.github.io/js/profile-sections.js" defer>&lt;/script>
-&lt;/div></description></item><item><title>Publications</title><link>https://vuthanhcdt.github.io/publications/</link><pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate><guid>https://vuthanhcdt.github.io/publications/</guid><description>&lt;div class="profile-data" data-profile-section="publications" data-profile-view="cards">&lt;/div>
-&lt;script src="https://vuthanhcdt.github.io/js/profile-sections.js" defer>&lt;/script></description></item><item><title>Team</title><link>https://vuthanhcdt.github.io/team/</link><pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate><guid>https://vuthanhcdt.github.io/team/</guid><description>&lt;div class="team-page-container">
-&lt;h2 id="principal-investigator-pi">Principal Investigator (PI)&lt;/h2>
-&lt;div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 2rem; margin-top: 1.5rem; margin-bottom: 3rem; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-&lt;img src="https://vuthanhcdt.github.io/authors/admin/avatar.png" alt="Cong-Thanh Vu" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid #f1f5f9;">
-&lt;div style="flex: 1; min-width: 280px;">
-&lt;h3 style="margin: 0 0 0.3rem; font-size: 1.5rem; font-weight: 800; color: #0f172a;">Cong-Thanh Vu&lt;/h3>
-&lt;p style="color: #1565c0; font-weight: 600; margin: 0 0 0.8rem; font-size: 1rem;">Assistant Professor · Department of Mechatronics Engineering, HAUI&lt;/p>
-&lt;p style="font-size: 0.95rem; line-height: 1.65; color: #475569;">
-Cong-Thanh Vu received his &lt;strong>Ph.D. in Mechanical Engineering&lt;/strong> from &lt;strong>National Cheng Kung University (NCKU)&lt;/strong>, Taiwan in 2026, and his &lt;strong>M.S.&lt;/strong> (2021) and &lt;strong>B.S.&lt;/strong> (2019) in Mechatronics Engineering from &lt;strong>Hanoi University of Industry (HAUI)&lt;/strong>. He directs the Robotics and Autonomous Systems Laboratory (RASL).
-&lt;/p>
-&lt;div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.92rem;">
-&lt;a href="mailto:vuthanh.cdt@gmail.com">vuthanh.cdt@gmail.com&lt;/a>
-&lt;a href="https://github.com/vuthanhcdt" target="_blank" rel="noopener">GitHub&lt;/a>
-&lt;a href="https://vuthanhcdt.github.io/publications/">Publications&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;h2 id="graduate-researchers-ms--phd">Graduate Researchers (M.S. / Ph.D.)&lt;/h2>
-&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-&lt;div style="border: 2px dashed #cbd5e1; border-radius: 12px; padding: 2rem 1.5rem; text-align: center; background: #f8fafc;">
-&lt;h4 style="font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;">M.S. &amp; Ph.D. Positions&lt;/h4>
-&lt;p style="font-size: 0.88rem; color: #64748b; margin-bottom: 1rem;">Openings available for 2026–2027.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/contact/#joining" class="btn btn-outline-primary btn-sm">Join as Graduate Student →&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;h2 id="undergraduate-researchers--interns">Undergraduate Researchers &amp;amp; Interns&lt;/h2>
-&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-&lt;div style="border: 2px dashed #cbd5e1; border-radius: 12px; padding: 2rem 1.5rem; text-align: center; background: #f8fafc;">
-&lt;h4 style="font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;">Undergraduate Research Interns&lt;/h4>
-&lt;p style="font-size: 0.88rem; color: #64748b; margin-bottom: 1rem;">Opportunities for HAUI students in Mechatronics, Robotics &amp; Control.&lt;/p>
-&lt;a href="https://vuthanhcdt.github.io/contact/#joining" class="btn btn-outline-primary btn-sm">Apply for Internship →&lt;/a>
-&lt;/div>
-&lt;/div>
-&lt;h2 id="prospective-members">Prospective Members&lt;/h2>
-&lt;p>We are always looking for curious and hardworking researchers to join our lab. Please see our &lt;a href="https://vuthanhcdt.github.io/contact/#joining">&lt;strong>Joining MARL Guidelines&lt;/strong>&lt;/a> for application details.&lt;/p>
-&lt;/div></description></item></channel></rss>
+title=&#34;Building A10, Hanoi University of Industry Map&#34;
+src=&#34;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1861.921356561142!2d105.734463!3d21.0550217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134556fbb4d10df%3A0x820e9cd42d6c7d68!2sA10!5e0!3m2!1svi!2svn!4v1700000000000!5m2!1svi!2svn&#34;
+width=&#34;100%&#34;
+height=&#34;100%&#34;
+style=&#34;border:0; display: block;&#34;
+allowfullscreen=&#34;&#34;
+loading=&#34;lazy&#34;
+referrerpolicy=&#34;no-referrer-when-downgrade&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;positions&#34; style=&#34;background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px;&#34;&gt;
+&lt;div style=&#34;display: flex; align-items: center; gap: 10px; margin-bottom: 10px;&#34;&gt;
+&lt;span style=&#34;background: #fee2e2; color: #dc2626; padding: 3px 10px; border-radius: 4px; font-weight: 750; font-size: 0.78rem; text-transform: uppercase;&#34;&gt;Recruiting&lt;/span&gt;
+&lt;h2 style=&#34;margin: 0; font-size: 1.35rem; font-weight: 800; color: #0f172a;&#34;&gt;Open Positions &amp; Joining RASL&lt;/h2&gt;
+&lt;/div&gt;
+&lt;p style=&#34;font-size: 0.95rem; color: #334155; line-height: 1.65; margin: 0 0 1rem;&#34;&gt;The &lt;strong&gt;Robotics and Autonomous Systems Laboratory (RASL)&lt;/strong&gt; is actively recruiting motivated graduate students (M.S. &amp; Ph.D.) and passionate undergraduate student researchers.&lt;/p&gt;
+&lt;p style=&#34;font-size: 0.92rem; color: #475569; margin: 0;&#34;&gt;Interested candidates please email your CV and transcripts to &lt;a href=&#34;mailto:vuthanh.cdt@gmail.com&#34; style=&#34;color: #005bac; font-weight: 700;&#34;&gt;vuthanh.cdt@gmail.com&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Director</title>
+      <link>http://localhost:1313/director/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/director/</guid>
+      <description>&lt;div class=&#34;director-page-container&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 2rem; margin-top: 1rem; margin-bottom: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/authors/admin/avatar.png&#34; alt=&#34;Cong-Thanh Vu&#34; style=&#34;width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 4px solid #f1f5f9;&#34;&gt;
+  &lt;div style=&#34;flex: 1; min-width: 280px;&#34;&gt;
+    &lt;h2 style=&#34;margin: 0 0 0.3rem; font-size: 1.7rem; font-weight: 800; color: #0f172a;&#34;&gt;Cong-Thanh Vu&lt;/h2&gt;
+    &lt;p style=&#34;color: #1565c0; font-weight: 600; margin: 0 0 0.5rem; font-size: 1.05rem;&#34;&gt;Director, Robotics and Autonomous Systems Laboratory (RASL)&lt;/p&gt;
+    &lt;p style=&#34;color: #475569; font-weight: 500; margin: 0 0 1rem; font-size: 0.95rem;&#34;&gt;Assistant Professor, Department of Mechatronics Engineering, School of Mechanical and Automotive Engineering (SMAE), Hanoi University of Industry (HAUI)&lt;/p&gt;
+    &lt;p style=&#34;font-size: 0.95rem; margin: 0 0 0.8rem; color: #334155;&#34;&gt;
+      &lt;strong&gt;Email&lt;/strong&gt;: &lt;a href=&#34;mailto:vuthanh.cdt@gmail.com&#34;&gt;vuthanh.cdt@gmail.com&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;div style=&#34;display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.8rem;&#34;&gt;
+      &lt;a href=&#34;http://localhost:1313/publications/&#34; style=&#34;display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #005bac; color: #ffffff; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;&#34;&gt;Publications (14 Papers)&lt;/a&gt;
+      &lt;a href=&#34;https://scholar.google.com/citations?user=7FEW5b8AAAAJ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; style=&#34;display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #f8fafc; color: #1e293b; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;&#34;&gt;Google Scholar&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ph.D.&lt;/strong&gt;, Mechanical Engineering, &lt;strong&gt;National Cheng Kung University (NCKU)&lt;/strong&gt;, Tainan, Taiwan, 2026.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;M.S.&lt;/strong&gt;, Department of Mechatronics Engineering, &lt;strong&gt;Hanoi University of Industry (HAUI)&lt;/strong&gt;, Hanoi, Vietnam, 2021.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;B.S.&lt;/strong&gt;, Department of Mechatronics Engineering, &lt;strong&gt;Hanoi University of Industry (HAUI)&lt;/strong&gt;, Hanoi, Vietnam, 2019.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Assistant Professor&lt;/strong&gt;, Department of Mechatronics Engineering, &lt;strong&gt;School of Mechanical and Automotive Engineering (SMAE)&lt;/strong&gt;, &lt;strong&gt;Hanoi University of Industry (HAUI)&lt;/strong&gt;, Hanoi, Vietnam. (Aug. 2026 - present).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Graduate Research Assistant&lt;/strong&gt;, Department of Mechanical Engineering, &lt;strong&gt;National Cheng Kung University (NCKU)&lt;/strong&gt;, Tainan, Taiwan. (Mar. 2022 - Jun. 2026).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Research Assistant&lt;/strong&gt;, Department of Mechanical Engineering, &lt;strong&gt;University of Economics - Technology for Industries (UNETI)&lt;/strong&gt;, Hanoi, Vietnam. (Aug. 2021 - Feb. 2022).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Graduate Research Assistant&lt;/strong&gt;, Department of Mechanical Engineering, &lt;strong&gt;Hanoi University of Industry (HAUI)&lt;/strong&gt;, Hanoi, Vietnam. (Aug. 2019 - Jun. 2021).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;honors-and-awards&#34;&gt;Honors and Awards&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Full Scholarship&lt;/strong&gt;, National Cheng Kung University (NCKU), Taiwan, 2022 – 2026.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Travel Award&lt;/strong&gt;, National Science and Technology Council (NSTC), Taiwan, 2024.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Talent Scholarship&lt;/strong&gt;, Foxconn Technology Group, Vietnam, 2017, 2018.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;services-and-activities&#34;&gt;Services and Activities&lt;/h2&gt;
+&lt;h3 id=&#34;journal-reviewer&#34;&gt;Journal Reviewer:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;IEEE/ASME Transactions on Mechatronics&lt;/em&gt; (&lt;strong&gt;TMECH&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;IEEE Transactions on Systems, Man, and Cybernetics: Systems&lt;/em&gt; (&lt;strong&gt;TSMC&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Journal of the Franklin Institute&lt;/em&gt; (&lt;strong&gt;JFI&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;conference-reviewer&#34;&gt;Conference Reviewer:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;IEEE International Conference on Robotics and Automation&lt;/em&gt; (&lt;strong&gt;ICRA&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;IEEE/RSJ International Conference on Intelligent Robots and Systems&lt;/em&gt; (&lt;strong&gt;IROS&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;IEEE/ASME International Conference on Advanced Intelligent Mechatronics&lt;/em&gt; (&lt;strong&gt;AIM&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;IEEE International Conference on Systems, Man, and Cybernetics&lt;/em&gt; (&lt;strong&gt;SMC&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;IEEE-RAS International Conference on Humanoid Robots&lt;/em&gt; (&lt;strong&gt;Humanoids&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Members</title>
+      <link>http://localhost:1313/members/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/members/</guid>
+      <description>&lt;div class=&#34;members-page-container&#34;&gt;
+&lt;h2 id=&#34;director&#34;&gt;Director&lt;/h2&gt;
+&lt;div style=&#34;display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 1.8rem; margin-top: 1rem; margin-bottom: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/authors/admin/avatar.png&#34; alt=&#34;Cong-Thanh Vu&#34; style=&#34;width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid #f1f5f9;&#34;&gt;
+  &lt;div style=&#34;flex: 1; min-width: 260px;&#34;&gt;
+    &lt;h3 style=&#34;margin: 0 0 0.3rem; font-size: 1.4rem; font-weight: 800; color: #0f172a;&#34;&gt;Cong-Thanh Vu&lt;/h3&gt;
+    &lt;p style=&#34;color: #1565c0; font-weight: 600; margin: 0 0 0.6rem; font-size: 0.95rem;&#34;&gt;Director, Robotics and Autonomous Systems Laboratory (RASL)&lt;/p&gt;
+    &lt;p style=&#34;font-size: 0.92rem; color: #475569; line-height: 1.6; margin-bottom: 0.8rem;&#34;&gt;
+      Assistant Professor, Department of Mechatronics Engineering, School of Mechanical and Automotive Engineering (SMAE), Hanoi University of Industry (HAUI)
+    &lt;/p&gt;
+    &lt;div style=&#34;display: flex; gap: 0.8rem; flex-wrap: wrap; font-size: 0.9rem;&#34;&gt;
+      &lt;a href=&#34;http://localhost:1313/director/&#34;&gt;Full Biography →&lt;/a&gt;
+      &lt;a href=&#34;mailto:vuthanh.cdt@gmail.com&#34;&gt;vuthanh.cdt@gmail.com&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;phd-students&#34;&gt;Ph.D. Students&lt;/h2&gt;
+&lt;div style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;&#34;&gt;
+  &lt;div style=&#34;border: 2px dashed #cbd5e1; border-radius: 12px; padding: 1.8rem 1.2rem; text-align: center; background: #f8fafc;&#34;&gt;
+    &lt;h4 style=&#34;font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;&#34;&gt;Ph.D. Students&lt;/h4&gt;
+    &lt;p style=&#34;font-size: 0.88rem; color: #64748b; margin-bottom: 0.8rem;&#34;&gt;Positions available for upcoming semesters.&lt;/p&gt;
+    &lt;a href=&#34;http://localhost:1313/contact/#positions&#34; class=&#34;btn btn-outline-primary btn-sm&#34;&gt;Apply as Ph.D. Student →&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;master-students&#34;&gt;Master Students&lt;/h2&gt;
+&lt;div style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;&#34;&gt;
+  &lt;div style=&#34;border: 2px dashed #cbd5e1; border-radius: 12px; padding: 1.8rem 1.2rem; text-align: center; background: #f8fafc;&#34;&gt;
+    &lt;h4 style=&#34;font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;&#34;&gt;Master Students&lt;/h4&gt;
+    &lt;p style=&#34;font-size: 0.88rem; color: #64748b; margin-bottom: 0.8rem;&#34;&gt;Positions available for upcoming semesters.&lt;/p&gt;
+    &lt;a href=&#34;http://localhost:1313/contact/#positions&#34; class=&#34;btn btn-outline-primary btn-sm&#34;&gt;Apply as Master Student →&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;undergraduate-students&#34;&gt;Undergraduate Students&lt;/h2&gt;
+&lt;div style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;&#34;&gt;
+  &lt;div style=&#34;border: 2px dashed #cbd5e1; border-radius: 12px; padding: 1.8rem 1.2rem; text-align: center; background: #f8fafc;&#34;&gt;
+    &lt;h4 style=&#34;font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;&#34;&gt;Undergraduate Students &amp; Interns&lt;/h4&gt;
+    &lt;p style=&#34;font-size: 0.88rem; color: #64748b; margin-bottom: 0.8rem;&#34;&gt;Research opportunities for motivated HAUI students.&lt;/p&gt;
+    &lt;a href=&#34;http://localhost:1313/contact/#positions&#34; class=&#34;btn btn-outline-primary btn-sm&#34;&gt;Apply for Research Internship →&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>News</title>
+      <link>http://localhost:1313/news/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/news/</guid>
+      <description>&lt;div class=&#34;news-page-container&#34;&gt;
+&lt;div class=&#34;news-filter-panel&#34; aria-label=&#34;News category filters&#34; style=&#34;margin-bottom: 1.5rem;&#34;&gt;
+  &lt;span&gt;Category&lt;/span&gt;
+  &lt;div class=&#34;news-filter-buttons&#34;&gt;
+    &lt;button type=&#34;button&#34; class=&#34;is-active&#34; data-news-filter=&#34;all&#34;&gt;All&lt;/button&gt;
+    &lt;button type=&#34;button&#34; data-news-filter=&#34;funding&#34;&gt;Funding&lt;/button&gt;
+    &lt;button type=&#34;button&#34; data-news-filter=&#34;award&#34;&gt;Award&lt;/button&gt;
+    &lt;button type=&#34;button&#34; data-news-filter=&#34;publication&#34;&gt;Publication&lt;/button&gt;
+    &lt;button type=&#34;button&#34; data-news-filter=&#34;people&#34;&gt;People&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;news-collapse-actions&#34; style=&#34;display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 1.5rem;&#34;&gt;
+  &lt;button type=&#34;button&#34; data-news-action=&#34;expand&#34; style=&#34;display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; font-size: 0.82rem; font-weight: 700; color: #005bac; background: #f0f7ff; border: 1px solid #bae6fd; border-radius: 999px; cursor: pointer;&#34;&gt;Expand all&lt;/button&gt;
+  &lt;button type=&#34;button&#34; data-news-action=&#34;collapse&#34; style=&#34;display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; font-size: 0.82rem; font-weight: 700; color: #475569; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 999px; cursor: pointer;&#34;&gt;Collapse all&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- 2026 --&gt;
+&lt;div class=&#34;news-year-group&#34; data-year=&#34;2026&#34; style=&#34;margin-bottom: 2.5rem;&#34;&gt;
+&lt;div class=&#34;news-year-header&#34; style=&#34;display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; cursor: pointer; user-select: none;&#34;&gt;
+&lt;button type=&#34;button&#34; class=&#34;news-year-toggle-btn&#34; aria-label=&#34;Toggle 2026&#34; style=&#34;background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #005bac; font-size: 0.85rem; font-weight: 800; pointer-events: none;&#34;&gt;
+&lt;span class=&#34;news-arrow&#34; style=&#34;display: inline-block; transition: transform 0.2s ease;&#34;&gt;▼&lt;/span&gt;
+&lt;/button&gt;
+&lt;h2 style=&#34;margin: 0; font-size: 1.55rem; font-weight: 800; color: #005bac;&#34;&gt;2026&lt;/h2&gt;
+&lt;span class=&#34;news-year-count&#34; style=&#34;font-size: 0.88rem; color: #64748b; font-weight: 600;&#34;&gt;(4 Announcements)&lt;/span&gt;
+&lt;/div&gt;
+&lt;ul class=&#34;news-year-list&#34; style=&#34;list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem;&#34;&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #167a3a; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Journal&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;Aug. 2026&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Paper accepted to IEEE Transactions on Systems, Man, and Cybernetics: Systems (TSMC)&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;&#34;Towards Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning&#34; has been accepted in IEEE TSMC: Systems.&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=TSMC#tsmc-adaptive-interaction-2026&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;View in Publications →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #167a3a; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Journal&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;Jul. 2026&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Paper accepted to Computers and Electronics in Agriculture (COMPAG)&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;&#34;Context-Aware Adaptive Pesticide Spraying for Agricultural Robots under Changing Weather and Terrain Using Vision-Language Models&#34; has been accepted and published in COMPAG (Vol. 252).&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=COMPAG#compag-pesticide-spraying-2026&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;View in Publications →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Conference&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;Jun. 2026&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Paper accepted to IEEE/RSJ IROS 2026&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;&#34;Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations&#34; accepted to IEEE/RSJ IROS 2026 in Pittsburgh, USA.&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=IROS#iros-2026-group-following&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;View in Publications →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Conference&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;May 2026&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Three papers accepted to IEEE/ASME AIM 2026&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;Three papers accepted to the IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM 2026) in Genova, Italy.&lt;/p&gt;
+&lt;div style=&#34;display: flex; gap: 10px; flex-wrap: wrap;&#34;&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=AIM#aim-2026-gimbal-tracking&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;[Paper 1: Gimbal Tracking] →&lt;/a&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=AIM#aim-2026-multimodal-elderly&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;[Paper 2: Elderly-Care Robots] →&lt;/a&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=AIM#aim-2026-humanoid-tasks&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;[Paper 3: Humanoid Tasks] →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- 2025 --&gt;
+&lt;div class=&#34;news-year-group&#34; data-year=&#34;2025&#34; style=&#34;margin-bottom: 2.5rem;&#34;&gt;
+&lt;div class=&#34;news-year-header&#34; style=&#34;display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; cursor: pointer; user-select: none;&#34;&gt;
+&lt;button type=&#34;button&#34; class=&#34;news-year-toggle-btn&#34; aria-label=&#34;Toggle 2025&#34; style=&#34;background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #005bac; font-size: 0.85rem; font-weight: 800; pointer-events: none;&#34;&gt;
+&lt;span class=&#34;news-arrow&#34; style=&#34;display: inline-block; transition: transform 0.2s ease;&#34;&gt;▼&lt;/span&gt;
+&lt;/button&gt;
+&lt;h2 style=&#34;margin: 0; font-size: 1.55rem; font-weight: 800; color: #005bac;&#34;&gt;2025&lt;/h2&gt;
+&lt;span class=&#34;news-year-count&#34; style=&#34;font-size: 0.88rem; color: #64748b; font-weight: 600;&#34;&gt;(3 Announcements)&lt;/span&gt;
+&lt;/div&gt;
+&lt;ul class=&#34;news-year-list&#34; style=&#34;list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem;&#34;&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Conference&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;Oct. 2025&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Paper accepted to IEEE-RAS Humanoids 2025&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;&#34;Learning Virtual Passive Dynamic Walking Using the Kneed Walker Model for Guiding Policies&#34; accepted to IEEE-RAS Humanoids 2025.&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=Humanoids#humanoids-2025-walking&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;View in Publications →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Conference&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;Oct. 2025&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Paper accepted to IEEE/RSJ IROS 2025&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;&#34;Autonomous Adjustment of Tracking Position in Dynamic Environments for Human-Following Robots Using Deep Reinforcement Learning&#34; accepted to IEEE/RSJ IROS 2025 in Hangzhou, China.&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=IROS#iros-2025-human-following&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;View in Publications →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Conference&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;May 2025&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Paper accepted to ICCRE 2025&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;&#34;Autonomous Navigation for Human-Following Robots Based on Optimized Position Tracking&#34; accepted to the 10th International Conference on Control and Robotics Engineering (ICCRE 2025) in Nagoya, Japan.&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=ICCRE#iccre-2025-navigation&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;View in Publications →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- 2024 --&gt;
+&lt;div class=&#34;news-year-group&#34; data-year=&#34;2024&#34; style=&#34;margin-bottom: 2.5rem;&#34;&gt;
+&lt;div class=&#34;news-year-header&#34; style=&#34;display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; cursor: pointer; user-select: none;&#34;&gt;
+&lt;button type=&#34;button&#34; class=&#34;news-year-toggle-btn&#34; aria-label=&#34;Toggle 2024&#34; style=&#34;background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #005bac; font-size: 0.85rem; font-weight: 800; pointer-events: none;&#34;&gt;
+&lt;span class=&#34;news-arrow&#34; style=&#34;display: inline-block; transition: transform 0.2s ease;&#34;&gt;▼&lt;/span&gt;
+&lt;/button&gt;
+&lt;h2 style=&#34;margin: 0; font-size: 1.55rem; font-weight: 800; color: #005bac;&#34;&gt;2024&lt;/h2&gt;
+&lt;span class=&#34;news-year-count&#34; style=&#34;font-size: 0.88rem; color: #64748b; font-weight: 600;&#34;&gt;(2 Announcements)&lt;/span&gt;
+&lt;/div&gt;
+&lt;ul class=&#34;news-year-list&#34; style=&#34;list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem;&#34;&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Conference&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;Nov. 2024&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Paper accepted to IEEE RASSE 2024&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;&#34;Toward Autonomous Navigation for Agriculture Robots in Orchard Farming&#34; presented at IEEE RASSE 2024 in Taichung, Taiwan.&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=RASSE#rasse-2024-orchard&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;View in Publications →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li data-news-category=&#34;publication&#34; style=&#34;padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.02);&#34;&gt;
+&lt;div style=&#34;flex: 1;&#34;&gt;
+&lt;div style=&#34;display: flex; gap: 8px; align-items: center; margin-bottom: 6px;&#34;&gt;
+&lt;span style=&#34;background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Publication&lt;/span&gt;
+&lt;span style=&#34;background: #1e60db; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 750; text-transform: uppercase;&#34;&gt;Conference&lt;/span&gt;
+&lt;span style=&#34;color: #64748b; font-size: 0.82rem; font-weight: 600;&#34;&gt;Jul. 2024&lt;/span&gt;
+&lt;/div&gt;
+&lt;h3 style=&#34;font-size: 1.1rem; font-weight: 750; margin: 0 0 0.3rem; color: #0f172a;&#34;&gt;Paper accepted to ROMOCO 2024&lt;/h3&gt;
+&lt;p style=&#34;color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 0.5rem;&#34;&gt;&#34;Deep Reinforcement Learning for Multi-Robot Local Path Planning in Dynamic Environments&#34; presented at the International Workshop on Robot Motion and Control (ROMOCO 2024) in Poznan, Poland.&lt;/p&gt;
+&lt;a href=&#34;http://localhost:1313/publications/?venue=ROMOCO#romoco-2024-multi-robot&#34; style=&#34;font-size: 0.88rem; font-weight: 700; color: #005bac;&#34;&gt;View in Publications →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>http://localhost:1313/projects/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/</guid>
+      <description>&lt;div class=&#34;projects-page-container&#34;&gt;
+&lt;p style=&#34;font-size: 1.05rem; color: #475569; margin-bottom: 2rem;&#34;&gt;
+  Explore active research initiatives, funded grants, and engineering prototypes developed at &lt;strong&gt;MARL&lt;/strong&gt;.
+&lt;/p&gt;
+&lt;h2 id=&#34;featured--ongoing-projects&#34;&gt;Featured &amp;amp; Ongoing Projects&lt;/h2&gt;
+&lt;div class=&#34;profile-data&#34; data-profile-section=&#34;personal_projects&#34; data-profile-view=&#34;cards&#34;&gt;&lt;/div&gt;
+&lt;h2 id=&#34;funded-research--grants&#34;&gt;Funded Research &amp;amp; Grants&lt;/h2&gt;
+&lt;div style=&#34;display: grid; gap: 1.25rem; margin-top: 1.5rem;&#34;&gt;
+  &lt;div style=&#34;border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; background: #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.02);&#34;&gt;
+    &lt;div style=&#34;display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;&#34;&gt;
+      &lt;span style=&#34;background: #dcfce7; color: #15803d; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase;&#34;&gt;Ongoing (2026–2028)&lt;/span&gt;
+      &lt;span style=&#34;color: #64748b; font-size: 0.85rem;&#34;&gt;HAUI University Grant&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;h3 style=&#34;font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; color: #0f172a;&#34;&gt;Advanced Control and Navigation for Autonomous Mobile Robots in Industrial Environments&lt;/h3&gt;
+    &lt;p style=&#34;font-size: 0.92rem; color: #475569; line-height: 1.6; margin: 0;&#34;&gt;
+      &lt;strong&gt;Role&lt;/strong&gt;: Principal Investigator (PI) · &lt;strong&gt;Funding Source&lt;/strong&gt;: Hanoi University of Industry (HAUI)&lt;br&gt;
+      Investigating robust adaptive trajectory tracking algorithms and multi-sensor SLAM integration for industrial mobile robotics platforms.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src=&#34;http://localhost:1313/js/profile-sections.js&#34; defer&gt;&lt;/script&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>http://localhost:1313/publications/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/</guid>
+      <description>&lt;div class=&#34;profile-data&#34; data-profile-section=&#34;publications&#34; data-profile-view=&#34;cards&#34;&gt;&lt;/div&gt;
+&lt;script src=&#34;http://localhost:1313/js/profile-sections.js&#34; defer&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Team</title>
+      <link>http://localhost:1313/team/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/team/</guid>
+      <description>&lt;div class=&#34;team-page-container&#34;&gt;
+&lt;h2 id=&#34;principal-investigator-pi&#34;&gt;Principal Investigator (PI)&lt;/h2&gt;
+&lt;div style=&#34;display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 2rem; margin-top: 1.5rem; margin-bottom: 3rem; box-shadow: 0 2px 10px rgba(0,0,0,0.03);&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/authors/admin/avatar.png&#34; alt=&#34;Cong-Thanh Vu&#34; style=&#34;width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid #f1f5f9;&#34;&gt;
+  &lt;div style=&#34;flex: 1; min-width: 280px;&#34;&gt;
+    &lt;h3 style=&#34;margin: 0 0 0.3rem; font-size: 1.5rem; font-weight: 800; color: #0f172a;&#34;&gt;Cong-Thanh Vu&lt;/h3&gt;
+    &lt;p style=&#34;color: #1565c0; font-weight: 600; margin: 0 0 0.8rem; font-size: 1rem;&#34;&gt;Assistant Professor · Department of Mechatronics Engineering, HAUI&lt;/p&gt;
+    &lt;p style=&#34;font-size: 0.95rem; line-height: 1.65; color: #475569;&#34;&gt;
+      Cong-Thanh Vu received his &lt;strong&gt;Ph.D. in Mechanical Engineering&lt;/strong&gt; from &lt;strong&gt;National Cheng Kung University (NCKU)&lt;/strong&gt;, Taiwan in 2026, and his &lt;strong&gt;M.S.&lt;/strong&gt; (2021) and &lt;strong&gt;B.S.&lt;/strong&gt; (2019) in Mechatronics Engineering from &lt;strong&gt;Hanoi University of Industry (HAUI)&lt;/strong&gt;. He directs the Robotics and Autonomous Systems Laboratory (RASL).
+    &lt;/p&gt;
+    &lt;div style=&#34;margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.92rem;&#34;&gt;
+      &lt;a href=&#34;mailto:vuthanh.cdt@gmail.com&#34;&gt;vuthanh.cdt@gmail.com&lt;/a&gt;
+      &lt;a href=&#34;https://github.com/vuthanhcdt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt;
+      &lt;a href=&#34;http://localhost:1313/publications/&#34;&gt;Publications&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;graduate-researchers-ms--phd&#34;&gt;Graduate Researchers (M.S. / Ph.D.)&lt;/h2&gt;
+&lt;div style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;&#34;&gt;
+  &lt;div style=&#34;border: 2px dashed #cbd5e1; border-radius: 12px; padding: 2rem 1.5rem; text-align: center; background: #f8fafc;&#34;&gt;
+    &lt;h4 style=&#34;font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;&#34;&gt;M.S. &amp; Ph.D. Positions&lt;/h4&gt;
+    &lt;p style=&#34;font-size: 0.88rem; color: #64748b; margin-bottom: 1rem;&#34;&gt;Openings available for 2026–2027.&lt;/p&gt;
+    &lt;a href=&#34;http://localhost:1313/contact/#joining&#34; class=&#34;btn btn-outline-primary btn-sm&#34;&gt;Join as Graduate Student →&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;undergraduate-researchers--interns&#34;&gt;Undergraduate Researchers &amp;amp; Interns&lt;/h2&gt;
+&lt;div style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;&#34;&gt;
+  &lt;div style=&#34;border: 2px dashed #cbd5e1; border-radius: 12px; padding: 2rem 1.5rem; text-align: center; background: #f8fafc;&#34;&gt;
+    &lt;h4 style=&#34;font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.3rem;&#34;&gt;Undergraduate Research Interns&lt;/h4&gt;
+    &lt;p style=&#34;font-size: 0.88rem; color: #64748b; margin-bottom: 1rem;&#34;&gt;Opportunities for HAUI students in Mechatronics, Robotics &amp; Control.&lt;/p&gt;
+    &lt;a href=&#34;http://localhost:1313/contact/#joining&#34; class=&#34;btn btn-outline-primary btn-sm&#34;&gt;Apply for Internship →&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;prospective-members&#34;&gt;Prospective Members&lt;/h2&gt;
+&lt;p&gt;We are always looking for curious and hardworking researchers to join our lab. Please see our &lt;a href=&#34;http://localhost:1313/contact/#joining&#34;&gt;&lt;strong&gt;Joining MARL Guidelines&lt;/strong&gt;&lt;/a&gt; for application details.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
