@@ -1,4 +1,4 @@
-module github.com/vuthanh-cdt/vuthanh-cdt.github.io
+module github.com/vuthanhcdt/vuthanhcdt.github.io
 
 go 1.24
 

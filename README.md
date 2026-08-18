@@ -4,7 +4,7 @@
 > Department of Mechatronics Engineering · Hanoi University of Industry (HAUI)  
 > Director: **Cong-Thanh Vu**
 
-🌐 **<https://vuthanh-cdt.github.io/>**
+🌐 **<https://vuthanhcdt.github.io/>**
 
 ---
 
@@ -38,5 +38,5 @@ Push to the `master` (or `main`) branch to trigger the automated GitHub Actions 
 
 - 📧 Email: [vuthanh.cdt@gmail.com](mailto:vuthanh.cdt@gmail.com)
 - 🐙 GitHub: [github.com/vuthanhcdt](https://github.com/vuthanhcdt)
-- 🌐 Website: [vuthanh-cdt.github.io](https://vuthanh-cdt.github.io/)
+- 🌐 Website: [vuthanhcdt.github.io](https://vuthanhcdt.github.io/)
 
