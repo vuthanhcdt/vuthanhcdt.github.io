@@ -5422,3 +5422,104 @@ body.theme-dark .research-recent-visual {
 .dalgu-mode-toggle:active .dalgu-mode-toggle-face img {
   transform: translateX(-50%) scale(0.92);
 }
+
+/* ==========================================================================
+   PRINT / ACADEMIC CV STYLES
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-size: 10.5pt;
+    line-height: 1.45;
+    background: #fff !important;
+    color: #111 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .site-header,
+  .utility-header,
+  .site-footer,
+  .navbar,
+  .navbar-wrap,
+  .subnav,
+  .dalgu-mode-toggle,
+  .no-print,
+  .btn-print-hide,
+  button,
+  .profile-data-filter,
+  .publication-actions button,
+  #nav-toggle {
+    display: none !important;
+  }
+
+  .main-content,
+  .container,
+  .page-container,
+  .director-page-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+    color: #000 !important;
+  }
+
+  h2 {
+    border-bottom: 1.5px solid #333 !important;
+    padding-bottom: 3px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 13pt;
+  }
+
+  h3 {
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-size: 11pt;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  .director-page-container > div:first-child {
+    border: none !important;
+    padding: 0 0 15px 0 !important;
+    margin-bottom: 15px !important;
+    border-bottom: 2px solid #000 !important;
+  }
+
+  .director-page-container img {
+    border: 1px solid #ccc !important;
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  ul, ol, .entry, .publication-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
