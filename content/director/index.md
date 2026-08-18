@@ -19,9 +19,9 @@ aliases:
       <strong>Email</strong>: <a href="mailto:vuthanh.cdt@gmail.com">vuthanh.cdt@gmail.com</a>
     </p>
     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.8rem;">
-      <a href="/publications/" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #005bac; color: #ffffff; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">Publications (14 Papers)</a>
-      <a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #f8fafc; color: #1e293b; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">Google Scholar</a>
-      <a href="/files/CV_Cong_Thanh_Vu.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #f8fafc; color: #1e293b; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">CV</a>
+      <a href="/publications/" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 15px; background: #005bac; color: #ffffff; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none; box-shadow: 0 2px 4px rgba(0,91,172,0.18);">Publications</a>
+      <a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 15px; background: #4285f4; color: #ffffff; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none; box-shadow: 0 2px 4px rgba(66,133,244,0.18);">Google Scholar</a>
+      <a href="/files/CV_Cong_Thanh_Vu.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 15px; background: #0f766e; color: #ffffff; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none; box-shadow: 0 2px 4px rgba(15,118,110,0.18);">CV</a>
     </div>
   </div>
 </div>
