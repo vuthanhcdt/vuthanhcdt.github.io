@@ -732,6 +732,14 @@
     }, 2500);
   }
 
+  function formatDoiLink(text) {
+    if (!text) return "";
+    return text.replace(/(10\.\d{4,9}\/[-._;()/:A-Za-z0-9]+)/g, (doi) => {
+      const cleanDoi = doi.replace(/[.,;)]+$/, "");
+      return `<a href="https://doi.org/${encodeURI(cleanDoi)}" target="_blank" rel="noopener noreferrer" style="color: #005bac; font-weight: 600; text-decoration: underline;">${cleanDoi}</a>`;
+    });
+  }
+
   function renderAprlPublicationCard(row) {
     const cardId = escapeHtml(row.Id || slugify(row.Title));
     const year = publicationYear(row);
@@ -778,17 +786,38 @@
       ? row["BibTeX"].trim()
       : `@${bibType}{${bibKey},\n  title={${row.Title}},\n  author={${row.Authors}},\n  ${venueField},\n  year={${year}}\n}`;
 
-    const venueUrl = row.Website || (row["Download Link"] && row["Download Link"].startsWith("http") ? row["Download Link"] : "");
-    const venueDisplay = venueUrl
-      ? `<a href="${escapeHtml(venueUrl)}" target="_blank" rel="noopener">${escapeHtml(row["Venue/Book Title"] || "")}</a>`
-      : escapeHtml(row["Venue/Book Title"] || "");
+    // Venue/Book plain text (no link)
+    const venueDisplay = escapeHtml(row["Venue/Book Title"] || "");
 
-    const journalInfoDisplay = row["Journal Info"] ? `<span><b>Note</b>${escapeHtml(row["Journal Info"])}</span>` : "";
+    const rawInfo = String(row.Info || row["Journal Info"] || "").trim();
+    const rawNote = String(row.Note || "").trim();
+
+    let metaDetailsHtml = "";
+    if (isJournal) {
+      // Online journal: has Vol, pp, DOI, or ISSN
+      if (/Vol\.|pp\.|DOI|ISSN/i.test(rawInfo)) {
+        metaDetailsHtml = `<span><b>Info</b>${formatDoiLink(escapeHtml(rawInfo))}</span>`;
+      } else if (rawNote || /accepted|to appear/i.test(rawInfo)) {
+        const noteText = rawNote || rawInfo;
+        metaDetailsHtml = `<span><b>Note</b>${escapeHtml(noteText)}</span>`;
+      }
+    } else {
+      // Conference: NO Info, only Note for unpublished/accepted papers
+      if (rawNote || /accepted|to appear/i.test(rawInfo)) {
+        const noteText = rawNote || rawInfo;
+        metaDetailsHtml = `<span><b>Note</b>${escapeHtml(noteText)}</span>`;
+      }
+    }
+
+    // Direct paper link for clicking title or buttons
     const paperUrl = (row["Download Link"] && row["Download Link"].trim()) || 
+                     (row.Website && row.Website.trim()) || 
                      (row.Link && row.Link.trim().startsWith("http") ? row.Link.trim() : "") || 
                      `https://scholar.google.com/citations?user=7FEW5b8AAAAJ`;
     const paperLink = `<a href="${escapeHtml(paperUrl)}" target="_blank" rel="noopener noreferrer" title="View paper">Paper</a>`;
-    const websiteLink = row.Website && row.Website.trim() ? `<a href="${escapeHtml(row.Website)}" target="_blank" rel="noopener noreferrer">Project</a>` : "";
+    const websiteLink = (row.Website && row.Website.trim() && row.Website.trim() !== paperUrl)
+      ? `<a href="${escapeHtml(row.Website)}" target="_blank" rel="noopener noreferrer">Project</a>`
+      : "";
     const bibButton = `<button type="button" data-bibtex="${escapeHtml(bibtex)}" title="Copy BibTeX">Bib</button>`;
 
     const actionsHtml = `<div class="publication-actions">${bibButton}${paperLink}${websiteLink}</div>`;
@@ -807,12 +836,12 @@
             <span class="pub-badge badge-region-international">International</span>
             <span class="pub-badge badge-type-${categorySlug}">${escapeHtml(category)}</span>
             <span class="pub-badge aprl">RASL</span>
-            <h3><a href="${escapeHtml(paperUrl)}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${escapeHtml(row.Title)}</a></h3>
+            <h3><a href="${escapeHtml(paperUrl)}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" title="Open publication">${escapeHtml(row.Title)}</a></h3>
           </div>
           <div class="publication-meta">
             <span><b>Venue/Book</b>${venueDisplay}</span>
             <span><b>Authors</b>${authorsFormatted}</span>
-            ${journalInfoDisplay}
+            ${metaDetailsHtml}
           </div>
           ${actionsHtml}
         </div>
