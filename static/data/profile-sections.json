@@ -41,7 +41,7 @@
           "Journal Info": "Computers and Electronics in Agriculture (COMPAG), Vol. 252, pp. 112092, Sep. 2026",
           "Download Link": "https://www.sciencedirect.com/science/article/pii/S0168169926006873",
           "Website": "",
-          "Figure": "",
+          "Figure": "/images/publications/compag-pesticide-spraying-2026.png",
           "Bibtex": "@article{Vu_2026,\n  title={Context-aware adaptive pesticide spraying for agricultural robots under changing weather and terrain using Vision--Language Models},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  journal={Computers and Electronics in Agriculture},\n  volume={252},\n  pages={112092},\n  year={2026},\n  publisher={Elsevier BV},\n  doi={10.1016/j.compag.2026.112092}\n}"
         },
         {
