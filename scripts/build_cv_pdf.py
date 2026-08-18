@@ -2,12 +2,14 @@
 """
 Builds a professional Academic Curriculum Vitae (PDF) for Director Dr. Cong-Thanh Vu.
 Reads publication data from static/data/profile-sections.json, embeds Director avatar photo,
-and uses headless Chrome to generate a high-quality, printable vector PDF at static/files/CV_Cong_Thanh_Vu.pdf.
+formats clickable hyperlinks on all publication titles and DOIs/venues,
+and uses headless Chrome to generate a high-quality vector PDF.
 """
 
 import base64
 import json
 import os
+import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -33,7 +35,7 @@ def generate_html(data):
     pubs = data.get("sections", {}).get("publications", {}).get("rows", [])
     avatar_uri = load_avatar_base64()
     
-    # Sort publications by Year desc
+    # Sort publications
     journals = [p for p in pubs if p.get("Category", "").lower() == "journal"]
     conferences = [p for p in pubs if p.get("Category", "").lower() != "journal"]
 
@@ -47,11 +49,27 @@ def generate_html(data):
             year = item.get("Year", "")
             note = item.get("Note", "")
             
+            paper_url = (item.get("Download Link") or "").strip() or \
+                        (item.get("Website") or "").strip() or \
+                        (item.get("Link") or "").strip() or \
+                        "https://scholar.google.com/citations?user=7FEW5b8AAAAJ"
+            
+            venue_url = (item.get("Venue Link") or "").strip()
+
+            # Format DOI into clickable link
+            def doi_repl(m):
+                doi = m.group(1).rstrip(".,;)")
+                return f'<a href="https://doi.org/{doi}" target="_blank" style="color: #005bac; font-weight: 600; text-decoration: underline;">{doi}</a>'
+            formatted_info = re.sub(r"(10\.\d{4,9}/[-._;()/:A-Za-z0-9]+)", doi_repl, info)
+
             detail_parts = []
             if venue:
-                detail_parts.append(f"<em>{venue}</em>")
-            if info:
-                detail_parts.append(info)
+                if venue_url:
+                    detail_parts.append(f'<a href="{venue_url}" target="_blank" style="color: inherit; text-decoration: underline;"><em>{venue}</em></a>')
+                else:
+                    detail_parts.append(f"<em>{venue}</em>")
+            if formatted_info:
+                detail_parts.append(formatted_info)
             elif note:
                 detail_parts.append(f"({note})")
             elif year:
@@ -60,10 +78,10 @@ def generate_html(data):
             details_str = ", ".join(detail_parts)
             
             html_items.append(f"""
-            <li style="margin-bottom: 9px; line-height: 1.45;">
-                <div style="font-weight: 600; color: #1e293b;">{title}</div>
-                <div style="color: #475569; font-size: 0.92rem;">{authors}</div>
-                <div style="color: #005bac; font-size: 0.88rem;">{details_str}</div>
+            <li style="margin-bottom: 9px; line-height: 1.42;">
+                <div><a href="{paper_url}" target="_blank" style="color: #0f172a; text-decoration: none; font-weight: 650; border-bottom: 1px dotted #94a3b8;">{title}</a></div>
+                <div style="color: #475569; font-size: 0.91rem;">{authors}</div>
+                <div style="color: #005bac; font-size: 0.87rem;">{details_str}</div>
             </li>
             """)
         return "".join(html_items)
@@ -73,7 +91,7 @@ def generate_html(data):
 
     avatar_html = ""
     if avatar_uri:
-        avatar_html = f'<img src="{avatar_uri}" alt="Cong-Thanh Vu" style="width: 82px; height: 82px; border-radius: 50%; object-fit: cover; border: 2.5px solid #005bac; box-shadow: 0 2px 5px rgba(0,0,0,0.08);">'
+        avatar_html = f'<img src="{avatar_uri}" alt="Cong-Thanh Vu" style="width: 78px; height: 78px; border-radius: 50%; object-fit: cover; border: 2.5px solid #005bac; box-shadow: 0 2px 5px rgba(0,0,0,0.08); flex-shrink: 0;">'
 
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -83,7 +101,7 @@ def generate_html(data):
 <style>
   @page {{
     size: A4;
-    margin: 16mm 15mm 16mm 15mm;
+    margin: 15mm 15mm 15mm 15mm;
   }}
   * {{
     box-sizing: border-box;
@@ -95,69 +113,80 @@ def generate_html(data):
     color: #1e293b;
     background: #ffffff;
     line-height: 1.45;
-    font-size: 9.8pt;
+    font-size: 9.6pt;
     margin: 0;
     padding: 0;
   }}
   .header {{
     border-bottom: 2px solid #005bac;
-    padding-bottom: 12px;
-    margin-bottom: 16px;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
   }}
   .header-left {{
     display: flex;
-    gap: 14px;
+    gap: 12px;
     align-items: center;
+    flex: 1;
+    min-width: 0;
+  }}
+  .header-meta {{
+    min-width: 0;
   }}
   .name {{
-    font-size: 19pt;
+    font-size: 18pt;
     font-weight: 800;
     color: #0f172a;
     letter-spacing: -0.5px;
-    margin: 0 0 3px 0;
+    margin: 0 0 2px 0;
+    white-space: nowrap;
   }}
   .title {{
-    font-size: 10.5pt;
-    font-weight: 650;
+    font-size: 9.5pt;
+    font-weight: 700;
     color: #005bac;
     margin: 0 0 2px 0;
+    white-space: nowrap;
   }}
   .affiliation {{
-    font-size: 9.2pt;
+    font-size: 8.7pt;
     color: #475569;
     margin: 0;
+    white-space: nowrap;
   }}
   .contact-info {{
     text-align: right;
-    font-size: 8.8pt;
+    font-size: 8.7pt;
     color: #334155;
     line-height: 1.45;
+    white-space: nowrap;
+    flex-shrink: 0;
   }}
   .contact-info a {{
     color: #005bac;
     text-decoration: none;
   }}
   h2 {{
-    font-size: 11.5pt;
+    font-size: 11pt;
     font-weight: 700;
     color: #0f172a;
     border-bottom: 1.5px solid #e2e8f0;
     padding-bottom: 3px;
-    margin: 15px 0 9px 0;
+    margin: 14px 0 8px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }}
   h3 {{
-    font-size: 9.8pt;
+    font-size: 9.6pt;
     font-weight: 700;
     color: #334155;
-    margin: 11px 0 5px 0;
+    margin: 10px 0 5px 0;
   }}
   .entry {{
-    margin-bottom: 9px;
+    margin-bottom: 8px;
     page-break-inside: avoid;
   }}
   .entry-header {{
@@ -170,12 +199,7 @@ def generate_html(data):
     display: flex;
     justify-content: space-between;
     color: #475569;
-    font-size: 9.2pt;
-  }}
-  .entry-desc {{
     font-size: 9pt;
-    color: #334155;
-    margin-top: 2px;
   }}
   ul {{
     margin: 4px 0 8px 18px;
@@ -191,7 +215,7 @@ def generate_html(data):
 <div class="header">
   <div class="header-left">
     {avatar_html}
-    <div>
+    <div class="header-meta">
       <div class="name">Cong-Thanh Vu, Ph.D.</div>
       <div class="title">Director, Robotics and Autonomous Systems Laboratory (RASL)</div>
       <div class="affiliation">Assistant Professor, Department of Mechatronics Engineering, HAUI, Vietnam</div>
@@ -206,7 +230,7 @@ def generate_html(data):
 </div>
 
 <h2>Research Interests</h2>
-<p style="margin: 0 0 10px 0; color: #334155; font-size: 9.2pt; line-height: 1.45;">
+<p style="margin: 0 0 10px 0; color: #334155; font-size: 9.1pt; line-height: 1.45;">
   <strong>Human–Robot Interaction & Social Robotics:</strong> Adaptive companionship, proactive assistance, human-aware mobile robot navigation, and group following.<br>
   <strong>Field & Legged Robotics:</strong> Agricultural mobile robots, adaptive pesticide spraying, passive dynamic walking, and humanoid locomotion.<br>
   <strong>Robot Learning & AI:</strong> Deep reinforcement learning, continual learning for tracking, and Vision-Language-Action (VLA) multimodal models.
@@ -311,7 +335,7 @@ def generate_html(data):
 </ol>
 
 <h2>Professional Services & Activities</h2>
-<div style="font-size: 9.2pt; color: #334155; line-height: 1.45;">
+<div style="font-size: 9.1pt; color: #334155; line-height: 1.45;">
   <strong>Journal Reviewer:</strong>
   <ul>
     <li><em>IEEE/ASME Transactions on Mechatronics</em> (TMECH)</li>
@@ -337,7 +361,7 @@ def build_pdf():
     print("1. Loading profile data...")
     data = load_data()
     
-    print("2. Generating HTML CV template with Director photo...")
+    print("2. Generating HTML CV template with Director photo and hyperlinks...")
     html_content = generate_html(data)
     
     OUTPUT_PDF.parent.mkdir(parents=True, exist_ok=True)

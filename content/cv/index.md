@@ -19,16 +19,16 @@ aliases:
   </div>
 </div>
 
-<div style="border-bottom: 2px solid #005bac; padding-bottom: 1.2rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+<div style="border-bottom: 2px solid #005bac; padding-bottom: 1.2rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
   <div style="display: flex; gap: 1.2rem; align-items: center;">
-    <img src="/authors/admin/avatar.png" alt="Cong-Thanh Vu" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #005bac; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
+    <img src="/authors/admin/avatar.png" alt="Cong-Thanh Vu" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #005bac; box-shadow: 0 2px 6px rgba(0,0,0,0.08); flex-shrink: 0;">
     <div>
-      <h1 style="margin: 0 0 0.3rem 0; font-size: 1.8rem; font-weight: 800; color: #0f172a;">Cong-Thanh Vu, Ph.D.</h1>
-      <div style="color: #005bac; font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem;">Director, Robotics and Autonomous Systems Laboratory (RASL)</div>
-      <div style="color: #475569; font-size: 0.95rem;">Assistant Professor, Department of Mechatronics Engineering, HAUI, Vietnam</div>
+      <h1 style="margin: 0 0 0.2rem 0; font-size: 1.7rem; font-weight: 800; color: #0f172a; white-space: nowrap;">Cong-Thanh Vu, Ph.D.</h1>
+      <div style="color: #005bac; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; white-space: nowrap;">Director, Robotics and Autonomous Systems Laboratory (RASL)</div>
+      <div style="color: #475569; font-size: 0.9rem; white-space: nowrap;">Assistant Professor, Department of Mechatronics Engineering, HAUI, Vietnam</div>
     </div>
   </div>
-  <div style="font-size: 0.9rem; color: #334155; line-height: 1.5;">
+  <div style="font-size: 0.88rem; color: #334155; line-height: 1.5; white-space: nowrap; text-align: right;">
     <div><strong>Email:</strong> <a href="mailto:vuthanh.cdt@gmail.com" style="color: #005bac;">vuthanh.cdt@gmail.com</a></div>
     <div><strong>Website:</strong> <a href="https://vuthanhcdt.github.io/" style="color: #005bac;">vuthanhcdt.github.io</a></div>
     <div><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener" style="color: #005bac;">Cong-Thanh Vu</a></div>
@@ -72,48 +72,48 @@ aliases:
 ## Selected Publications (14 Peer-Reviewed Papers)
 
 ### Refereed Journal Articles
-1. **Context-Aware Adaptive Pesticide Spraying for Agricultural Robots under Changing Weather and Terrain Using Vision-Language Models**  
+1. [**Context-Aware Adaptive Pesticide Spraying for Agricultural Robots under Changing Weather and Terrain Using Vision-Language Models**](https://www.sciencedirect.com/science/article/pii/S0168169926006873)  
    **Cong-Thanh Vu**, Yen-Chen Liu  
-   *Computers and Electronics in Agriculture (COMPAG)*, Vol. 252, pp. 112092, Sep. 2026; ISSN 0168-1699; DOI: [10.1016/j.compag.2026.112092](https://doi.org/10.1016/j.compag.2026.112092)
-2. **Towards Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning**  
+   [*Computers and Electronics in Agriculture (COMPAG)*](https://www.sciencedirect.com/science/article/pii/S0168169926006873), Vol. 252, pp. 112092, Sep. 2026; ISSN 0168-1699; DOI: [10.1016/j.compag.2026.112092](https://doi.org/10.1016/j.compag.2026.112092)
+2. [**Towards Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning**](https://scholar.google.com/citations?user=7FEW5b8AAAAJ)  
    **Cong-Thanh Vu**, Yen-Chen Liu  
    *IEEE Transactions on Systems, Man, and Cybernetics: Systems (TSMC)*, accepted, 2026.
 
 ### Refereed Conference Proceedings
-1. **Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations**  
+1. [**Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations**](https://arxiv.org/abs/2607.01287)  
    **Cong-Thanh Vu**, Yen-Chen Liu  
-   *IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*, Pittsburgh, USA, accepted, 2026.
-2. **Gimbal-Based Human Tracking for Companion Robots Using Continual Learning**  
+   [*IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*](https://2026.ieee-iros.org/), Pittsburgh, USA, accepted, 2026.
+2. [**Gimbal-Based Human Tracking for Companion Robots Using Continual Learning**](https://scholar.google.com/citations?user=7FEW5b8AAAAJ)  
    **Cong-Thanh Vu**, Ching-Chieh Liu, Yen-Chen Liu  
-   *IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)*, Genova, Italy, accepted, 2026.
-3. **Multimodal-Language-Model–Driven Interaction and Companionship for Service Robots in Elderly-Care Facilities**  
+   [*IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)*](https://aim2026.com/), Genova, Italy, accepted, 2026.
+3. [**Multimodal-Language-Model–Driven Interaction and Companionship for Service Robots in Elderly-Care Facilities**](https://scholar.google.com/citations?user=7FEW5b8AAAAJ)  
    Ching-Chieh Liu, **Cong-Thanh Vu**, Yen-Chen Liu  
-   *IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)*, Genova, Italy, accepted, 2026.
-4. **Learning Diverse Humanoid Tasks via Synthetic Video Scenarios without Real World Data**  
+   [*IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)*](https://aim2026.com/), Genova, Italy, accepted, 2026.
+4. [**Learning Diverse Humanoid Tasks via Synthetic Video Scenarios without Real World Data**](https://arxiv.org/abs/2607.21648)  
    Yun-Hao Tsai, **Cong-Thanh Vu**, Yen-Chen Liu  
-   *IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)*, Genova, Italy, accepted, 2026.
-5. **Autonomous Adjustment of Tracking Position in Dynamic Environments for Human-Following Robots Using Deep Reinforcement Learning**  
+   [*IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)*](https://aim2026.com/), Genova, Italy, accepted, 2026.
+5. [**Autonomous Adjustment of Tracking Position in Dynamic Environments for Human-Following Robots Using Deep Reinforcement Learning**](https://ieeexplore.ieee.org/abstract/document/11246444/)  
    **Cong-Thanh Vu**, Yen-Chen Liu  
-   *IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*, pp. 16863-16869, Hangzhou, China, Oct. 2025.
-6. **Learning Virtual Passive Dynamic Walking Using the Kneed Walker Model for Guiding Policies**  
+   [*IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*](https://www.iros25.org/), pp. 16863-16869, Hangzhou, China, Oct. 2025.
+6. [**Learning Virtual Passive Dynamic Walking Using the Kneed Walker Model for Guiding Policies**](https://ieeexplore.ieee.org/abstract/document/11203150/)  
    **Cong-Thanh Vu**, Chi Cheng Lai, Yen-Chen Liu  
    *IEEE-RAS International Conference on Humanoid Robots (Humanoids)*, pp. 1094-1100, Sep.-Oct. 2025.
-7. **Autonomous Navigation for Human-Following Robots Based on Optimized Position Tracking**  
+7. [**Autonomous Navigation for Human-Following Robots Based on Optimized Position Tracking**](https://ieeexplore.ieee.org/abstract/document/11093565/)  
    **Cong-Thanh Vu**, Hsin-Hui Huang, Yen-Chen Liu  
    *International Conference on Control and Robotics Engineering (ICCRE)*, pp. 23-27, Nagoya, Japan, May 2025.
-8. **Toward Autonomous Navigation for Agriculture Robots in Orchard Farming**  
+8. [**Toward Autonomous Navigation for Agriculture Robots in Orchard Farming**](https://ieeexplore.ieee.org/abstract/document/10773736/)  
    **Cong-Thanh Vu**, Hsin-Chia Chen, Yen-Chen Liu  
    *IEEE International Conference on Recent Advances in Systems Science and Engineering (RASSE)*, pp. 1-8, Taichung, Taiwan, Nov. 2024.
-9. **Deep Reinforcement Learning for Multi-Robot Local Path Planning in Dynamic Environments**  
+9. [**Deep Reinforcement Learning for Multi-Robot Local Path Planning in Dynamic Environments**](https://ieeexplore.ieee.org/abstract/document/10604387/)  
    **Cong-Thanh Vu**, Yen-Chen Liu  
    *International Workshop on Robot Motion and Control (ROMOCO)*, pp. 267-272, Poznan, Poland, Jul. 2024.
-10. **Mobile robot motion control using a combination of fuzzy logic method and kinematic model**  
+10. [**Mobile robot motion control using a combination of fuzzy logic method and kinematic model**](https://link.springer.com/chapter/10.1007/978-981-19-3394-3_56)  
     Anh-Tu Nguyen, **Cong-Thanh Vu**  
     *Intelligent Systems and Networks (ICISN)*, pp. 495-503, Hanoi, Vietnam, Jul. 2022.
-11. **Obstacle avoidance for autonomous mobile robots based on mapping method**  
+11. [**Obstacle avoidance for autonomous mobile robots based on mapping method**](https://link.springer.com/chapter/10.1007/978-3-030-99666-6_118)  
     Anh-Tu Nguyen, **Cong-Thanh Vu**  
     *Advanced Mechanical Engineering, Automation and Sustainable Development (AMAS)*, pp. 810-816, Halong, Vietnam, May 2022.
-12. **Development of a multiple-sensor navigation system for autonomous guided vehicle localization**  
+12. [**Development of a multiple-sensor navigation system for autonomous guided vehicle localization**](https://link.springer.com/chapter/10.1007/978-981-16-2094-2_49)  
     Anh-Tu Nguyen, Van-Truong Nguyen, Xuan-Thuan Nguyen, **Cong-Thanh Vu**  
     *Intelligent Systems and Networks (ICISN)*, pp. 402-410, Hanoi, Vietnam, Jul. 2021.
 
