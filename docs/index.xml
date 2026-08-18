@@ -175,11 +175,10 @@ Anh-Tu Nguyen, Van-Truong Nguyen, Xuan-Thuan Nguyen, &lt;strong>Cong-Thanh Vu&lt
 &lt;p style="font-size: 0.95rem; margin: 0 0 0.8rem; color: #334155;">
 &lt;strong>Email&lt;/strong>: &lt;a href="mailto:vuthanh.cdt@gmail.com">vuthanh.cdt@gmail.com&lt;/a>
 &lt;/p>
-&lt;div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.8rem;" class="no-print">
-&lt;a href="https://vuthanhcdt.github.io/files/CV_Cong_Thanh_Vu.pdf" target="_blank" download="CV_Cong_Thanh_Vu.pdf" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #005bac; color: #ffffff; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none; box-shadow: 0 2px 4px rgba(0,91,172,0.2);">📄 Download CV (PDF)&lt;/a>
-&lt;button onclick="window.print()" type="button" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #0f766e; color: #ffffff; border: none; border-radius: 6px; font-weight: 650; font-size: 0.88rem; cursor: pointer; box-shadow: 0 2px 4px rgba(15,118,110,0.2);">🖨️ Print / Save as PDF&lt;/button>
-&lt;a href="https://vuthanhcdt.github.io/publications/" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #f8fafc; color: #1e293b; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">Publications (14 Papers)&lt;/a>
+&lt;div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.8rem;">
+&lt;a href="https://vuthanhcdt.github.io/publications/" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #005bac; color: #ffffff; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">Publications (14 Papers)&lt;/a>
 &lt;a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #f8fafc; color: #1e293b; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">Google Scholar&lt;/a>
+&lt;a href="https://vuthanhcdt.github.io/files/CV_Cong_Thanh_Vu.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #f8fafc; color: #1e293b; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 650; font-size: 0.88rem; text-decoration: none;">CV&lt;/a>
 &lt;/div>
 &lt;/div>
 &lt;/div>
