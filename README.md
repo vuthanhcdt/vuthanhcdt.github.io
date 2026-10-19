@@ -25,11 +25,6 @@ python3 tools/build.py "$PWD/site"
 Then commit and push to `master`; the site is redeployed automatically.
 CV, member data and the application form can be edited directly in `site/`.
 
-## Visitor statistics (GoatCounter)
-
-1. Create a free site at <https://www.goatcounter.com/signup> — pick a code, e.g. `rasl` → `https://rasl.goatcounter.com`.
-2. Set `GOATCOUNTER='rasl'` near the top of `tools/build.py`.
-3. Run `python3 tools/build.py "$PWD/site"`, commit and push. Every page (EN, VI, CV, 404) then reports visits.
 
 ## Search engines & link previews
 

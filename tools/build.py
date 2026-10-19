@@ -21,11 +21,6 @@ LONG=[
 PAGES=[('index.html','Home'),('publications.html','Publications'),('news.html','News'),('people.html','People'),('contact.html','Contact')]
 
 SITE_URL='https://vuthanhcdt.github.io/'
-# Visitor statistics: create a free site at https://www.goatcounter.com and put its code here (e.g. 'rasl').
-GOATCOUNTER=''
-def analytics_tag():
-    return (f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
-            if GOATCOUNTER else '')
 def page_url(name, lang='en'):
     path=('' if name=='index.html' else name)
     return SITE_URL+('vi/' if lang=='vi' else '')+path
@@ -59,7 +54,6 @@ def head(title,desc):
 <meta name="theme-color" content="#06101f">
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
-<!--ANALYTICS-->
 <!--JSONLD-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,7 +145,7 @@ def lang_switch(lang,name):
 def write(name,title,desc,active,body):
     raw=bust(head(title,desc)+nav(active)+'\n<main>\n'+body+'\n</main>\n\n'+FOOT)
     raw=raw.replace('</head>',f'<link rel="alternate" hreflang="en" href="{page_url(name)}">\n<link rel="alternate" hreflang="vi" href="{page_url(name,"vi")}">\n<link rel="alternate" hreflang="x-default" href="{page_url(name)}">\n</head>',1)
-    raw=raw.replace('<!--JSONLD-->',JSONLD.get(name,'')).replace('<!--ANALYTICS-->',analytics_tag())
+    raw=raw.replace('<!--JSONLD-->',JSONLD.get(name,''))
     BUILT[name]=raw
     h=(raw.replace('<!--LANG-->',lang_switch('en',name)).replace('__UPDATED__',UPD_EN)
           .replace('__CANON__',page_url(name)).replace('__OGIMG__',SITE_URL+'assets/og-image.png').replace('__LOCALE__','en_US'))
@@ -343,7 +337,7 @@ NF_BODY='''<section class="page-hero nf">
 </section>'''
 nf=bust(head('Page not found · RASL','This page could not be found.')+nav('')+'\n<main>\n'+NF_BODY+'\n</main>\n\n'+FOOT)
 nf=(nf.replace('<!--LANG-->',lang_switch('en','index.html')).replace('__UPDATED__',UPD_EN).replace('<!--JSONLD-->','')
-      .replace('<!--ANALYTICS-->',analytics_tag()).replace('__CANON__',SITE_URL).replace('__OGIMG__',SITE_URL+'assets/og-image.png').replace('__LOCALE__','en_US'))
+      .replace('__CANON__',SITE_URL).replace('__OGIMG__',SITE_URL+'assets/og-image.png').replace('__LOCALE__','en_US'))
 nf=nf.replace('<link rel="canonical" href="'+SITE_URL+'">','<base href="/">\n<meta name="robots" content="noindex">')
 nf=re.sub(r'(src|href)="(?!https?:|//|#|mailto:|/)([^"]*)"',r'\1="/\2"',nf)   # make every local link absolute
 open(os.path.join(OUT,'404.html'),'w').write(nf)
@@ -367,9 +361,6 @@ import glob
 for page in glob.glob(os.path.join(OUT,'*.html'))+glob.glob(os.path.join(OUT,'vi','*.html')):
     h=open(page).read()
     pre='../' if os.sep+'vi'+os.sep in page else ('/' if page.endswith('404.html') else '')
-    if page.endswith('cv.html'):
-        h=re.sub(r'\n?<script data-goatcounter=[^>]*></script>','',h)
-        if GOATCOUNTER: h=h.replace('</head>',analytics_tag()+'\n</head>',1)
     for rel in ['assets/site.css','assets/site.js','assets/apply.js','assets/site-meta.js','assets/pubs.js','assets/search-index.js','assets/search-index-vi.js','assets/members.js']:
         if os.path.exists(os.path.join(OUT,rel)):
             h=re.sub(r'"%s(\?v=[0-9a-f]+)?"'%re.escape(pre+rel), f'"{pre}{rel}?v={_ver(rel)}"', h)
