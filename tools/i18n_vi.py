@@ -3,7 +3,7 @@
 import re
 
 NCKU = 'Đại học Quốc lập Thành Công (NCKU)'
-HAUI = 'Trường Đại học Công nghiệp Hà Nội'
+HAUI = 'Trường Đại học Công nghiệp Hà Nội (HaUI)'
 
 TITLES = {
     'Publications · RASL': 'Công bố khoa học · RASL',
@@ -21,8 +21,8 @@ DESCS = {
 
 TR = [
     # director bio first, so shorter award names below do not split it
-    ("Cong-Thanh Vu received the B.S. and M.S. degrees in mechatronics engineering from Hanoi University of Industry, Hanoi, Vietnam, in 2019 and 2021, respectively, and the Ph.D. degree in mechanical engineering from National Cheng Kung University (NCKU), Tainan, Taiwan, in 2026. His research interests include human–robot interaction, human-aware and social navigation in crowded environments, agricultural robots, legged locomotion, and robot learning, with a focus on robots that understand, assist, and work alongside people in real-world environments. Dr. Vu was a recipient of the Excellent Doctoral Student Award from NCKU in 2026. He serves as a reviewer for IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems, and major robotics conferences, including ICRA and IROS.",
-     f'Cong-Thanh Vu nhận bằng Đại học và Thạc sĩ ngành Kỹ thuật Cơ điện tử tại {HAUI}, Hà Nội, lần lượt vào các năm 2019 và 2021, và bằng Tiến sĩ ngành Kỹ thuật Cơ khí tại {NCKU}, Đài Nam, Đài Loan, năm 2026. Các hướng nghiên cứu chính của anh gồm tương tác người – robot, điều hướng có nhận thức về con người và điều hướng xã hội trong môi trường đông người, robot nông nghiệp, robot đi bằng chân và học máy cho robot, tập trung vào những robot biết thấu hiểu, hỗ trợ và làm việc cùng con người trong môi trường thực tế. Anh từng nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc của NCKU năm 2026. Anh là phản biện cho các tạp chí IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems và các hội nghị lớn về robot như ICRA và IROS.'),
+    ("Cong-Thanh Vu received the B.S. and M.S. degrees in mechatronics engineering from Hanoi University of Industry (HaUI), Hanoi, Vietnam, in 2019 and 2021, respectively, and the Ph.D. degree in mechanical engineering from National Cheng Kung University (NCKU), Tainan, Taiwan, in 2026. His research interests include human–robot interaction, human-aware and social navigation in crowded environments, agricultural robots, legged locomotion, and robot learning, with a focus on robots that understand, assist, and work alongside people in real-world environments. Dr. Vu was a recipient of the Excellent Doctoral Student Award from NCKU in 2026. He serves as a reviewer for IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems, and major robotics conferences, including ICRA and IROS.",
+     f'Cong-Thanh Vu nhận bằng Đại học và Thạc sĩ ngành Kỹ thuật Cơ điện tử tại {HAUI}, Hà Nội, Việt Nam, lần lượt vào các năm 2019 và 2021, và bằng Tiến sĩ ngành Kỹ thuật Cơ khí tại {NCKU}, Đài Nam, Đài Loan, năm 2026. Các hướng nghiên cứu chính của anh gồm tương tác người – robot, điều hướng có nhận thức về con người và điều hướng xã hội trong môi trường đông người, robot nông nghiệp, robot đi bằng chân và học máy cho robot, tập trung vào những robot biết thấu hiểu, hỗ trợ và làm việc cùng con người trong môi trường thực tế. Anh từng nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc của NCKU năm 2026. Anh là phản biện cho các tạp chí IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems và các hội nghị lớn về robot như ICRA và IROS.'),
     # ---------------- home: hero ----------------
     ('Robots that <em>understand</em>, <em>adapt</em>, and work alongside people.',
      'Robot biết <em>thấu hiểu</em>, <em>thích nghi</em> và đồng hành cùng con người.'),
@@ -129,7 +129,7 @@ TR = [
     ('M.S., Mechatronics Engineering', 'Thạc sĩ – Kỹ thuật Cơ điện tử'),
     ('B.S., Mechatronics Engineering', 'Đại học – Kỹ thuật Cơ điện tử'),
     ('National Cheng Kung University, Taiwan', f'{NCKU}, Đài Loan'),
-    ('Hanoi University of Industry, Vietnam', HAUI),
+    ('Hanoi University of Industry, Vietnam', f'{HAUI}, Hà Nội, Việt Nam'),
     ('Advisor: Prof. Yen-Chen Liu', 'Người hướng dẫn: GS. Yen-Chen Liu'),
     ('Advisor: Assoc. Prof. Anh-Tu Nguyen', 'Người hướng dẫn: PGS. Anh-Tu Nguyen'),
     ('<b>Full Scholarship</b>', '<b>Học bổng toàn phần</b>'),
