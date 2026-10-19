@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- Social preview card (1200×630). Rendered to site/assets/og-image*.png by tools/make_og.sh -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RASL social card</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#06101f}
+  .card{position:relative;width:1200px;height:630px;box-sizing:border-box;padding:70px 80px;color:#fff;font-family:Inter,sans-serif;
+    background:radial-gradient(700px 420px at 92% 8%,rgba(62,224,208,.30),transparent 60%),radial-gradient(600px 400px at 0% 100%,rgba(124,77,255,.22),transparent 60%),linear-gradient(140deg,#06101f,#0d2b52)}
+  .net{position:absolute;inset:0;opacity:.5}
+  .mark{position:relative;width:560px;filter:invert(1) drop-shadow(0 0 24px rgba(111,182,255,.35))}
+  .pill{position:relative;display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:9px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);font-size:24px;font-weight:600;color:#cfe3ff}
+  .pill i{width:12px;height:12px;border-radius:50%;background:#3ee0d0}
+  h1{position:relative;font-family:"Space Grotesk",sans-serif;font-size:58px;line-height:1.08;letter-spacing:-.015em;margin:22px 0 0;max-width:900px}
+  h1 em{font-style:normal;background:linear-gradient(90deg,#6fb6ff,#3ee0d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .url{position:absolute;left:80px;bottom:56px;font-size:24px;font-weight:600;color:#9fc4ee;letter-spacing:.02em}
+  .tags{position:absolute;right:80px;bottom:52px;display:flex;gap:10px}
+  .tags span{font-size:20px;font-weight:600;padding:7px 14px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#dbe8fb}
+</style>
+</head>
+<body>
+<div class="card">
+  <svg class="net" viewBox="0 0 1200 630" aria-hidden="true">
+    <g stroke="rgba(120,180,255,.35)" stroke-width="1.2" fill="none">
+      <path d="M760 90 L880 160 L1010 120 L1110 210 L980 260 L880 160"/><path d="M980 260 L1060 360 L930 410 L820 330 L880 160"/>
+      <path d="M820 330 L700 400 L640 520 L760 560 L930 410"/><path d="M1060 360 L1140 470 L1020 540 L930 410"/>
+    </g>
+    <g fill="rgba(150,200,255,.9)">
+      <circle cx="760" cy="90" r="4"/><circle cx="880" cy="160" r="5"/><circle cx="1010" cy="120" r="4"/><circle cx="1110" cy="210" r="4"/>
+      <circle cx="980" cy="260" r="5"/><circle cx="1060" cy="360" r="4"/><circle cx="930" cy="410" r="5"/><circle cx="820" cy="330" r="4"/>
+      <circle cx="700" cy="400" r="4"/><circle cx="640" cy="520" r="4"/><circle cx="760" cy="560" r="4"/><circle cx="1140" cy="470" r="4"/><circle cx="1020" cy="540" r="4"/>
+    </g>
+  </svg>
+  <img class="mark" src="../site/assets/rasl-mark.png" alt="">
+  <div class="pill"><i></i><span id="sub">Robotics and Autonomous Systems Lab</span></div>
+  <h1 id="tag">Robots that <em>understand</em>, <em>adapt</em>, and work alongside people.</h1>
+  <div class="url">vuthanhcdt.github.io</div>
+  <div class="tags"><span>HRI</span><span>Navigation</span><span>Agri-robots</span><span>Robot learning</span></div>
+</div>
+<script>
+  if (location.search.includes("lang=vi")){
+    document.documentElement.lang = "vi";
+    document.getElementById("sub").textContent = "Phòng thí nghiệm Robot và Hệ thống Tự hành";
+    document.getElementById("tag").innerHTML = "Robot biết <em>thấu hiểu</em>, <em>thích nghi</em> và đồng hành cùng con người.";
+    document.querySelector(".tags").innerHTML = "<span>Tương tác người – robot</span><span>Robot nông nghiệp</span><span>Học máy</span>";
+  }
+</script>
+</body>
+</html>

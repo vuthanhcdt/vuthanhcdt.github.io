@@ -20,6 +20,19 @@ LONG=[
 ]
 PAGES=[('index.html','Home'),('publications.html','Publications'),('news.html','News'),('people.html','People'),('contact.html','Contact')]
 
+SITE_URL='https://vuthanhcdt.github.io/'
+# Visitor statistics: create a free site at https://www.goatcounter.com and put its code here (e.g. 'rasl').
+GOATCOUNTER=''
+def analytics_tag():
+    return (f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+            if GOATCOUNTER else '')
+def page_url(name, lang='en'):
+    path=('' if name=='index.html' else name)
+    return SITE_URL+('vi/' if lang=='vi' else '')+path
+LAB_JSONLD='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"RASL — Robotics and Autonomous Systems Lab","alternateName":"RASL","url":"https://vuthanhcdt.github.io/","logo":"https://vuthanhcdt.github.io/assets/rasl-logo.png","image":"https://vuthanhcdt.github.io/assets/og-image.png","email":"mailto:vuthanh.cdt@gmail.com","knowsAbout":["Human–robot interaction","Human-aware navigation","Agricultural robots","Legged locomotion","Robot learning","Vision–language–action models"],"founder":{"@type":"Person","name":"Cong-Thanh Vu","jobTitle":"Director, RASL","url":"https://vuthanhcdt.github.io/people.html","sameAs":["https://scholar.google.com/citations?user=7FEW5b8AAAAJ"]}}</script>'''
+PERSON_JSONLD='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Cong-Thanh Vu","honorificSuffix":"Ph.D.","jobTitle":"Director, Robotics and Autonomous Systems Lab (RASL)","url":"https://vuthanhcdt.github.io/people.html","image":"https://vuthanhcdt.github.io/assets/avatar-cutout.png","email":"mailto:vuthanh.cdt@gmail.com","alumniOf":[{"@type":"CollegeOrUniversity","name":"National Cheng Kung University"},{"@type":"CollegeOrUniversity","name":"Hanoi University of Industry"}],"sameAs":["https://scholar.google.com/citations?user=7FEW5b8AAAAJ"]}</script>'''
+JSONLD={'index.html':LAB_JSONLD,'people.html':PERSON_JSONLD}
+
 def head(title,desc):
     return f'''<!doctype html>
 <html lang="en">
@@ -28,7 +41,26 @@ def head(title,desc):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="canonical" href="__CANON__">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RASL — Robotics and Autonomous Systems Lab">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="__CANON__">
+<meta property="og:image" content="__OGIMG__">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RASL — Robotics and Autonomous Systems Lab">
+<meta property="og:locale" content="__LOCALE__">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="__OGIMG__">
+<meta name="theme-color" content="#06101f">
 <link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<!--ANALYTICS-->
+<!--JSONLD-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -118,9 +150,11 @@ def lang_switch(lang,name):
             f'<a href="{vi_href}" hreflang="vi" data-lang="vi"{vi_on}>VI</a></div>')
 def write(name,title,desc,active,body):
     raw=bust(head(title,desc)+nav(active)+'\n<main>\n'+body+'\n</main>\n\n'+FOOT)
-    raw=raw.replace('</head>',f'<link rel="alternate" hreflang="en" href="__EN__{name}">\n<link rel="alternate" hreflang="vi" href="__VI__{name}">\n</head>',1)
+    raw=raw.replace('</head>',f'<link rel="alternate" hreflang="en" href="{page_url(name)}">\n<link rel="alternate" hreflang="vi" href="{page_url(name,"vi")}">\n<link rel="alternate" hreflang="x-default" href="{page_url(name)}">\n</head>',1)
+    raw=raw.replace('<!--JSONLD-->',JSONLD.get(name,'')).replace('<!--ANALYTICS-->',analytics_tag())
     BUILT[name]=raw
-    h=raw.replace('<!--LANG-->',lang_switch('en',name)).replace('__UPDATED__',UPD_EN).replace('__EN__','').replace('__VI__','vi/')
+    h=(raw.replace('<!--LANG-->',lang_switch('en',name)).replace('__UPDATED__',UPD_EN)
+          .replace('__CANON__',page_url(name)).replace('__OGIMG__',SITE_URL+'assets/og-image.png').replace('__LOCALE__','en_US'))
     open(os.path.join(OUT,name),'w').write(h)
 
 # ---------- home ----------
@@ -211,7 +245,7 @@ home=f'''<section class="hero" id="top">
     </div>
   </div>
 </section>'''
-write('index.html','RASL Robotics Lab','RASL — Robotics and Autonomous Systems Lab. Human–robot interaction, field robotics, legged locomotion and robot learning.','Home',home)
+write('index.html','RASL — Robotics and Autonomous Systems Lab','RASL — Robotics and Autonomous Systems Lab. Human–robot interaction, field robotics, legged locomotion and robot learning.','Home',home)
 
 # ---------- research ----------
 rows='\n'.join(f'''    <div class="area reveal" id="{SLUG[i]}">
@@ -284,15 +318,58 @@ for name,raw in BUILT.items():
     h=re.sub(r'(src|href)="assets/',r'\1="../assets/',h)
     h=h.replace('href="cv.html','href="../cv.html')
     h=re.sub(r'assets/search-index\.js(\?v=[0-9a-f]+)?','assets/search-index-vi.js',h)
-    h=h.replace('<!--LANG-->',lang_switch('vi',name)).replace('__UPDATED__',UPD_VI).replace('__EN__','../').replace('__VI__','')
+    h=(h.replace('<!--LANG-->',lang_switch('vi',name)).replace('__UPDATED__',UPD_VI)
+         .replace('__CANON__',page_url(name,'vi')).replace('__OGIMG__',SITE_URL+'assets/og-image-vi.png').replace('__LOCALE__','vi_VN'))
+    vt=re.search(r'<title>(.*?)</title>',h).group(1); vd=re.search(r'<meta name="description" content="([^"]*)">',h).group(1)
+    h=re.sub(r'(<meta (?:property="og|name="twitter):title" content=")[^"]*',lambda m:m.group(1)+vt,h)
+    h=re.sub(r'(<meta (?:property="og|name="twitter):description" content=")[^"]*',lambda m:m.group(1)+vd,h)
     open(os.path.join(OUT,'vi',name),'w').write(h)
 print('vi pages',len(BUILT))
+
+# ---------- 404 page (served for any missing URL, so every link is absolute) ----------
+NF_BODY='''<section class="page-hero nf">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <img class="wm" src="assets/rasl-logo.png" alt="">
+  <div class="wrap">
+    <div class="nf-code">404</div>
+    <h1>This page wandered off</h1>
+    <p>The link may be old or mistyped. <span lang="vi">Trang bạn tìm không tồn tại hoặc đã được chuyển đi.</span></p>
+    <div class="cta">
+      <a class="btn primary" href="index.html">Back to home</a>
+      <a class="btn ghost" href="vi/index.html" lang="vi">Về trang chủ (Tiếng Việt)</a>
+      <a class="btn ghost" href="publications.html">Publications</a>
+    </div>
+  </div>
+</section>'''
+nf=bust(head('Page not found · RASL','This page could not be found.')+nav('')+'\n<main>\n'+NF_BODY+'\n</main>\n\n'+FOOT)
+nf=(nf.replace('<!--LANG-->',lang_switch('en','index.html')).replace('__UPDATED__',UPD_EN).replace('<!--JSONLD-->','')
+      .replace('<!--ANALYTICS-->',analytics_tag()).replace('__CANON__',SITE_URL).replace('__OGIMG__',SITE_URL+'assets/og-image.png').replace('__LOCALE__','en_US'))
+nf=nf.replace('<link rel="canonical" href="'+SITE_URL+'">','<base href="/">\n<meta name="robots" content="noindex">')
+nf=re.sub(r'(src|href)="(?!https?:|//|#|mailto:|/)([^"]*)"',r'\1="/\2"',nf)   # make every local link absolute
+open(os.path.join(OUT,'404.html'),'w').write(nf)
+
+# ---------- sitemap.xml + robots.txt ----------
+_pages=['index.html','publications.html','news.html','people.html','contact.html']
+_xml=['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+for n in _pages:
+    for lang in ('en','vi'):
+        _xml.append(f'  <url><loc>{page_url(n,lang)}</loc><lastmod>{_now.isoformat()}</lastmod>'
+                    f'<xhtml:link rel="alternate" hreflang="en" href="{page_url(n)}"/><xhtml:link rel="alternate" hreflang="vi" href="{page_url(n,"vi")}"/>'
+                    f'<priority>{"1.0" if n=="index.html" else "0.8"}</priority></url>')
+_xml.append(f'  <url><loc>{SITE_URL}cv.html?m=vu</loc><lastmod>{_now.isoformat()}</lastmod><priority>0.6</priority></url>')
+_xml.append('</urlset>')
+open(os.path.join(OUT,'sitemap.xml'),'w').write('\n'.join(_xml)+'\n')
+open(os.path.join(OUT,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}sitemap.xml\n')
+print('404 + sitemap + robots')
 
 # ---------- final pass: refresh asset versions in every page (incl. cv.html) ----------
 import glob
 for page in glob.glob(os.path.join(OUT,'*.html'))+glob.glob(os.path.join(OUT,'vi','*.html')):
     h=open(page).read()
-    pre='../' if os.sep+'vi'+os.sep in page else ''
+    pre='../' if os.sep+'vi'+os.sep in page else ('/' if page.endswith('404.html') else '')
+    if page.endswith('cv.html'):
+        h=re.sub(r'\n?<script data-goatcounter=[^>]*></script>','',h)
+        if GOATCOUNTER: h=h.replace('</head>',analytics_tag()+'\n</head>',1)
     for rel in ['assets/site.css','assets/site.js','assets/apply.js','assets/site-meta.js','assets/pubs.js','assets/search-index.js','assets/search-index-vi.js','assets/members.js']:
         if os.path.exists(os.path.join(OUT,rel)):
             h=re.sub(r'"%s(\?v=[0-9a-f]+)?"'%re.escape(pre+rel), f'"{pre}{rel}?v={_ver(rel)}"', h)
