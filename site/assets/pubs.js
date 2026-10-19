@@ -9,6 +9,7 @@ window.PUBS = [
   "i": "Early Access, pp. 1–14, 2026",
   "doi": "10.1109/TSMC.2026.3726038",
   "ax": "2609.25031",
+  "h": "Top 5%",
   "u": "https://doi.org/10.1109/TSMC.2026.3726038",
   "f": "",
   "b": "@article{vu2026toward,\n  title={Toward Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  journal={IEEE Transactions on Systems, Man, and Cybernetics: Systems},\n  year={2026},\n  pages={1--14},\n  doi={10.1109/TSMC.2026.3726038}\n}"
@@ -23,6 +24,7 @@ window.PUBS = [
   "i": "Vol. 252, Art. no. 112092, Sep. 2026",
   "doi": "10.1016/j.compag.2026.112092",
   "ax": "2610.08807",
+  "h": "Top 5%",
   "u": "https://www.sciencedirect.com/science/article/pii/S0168169926006873",
   "f": "",
   "b": "@article{vu2026contextaware,\n  title={Context-Aware Adaptive Pesticide Spraying for Agricultural Robots under Changing Weather and Terrain Using Vision--Language Models},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  journal={Computers and Electronics in Agriculture},\n  year={2026},\n  volume={252},\n  pages={112092},\n  doi={10.1016/j.compag.2026.112092}\n}"
@@ -37,6 +39,7 @@ window.PUBS = [
   "i": "Pittsburgh, USA, 2026",
   "doi": "",
   "ax": "2607.01287",
+  "h": "",
   "u": "https://arxiv.org/abs/2607.01287",
   "f": "",
   "b": "@inproceedings{vu2026adaptive,\n  title={Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  year={2026}\n}"
@@ -51,6 +54,7 @@ window.PUBS = [
   "i": "pp. 1–6, Genova, Italy, Jul. 2026",
   "doi": "10.1109/AIM65483.2026.11658324",
   "ax": "",
+  "h": "",
   "u": "https://doi.org/10.1109/AIM65483.2026.11658324",
   "f": "",
   "b": "@inproceedings{vu2026gimbalbased,\n  title={Gimbal-Based Human Tracking for Companion Robots Using Continual Learning},\n  author={Vu, Cong-Thanh and Liu, Ching-Chieh and Liu, Yen-Chen},\n  booktitle={IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)},\n  year={2026},\n  pages={1--6},\n  doi={10.1109/AIM65483.2026.11658324}\n}"
@@ -65,6 +69,7 @@ window.PUBS = [
   "i": "pp. 1–6, Genova, Italy, Jul. 2026",
   "doi": "10.1109/AIM65483.2026.11658058",
   "ax": "2608.21387",
+  "h": "",
   "u": "https://doi.org/10.1109/AIM65483.2026.11658058",
   "f": "",
   "b": "@inproceedings{liu2026multimodallanguagemodeldriven,\n  title={Multimodal-Language-Model--Driven Interaction and Companionship for Service Robots in Elderly-Care Facilities},\n  author={Liu, Ching-Chieh and Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)},\n  year={2026},\n  pages={1--6},\n  doi={10.1109/AIM65483.2026.11658058}\n}"
@@ -79,6 +84,7 @@ window.PUBS = [
   "i": "pp. 1–6, Genova, Italy, Jul. 2026",
   "doi": "10.1109/AIM65483.2026.11658152",
   "ax": "2607.21648",
+  "h": "",
   "u": "https://doi.org/10.1109/AIM65483.2026.11658152",
   "f": "",
   "b": "@inproceedings{tsai2026learning,\n  title={Learning Diverse Humanoid Tasks via Synthetic Video Scenarios without Real World Data},\n  author={Tsai, Yun-Hao and Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)},\n  year={2026},\n  pages={1--6},\n  doi={10.1109/AIM65483.2026.11658152}\n}"
@@ -93,6 +99,7 @@ window.PUBS = [
   "i": "pp. 16863–16869, Hangzhou, China, Oct. 2025",
   "doi": "10.1109/IROS60139.2025.11246444",
   "ax": "",
+  "h": "",
   "u": "https://doi.org/10.1109/IROS60139.2025.11246444",
   "f": "",
   "b": "@inproceedings{vu2025autonomous,\n  title={Autonomous Adjustment of Tracking Position in Dynamic Environments for Human-Following Robots Using Deep Reinforcement Learning},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  year={2025},\n  pages={16863--16869},\n  doi={10.1109/IROS60139.2025.11246444}\n}"
@@ -107,6 +114,7 @@ window.PUBS = [
   "i": "pp. 1094–1100, Sep. 2025",
   "doi": "10.1109/Humanoids65713.2025.11203150",
   "ax": "",
+  "h": "",
   "u": "https://doi.org/10.1109/Humanoids65713.2025.11203150",
   "f": "",
   "b": "@inproceedings{vu2025learning,\n  title={Learning Virtual Passive Dynamic Walking Using the Kneed Walker Model for Guiding Policies},\n  author={Vu, Cong-Thanh and Lai, Chi-Cheng and Liu, Yen-Chen},\n  booktitle={IEEE-RAS International Conference on Humanoid Robots (Humanoids)},\n  year={2025},\n  pages={1094--1100},\n  doi={10.1109/Humanoids65713.2025.11203150}\n}"
@@ -121,6 +129,7 @@ window.PUBS = [
   "i": "pp. 23–27, Nagoya, Japan, May 2025",
   "doi": "10.1109/ICCRE65455.2025.11093565",
   "ax": "",
+  "h": "",
   "u": "https://doi.org/10.1109/ICCRE65455.2025.11093565",
   "f": "",
   "b": "@inproceedings{vu2025autonomous,\n  title={Autonomous Navigation for Human-Following Robots Based on Optimized Position Tracking},\n  author={Vu, Cong-Thanh and Huang, Hsin-Hui and Liu, Yen-Chen},\n  booktitle={International Conference on Control and Robotics Engineering (ICCRE)},\n  year={2025},\n  pages={23--27},\n  doi={10.1109/ICCRE65455.2025.11093565}\n}"
@@ -135,6 +144,7 @@ window.PUBS = [
   "i": "pp. 1–8, Taichung, Taiwan, Nov. 2024",
   "doi": "10.1109/RASSE64357.2024.10773736",
   "ax": "",
+  "h": "",
   "u": "https://doi.org/10.1109/RASSE64357.2024.10773736",
   "f": "",
   "b": "@inproceedings{vu2024toward,\n  title={Toward Autonomous Navigation for Agriculture Robots in Orchard Farming},\n  author={Vu, Cong-Thanh and Chen, Hsin-Chia and Liu, Yen-Chen},\n  booktitle={IEEE International Conference on Recent Advances in Systems Science and Engineering (RASSE)},\n  year={2024},\n  pages={1--8},\n  doi={10.1109/RASSE64357.2024.10773736}\n}"
@@ -149,6 +159,7 @@ window.PUBS = [
   "i": "pp. 267–272, Poznań, Poland, Jul. 2024",
   "doi": "10.1109/RoMoCo60539.2024.10604387",
   "ax": "",
+  "h": "",
   "u": "https://doi.org/10.1109/RoMoCo60539.2024.10604387",
   "f": "",
   "b": "@inproceedings{vu2024deep,\n  title={Deep Reinforcement Learning for Multi-Robot Local Path Planning in Dynamic Environments},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  booktitle={International Workshop on Robot Motion and Control (RoMoCo)},\n  year={2024},\n  pages={267--272},\n  doi={10.1109/RoMoCo60539.2024.10604387}\n}"
@@ -163,6 +174,7 @@ window.PUBS = [
   "i": "pp. 495–503, Hanoi, Vietnam, 2022",
   "doi": "10.1007/978-981-19-3394-3_56",
   "ax": "2211.05575",
+  "h": "",
   "u": "https://doi.org/10.1007/978-981-19-3394-3_56",
   "f": "",
   "b": "@inproceedings{nguyen2022mobile,\n  title={Mobile Robot Motion Control Using a Combination of Fuzzy Logic Method and Kinematic Model},\n  author={Nguyen, Anh-Tu and Vu, Cong-Thanh},\n  booktitle={Intelligent Systems and Networks (ICISN), LNNS, Springer},\n  year={2022},\n  pages={495--503},\n  doi={10.1007/978-981-19-3394-3_56}\n}"
@@ -177,6 +189,7 @@ window.PUBS = [
   "i": "pp. 810–816, Ha Long, Vietnam, 2022",
   "doi": "10.1007/978-3-030-99666-6_118",
   "ax": "2109.06773",
+  "h": "",
   "u": "https://doi.org/10.1007/978-3-030-99666-6_118",
   "f": "",
   "b": "@inproceedings{nguyen2022obstacle,\n  title={Obstacle Avoidance for Autonomous Mobile Robots Based on Mapping Method},\n  author={Nguyen, Anh-Tu and Vu, Cong-Thanh},\n  booktitle={Advanced Mechanical Engineering, Automation and Sustainable Development (AMAS), LNME, Springer},\n  year={2022},\n  pages={810--816},\n  doi={10.1007/978-3-030-99666-6_118}\n}"
@@ -191,6 +204,7 @@ window.PUBS = [
   "i": "pp. 402–410, Hanoi, Vietnam, 2021",
   "doi": "10.1007/978-981-16-2094-2_49",
   "ax": "",
+  "h": "",
   "u": "https://doi.org/10.1007/978-981-16-2094-2_49",
   "f": "",
   "b": "@inproceedings{nguyen2021development,\n  title={Development of a Multiple-Sensor Navigation System for Autonomous Guided Vehicle Localization},\n  author={Nguyen, Anh-Tu and Nguyen, Van-Truong and Nguyen, Xuan-Thuan and Vu, Cong-Thanh},\n  booktitle={Intelligent Systems and Networks (ICISN), LNNS, Springer},\n  year={2021},\n  pages={402--410},\n  doi={10.1007/978-981-16-2094-2_49}\n}"

@@ -146,6 +146,7 @@ a.pt:hover{color:var(--accent)}
 .pw-act button{font:600 .9rem Inter;padding:10px 16px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
 .pw-act button.ghost{background:transparent;color:var(--ink-2);border-color:var(--line)}
 .pw-act button:disabled{opacity:.6;cursor:wait}
+.hl{display:inline-block;margin-left:8px;font:700 .64rem Inter;letter-spacing:.04em;padding:2px 8px;border-radius:999px;color:#fff;background:linear-gradient(90deg,#0a66d8,#00a3a3);vertical-align:2px;white-space:nowrap}
 .st{display:inline-block;font:700 .62rem Inter;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:1px}
 .st.review{background:#fef3c7;color:#92400e}
 .st.revision{background:#ede9fe;color:#5b21b6}
@@ -229,7 +230,7 @@ a.pt:hover{color:var(--accent)}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-<script src="assets/pubs.js?v=144c19b0"></script>
+<script src="assets/pubs.js?v=619eee3e"></script>
 <script src="assets/members.js?v=0a06616e"></script>
 <script src="assets/site-meta.js?v=bebca26c"></script>
 <script>
@@ -298,8 +299,10 @@ const mine = P.filter(p => p.a.split(/,\s*/).includes(me));
 const J = mine.filter(p => p.c === "Journal"), C = mine.filter(p => p.c === "Conference"), R = mine.filter(p => p.c === "Preprint");
 const TOP = window.TOP_TIER || [];
 const CT = C.filter(p => TOP.includes(p.s)), CO = C.filter(p => !TOP.includes(p.s));
+let FULL = false;                                   // true while the password-protected full CV is shown
 const pubItem = (p, key) => {
-  const title = p.u ? `<a class="pt" href="${esc(p.u)}">${esc(p.t)}</a>` : `<span class="pt">${esc(p.t)}</span>`;
+  const title = (p.u ? `<a class="pt" href="${esc(p.u)}">${esc(p.t)}</a>` : `<span class="pt">${esc(p.t)}</span>`)
+    + (FULL && p.h ? `<span class="hl">★ ${esc(p.h)}</span>` : "");
   const doi = p.doi ? ` doi: <a href="https://doi.org/${esc(p.doi)}">${esc(p.doi)}</a>` : "";
   return `<div class="pub"><span class="k">[${key}]</span><div>${title}
     <div class="pa">${esc(p.a).replace(esc(me), `<b>${esc(me)}</b>`)}</div>
@@ -329,7 +332,7 @@ const journalGroup = UR => {
   return n ? `<div class="pg Journal"><h3>Journal Articles<em>${n}</em></h3>${ur.map((p, i) => urItem(p, "J" + (i + 1))).join("")}${J.map((p, i) => pubItem(p, "J" + (ur.length + i + 1))).join("")}</div>` : "";
 };
 
-const render = UR => { root.innerHTML = `<article class="sheet">
+const render = UR => { FULL = !!UR; root.innerHTML = `<article class="sheet">
   <header class="hero">
     <img class="wm" src="assets/rasl-logo.png" alt="">
     <div class="hero-top">

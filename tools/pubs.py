@@ -30,9 +30,11 @@ def bib(p):
     if doi: f.append(('doi',doi))
     typ={'Journal':'article','Preprint':'article'}.get(c,'inproceedings')
     return f"@{typ}{{{key},\n"+',\n'.join(f"  {k}={{{x}}}" for k,x in f)+"\n}"
+# Highlight badges shown next to these papers on the site and in the CV (keyed by short venue name, journals only)
+HIGHLIGHT={'TSMC':'Top 5%','COMPAG':'Top 5%'}
 out=[]
 for p in P:
     y,c,s,v,t,a,i,doi,ax,url,fig=p
-    out.append(dict(y=y,c=c,s=s,v=v,t=t,a=a,i=i,doi=doi,ax=ax,u=url or (f"https://doi.org/{doi}" if doi else f"https://arxiv.org/abs/{ax}"),f=fig,b=bib(p)))
+    out.append(dict(y=y,c=c,s=s,v=v,t=t,a=a,i=i,doi=doi,ax=ax,h=(HIGHLIGHT.get(s,'') if c=='Journal' else ''),u=url or (f"https://doi.org/{doi}" if doi else f"https://arxiv.org/abs/{ax}"),f=fig,b=bib(p)))
 open(sys.argv[1],'w').write('window.PUBS = '+json.dumps(out,ensure_ascii=False,indent=1)+';\n')
 print(len(out)); print(out[0]['b']); print(out[-1]['b'])
