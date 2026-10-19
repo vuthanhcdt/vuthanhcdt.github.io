@@ -239,15 +239,6 @@ home=f'''<section class="hero" id="top">
       <div class="plist" id="featured"></div>
     </div>
   </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="join reveal">
-      <div><h3>Join RASL</h3><p>Students interested in robot learning, human–robot interaction or field robotics are welcome to get in touch.</p></div>
-      <a class="btn primary" href="#apply" data-apply>Apply now</a>
-    </div>
-  </div>
 </section>'''
 write('index.html','RASL — Robotics and Autonomous Systems Lab','RASL — Robotics and Autonomous Systems Lab. Human–robot interaction, field robotics, legged locomotion and robot learning.','Home',home)
 
