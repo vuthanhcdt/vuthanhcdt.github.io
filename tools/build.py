@@ -156,7 +156,7 @@ def _tl(n,i):
     d=re.search(r'<b>(.*?)</b><span>(.*?)</span>',n); h=re.search(r'<h3>(.*?)</h3>',n).group(1); p=re.search(r'<p>(.*?)</p>',n).group(1)
     return f'        <li><a href="news.html#news-{i}"><time>{d.group(1)} {d.group(2)}</time><b>{h}</b><span>{p}</span></a></li>'
 TL='\n'.join(_tl(n,i) for i,n in enumerate(news_items[:5],1))
-VENUES=''.join(f'<span>{v}</span>' for v in ['TSMC','COMPAG','ICRA','IROS','AIM','Humanoids']*3)
+VENUES=''.join(f'<span>{v}</span>' for v in ['TSMC','COMPAG','THMS','T-RO','IJRR','RA-L','TII','TIE','TMECH','ICRA','IROS','AIM','Humanoids']*2)
 KW=[['Companion robots','Proactive assistance','Elderly care'],
     ['Human following','Group following','Social navigation'],
     ['Orchard navigation','Adaptive spraying','Uneven terrain'],
