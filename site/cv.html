@@ -171,7 +171,9 @@ a.pt:hover{color:var(--accent)}
 }
 
 /* ---------- print / Save as PDF ---------- */
-@page{size:A4;margin:0}
+/* A4; every page gets top/bottom margins except the first, where the dark header runs to the edge */
+@page{size:A4 portrait;margin:11mm 0 10mm}
+@page :first{margin-top:0}
 @media print{
   html,body{background:#fff}
   body{font-size:9.8pt}
@@ -184,23 +186,25 @@ a.pt:hover{color:var(--accent)}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .sec{break-inside:auto}
   .pub,.tl li,.cards div{break-inside:avoid}
+  .sh,.pg h3{break-after:avoid;page-break-after:avoid}
+  .pg h3 + .pub{break-before:avoid}
   /* PDF renderers mishandle blurred shadows and gradient-clipped text */
   .qr{background:rgba(255,255,255,.07)}
   .hero-top img.ph{box-shadow:none}
   .kpis b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#5fd4e8}
   .kpis{backdrop-filter:none}
   /* tighter rhythm on paper */
-  body{font-size:9.4pt}
-  .sec{padding-top:12px}
+  body{font-size:9.1pt}
+  .sec{padding-top:10px}
   .sh{margin-bottom:9px}
   .tl li{padding:2px 0 7px}
-  .pub{padding:5px 8px;gap:8px}
+  .pub{padding:4px 8px;gap:8px}
   .pg{margin:2px 0 10px}
   .cards{gap:6px}
-  .cards div{padding:7px 11px}
+  .cards div{padding:6px 10px}
+  .hero{padding:9mm 14mm 6mm}
   .tags{margin-top:7px}
 }
-@media print{ @page :not(:first){margin-top:12mm;margin-bottom:12mm} }
 </style>
 </head>
 <body>
@@ -326,10 +330,10 @@ const urItem = (p, key) => {
     <div class="pa">${esc(p.authors || "").replace(esc(me), `<b>${esc(me)}</b>`)}</div>
     <div class="pv">${p.short ? `<span class="ven">${esc(p.short)}</span>` : ""}<i>${esc(p.venue || "")}</i>${p.submitted ? `, submitted ${esc(p.submitted)}` : ""}.<span class="st ${st}">${esc(p.status || "Under review")}</span></div></div></div>`;
 };
-/* journal articles: manuscripts under review / revision (full CV only) come first, then published papers, numbered together */
+/* journal articles: published papers first, then (full CV only) manuscripts under revision / review in the order of the private list */
 const journalGroup = UR => {
-  const ur = UR || [], n = ur.length + J.length;
-  return n ? `<div class="pg Journal"><h3>Journal Articles<em>${n}</em></h3>${ur.map((p, i) => urItem(p, "J" + (i + 1))).join("")}${J.map((p, i) => pubItem(p, "J" + (ur.length + i + 1))).join("")}</div>` : "";
+  const ur = UR || [], n = J.length + ur.length;
+  return n ? `<div class="pg Journal"><h3>Journal Articles<em>${n}</em></h3>${J.map((p, i) => pubItem(p, "J" + (i + 1))).join("")}${ur.map((p, i) => urItem(p, "J" + (J.length + i + 1))).join("")}</div>` : "";
 };
 
 const render = UR => { FULL = !!UR; root.innerHTML = `<article class="sheet">
