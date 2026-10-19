@@ -281,7 +281,7 @@ if (!seen) setTimeout(() => {
   hint.hidden = false;
   try { sessionStorage.setItem("apHint", "off"); } catch(e){}
   setTimeout(() => { hint.classList.add("bye"); setTimeout(() => { hint.hidden = true; hint.classList.remove("bye"); }, 400); }, 6000);
-}, 2000);
+}, document.documentElement.classList.contains("intro-on") ? 4500 : 2000);   // wait for the home intro to finish
 hint.querySelector(".ap-hint-text").addEventListener("click", openForm);
 hint.querySelector(".ap-hint-x").addEventListener("click", hideHint);
 

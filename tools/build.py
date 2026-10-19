@@ -27,6 +27,15 @@ def page_url(name, lang='en'):
 LAB_JSONLD='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"RASL — Robotics and Autonomous Systems Lab","alternateName":"RASL","url":"https://vuthanhcdt.github.io/","logo":"https://vuthanhcdt.github.io/assets/rasl-logo.png","image":"https://vuthanhcdt.github.io/assets/og-image.png","email":"mailto:vuthanh.cdt@gmail.com","knowsAbout":["Human–robot interaction","Human-aware navigation","Agricultural robots","Legged locomotion","Robot learning","Vision–language–action models"],"founder":{"@type":"Person","name":"Cong-Thanh Vu","jobTitle":"Director, RASL","url":"https://vuthanhcdt.github.io/people.html","sameAs":["https://scholar.google.com/citations?user=7FEW5b8AAAAJ"]}}</script>'''
 PERSON_JSONLD='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Cong-Thanh Vu","honorificSuffix":"Ph.D.","jobTitle":"Director, Robotics and Autonomous Systems Lab (RASL)","url":"https://vuthanhcdt.github.io/people.html","image":"https://vuthanhcdt.github.io/assets/avatar-cutout.png","email":"mailto:vuthanh.cdt@gmail.com","alumniOf":[{"@type":"CollegeOrUniversity","name":"National Cheng Kung University"},{"@type":"CollegeOrUniversity","name":"Hanoi University of Industry"}],"sameAs":["https://scholar.google.com/citations?user=7FEW5b8AAAAJ"]}</script>'''
 JSONLD={'index.html':LAB_JSONLD,'people.html':PERSON_JSONLD}
+# opening animation on the home page (assets/intro.js): decide before first paint so the page never flashes
+INTRO_HEAD='<script>try{if(!sessionStorage.getItem("raslIntro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-on")}catch(e){}</script>'
+INTRO_BODY='''<div class="intro" aria-hidden="true">
+  <canvas></canvas>
+  <div class="intro-c"><img class="intro-mark" src="assets/rasl-mark.png" alt=""><div class="intro-sub">Robotics and Autonomous Systems Lab</div></div>
+  <button class="intro-skip" type="button">Skip</button>
+</div>
+<script src="assets/intro.js"></script>
+'''
 
 def head(title,desc):
     return f'''<!doctype html>
@@ -145,6 +154,8 @@ def lang_switch(lang,name):
 def write(name,title,desc,active,body):
     raw=bust(head(title,desc)+nav(active)+'\n<main>\n'+body+'\n</main>\n\n'+FOOT)
     raw=raw.replace('</head>',f'<link rel="alternate" hreflang="en" href="{page_url(name)}">\n<link rel="alternate" hreflang="vi" href="{page_url(name,"vi")}">\n<link rel="alternate" hreflang="x-default" href="{page_url(name)}">\n</head>',1)
+    if name=='index.html':
+        raw=raw.replace('</head>',INTRO_HEAD+'\n</head>',1).replace('<body>\n','<body>\n'+INTRO_BODY,1)
     raw=raw.replace('<!--JSONLD-->',JSONLD.get(name,''))
     BUILT[name]=raw
     h=(raw.replace('<!--LANG-->',lang_switch('en',name)).replace('__UPDATED__',UPD_EN)
@@ -361,7 +372,7 @@ import glob
 for page in glob.glob(os.path.join(OUT,'*.html'))+glob.glob(os.path.join(OUT,'vi','*.html')):
     h=open(page).read()
     pre='../' if os.sep+'vi'+os.sep in page else ('/' if page.endswith('404.html') else '')
-    for rel in ['assets/site.css','assets/site.js','assets/apply.js','assets/site-meta.js','assets/pubs.js','assets/search-index.js','assets/search-index-vi.js','assets/members.js']:
+    for rel in ['assets/site.css','assets/site.js','assets/apply.js','assets/intro.js','assets/site-meta.js','assets/pubs.js','assets/search-index.js','assets/search-index-vi.js','assets/members.js']:
         if os.path.exists(os.path.join(OUT,rel)):
             h=re.sub(r'"%s(\?v=[0-9a-f]+)?"'%re.escape(pre+rel), f'"{pre}{rel}?v={_ver(rel)}"', h)
     open(page,'w').write(h)

@@ -32,6 +32,8 @@ TR = [
     ('<span>Conference papers</span>', '<span>Bài báo hội nghị</span>'),
     ('aria-label="Venues"', 'aria-label="Tạp chí và hội nghị"'),
 
+    ('<div class="intro-sub">Robotics and Autonomous Systems Lab</div>', '<div class="intro-sub">Phòng thí nghiệm Robot và Hệ thống Tự hành</div>'),
+    ('<button class="intro-skip" type="button">Skip</button>', '<button class="intro-skip" type="button">Bỏ qua</button>'),
     # ---------------- home: research ----------------
     ('We combine learning, perception and control so that robots can act safely and usefully in dynamic, human-centered and unstructured environments.',
      'Chúng tôi kết hợp học máy, nhận thức môi trường và điều khiển để robot hoạt động an toàn, hiệu quả trong những môi trường luôn thay đổi, thiếu cấu trúc và có sự hiện diện của con người.'),
