@@ -105,6 +105,8 @@ import datetime
 _now=datetime.date.today()
 UPD_EN='Updated '+_now.strftime('%B %-d, %Y')
 UPD_VI=f'Cập nhật lần cuối: {_now.day:02d}/{_now.month:02d}/{_now.year}'
+# one build date for the whole site (footer + CV)
+open(os.path.join(OUT,'assets','site-meta.js'),'w').write(f'window.SITE_UPDATED = "{_now.isoformat()}";\n')
 BUILT={}
 def lang_switch(lang,name):
     en_href, vi_href = (name, 'vi/'+name) if lang=='en' else ('../'+name, name)
@@ -291,7 +293,7 @@ import glob
 for page in glob.glob(os.path.join(OUT,'*.html'))+glob.glob(os.path.join(OUT,'vi','*.html')):
     h=open(page).read()
     pre='../' if os.sep+'vi'+os.sep in page else ''
-    for rel in ['assets/site.css','assets/site.js','assets/apply.js','assets/pubs.js','assets/search-index.js','assets/search-index-vi.js','assets/members.js']:
+    for rel in ['assets/site.css','assets/site.js','assets/apply.js','assets/site-meta.js','assets/pubs.js','assets/search-index.js','assets/search-index-vi.js','assets/members.js']:
         if os.path.exists(os.path.join(OUT,rel)):
             h=re.sub(r'"%s(\?v=[0-9a-f]+)?"'%re.escape(pre+rel), f'"{pre}{rel}?v={_ver(rel)}"', h)
     open(page,'w').write(h)

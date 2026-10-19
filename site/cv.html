@@ -199,6 +199,7 @@ a.pt:hover{color:var(--accent)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script src="assets/pubs.js?v=144c19b0"></script>
 <script src="assets/members.js?v=0a06616e"></script>
+<script src="assets/site-meta.js?v=bebca26c"></script>
 <script>
 (() => {
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -279,7 +280,9 @@ const timeline = list => list?.length ? `<ul class="tl">${list.map(r =>
   `<li><b>${esc(r.what)}</b>${r.when ? `<em class="when">${esc(r.when)}</em>` : ""}<span>${esc(r.where || "")}</span>${r.advisor ? `<span class="adv">Advisor: <a href="${esc(r.advisor.url)}">${GS_MINI}${esc(r.advisor.name)}</a></span>` : ""}</li>`).join("")}</ul>` : "";
 const cards = list => list?.length ? `<div class="cards">${list.map(r =>
   `<div>${r.when ? `<em>${esc(r.when)}</em>` : ""}<b>${esc(r.what)}</b><span>${esc(r.where || "")}</span></div>`).join("")}</div>` : "";
-const today = new Date().toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
+/* "Updated" = the date the website was last built (assets/site-meta.js), not the day the CV is opened */
+const built = window.SITE_UPDATED ? new Date(window.SITE_UPDATED + "T12:00:00") : new Date();
+const today = built.toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
 
 root.innerHTML = `<article class="sheet">
   <header class="hero">
