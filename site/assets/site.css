@@ -569,11 +569,14 @@ body{animation:pagein .5s ease both}
 .dir-side{display:flex;flex-direction:column;align-items:center;gap:26px}
 .dir-side .socials{justify-content:center;flex-wrap:nowrap;gap:6px;margin-top:6px}
 .dir-side .socials a{padding:7px 11px;white-space:nowrap}
-.dir-side .dir-kpis{width:100%;margin-top:0;grid-template-columns:repeat(3,1fr)}          /* stays 3 across on phones too */
+/* numbers: the total on top, split below into journals | conferences (same on phones) */
+.dir-side .dir-kpis{width:100%;margin-top:0;grid-template-columns:1fr 1fr}
 .dir-side .dir-kpis div{border-top:0;border-left:1px solid var(--line)}
-.dir-side .dir-kpis div:first-child{border-left:0}
+.dir-side .dir-kpis div:first-child{grid-column:1/-1;border-left:0;border-bottom:1px solid var(--line);background:var(--bg-2)}
+.dir-side .dir-kpis div:nth-child(2){border-left:0}
 .dir-side .dir-kpis div{flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:14px 6px;text-align:center}
 .dir-side .dir-kpis b{font-size:1.7rem;line-height:1}
+.dir-side .dir-kpis div:first-child b{font-size:2.2rem}
 .dir-side .dir-kpis span{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.2}
 .dir-body h3{margin-top:4px}
 .dir-kpis{display:grid;grid-template-columns:repeat(3,1fr);margin-top:22px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
