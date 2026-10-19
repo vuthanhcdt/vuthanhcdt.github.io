@@ -539,8 +539,6 @@ body{animation:pagein .5s ease both}
 @media (prefers-reduced-motion: reduce){.prow,.prow::after,.ptag{transition:none}.prow:hover{transform:none}}
 
 /* CV button on people cards */
-.socials a.cv-btn{background:var(--accent);border-color:var(--accent);color:#fff}
-.socials a.cv-btn:hover{color:#fff;filter:brightness(1.08)}
 
 /* ======== People: Director ======== */
 .dir{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center;padding:36px;border-radius:28px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
