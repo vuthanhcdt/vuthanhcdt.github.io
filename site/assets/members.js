@@ -1,7 +1,7 @@
 /*
   RASL members — one entry per person.
   The CV page (cv.html?m=<id>) is generated automatically from this file
-  (`badge` on an education entry is shown only in the password-protected full CV)
+  (`badge` — a string or a list — on an education entry is shown only in the password-protected full CV)
   plus every paper in pubs.js whose author list contains `pubName`.
 
   To add a member: copy the block below, give it a new `id`, fill in the fields,
@@ -27,7 +27,7 @@ window.MEMBERS = [
     summary: "Robotics researcher working on robots that act alongside people and in unstructured environments: human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, and learning-based control with deep reinforcement learning and vision–language models.",
     interests: ["Human–Robot Interaction", "Human-Aware Navigation", "Agricultural Robots", "Legged Locomotion", "Robot Learning", "Vision–Language–Action"],
     education: [
-      { when: "2022 – 2026", what: "Ph.D. in Mechanical Engineering", where: "National Cheng Kung University (NCKU), Tainan, Taiwan", badge: "QS World Top 200", advisor: { name: "Prof. Yen-Chen Liu", url: "https://scholar.google.com/citations?user=D5p2j08AAAAJ" } },
+      { when: "2022 – 2026", what: "Ph.D. in Mechanical Engineering", where: "National Cheng Kung University (NCKU), Tainan, Taiwan", badge: ["QS World Top 200", "QS Mechanical Eng.: World Top 200 · #2 in Taiwan"], advisor: { name: "Prof. Yen-Chen Liu", url: "https://scholar.google.com/citations?user=D5p2j08AAAAJ" } },
       { when: "2019 – 2021", what: "M.S. in Mechatronics Engineering", where: "Hanoi University of Industry, Hanoi, Vietnam", advisor: { name: "Assoc. Prof. Anh-Tu Nguyen", url: "https://scholar.google.com/citations?user=2jZTByoAAAAJ" } },
       { when: "2015 – 2019", what: "B.S. in Mechatronics Engineering", where: "Hanoi University of Industry, Hanoi, Vietnam", advisor: { name: "Assoc. Prof. Anh-Tu Nguyen", url: "https://scholar.google.com/citations?user=2jZTByoAAAAJ" } }
     ],
