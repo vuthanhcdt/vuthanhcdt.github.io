@@ -34,6 +34,10 @@ a:hover{text-decoration:underline}
 .bar button.primary{background:#fff;color:#0b1424;border-color:#fff}
 .bar svg{width:16px;height:16px}
 .bar select option{color:#0b1424}
+.bar .lang{display:inline-flex;height:36px;padding:3px;gap:2px;border-radius:9px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06)}
+.bar .lang a{display:grid;place-items:center;min-width:34px;border-radius:6px;color:#c9d4e5;font:700 .76rem Inter}
+.bar .lang a:hover{text-decoration:none;color:#fff}
+.bar .lang a[aria-current]{background:#fff;color:#0b1424}
 
 /* ---------- sheet ---------- */
 .sheet{width:min(210mm,100% - 32px);margin:24px auto 48px;background:var(--paper);box-shadow:0 14px 50px rgba(6,16,31,.14);border-radius:8px;overflow:hidden}
@@ -68,7 +72,13 @@ a:hover{text-decoration:underline}
 .kpis div{padding:10px 14px;border-left:1px solid rgba(255,255,255,.1);display:flex;align-items:baseline;gap:8px;justify-content:center;white-space:nowrap}
 .kpis div:first-child{border-left:0}
 .kpis b{font:700 1.45rem "Space Grotesk";background:linear-gradient(90deg,#6fb6ff,#3ee0d0);-webkit-background-clip:text;background-clip:text;color:transparent}
-.kpis span{font-size:.74rem;color:#b9c9e2}
+.urstat{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:10px;padding:0 4px;font-size:.78rem;color:#b9c9e2}
+.urstat em{font-style:normal;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.68rem;color:#8fa6c8}
+.urstat span{display:inline-flex;align-items:center;gap:6px}
+.urstat span::before{content:"";width:7px;height:7px;border-radius:50%;background:#fbbf24}
+.urstat span.revision::before{background:#a78bfa}
+.urstat b{color:#fff;font:700 .95rem "Space Grotesk"}
+.kpis span{font-size:.74rem;line-height:1.25;color:#b9c9e2;white-space:normal}
 
 /* body */
 .body{padding:8px 30px 22px}
@@ -80,7 +90,7 @@ a:hover{text-decoration:underline}
 .sh h2{font:700 .82rem "Space Grotesk";letter-spacing:.16em;text-transform:uppercase;margin:0;color:var(--ink)}
 .sh::after{content:"";flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--accent-soft),transparent)}
 .sh .cnt{font:600 .7rem Inter;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px;order:3}
-p.lead{margin:0;color:var(--ink-2)}
+p.lead{margin:0;color:var(--ink-2);text-align:justify}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .tags span{font-size:.74rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
 
@@ -236,20 +246,21 @@ a.pt:hover{color:var(--accent)}
     <a class="brand" href="index.html"><img src="assets/rasl-logo.png" alt="">RASL</a>
     <span class="sp"></span>
     <select id="who" aria-label="Choose member"></select>
-    <a class="b" href="people.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>People</a>
+    <span class="lang" role="group" aria-label="Language"><a id="lgEn" href="#">EN</a><a id="lgVi" href="#">VI</a></span>
+    <a class="b" id="back" href="people.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>People</span></a>
     <button class="b lockbtn" id="full" type="button" hidden>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Full CV</span></button>
     <button class="primary" id="pdf" type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download PDF</button>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span>Download PDF</span></button>
   </div>
 </div>
 <main id="cv"></main>
 <div class="pw" id="pw" hidden>
   <form class="pw-box" id="pwForm" autocomplete="off">
     <div class="pw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-    <h2>Full CV</h2>
-    <p>Includes manuscripts currently under review or revision. Enter the password to unlock it.</p>
+    <h2 id="pwH">Full CV</h2>
+    <p id="pwP">Includes manuscripts currently under review or revision. Enter the password to unlock it.</p>
     <input id="pwIn" type="password" placeholder="Password" aria-label="Password" required>
     <small id="pwErr" role="alert"></small>
     <div class="pw-act"><button type="button" class="ghost" id="pwCancel">Cancel</button><button type="submit" id="pwGo">Unlock</button></div>
@@ -258,24 +269,73 @@ a.pt:hover{color:var(--accent)}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script src="assets/pubs.js?v=619eee3e"></script>
-<script src="assets/members.js?v=1ad27912"></script>
+<script src="assets/members.js?v=19a43d31"></script>
 <script src="assets/site-meta.js?v=bebca26c"></script>
 <script>
 (() => {
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const M = window.MEMBERS || [], P = window.PUBS || [];
 const params = new URLSearchParams(location.search);
-const m = M.find(x => x.id === params.get("m")) || M[0];
+const VI = params.get("lang") === "vi";
+const m0 = M.find(x => x.id === params.get("m")) || M[0];
 const root = document.getElementById("cv");
 
+/* ---------- language: English by default, Vietnamese with ?lang=vi (paper titles stay in English) ---------- */
+const L = VI ? {
+  people: "Thành viên", full: "CV đầy đủ", pub: "CV công khai", pdf: "Tải PDF", missing: "Không tìm thấy dữ liệu thành viên.",
+  profile: "Giới thiệu", edu: "Học vấn", exp: "Kinh nghiệm nghiên cứu", pubs: "Công bố khoa học", honors: "Giải thưởng &amp; Học bổng", service: "Hoạt động học thuật",
+  journal: "Bài báo tạp chí", top: "Kỷ yếu hội nghị hàng đầu", other: "Kỷ yếu hội nghị khác", conf: "Kỷ yếu hội nghị", pre: "Bản thảo (preprint)",
+  published: n => `${n} đã công bố`, advisor: "Người hướng dẫn", scan: "Quét để truy cập", open: "Mở", updated: "Cập nhật",
+  kPeer: "Bài báo có bình duyệt", kJour: "Bài báo tạp chí", kTop: "Bài hội nghị hàng đầu", kConf: "Bài báo hội nghị", kPre: "Bản thảo (preprint)", urHead: "Bản thảo tạp chí", urRev: "đang chỉnh sửa (revision)", urRew: "đang phản biện",
+  submitted: "nộp", review: "Đang phản biện", revision: "Đang chỉnh sửa (revision)", portrait: "Ảnh chân dung",
+  pwH: "CV đầy đủ", pwP: "Bao gồm các bản thảo đang được phản biện hoặc chỉnh sửa. Nhập mật khẩu để mở.", pwPh: "Mật khẩu",
+  cancel: "Huỷ", unlock: "Mở khoá", checking: "Đang kiểm tra…", wrong: "Sai mật khẩu. Vui lòng thử lại.", locale: "vi-VN"
+} : {
+  people: "People", full: "Full CV", pub: "Public CV", pdf: "Download PDF", missing: "No member data found.",
+  profile: "Profile", edu: "Education", exp: "Research Experience", pubs: "Publications", honors: "Honors &amp; Awards", service: "Professional Service",
+  journal: "Journal Articles", top: "Top-tier Conference Proceedings", other: "Other Conference Proceedings", conf: "Conference Proceedings", pre: "Preprints",
+  published: n => `${n} published`, advisor: "Advisor", scan: "Scan to visit", open: "Open", updated: "Updated",
+  kPeer: "Peer-reviewed", kJour: "Journal", kTop: "Top-tier conf.", kConf: "Conference", kPre: "Preprint", urHead: "Journal manuscripts", urRev: "under revision", urRew: "under review",
+  submitted: "submitted", review: "", revision: "", portrait: "Portrait of",
+  pwH: "Full CV", pwP: "", pwPh: "Password", cancel: "Cancel", unlock: "Unlock", checking: "Checking…", wrong: "Wrong password. Please try again.", locale: "en-US"
+};
+/* "Mar 2022" -> "03/2022" for the Vietnamese CV */
+const MON = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
+const vd = t => VI && t ? String(t).replace(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})\b/g, (_, mo, y) => `${String(MON[mo]).padStart(2, "0")}/${y}`) : t;
+/* merge the member's `vi` block over the English data; lists are matched by position */
+const mergeRow = (r, v) => v ? {...r, ...v, advisor: r.advisor && v.advisor ? {...r.advisor, ...v.advisor} : r.advisor} : r;
+const localize = x => {
+  if (!x || !VI || !x.vi) return x;
+  const v = x.vi, out = {...x, ...v};
+  for (const k of ["education", "experience", "honors", "service"]) if (x[k]) out[k] = x[k].map((r, i) => mergeRow(r, (v[k] || [])[i]));
+  return out;
+};
+const m = localize(m0);
+document.documentElement.lang = VI ? "vi" : "en";
+const withLang = (lang, extra = {}) => { const q = new URLSearchParams(location.search); q.set("lang", lang); if (lang === "en") q.delete("lang"); for (const k in extra) q.set(k, extra[k]); const t = q.toString(); return location.pathname + (t ? "?" + t : ""); };
+const lgEn = document.getElementById("lgEn"), lgVi = document.getElementById("lgVi");
+lgEn.href = withLang("en"); lgVi.href = withLang("vi");
+(VI ? lgVi : lgEn).setAttribute("aria-current", "true");
+document.getElementById("back").href = VI ? "vi/people.html" : "people.html";
+document.querySelector("#back span").textContent = L.people;
+document.querySelector(".bar .brand").href = VI ? "vi/index.html" : "index.html";
+document.querySelector("#pdf span").textContent = L.pdf;
+document.querySelector("#full span").textContent = L.full;
+if (VI){
+  document.getElementById("pwH").textContent = L.pwH; document.getElementById("pwP").textContent = L.pwP;
+  document.getElementById("pwIn").placeholder = document.getElementById("pwIn").ariaLabel = L.pwPh;
+  document.getElementById("pwCancel").textContent = L.cancel; document.getElementById("pwGo").textContent = L.unlock;
+}
+
 const who = document.getElementById("who");
-who.innerHTML = M.map(x => `<option value="${esc(x.id)}"${x === m ? " selected" : ""}>${esc(x.name)}</option>`).join("");
+who.innerHTML = M.map(x => `<option value="${esc(x.id)}"${x === m0 ? " selected" : ""}>${esc(x.name)}</option>`).join("");
 who.hidden = M.length < 2;
-who.addEventListener("change", () => { location.search = "?m=" + encodeURIComponent(who.value); });
+who.addEventListener("change", () => { location.search = "?m=" + encodeURIComponent(who.value) + (VI ? "&lang=vi" : ""); });
 document.getElementById("pdf").addEventListener("click", () => window.print());
 
-if (!m){ root.innerHTML = `<div class="missing">No member data found.</div>`; return; }
-document.title = `CV_${m.name.replace(/\s+/g, "_")}`;   // default PDF file name
+if (!m){ root.innerHTML = `<div class="missing">${L.missing}</div>`; return; }
+const pdfName = sfx => `CV_${m.name.replace(/\s+/g, "_")}${VI ? "_VI" : ""}${sfx}`;
+document.title = pdfName("");   // default PDF file name
 
 /* icons */
 const I = {
@@ -339,59 +399,67 @@ const group = (cls, label, list, prefix, start = 0) => list.length
   ? `<div class="pg ${cls}"><h3>${label}<em>${list.length}</em></h3>${list.map((p, i) => pubItem(p, prefix + (start + i + 1))).join("")}</div>` : "";
 
 const timeline = list => list?.length ? `<ul class="tl">${list.map(r =>
-  `<li><b>${esc(r.what)}</b>${r.when ? `<em class="when">${esc(r.when)}</em>` : ""}<span>${esc(r.where || "")}</span>${FULL && r.badge ? `<span class="bdg">${[].concat(r.badge).map(b => `<span class="hl">★ ${esc(b)}</span>`).join("")}</span>` : ""}${r.advisor ? `<span class="adv">Advisor: <a href="${esc(r.advisor.url)}">${GS_MINI}${esc(r.advisor.name)}</a></span>` : ""}</li>`).join("")}</ul>` : "";
+  `<li><b>${esc(r.what)}</b>${r.when ? `<em class="when">${esc(vd(r.when))}</em>` : ""}<span>${esc(r.where || "")}</span>${FULL && r.badge ? `<span class="bdg">${[].concat(r.badge).map(b => `<span class="hl">★ ${esc(b)}</span>`).join("")}</span>` : ""}${r.advisor ? `<span class="adv">${L.advisor}: <a href="${esc(r.advisor.url)}">${GS_MINI}${esc(r.advisor.name)}</a></span>` : ""}</li>`).join("")}</ul>` : "";
 /* one line per entry: bold title — where, date on the right */
 const rows = list => list?.length ? `<ul class="rows">${list.map(r =>
-  `<li><span><b>${esc(r.what)}</b>${r.where ? ` — ${esc(r.where)}` : ""}</span>${r.when ? `<em>${esc(r.when)}</em>` : ""}</li>`).join("")}</ul>` : "";
+  `<li><span><b>${esc(r.what)}</b>${r.where ? ` — ${esc(r.where)}` : ""}</span>${r.when ? `<em>${esc(vd(r.when))}</em>` : ""}</li>`).join("")}</ul>` : "";
 const cards = list => list?.length ? `<div class="cards">${list.map(r =>
-  `<div>${r.when ? `<em>${esc(r.when)}</em>` : ""}<b>${esc(r.what)}</b><span>${esc(r.where || "")}</span></div>`).join("")}</div>` : "";
+  `<div>${r.when ? `<em>${esc(vd(r.when))}</em>` : ""}<b>${esc(r.what)}</b><span>${esc(r.where || "")}</span></div>`).join("")}</div>` : "";
 /* "Updated" = the date the website was last built (assets/site-meta.js), not the day the CV is opened */
 const built = window.SITE_UPDATED ? new Date(window.SITE_UPDATED + "T12:00:00") : new Date();
-const today = built.toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
+const today = VI ? built.toLocaleDateString("vi-VN", {day:"2-digit", month:"2-digit", year:"numeric"})
+                 : built.toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
 
 /* manuscripts under review / revision (only after the password unlocks them) */
 const urItem = (p, key) => {
   const st = /revision/i.test(p.status || "") ? "revision" : "review";
   return `<div class="pub"><span class="k">[${key}]</span><div><span class="pt">${esc(p.title)}</span>
     <div class="pa">${esc(p.authors || "").replace(esc(me), `<b>${esc(me)}</b>`)}</div>
-    <div class="pv">${p.short ? `<span class="ven">${esc(p.short)}</span>` : ""}<i>${esc(p.venue || "")}</i>${p.submitted ? `, submitted ${esc(p.submitted)}` : ""}.<span class="st ${st}">${esc(p.status || "Under review")}</span></div></div></div>`;
+    <div class="pv">${p.short ? `<span class="ven">${esc(p.short)}</span>` : ""}<i>${esc(p.venue || "")}</i>${p.submitted ? `, ${L.submitted} ${esc(vd(p.submitted))}` : ""}.<span class="st ${st}">${esc(L[st] || p.status || "Under review")}</span></div></div></div>`;
+};
+/* full CV only: one line under the stat row, e.g. "Journal manuscripts: 1 under revision · 2 under review" */
+const urStats = UR => {
+  if (!UR || !UR.length) return "";
+  const rv = UR.filter(p => /revision/i.test(p.status || "")).length, rw = UR.length - rv;
+  const part = (n, label, cls) => n ? `<span class="${cls}"><b>${n}</b> ${label}</span>` : "";
+  return `<div class="urstat"><em>${L.urHead}</em>${part(rv, L.urRev, "revision")}${part(rw, L.urRew, "review")}</div>`;
 };
 /* journal articles: published papers first, then (full CV only) manuscripts under revision / review in the order of the private list */
 const journalGroup = UR => {
   const ur = UR || [], n = J.length + ur.length;
-  return n ? `<div class="pg Journal"><h3>Journal Articles<em>${n}</em></h3>${J.map((p, i) => pubItem(p, "J" + (i + 1))).join("")}${ur.map((p, i) => urItem(p, "J" + (J.length + i + 1))).join("")}</div>` : "";
+  return n ? `<div class="pg Journal"><h3>${L.journal}<em>${n}</em></h3>${J.map((p, i) => pubItem(p, "J" + (i + 1))).join("")}${ur.map((p, i) => urItem(p, "J" + (J.length + i + 1))).join("")}</div>` : "";
 };
 
 const render = UR => { FULL = !!UR; root.innerHTML = `<article class="sheet">
   <header class="hero">
     <img class="wm" src="assets/rasl-logo.png" alt="">
     <div class="hero-top">
-      ${m.photo ? `<img class="ph" src="${esc(m.photo)}" alt="Portrait of ${esc(m.name)}">` : ""}
+      ${m.photo ? `<img class="ph" src="${esc(m.photo)}" alt="${L.portrait} ${esc(m.name)}">` : ""}
       <div>
         <h1>${esc(m.name)}${m.suffix ? ", " + esc(m.suffix) : ""}</h1>
         ${m.role ? `<p class="role">${esc(m.role)}</p>` : ""}
         <div class="chips">${m.website ? `<a href="${esc(m.website)}">${ic("globe")}${esc(m.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</a>` : ""}${(m.contact || []).map(chip).join("")}</div>
       </div>
-      ${m.website ? `<a class="qr" href="${esc(m.website)}" title="Open ${esc(m.website)}"><span class="tile">${qr(m.website)}</span><span class="cap"><b>Scan to visit</b>${esc(m.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span></a>` : ""}
+      ${m.website ? `<a class="qr" href="${esc(m.website)}" title="${L.open} ${esc(m.website)}"><span class="tile">${qr(m.website)}</span><span class="cap"><b>${L.scan}</b>${esc(m.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span></a>` : ""}
     </div>
     ${mine.length ? `<div class="kpis">
-      <div><b>${J.length + C.length}</b><span>Peer-reviewed</span></div>
-      <div><b>${J.length}</b><span>Journal</span></div>
-      ${CT.length ? `<div><b>${CT.length}</b><span>Top-tier conf.</span></div>` : ""}
-      <div><b>${C.length}</b><span>Conference</span></div>
-      ${R.length ? `<div><b>${R.length}</b><span>Preprint</span></div>` : ""}
-      ${UR && UR.length ? `<div><b>${UR.length}</b><span>Under review</span></div>` : ""}
+      <div><b>${J.length + C.length}</b><span>${L.kPeer}</span></div>
+      <div><b>${J.length}</b><span>${L.kJour}</span></div>
+      ${CT.length ? `<div><b>${CT.length}</b><span>${L.kTop}</span></div>` : ""}
+      <div><b>${C.length}</b><span>${L.kConf}</span></div>
+      ${R.length ? `<div><b>${R.length}</b><span>${L.kPre}</span></div>` : ""}
     </div>` : ""}
+    ${urStats(UR)}
   </header>
   <div class="body">
-    ${sec("user", "Profile", m.summary ? `<p class="lead">${esc(m.summary)}</p>${m.interests?.length ? `<div class="tags">${m.interests.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : ""}` : "")}
-    ${sec("edu", "Education", timeline(m.education))}
-    ${sec("work", "Research Experience", timeline(m.experience))}
-    ${sec("book", "Publications", journalGroup(UR) + group("Conference top", "Top-tier Conference Proceedings", CT, "C") + group("Conference", CT.length ? "Other Conference Proceedings" : "Conference Proceedings", CO, "C", CT.length) + group("Preprint", "Preprints", R, "P"), mine.length ? `${mine.length} published` : "")}
-    ${sec("award", "Honors &amp; Awards", rows(m.honors))}
-    ${sec("serv", "Professional Service", rows(m.service))}
+    ${sec("user", L.profile, m.summary ? `<p class="lead">${esc(m.summary)}</p>${m.interests?.length ? `<div class="tags">${m.interests.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : ""}` : "")}
+    ${sec("edu", L.edu, timeline(m.education))}
+    ${sec("work", L.exp, timeline(m.experience))}
+    ${sec("book", L.pubs, journalGroup(UR) + group("Conference top", L.top, CT, "C") + group("Conference", CT.length ? L.other : L.conf, CO, "C", CT.length) + group("Preprint", L.pre, R, "P"), mine.length ? L.published(mine.length) : "")}
+    ${sec("award", L.honors, rows(m.honors))}
+    ${sec("serv", L.service, rows(m.service))}
   </div>
-  <p class="upd">Updated ${today}</p>
+  <p class="upd">${L.updated} ${today}</p>
 </article>`; };
 render(null);
 
@@ -417,7 +485,7 @@ async function decrypt(b64, pass){
 function askPw(){ pw.hidden = false; pwErr.textContent = ""; pwIn.value = ""; setTimeout(() => pwIn.focus(), 30); }
 const closePw = () => { pw.hidden = true; fullBtn.focus(); };
 fullBtn.addEventListener("click", () => {
-  if (unlocked){ unlocked = false; render(null); fullBtn.classList.remove("on"); fullBtn.querySelector("span").textContent = "Full CV"; document.title = `CV_${m.name.replace(/\s+/g, "_")}`; return; }
+  if (unlocked){ unlocked = false; render(null); fullBtn.classList.remove("on"); fullBtn.querySelector("span").textContent = L.full; document.title = pdfName(""); return; }
   askPw();
 });
 document.getElementById("pwCancel").addEventListener("click", closePw);
@@ -426,17 +494,17 @@ addEventListener("keydown", e => { if (e.key === "Escape" && !pw.hidden) closePw
 pwForm.addEventListener("submit", async e => {
   e.preventDefault();
   if (!pwIn.value) return;
-  pwGo.disabled = true; pwGo.textContent = "Checking…"; pwErr.textContent = "";
+  pwGo.disabled = true; pwGo.textContent = L.checking; pwErr.textContent = "";
   try {
     const data = await decrypt(blob, pwIn.value);
     const UR = (data.manuscripts || []).filter(p => !p.member || p.member === m.id);
     unlocked = true; render(UR); pw.hidden = true;
-    fullBtn.classList.add("on"); fullBtn.querySelector("span").textContent = "Public CV";
-    document.title = `CV_${m.name.replace(/\s+/g, "_")}_full`;
+    fullBtn.classList.add("on"); fullBtn.querySelector("span").textContent = L.pub;
+    document.title = pdfName("_full");
   } catch(err){
-    pwErr.textContent = "Wrong password. Please try again."; pwIn.select();
+    pwErr.textContent = L.wrong; pwIn.select();
   } finally {
-    pwIn.value = ""; pwGo.disabled = false; pwGo.textContent = "Unlock";
+    pwIn.value = ""; pwGo.disabled = false; pwGo.textContent = L.unlock;
   }
 });
 })();

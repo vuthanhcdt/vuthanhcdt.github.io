@@ -17,7 +17,7 @@ const AREAS = [
   ["Agricultural Robots", "Robot nông nghiệp"],
   ["Legged Locomotion", "Robot đi bằng chân"],
   ["Robot Learning", "Học máy cho robot"],
-  ["Vision–Language–Action", "Thị giác – Ngôn ngữ – Hành động"],
+  ["Vision–Language–Action", "Vision–Language–Action"],
 ];
 const SKILLS = ["Python", "C/C++", "ROS / ROS 2", "MATLAB / Simulink", "PyTorch", "Isaac Sim / Isaac Lab", "Gazebo / MuJoCo",
   ["Computer vision (OpenCV)", "Thị giác máy tính (OpenCV)"], ["Embedded (Arduino, STM32)", "Nhúng (Arduino, STM32)"],

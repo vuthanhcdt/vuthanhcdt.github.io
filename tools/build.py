@@ -168,7 +168,7 @@ def _tl(n,i):
 TL='\n'.join(_tl(n,i) for i,n in enumerate(news_items[:5],1))
 VENUES=''.join(f'<span>{v}</span>' for v in ['TSMC','COMPAG','THMS','T-RO','IJRR','RA-L','TII','TIE','TMECH','ICRA','IROS','AIM','Humanoids']*2)
 KW=[['Companion robots','Proactive assistance','Elderly care'],
-    ['Human following','Group following','Social navigation'],
+    ['Human/group following','Social navigation','Crowd navigation'],
     ['Orchard navigation','Adaptive spraying','Uneven terrain'],
     ['Passive walking','Humanoids','Whole-body skills'],
     ['Deep RL','Multi-robot planning','Continual learning'],
@@ -307,12 +307,12 @@ VI_FIX={'Curriculum Vitae — Cong-Thanh Vu':'CV — Cong-Thanh Vu',
 def tvi(x): return VI_FIX.get(x, translate_text(x))
 MON_VI={'Jan':1,'Feb':2,'Mar':3,'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
 def vdate(x): return re.sub(r'\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})\b', lambda m: f'{MON_VI[m.group(1)]:02d}/{m.group(2)}', x)
-IDX_VI=[dict(d,title=tvi(d['title']),text=tvi(d['text']),meta=vdate(tvi(d['meta'])),url=('../'+d['url'] if d['url'].startswith('cv.html') else d['url'])) for d in IDX]
+IDX_VI=[dict(d,title=tvi(d['title']),text=tvi(d['text']),meta=vdate(tvi(d['meta'])),url=('../'+d['url']+'&lang=vi' if d['url'].startswith('cv.html') else d['url'])) for d in IDX]
 open(os.path.join(OUT,'assets','search-index-vi.js'),'w').write('window.SEARCH_INDEX = '+json.dumps(IDX_VI,ensure_ascii=False)+';\n')
 for name,raw in BUILT.items():
     h=translate(raw,name).replace('<html lang="en">','<html lang="vi">',1)
     h=re.sub(r'(src|href)="assets/',r'\1="../assets/',h)
-    h=h.replace('href="cv.html','href="../cv.html')
+    h=re.sub(r'href="cv\.html\?m=([\w-]+)"', r'href="../cv.html?m=\1&amp;lang=vi"', h).replace('href="cv.html','href="../cv.html')
     h=re.sub(r'assets/search-index\.js(\?v=[0-9a-f]+)?','assets/search-index-vi.js',h)
     h=(h.replace('<!--LANG-->',lang_switch('vi',name)).replace('__UPDATED__',UPD_VI)
          .replace('__CANON__',page_url(name,'vi')).replace('__OGIMG__',SITE_URL+'assets/og-image-vi.png').replace('__LOCALE__','vi_VN'))
@@ -357,6 +357,14 @@ _xml.append('</urlset>')
 open(os.path.join(OUT,'sitemap.xml'),'w').write('\n'.join(_xml)+'\n')
 open(os.path.join(OUT,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}sitemap.xml\n')
 print('404 + sitemap + robots')
+
+# ---------- CV profile = the director bio on the People page (EN + VI), so the two never drift apart ----------
+_bio=re.search(r'<article class="dir.*?<p>(.*?)</p>', people, re.S).group(1)
+_mj=os.path.join(OUT,'assets','members.js'); _m=open(_mj,encoding='utf-8').read()
+_m,_n1=re.subn(r'(\n    summary: )"(?:[^"\\]|\\.)*"', lambda x: x.group(1)+json.dumps(_bio,ensure_ascii=False), _m, count=1)
+_m,_n2=re.subn(r'(\n      summary: )"(?:[^"\\]|\\.)*"', lambda x: x.group(1)+json.dumps(translate_text(_bio),ensure_ascii=False), _m, count=1)
+assert _n1==1 and _n2==1, 'members.js: summary fields not found'
+open(_mj,'w',encoding='utf-8').write(_m)
 
 # ---------- final pass: refresh asset versions in every page (incl. cv.html) ----------
 import glob
