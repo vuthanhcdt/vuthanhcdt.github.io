@@ -162,8 +162,8 @@ a.pt:hover{color:var(--accent)}
 .pw-act button.ghost{background:transparent;color:var(--ink-2);border-color:var(--line)}
 .pw-act button:disabled{opacity:.6;cursor:wait}
 .hl{display:inline-block;margin-left:8px;font:700 .64rem Inter;letter-spacing:.04em;padding:2px 8px;border-radius:999px;color:#fff;background:linear-gradient(90deg,#0a66d8,#00a3a3);vertical-align:2px;white-space:nowrap}
-.tl .bdg{display:flex;flex-wrap:wrap;gap:5px;margin:3px 0 1px}
-.tl .bdg .hl{margin-left:0;color:#fff;font-size:.64rem}
+.tl .hl{color:#fff;font-size:.64rem}
+.pv .hl{margin:0 6px 0 0;vertical-align:1px}
 .st{display:inline-block;font:700 .62rem Inter;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:1px}
 .st.review{background:#fef3c7;color:#92400e}
 .st.revision{background:#ede9fe;color:#5b21b6}
@@ -388,18 +388,18 @@ const TOP = window.TOP_TIER || [];
 const CT = C.filter(p => TOP.includes(p.s)), CO = C.filter(p => !TOP.includes(p.s));
 let FULL = false;                                   // true while the password-protected full CV is shown
 const pubItem = (p, key) => {
-  const title = (p.u ? `<a class="pt" href="${esc(p.u)}">${esc(p.t)}</a>` : `<span class="pt">${esc(p.t)}</span>`)
-    + (FULL && p.h ? `<span class="hl">★ ${esc(p.h)}</span>` : "");
+  const title = p.u ? `<a class="pt" href="${esc(p.u)}">${esc(p.t)}</a>` : `<span class="pt">${esc(p.t)}</span>`;
+  const hl = FULL && p.h ? `<span class="hl">★ ${esc(p.h)}</span>` : "";   // journal ranking, shown next to the venue
   const doi = p.doi ? ` doi: <a href="https://doi.org/${esc(p.doi)}">${esc(p.doi)}</a>` : "";
   return `<div class="pub"><span class="k">[${key}]</span><div>${title}
     <div class="pa">${esc(p.a).replace(esc(me), `<b>${esc(me)}</b>`)}</div>
-    <div class="pv"><span class="ven">${esc(p.s)}</span><i>${esc(p.v)}</i>${p.i ? ", " + esc(p.i) : ""}.${doi}</div></div></div>`;
+    <div class="pv"><span class="ven">${esc(p.s)}</span>${hl}<i>${esc(p.v)}</i>${p.i ? ", " + esc(p.i) : ""}.${doi}</div></div></div>`;
 };
 const group = (cls, label, list, prefix, start = 0) => list.length
   ? `<div class="pg ${cls}"><h3>${label}<em>${list.length}</em></h3>${list.map((p, i) => pubItem(p, prefix + (start + i + 1))).join("")}</div>` : "";
 
 const timeline = list => list?.length ? `<ul class="tl">${list.map(r =>
-  `<li><b>${esc(r.what)}</b>${r.when ? `<em class="when">${esc(vd(r.when))}</em>` : ""}<span>${esc(r.where || "")}</span>${FULL && r.badge ? `<span class="bdg">${[].concat(r.badge).map(b => `<span class="hl">★ ${esc(b)}</span>`).join("")}</span>` : ""}${r.advisor ? `<span class="adv">${L.advisor}: <a href="${esc(r.advisor.url)}">${GS_MINI}${esc(r.advisor.name)}</a></span>` : ""}</li>`).join("")}</ul>` : "";
+  `<li><b>${esc(r.what)}</b>${r.when ? `<em class="when">${esc(vd(r.when))}</em>` : ""}<span>${esc(r.where || "")}${FULL && r.badge ? [].concat(r.badge).map(b => `<span class="hl">★ ${esc(b)}</span>`).join("") : ""}</span>${r.advisor ? `<span class="adv">${L.advisor}: <a href="${esc(r.advisor.url)}">${GS_MINI}${esc(r.advisor.name)}</a></span>` : ""}</li>`).join("")}</ul>` : "";
 /* one line per entry: bold title — where, date on the right */
 const rows = list => list?.length ? `<ul class="rows">${list.map(r =>
   `<li><span><b>${esc(r.what)}</b>${r.where ? ` — ${esc(r.where)}` : ""}</span>${r.when ? `<em>${esc(vd(r.when))}</em>` : ""}</li>`).join("")}</ul>` : "";
