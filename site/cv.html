@@ -97,8 +97,6 @@ p.lead{margin:0;color:var(--ink-2)}
 .tl .adv a{color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:5px}
 .gsm{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:4px;background:#4285f4;font-style:normal}
 .gsm svg{width:11px;height:11px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
-.two > .sec:nth-child(2){border-top:0}
 
 /* publications */
 .pg{margin:4px 0 14px}
@@ -122,6 +120,13 @@ a.pt:hover{color:var(--accent)}
 .pg.Journal .ven{background:var(--journal)}.pg.Conference .ven{background:var(--conf)}.pg.Preprint .ven{background:var(--pre)}
 
 /* compact list cards (honors / service) */
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:6px 0 6px 14px;border-bottom:1px dashed var(--line);position:relative;break-inside:avoid}
+.rows li:last-child{border-bottom:0}
+.rows li::before{content:"";position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.rows li span{color:var(--ink-2);font-size:.86rem;line-height:1.45}
+.rows li b{color:var(--ink);font-weight:650}
+.rows li em{flex:none;font-style:normal;font-size:.74rem;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:2px 9px;border-radius:999px;white-space:nowrap}
 .cards{display:grid;gap:8px}
 .cards div{padding:9px 12px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;break-inside:avoid}
 .cards b{display:block;font-weight:650}
@@ -150,7 +155,6 @@ a.pt:hover{color:var(--accent)}
 .st{display:inline-block;font:700 .62rem Inter;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:1px}
 .st.review{background:#fef3c7;color:#92400e}
 .st.revision{background:#ede9fe;color:#5b21b6}
-.fullflag{display:inline-block;margin-left:10px;font:700 .62rem Inter;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(62,224,208,.18);color:#7fe0d6;vertical-align:middle}
 
 @media (max-width:680px){
   .sheet{border-radius:14px}
@@ -317,6 +321,9 @@ const group = (cls, label, list, prefix, start = 0) => list.length
 
 const timeline = list => list?.length ? `<ul class="tl">${list.map(r =>
   `<li><b>${esc(r.what)}</b>${r.when ? `<em class="when">${esc(r.when)}</em>` : ""}<span>${esc(r.where || "")}</span>${r.advisor ? `<span class="adv">Advisor: <a href="${esc(r.advisor.url)}">${GS_MINI}${esc(r.advisor.name)}</a></span>` : ""}</li>`).join("")}</ul>` : "";
+/* one line per entry: bold title — where, date on the right */
+const rows = list => list?.length ? `<ul class="rows">${list.map(r =>
+  `<li><span><b>${esc(r.what)}</b>${r.where ? ` — ${esc(r.where)}` : ""}</span>${r.when ? `<em>${esc(r.when)}</em>` : ""}</li>`).join("")}</ul>` : "";
 const cards = list => list?.length ? `<div class="cards">${list.map(r =>
   `<div>${r.when ? `<em>${esc(r.when)}</em>` : ""}<b>${esc(r.what)}</b><span>${esc(r.where || "")}</span></div>`).join("")}</div>` : "";
 /* "Updated" = the date the website was last built (assets/site-meta.js), not the day the CV is opened */
@@ -342,7 +349,7 @@ const render = UR => { FULL = !!UR; root.innerHTML = `<article class="sheet">
     <div class="hero-top">
       ${m.photo ? `<img class="ph" src="${esc(m.photo)}" alt="Portrait of ${esc(m.name)}">` : ""}
       <div>
-        <h1>${esc(m.name)}${m.suffix ? ", " + esc(m.suffix) : ""}${UR ? `<span class="fullflag">Full CV</span>` : ""}</h1>
+        <h1>${esc(m.name)}${m.suffix ? ", " + esc(m.suffix) : ""}</h1>
         ${m.role ? `<p class="role">${esc(m.role)}</p>` : ""}
         <div class="chips">${m.website ? `<a href="${esc(m.website)}">${ic("globe")}${esc(m.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</a>` : ""}${(m.contact || []).map(chip).join("")}</div>
       </div>
@@ -362,10 +369,8 @@ const render = UR => { FULL = !!UR; root.innerHTML = `<article class="sheet">
     ${sec("edu", "Education", timeline(m.education))}
     ${sec("work", "Research Experience", timeline(m.experience))}
     ${sec("book", "Publications", journalGroup(UR) + group("Conference top", "Top-tier Conference Proceedings", CT, "C") + group("Conference", CT.length ? "Other Conference Proceedings" : "Conference Proceedings", CO, "C", CT.length) + group("Preprint", "Preprints", R, "P"), mine.length ? `${mine.length} published` : "")}
-    <div class="two">
-      ${sec("award", "Honors &amp; Awards", cards(m.honors))}
-      ${sec("serv", "Professional Service", cards(m.service))}
-    </div>
+    ${sec("award", "Honors &amp; Awards", rows(m.honors))}
+    ${sec("serv", "Professional Service", rows(m.service))}
   </div>
   <p class="upd">Updated ${today}</p>
 </article>`; };
