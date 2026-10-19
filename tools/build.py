@@ -302,7 +302,8 @@ VI_FIX={'Curriculum Vitae — Cong-Thanh Vu':'CV — Cong-Thanh Vu',
         'Accepted papers, awards and milestones.':'Bài báo mới được chấp nhận, giải thưởng và các cột mốc của lab.',
         'Join RASL':'Tham gia RASL','Join RASL — apply':'Ứng tuyển vào RASL',
         'Application form for students and interns: introduce yourself, your skills, languages and research interests.':'Form ứng tuyển cho sinh viên và thực tập sinh: giới thiệu bản thân, kỹ năng, ngoại ngữ và hướng nghiên cứu quan tâm.','Contact':'Liên hệ','Publications':'Công bố khoa học','News':'Tin tức','Director':'Giám đốc',
-        'Cong-Thanh Vu · 2022 – 2026':'Cong-Thanh Vu · 2022 – 2026'}
+        'Cong-Thanh Vu · 2022 – 2026':'Cong-Thanh Vu · 2022 – 2026',
+        'Director, Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.':'Giám đốc Phòng thí nghiệm Robot và Hệ thống Tự hành (RASL). Tương tác người – robot, điều hướng robot có nhận thức về con người, robot nông nghiệp, robot đi bằng chân, học máy cho robot.'}
 def tvi(x): return VI_FIX.get(x, translate_text(x))
 MON_VI={'Jan':1,'Feb':2,'Mar':3,'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
 def vdate(x): return re.sub(r'\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})\b', lambda m: f'{MON_VI[m.group(1)]:02d}/{m.group(2)}', x)
