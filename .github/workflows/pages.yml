@@ -11,9 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+# Renamed from "pages" on 2026-10-19: runs #29–#31 got stuck in "Queued" in the old group and could not be
+# cancelled, which blocked every later deploy. A newer push now also replaces an older one still waiting.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "pages-deploy"
+  cancel-in-progress: true
 
 jobs:
   deploy:
