@@ -172,6 +172,7 @@ def translate(html, page):
         html = html.replace(f'<title>{a}</title>', f'<title>{b}</title>')
     if page in DESCS:
         html = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{DESCS[page]}">', html, count=1)
+    html = re.sub(r'\n *<p class="page-sub">.*?</p>', '', html)   # no hero subtitle on Vietnamese pages
     for en, vi in NAV_VI:                                   # breadcrumbs + page titles
         html = html.replace(f'</a> / {en}', f'</a> / {vi}').replace(f'<h1>{en}</h1>', f'<h1>{vi}</h1>')
     # dates: timeline "Oct 2026" -> "Tháng 10/2026"; news tiles <b>Oct</b> -> "T10"; people "Oct 2026" -> "10/2026"

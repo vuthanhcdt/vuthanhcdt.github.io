@@ -114,13 +114,14 @@ FOOT='''<footer class="site-footer">
 </body>
 </html>
 '''
-def page_hero(eyebrow,title):
+def page_hero(eyebrow,title,sub):
     return f'''<section class="page-hero">
   <canvas id="net" aria-hidden="true"></canvas>
   <img class="wm" src="assets/rasl-logo.png" alt="">
   <div class="wrap">
     <div class="crumbs"><a href="index.html">RASL</a> / {eyebrow}</div>
     <h1>{title}</h1>
+    <p class="page-sub">{sub}</p>
   </div>
 </section>
 '''
@@ -257,15 +258,15 @@ rows='\n'.join(f'''    <div class="area reveal" id="{SLUG[i]}">
 
 # ---------- other pages ----------
 write('publications.html','Publications · RASL','Peer-reviewed publications of RASL.','Publications',
-  page_hero('Publications','Publications')+strip_head(pubs))
+  page_hero('Publications','Publications','Journal articles and conference proceedings. Filter by type, search by title, author or venue, and copy BibTeX.')+strip_head(pubs))
 _n=iter(range(1,100))
 news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}">',news.replace('class="sec alt"','class="sec"'))
 write('news.html','News · RASL','News and announcements from RASL.','News',
-  page_hero('News','News')+strip_head(news_page))
+  page_hero('News','News','Accepted papers, talks and milestones from the lab.')+strip_head(news_page))
 write('people.html','People · RASL','People of RASL.','People',
-  page_hero('People','People')+people.replace('class="sec alt"','class="sec"'))
+  page_hero('People','People','Meet the people behind RASL.')+people.replace('class="sec alt"','class="sec"'))
 write('contact.html','Contact · RASL','Contact RASL.','Contact',
-  page_hero('Contact','Get in touch')+strip_head(contact))
+  page_hero('Contact','Get in touch','For collaborations, research questions or joining the lab, send us an email.')+strip_head(contact))
 print('built')
 
 # ---------- site-wide search index (publications come from pubs.js) ----------
