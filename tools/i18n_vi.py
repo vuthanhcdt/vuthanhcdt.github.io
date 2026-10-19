@@ -135,7 +135,7 @@ TR = [
     ('<b>Full Scholarship</b>', '<b>Học bổng toàn phần</b>'),
     ('<b>Travel Award</b>', '<b>Học bổng tham dự hội nghị quốc tế</b>'),
     ('NSTC, Taiwan', 'Hội đồng Khoa học và Công nghệ Quốc gia (NSTC), Đài Loan'),
-    ('Bronze Award, Smart Manufacturing Data Competition', 'Giải Đồng – Cuộc thi Dữ liệu Sản xuất Thông minh'),
+    ('Bronze Award, Smart Manufacturing Data Competition', 'Huy chương Đồng – Cuộc thi Dữ liệu Sản xuất Thông minh'),
     ('NCKU Alliance, MOE Smart Manufacturing Talent Program, Taiwan', 'Liên minh NCKU, Chương trình đào tạo nhân tài sản xuất thông minh của Bộ Giáo dục Đài Loan'),
     ('Award, ABU Robocon Vietnam', 'Giải thưởng Robocon Việt Nam'),
     ('National robot contest, ABU Asia-Pacific Robot Contest', 'Cuộc thi Sáng tạo Robot Việt Nam, vòng loại ABU Robocon châu Á – Thái Bình Dương'),

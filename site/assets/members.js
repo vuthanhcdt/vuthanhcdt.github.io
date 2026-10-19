@@ -74,7 +74,7 @@ window.MEMBERS = [
         { what: "Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc", where: "Đại học Quốc lập Thành Công" },
         { what: "Học bổng toàn phần", where: "Đại học Quốc lập Thành Công" },
         { what: "Học bổng tham dự hội nghị quốc tế", where: "Hội đồng Khoa học và Công nghệ Quốc gia (NSTC), Đài Loan" },
-        { what: "Giải Đồng – Cuộc thi Dữ liệu Sản xuất Thông minh", where: "Liên minh NCKU, Chương trình đào tạo nhân tài liên ngành sản xuất thông minh của Bộ Giáo dục (MOE), Đài Loan" },
+        { what: "Huy chương Đồng – Cuộc thi Dữ liệu Sản xuất Thông minh", where: "Liên minh NCKU, Chương trình đào tạo nhân tài liên ngành sản xuất thông minh của Bộ Giáo dục (MOE), Đài Loan" },
         { what: "Giải thưởng Robocon Việt Nam", where: "Vòng loại quốc gia của Cuộc thi Sáng tạo Robot châu Á – Thái Bình Dương (ABU Robocon)" },
         { what: "Học bổng Tài năng", where: "Tập đoàn Foxconn" }
       ],
