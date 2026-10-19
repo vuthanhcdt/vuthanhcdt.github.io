@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tin tức · RASL</title>
+<meta name="description" content="Tin tức và hoạt động mới nhất của RASL.">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=dae9707a">
+<script>try{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="alternate" hreflang="en" href="../news.html">
+<link rel="alternate" hreflang="vi" href="news.html">
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="../assets/rasl-logo.png" alt="">
+      <b>RASL</b>
+      <span>Robotics and<br>Autonomous Systems Lab</span>
+    </a>
+    <nav class="links" id="links">
+      <a href="publications.html">Công bố khoa học</a>
+      <a href="news.html" class="active" aria-current="page">Tin tức</a>
+      <a href="people.html">Thành viên</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-sw" role="group" aria-label="Language"><a href="../news.html" hreflang="en" data-lang="en">EN</a><a href="news.html" hreflang="vi" data-lang="vi" class="on" aria-current="true">VI</a></div>
+      <button class="search-btn" id="searchBtn" type="button" aria-label="Tìm kiếm trên trang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span>Tìm kiếm</span><kbd>⌘K</kbd>
+      </button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Bật/tắt giao diện tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Mở menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <img class="wm" src="../assets/rasl-logo.png" alt="">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">RASL</a> / Tin tức</div>
+    <h1>Tin tức</h1>
+    <p>Bài báo mới được chấp nhận, các báo cáo hội nghị và những cột mốc đáng nhớ của RASL.</p>
+  </div>
+</section>
+<section class="sec" id="news">
+  <div class="wrap">
+    <div class="news">
+      <div class="news-item reveal" id="news-1"><div class="date"><b>T10</b><span>2026</span></div><div><h3>Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc</h3><p>Cong-Thanh Vu vinh dự nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc do Đại học Quốc lập Thành Công (NCKU), Đài Loan trao tặng.</p></div></div>
+      <div class="news-item reveal" id="news-2"><div class="date"><b>T8</b><span>2026</span></div><div><h3>Bài báo được chấp nhận đăng trên IEEE TSMC: Systems</h3><p>Nghiên cứu chiến lược tương tác thích ứng cho robot đồng hành bằng học tăng cường sâu.</p></div></div>
+      <div class="news-item reveal" id="news-3"><div class="date"><b>T7</b><span>2026</span></div><div><h3>Bài báo được xuất bản trên tạp chí COMPAG</h3><p>Phun thuốc bảo vệ thực vật thích ứng theo bối cảnh cho robot nông nghiệp bằng mô hình thị giác – ngôn ngữ (Tập 252).</p></div></div>
+      <div class="news-item reveal" id="news-4"><div class="date"><b>T6</b><span>2026</span></div><div><h3>Bài báo được chấp nhận tại hội nghị IEEE/RSJ IROS 2026</h3><p>Robot đồng hành thích ứng khi đi theo nhóm người có đội hình thay đổi — báo cáo tại Pittsburgh, Hoa Kỳ.</p></div></div>
+      <div class="news-item reveal" id="news-5"><div class="date"><b>T5</b><span>2026</span></div><div><h3>Ba bài báo được chấp nhận tại hội nghị IEEE/ASME AIM 2026</h3><p>Gồm bám theo người bằng gimbal, robot chăm sóc người cao tuổi dùng VLM và robot hình người học từ video tổng hợp — Genova, Ý.</p></div></div>
+      <div class="news-item reveal" id="news-6"><div class="date"><b>T10</b><span>2025</span></div><div><h3>Báo cáo tại hội nghị IROS 2025 và Humanoids 2025</h3><p>Robot đi theo người bằng học tăng cường sâu (Hàng Châu, Trung Quốc) và học dáng đi động lực học thụ động ảo.</p></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="../assets/rasl-logo.png" alt=""><b>RASL</b><span>Robotics and<br>Autonomous Systems Lab</span></a>
+    <nav class="flinks"><a href="publications.html">Công bố khoa học</a><a href="news.html">Tin tức</a><a href="people.html">Thành viên</a><a href="contact.html">Liên hệ</a></nav>
+    <div class="copy">© <span id="yr">2026</span> RASL<span class="upd">Cập nhật lần cuối: 19/10/2026</span></div>
+  </div>
+</footer>
+<script src="../assets/pubs.js?v=144c19b0"></script>
+<script src="../assets/search-index-vi.js?v=d5905fb2"></script>
+<script src="../assets/site.js?v=7bf59314"></script>
+<script src="../assets/apply.js?v=2e02a32e"></script>
+</body>
+</html>

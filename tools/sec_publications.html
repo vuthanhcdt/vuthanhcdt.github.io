@@ -1,0 +1,29 @@
+<section class="sec" id="publications">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Publications</div><h2>Peer-reviewed papers</h2></div>
+      <p>Journal articles and conference proceedings. Use the filters or search by title, author or venue.</p>
+    </div>
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="Filter by type">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="Journal" aria-pressed="false">Journal</button>
+        <button type="button" data-f="Conference" aria-pressed="false">Conference</button>
+      </div>
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search by title, keyword, author, venue, year or DOI…" aria-label="Search publications by title, keyword, author, venue, year or DOI" aria-describedby="qhint">
+      </label>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="qhint" id="qhint">
+      <span>Try:</span>
+      <button type="button" data-q="humanoid">humanoid</button>
+      <button type="button" data-q="reinforcement learning">reinforcement learning</button>
+      <button type="button" data-q="vision–language">vision–language</button>
+      <button type="button" data-q="IROS">IROS</button>
+      <button type="button" data-q="2025">2025</button>
+    </div>
+    <div id="pubList"></div>
+  </div>
+</section>

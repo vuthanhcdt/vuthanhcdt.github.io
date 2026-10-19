@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curriculum Vitae · RASL</title>
+<meta name="description" content="Curriculum vitae of RASL members, generated from the lab's member and publication data.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b1424;--ink-2:#36415a;--muted:#6a7486;--line:#e4e8ef;--soft:#f3f6fb;
+  --accent:#0a66d8;--accent-2:#00a3a3;--accent-soft:#e8f1fd;
+  --navy-1:#06101f;--navy-2:#0d2b52;
+  --journal:#0f7a43;--conf:#1f5fd6;--pre:#b4540a;
+  --bg:#e9edf3;--paper:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:13.5px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- toolbar (screen only) ---------- */
+.bar{position:sticky;top:0;z-index:5;background:rgba(6,16,31,.92);backdrop-filter:blur(10px);color:#fff}
+.bar .in{max-width:900px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bar .brand{display:flex;align-items:center;gap:8px;color:#fff;font:700 1.05rem "Space Grotesk"}
+.bar .brand img{width:26px;height:26px;filter:invert(1)}
+.bar .brand:hover{text-decoration:none}
+.bar .sp{flex:1}
+.bar select,.bar button,.bar a.b{font:600 .84rem Inter;height:36px;padding:0 14px;border-radius:9px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.bar a.b:hover{text-decoration:none;background:rgba(255,255,255,.12)}
+.bar button.primary{background:#fff;color:#0b1424;border-color:#fff}
+.bar svg{width:16px;height:16px}
+.bar select option{color:#0b1424}
+
+/* ---------- sheet ---------- */
+.sheet{width:min(210mm,100% - 32px);margin:24px auto 48px;background:var(--paper);box-shadow:0 14px 50px rgba(6,16,31,.14);border-radius:8px;overflow:hidden}
+
+/* header band */
+.hero{position:relative;overflow:hidden;color:#fff;padding:26px 30px 22px;
+  background:radial-gradient(500px 260px at 92% -10%,rgba(62,224,208,.28),transparent 60%),linear-gradient(135deg,var(--navy-1),var(--navy-2))}
+.hero .wm{position:absolute;right:-24px;bottom:-40px;width:210px;opacity:.08;filter:invert(1);pointer-events:none}
+.hero-top{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}
+.qr{display:flex;flex-direction:column;align-items:center;gap:7px;padding:8px 8px 7px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
+.qr:hover{text-decoration:none;background:rgba(255,255,255,.12)}
+.qr .tile{width:96px;height:96px;padding:5px;border-radius:12px;background:#fff;transition:transform .2s}
+.qr:hover .tile{transform:scale(1.03)}
+.qr svg{display:block;width:100%;height:100%}
+.qr .cap{text-align:center;line-height:1.2;font-size:.62rem;color:#b9d4f5}
+.qr .cap b{display:block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#7fe0d6;font-weight:700;margin-bottom:1px}
+.hero-top img.ph{width:104px;height:104px;border-radius:50%;object-fit:cover;object-position:center bottom;background:radial-gradient(circle at 50% 30%,#eaf3ff,#9cc7ff);border:3px solid rgba(255,255,255,.9);box-shadow:0 0 0 6px rgba(111,182,255,.25)}
+.hero h1{font:700 2rem/1.05 "Space Grotesk";letter-spacing:-.015em;margin:0}
+.hero .role{margin:6px 0 12px;color:#9fd2ff;font-weight:600;font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips a{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:#e6f0ff;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.chips a:hover{text-decoration:none;background:rgba(255,255,255,.14)}
+.chips svg{width:13px;height:13px;opacity:.9}
+.chips a.scholar{padding-left:4px}
+/* three contact links always sit on one tidy row */
+.chips{flex-wrap:nowrap;gap:6px}
+.chips a{white-space:nowrap;font-size:.74rem;padding:4px 10px;gap:5px}
+.gs{width:18px!important;height:18px!important;border-radius:5px!important}
+.gs{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;background:#4285f4;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.gs svg{width:15px!important;height:15px!important;opacity:1!important}
+.kpis{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;margin-top:18px;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:rgba(255,255,255,.04)}
+.kpis div{padding:10px 14px;border-left:1px solid rgba(255,255,255,.1);display:flex;align-items:baseline;gap:8px;justify-content:center;white-space:nowrap}
+.kpis div:first-child{border-left:0}
+.kpis b{font:700 1.45rem "Space Grotesk";background:linear-gradient(90deg,#6fb6ff,#3ee0d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kpis span{font-size:.74rem;color:#b9c9e2}
+
+/* body */
+.body{padding:8px 30px 22px}
+.sec{padding:18px 0 4px;border-top:1px solid var(--line);break-inside:auto}
+.sec:first-child{border-top:0}
+.sh{display:flex;align-items:center;gap:10px;margin:0 0 12px;break-after:avoid;break-inside:avoid}
+.sh i{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.sh i svg{width:15px;height:15px}
+.sh h2{font:700 .82rem "Space Grotesk";letter-spacing:.16em;text-transform:uppercase;margin:0;color:var(--ink)}
+.sh::after{content:"";flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--accent-soft),transparent)}
+.sh .cnt{font:600 .7rem Inter;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px;order:3}
+p.lead{margin:0;color:var(--ink-2)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tags span{font-size:.74rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+
+/* timeline (education / experience) */
+.tl{position:relative;margin:0;padding:0 0 0 18px;list-style:none}
+.tl::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),rgba(10,102,216,.12));border-radius:2px}
+.tl li{position:relative;display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:3px 0 10px;break-inside:avoid}
+.tl li::before{content:"";position:absolute;left:-18px;top:6px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
+.tl li:first-child::before{background:var(--accent)}
+.tl b{font-weight:650;color:var(--ink)}
+.tl .when{font-style:normal;grid-column:2;grid-row:1;font-size:.75rem;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:2px 9px;border-radius:999px;white-space:nowrap;align-self:start}
+.tl span{grid-column:1/-1;color:var(--ink-2);font-size:.84rem}
+.tl .adv{font-size:.8rem;color:var(--muted);margin-top:1px}
+.tl .adv a{color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:5px}
+.gsm{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:4px;background:#4285f4;font-style:normal}
+.gsm svg{width:11px;height:11px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+.two > .sec:nth-child(2){border-top:0}
+
+/* publications */
+.pg{margin:4px 0 14px}
+.pg h3{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-size:.84rem;color:var(--ink-2);break-after:avoid}
+.pg h3 em{font-style:normal;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:999px;color:#fff}
+/* top-tier conferences: same look as the other groups, in the CV navy */
+.pg.top h3 em{background:var(--navy-2)!important}
+.pg.top .ven{background:var(--navy-2)!important}
+.pg.top .k{color:var(--navy-2)}
+.pg.Journal h3 em{background:var(--journal)}.pg.Conference h3 em{background:var(--conf)}.pg.Preprint h3 em{background:var(--pre)}
+.pub{display:grid;grid-template-columns:40px 1fr;gap:10px;padding:7px 8px;border-radius:8px;break-inside:avoid}
+.pub .k{font:700 .74rem "Space Grotesk";color:var(--accent);padding-top:1px}
+.pg.Journal .k{color:var(--journal)}.pg.Preprint .k{color:var(--pre)}
+.pt{font-weight:600;color:var(--ink);line-height:1.4}
+a.pt:hover{color:var(--accent)}
+.pa{color:var(--ink-2);font-size:.82rem}
+.pa b{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.pv{color:var(--muted);font-size:.8rem}
+.pv i{font-style:italic}
+.ven{display:inline-block;font:700 .62rem Inter;letter-spacing:.04em;padding:1px 6px;border-radius:4px;color:#fff;margin-right:6px;vertical-align:1px}
+.pg.Journal .ven{background:var(--journal)}.pg.Conference .ven{background:var(--conf)}.pg.Preprint .ven{background:var(--pre)}
+
+/* compact list cards (honors / service) */
+.cards{display:grid;gap:8px}
+.cards div{padding:9px 12px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;break-inside:avoid}
+.cards b{display:block;font-weight:650}
+.cards span{color:var(--ink-2);font-size:.82rem}
+.cards em{float:right;font-style:normal;font-size:.72rem;font-weight:700;color:var(--accent)}
+
+.upd{margin:0;padding:6px 30px 18px;font-size:.72rem;font-style:italic;color:var(--muted);text-align:right}
+.missing{max-width:520px;margin:80px auto;text-align:center;color:var(--ink-2)}
+
+@media (max-width:680px){
+  .sheet{border-radius:14px}
+  .hero{padding:22px 18px}
+  .hero-top{grid-template-columns:1fr;text-align:center}
+  .qr{margin:4px auto 0}
+  .hero-top img.ph{margin:0 auto}
+  .chips{justify-content:center}
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpis div:nth-child(3){border-left:0}
+  .kpis div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1)}
+  .body{padding:4px 18px 18px}
+  .two{grid-template-columns:1fr}
+  .two > .sec:nth-child(2){border-top:1px solid var(--line)}
+  .tl li{grid-template-columns:1fr}
+  .tl .when{grid-column:1;grid-row:auto;justify-self:start}
+  .pub{grid-template-columns:1fr}
+}
+
+/* ---------- print / Save as PDF ---------- */
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff}
+  body{font-size:9.8pt}
+  .bar{display:none}
+  .sheet{width:auto;margin:0;box-shadow:none;border-radius:0;overflow:visible}
+  .body{padding:4mm 14mm 6mm}
+  .hero{padding:10mm 14mm 7mm}
+  .upd{padding:1mm 14mm 4mm}
+  a{color:inherit}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sec{break-inside:auto}
+  .pub,.tl li,.cards div{break-inside:avoid}
+  /* PDF renderers mishandle blurred shadows and gradient-clipped text */
+  .qr{background:rgba(255,255,255,.07)}
+  .hero-top img.ph{box-shadow:none}
+  .kpis b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#5fd4e8}
+  .kpis{backdrop-filter:none}
+  /* tighter rhythm on paper */
+  body{font-size:9.4pt}
+  .sec{padding-top:12px}
+  .sh{margin-bottom:9px}
+  .tl li{padding:2px 0 7px}
+  .pub{padding:5px 8px;gap:8px}
+  .pg{margin:2px 0 10px}
+  .cards{gap:6px}
+  .cards div{padding:7px 11px}
+  .tags{margin-top:7px}
+}
+@media print{ @page :not(:first){margin-top:12mm;margin-bottom:12mm} }
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="in">
+    <a class="brand" href="index.html"><img src="assets/rasl-logo.png" alt="">RASL</a>
+    <span class="sp"></span>
+    <select id="who" aria-label="Choose member"></select>
+    <a class="b" href="people.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>People</a>
+    <button class="primary" id="pdf" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download PDF</button>
+  </div>
+</div>
+<main id="cv"></main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="assets/pubs.js?v=144c19b0"></script>
+<script src="assets/members.js?v=0a06616e"></script>
+<script>
+(() => {
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const M = window.MEMBERS || [], P = window.PUBS || [];
+const params = new URLSearchParams(location.search);
+const m = M.find(x => x.id === params.get("m")) || M[0];
+const root = document.getElementById("cv");
+
+const who = document.getElementById("who");
+who.innerHTML = M.map(x => `<option value="${esc(x.id)}"${x === m ? " selected" : ""}>${esc(x.name)}</option>`).join("");
+who.hidden = M.length < 2;
+who.addEventListener("change", () => { location.search = "?m=" + encodeURIComponent(who.value); });
+document.getElementById("pdf").addEventListener("click", () => window.print());
+
+if (!m){ root.innerHTML = `<div class="missing">No member data found.</div>`; return; }
+document.title = `CV_${m.name.replace(/\s+/g, "_")}`;   // default PDF file name
+
+/* icons */
+const I = {
+  user:'<path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/>',
+  edu:'<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
+  work:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>',
+  book:'<path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2.5z"/><path d="M8 7h7M8 11h7"/>',
+  award:'<circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/>',
+  serv:'<path d="M12 3 4 7v6c0 4 3.5 7 8 8 4.5-1 8-4 8-8V7z"/><path d="m9 12 2 2 4-4"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+  link:'<path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>'
+};
+/* QR code (SVG) for the member's website; empty if the library failed to load */
+const qr = text => {
+  if (typeof qrcode !== "function") return "";
+  const q = qrcode(0, "H"); q.addData(text); q.make();          // level H: survives the centre logo
+  const n = q.getModuleCount(), ink = "#0d2b52";
+  const eye = (r, c) => (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
+  const hole = Math.ceil(n * 0.22), h0 = Math.floor((n - hole) / 2);   // keep the centre clear for the logo
+  let dots = "";
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+    if (eye(r, c) || (r >= h0 && r < h0 + hole && c >= h0 && c < h0 + hole)) continue;
+    if (q.isDark(r, c)) dots += `<circle cx="${c + .5}" cy="${r + .5}" r=".46"/>`;
+  }
+  const eyeAt = (x, y) => `<rect x="${x + .5}" y="${y + .5}" width="6" height="6" rx="1.8" fill="none" stroke="${ink}" stroke-width="1"/><rect x="${x + 2}" y="${y + 2}" width="3" height="3" rx=".9" fill="${ink}"/>`;
+  const L = h0 + .4, S = hole - .8;
+  return `<svg viewBox="-1 -1 ${n + 2} ${n + 2}" role="img" aria-label="QR code to ${esc(text)}">
+    <g fill="${ink}">${dots}</g>${eyeAt(0, 0)}${eyeAt(n - 7, 0)}${eyeAt(0, n - 7)}
+    <rect x="${L}" y="${L}" width="${S}" height="${S}" rx="${S * .28}" fill="${ink}"/>
+    <image href="assets/rasl-logo.png" x="${L + S * .14}" y="${L + S * .14}" width="${S * .72}" height="${S * .72}" style="filter:invert(1)"/>
+  </svg>`;
+};
+const GS_MINI = `<i class="gsm"><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 4 2 9.5l10 5.5 8-4.4V16h2V9.5L12 4zM6 13.2V16c0 1.7 2.7 3.5 6 3.5s6-1.8 6-3.5v-2.8l-6 3.3-6-3.3z"/></svg></i>`;
+/* Google Scholar mark: blue tile with the white mortarboard */
+const GS = `<span class="gs"><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 4 2 9.5l10 5.5 8-4.4V16h2V9.5L12 4zM6 13.2V16c0 1.7 2.7 3.5 6 3.5s6-1.8 6-3.5v-2.8l-6 3.3-6-3.3z"/></svg></span>`;
+const chip = c => {
+  if (c.url.startsWith("mailto:")) return `<a href="${esc(c.url)}">${ic("mail")}${esc(c.text)}</a>`;
+  if (/scholar\.google\./.test(c.url)) return `<a class="scholar" href="${esc(c.url)}">${GS}Scholar</a>`;
+  return `<a href="${esc(c.url)}">${ic("link")}${esc(c.label + " · " + c.text)}</a>`;
+};
+const ic = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${I[k]}</svg>`;
+const sec = (icon, title, body, count) => body ? `<section class="sec"><div class="sh"><i>${ic(icon)}</i><h2>${title}</h2>${count ? `<span class="cnt">${count}</span>` : ""}</div>${body}</section>` : "";
+
+/* papers authored by this member */
+const me = m.pubName || m.name;
+const mine = P.filter(p => p.a.split(/,\s*/).includes(me));
+const J = mine.filter(p => p.c === "Journal"), C = mine.filter(p => p.c === "Conference"), R = mine.filter(p => p.c === "Preprint");
+const TOP = window.TOP_TIER || [];
+const CT = C.filter(p => TOP.includes(p.s)), CO = C.filter(p => !TOP.includes(p.s));
+const pubItem = (p, key) => {
+  const title = p.u ? `<a class="pt" href="${esc(p.u)}">${esc(p.t)}</a>` : `<span class="pt">${esc(p.t)}</span>`;
+  const doi = p.doi ? ` doi: <a href="https://doi.org/${esc(p.doi)}">${esc(p.doi)}</a>` : "";
+  return `<div class="pub"><span class="k">[${key}]</span><div>${title}
+    <div class="pa">${esc(p.a).replace(esc(me), `<b>${esc(me)}</b>`)}</div>
+    <div class="pv"><span class="ven">${esc(p.s)}</span><i>${esc(p.v)}</i>${p.i ? ", " + esc(p.i) : ""}.${doi}</div></div></div>`;
+};
+const group = (cls, label, list, prefix, start = 0) => list.length
+  ? `<div class="pg ${cls}"><h3>${label}<em>${list.length}</em></h3>${list.map((p, i) => pubItem(p, prefix + (start + i + 1))).join("")}</div>` : "";
+
+const timeline = list => list?.length ? `<ul class="tl">${list.map(r =>
+  `<li><b>${esc(r.what)}</b>${r.when ? `<em class="when">${esc(r.when)}</em>` : ""}<span>${esc(r.where || "")}</span>${r.advisor ? `<span class="adv">Advisor: <a href="${esc(r.advisor.url)}">${GS_MINI}${esc(r.advisor.name)}</a></span>` : ""}</li>`).join("")}</ul>` : "";
+const cards = list => list?.length ? `<div class="cards">${list.map(r =>
+  `<div>${r.when ? `<em>${esc(r.when)}</em>` : ""}<b>${esc(r.what)}</b><span>${esc(r.where || "")}</span></div>`).join("")}</div>` : "";
+const today = new Date().toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
+
+root.innerHTML = `<article class="sheet">
+  <header class="hero">
+    <img class="wm" src="assets/rasl-logo.png" alt="">
+    <div class="hero-top">
+      ${m.photo ? `<img class="ph" src="${esc(m.photo)}" alt="Portrait of ${esc(m.name)}">` : ""}
+      <div>
+        <h1>${esc(m.name)}${m.suffix ? ", " + esc(m.suffix) : ""}</h1>
+        ${m.role ? `<p class="role">${esc(m.role)}</p>` : ""}
+        <div class="chips">${m.website ? `<a href="${esc(m.website)}">${ic("globe")}${esc(m.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</a>` : ""}${(m.contact || []).map(chip).join("")}</div>
+      </div>
+      ${m.website ? `<a class="qr" href="${esc(m.website)}" title="Open ${esc(m.website)}"><span class="tile">${qr(m.website)}</span><span class="cap"><b>Scan to visit</b>${esc(m.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span></a>` : ""}
+    </div>
+    ${mine.length ? `<div class="kpis">
+      <div><b>${J.length + C.length}</b><span>Peer-reviewed</span></div>
+      <div><b>${J.length}</b><span>Journal</span></div>
+      ${CT.length ? `<div><b>${CT.length}</b><span>Top-tier conf.</span></div>` : ""}
+      <div><b>${C.length}</b><span>Conference</span></div>
+      ${R.length ? `<div><b>${R.length}</b><span>Preprint</span></div>` : ""}
+    </div>` : ""}
+  </header>
+  <div class="body">
+    ${sec("user", "Profile", m.summary ? `<p class="lead">${esc(m.summary)}</p>${m.interests?.length ? `<div class="tags">${m.interests.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : ""}` : "")}
+    ${sec("edu", "Education", timeline(m.education))}
+    ${sec("work", "Research Experience", timeline(m.experience))}
+    ${sec("book", "Publications", group("Journal", "Journal Articles", J, "J") + group("Conference top", "Top-tier Conference Proceedings", CT, "C") + group("Conference", CT.length ? "Other Conference Proceedings" : "Conference Proceedings", CO, "C", CT.length) + group("Preprint", "Preprints", R, "P"), mine.length ? `${mine.length} total` : "")}
+    <div class="two">
+      ${sec("award", "Honors &amp; Awards", cards(m.honors))}
+      ${sec("serv", "Professional Service", cards(m.service))}
+    </div>
+  </div>
+  <p class="upd">Updated ${today}</p>
+</article>`;
+})();
+</script>
+</body>
+</html>

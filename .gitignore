@@ -1,11 +1,10 @@
-# Hugo
-public/
-resources/
-.hugo_build.lock
-
 # OS
 .DS_Store
 Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
 
 # IDE
 .idea/

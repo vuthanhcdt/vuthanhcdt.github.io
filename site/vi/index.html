@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RASL Robotics Lab</title>
+<meta name="description" content="RASL — Phòng thí nghiệm Robot và Hệ thống Tự hành: tương tác người – robot, robot nông nghiệp, robot đi bằng chân và học máy cho robot.">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=dae9707a">
+<script>try{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="alternate" hreflang="en" href="../index.html">
+<link rel="alternate" hreflang="vi" href="index.html">
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="../assets/rasl-logo.png" alt="">
+      <b>RASL</b>
+      <span>Robotics and<br>Autonomous Systems Lab</span>
+    </a>
+    <nav class="links" id="links">
+      <a href="publications.html">Công bố khoa học</a>
+      <a href="news.html">Tin tức</a>
+      <a href="people.html">Thành viên</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-sw" role="group" aria-label="Language"><a href="../index.html" hreflang="en" data-lang="en">EN</a><a href="index.html" hreflang="vi" data-lang="vi" class="on" aria-current="true">VI</a></div>
+      <button class="search-btn" id="searchBtn" type="button" aria-label="Tìm kiếm trên trang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span>Tìm kiếm</span><kbd>⌘K</kbd>
+      </button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Bật/tắt giao diện tối">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Mở menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <img class="hero-logo" src="../assets/rasl-mark.png?v=2" alt="RASL">
+      <div class="pill"><span class="dot"></span>Phòng thí nghiệm Robot và Hệ thống Tự hành</div>
+      <h1 class="tagline">Robot biết <em>thấu hiểu</em>, <em>thích nghi</em> và đồng hành cùng con người.</h1>
+      <p class="lead">RASL nghiên cứu robot thông minh cho những ứng dụng thực tế: từ robot đồng hành biết đi theo và hỗ trợ con người, robot nông nghiệp làm việc ngoài đồng ruộng, đến robot đi bằng chân tự học cách di chuyển.</p>
+      <div class="cta">
+        <a class="btn primary" href="publications.html">Công bố khoa học <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="people.html">Thành viên</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div><b id="sPubs">0</b><span>Bài báo có phản biện</span></div>
+      <div><b id="sJour">0</b><span>Bài báo tạp chí</span></div>
+      <div><b id="sConf">0</b><span>Bài báo hội nghị</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-label="Tạp chí và hội nghị đã công bố">
+  <div class="track"><span>TSMC</span><span>COMPAG</span><span>IROS</span><span>AIM</span><span>Humanoids</span><span>TSMC</span><span>COMPAG</span><span>IROS</span><span>AIM</span><span>Humanoids</span><span>TSMC</span><span>COMPAG</span><span>IROS</span><span>AIM</span><span>Humanoids</span><span>TSMC</span><span>COMPAG</span><span>IROS</span><span>AIM</span><span>Humanoids</span><span>TSMC</span><span>COMPAG</span><span>IROS</span><span>AIM</span><span>Humanoids</span><span>TSMC</span><span>COMPAG</span><span>IROS</span><span>AIM</span><span>Humanoids</span></div>
+</div>
+
+<section class="sec" id="research">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Nghiên cứu</div><h2>Các hướng nghiên cứu</h2></div>
+      <p>Chúng tôi kết hợp học máy, nhận thức môi trường và điều khiển để robot hoạt động an toàn, hiệu quả trong những môi trường luôn thay đổi, thiếu cấu trúc và có sự hiện diện của con người.</p>
+    </div>
+    <div class="rgrid">
+      <article class="rcard reveal" style="--d:0ms">
+        <div class="rtop"><span class="rnum">01</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="7" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h2"/><rect x="13" y="10" width="8" height="7" rx="2"/><path d="M17 7v3M15 21h4M17 17v4"/></svg></div></div>
+        <h3>Tương tác người – robot</h3>
+        <p>Robot đồng hành có khả năng tự điều chỉnh cách tương tác và chủ động hỗ trợ con người, trong đó có hệ thống chăm sóc người cao tuổi ứng dụng mô hình ngôn ngữ đa phương thức.</p>
+        <ul class="kw"><li>Robot đồng hành</li><li>Hỗ trợ chủ động</li><li>Chăm sóc người cao tuổi</li></ul>
+      </article>
+      <article class="rcard reveal" style="--d:70ms">
+        <div class="rtop"><span class="rnum">02</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="2.5"/><circle cx="12" cy="4" r="2.5"/><path d="M4 21v-6l2-4 3 3M11 21v-7l1-5"/><path d="M15 19c3 0 5-2 6-5" stroke-dasharray="2 2.5"/><rect x="17" y="17" width="5" height="4" rx="1"/></svg></div></div>
+        <h3>Điều hướng giữa con người</h3>
+        <p>Robot di chuyển tuân theo chuẩn mực ứng xử xã hội, có thể đi theo một người hoặc cả nhóm người và linh hoạt thích ứng khi đội hình thay đổi hay khi môi trường đông đúc.</p>
+        <ul class="kw"><li>Đi theo người</li><li>Đi theo nhóm</li><li>Điều hướng xã hội</li></ul>
+      </article>
+      <article class="rcard reveal" style="--d:140ms">
+        <div class="rtop"><span class="rnum">03</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21V11"/><path d="M12 11c0-4 3-7 7-7 0 4-3 7-7 7zM12 14c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5z"/><path d="M3 21h18"/></svg></div></div>
+        <h3>Robot nông nghiệp</h3>
+        <p>Robot tự hành trong vườn cây ăn quả, vượt địa hình gồ ghề và phun thuốc bảo vệ thực vật thông minh, tự điều chỉnh theo thời tiết và điều kiện thực địa.</p>
+        <ul class="kw"><li>Tự hành trong vườn cây</li><li>Phun thuốc thích ứng</li><li>Địa hình gồ ghề</li></ul>
+      </article>
+      <article class="rcard reveal" style="--d:210ms">
+        <div class="rtop"><span class="rnum">04</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="4" r="2"/><path d="M12 6v6M12 12l-3 4-1 5M12 12l3 4 2 5M8 9h8"/></svg></div></div>
+        <h3>Robot đi bằng chân</h3>
+        <p>Nghiên cứu dáng đi động lực học thụ động, dùng mô hình kneed-walker để định hướng chính sách điều khiển, và giúp robot hình người học nhiều kỹ năng vận động toàn thân.</p>
+        <ul class="kw"><li>Dáng đi thụ động</li><li>Robot hình người</li><li>Kỹ năng toàn thân</li></ul>
+      </article>
+      <article class="rcard reveal" style="--d:280ms">
+        <div class="rtop"><span class="rnum">05</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/><circle cx="12" cy="12" r="2.5"/></svg></div></div>
+        <h3>Học máy cho robot</h3>
+        <p>Ứng dụng học tăng cường sâu cho bài toán điều hướng và lập kế hoạch nhiều robot, cùng phương pháp học liên tục giúp robot bám theo con người ổn định lâu dài.</p>
+        <ul class="kw"><li>Học tăng cường sâu</li><li>Lập kế hoạch nhiều robot</li><li>Học liên tục</li></ul>
+      </article>
+      <article class="rcard reveal" style="--d:350ms">
+        <div class="rtop"><span class="rnum">06</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.5"/><path d="M18 3l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg></div></div>
+        <h3>Thị giác – Ngôn ngữ – Hành động</h3>
+        <p>Dùng mô hình thị giác – ngôn ngữ để robot hiểu bối cảnh và ra quyết định, đồng thời học chính sách điều khiển từ video tổng hợp mà không cần dữ liệu thực tế.</p>
+        <ul class="kw"><li>Mô hình thị giác – ngôn ngữ</li><li>Hiểu bối cảnh</li><li>Video tổng hợp</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap duo">
+    <div class="panel reveal">
+      <div class="panel-head">
+        <div><div class="eyebrow">Tin tức</div><h2>Tin mới nhất</h2></div>
+        <a class="view-all" href="news.html">Xem tất cả <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <ol class="tl">
+        <li><a href="news.html#news-1"><time>Tháng 10/2026</time><b>Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc</b><span>Cong-Thanh Vu vinh dự nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc do Đại học Quốc lập Thành Công (NCKU), Đài Loan trao tặng.</span></a></li>
+        <li><a href="news.html#news-2"><time>Tháng 8/2026</time><b>Bài báo được chấp nhận đăng trên IEEE TSMC: Systems</b><span>Nghiên cứu chiến lược tương tác thích ứng cho robot đồng hành bằng học tăng cường sâu.</span></a></li>
+        <li><a href="news.html#news-3"><time>Tháng 7/2026</time><b>Bài báo được xuất bản trên tạp chí COMPAG</b><span>Phun thuốc bảo vệ thực vật thích ứng theo bối cảnh cho robot nông nghiệp bằng mô hình thị giác – ngôn ngữ (Tập 252).</span></a></li>
+        <li><a href="news.html#news-4"><time>Tháng 6/2026</time><b>Bài báo được chấp nhận tại hội nghị IEEE/RSJ IROS 2026</b><span>Robot đồng hành thích ứng khi đi theo nhóm người có đội hình thay đổi — báo cáo tại Pittsburgh, Hoa Kỳ.</span></a></li>
+        <li><a href="news.html#news-5"><time>Tháng 5/2026</time><b>Ba bài báo được chấp nhận tại hội nghị IEEE/ASME AIM 2026</b><span>Gồm bám theo người bằng gimbal, robot chăm sóc người cao tuổi dùng VLM và robot hình người học từ video tổng hợp — Genova, Ý.</span></a></li>
+      </ol>
+    </div>
+    <div class="panel reveal">
+      <div class="panel-head">
+        <div><div class="eyebrow">Công bố khoa học</div><h2>Bài báo gần đây</h2></div>
+        <a class="view-all" href="publications.html">Xem tất cả <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="plist" id="featured"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="join reveal">
+      <div><h3>Tham gia RASL</h3><p>Chúng tôi luôn chào đón các bạn sinh viên quan tâm đến học máy cho robot, tương tác người – robot và robot thực địa.</p></div>
+      <a class="btn primary" href="#apply" data-apply>Ứng tuyển ngay</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="../assets/rasl-logo.png" alt=""><b>RASL</b><span>Robotics and<br>Autonomous Systems Lab</span></a>
+    <nav class="flinks"><a href="publications.html">Công bố khoa học</a><a href="news.html">Tin tức</a><a href="people.html">Thành viên</a><a href="contact.html">Liên hệ</a></nav>
+    <div class="copy">© <span id="yr">2026</span> RASL<span class="upd">Cập nhật lần cuối: 19/10/2026</span></div>
+  </div>
+</footer>
+<script src="../assets/pubs.js?v=144c19b0"></script>
+<script src="../assets/search-index-vi.js?v=d5905fb2"></script>
+<script src="../assets/site.js?v=7bf59314"></script>
+<script src="../assets/apply.js?v=2e02a32e"></script>
+</body>
+</html>

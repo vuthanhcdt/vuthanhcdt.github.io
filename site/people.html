@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People · RASL</title>
+<meta name="description" content="People of RASL.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=dae9707a">
+<script>try{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="alternate" hreflang="en" href="people.html">
+<link rel="alternate" hreflang="vi" href="vi/people.html">
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/rasl-logo.png" alt="">
+      <b>RASL</b>
+      <span>Robotics and<br>Autonomous Systems Lab</span>
+    </a>
+    <nav class="links" id="links">
+      <a href="publications.html">Publications</a>
+      <a href="news.html">News</a>
+      <a href="people.html" class="active" aria-current="page">People</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-sw" role="group" aria-label="Language"><a href="people.html" hreflang="en" data-lang="en" class="on" aria-current="true">EN</a><a href="vi/people.html" hreflang="vi" data-lang="vi">VI</a></div>
+      <button class="search-btn" id="searchBtn" type="button" aria-label="Search the site">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span>Search</span><kbd>⌘K</kbd>
+      </button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <img class="wm" src="assets/rasl-logo.png" alt="">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">RASL</a> / People</div>
+    <h1>People</h1>
+    <p>Meet the people behind RASL.</p>
+  </div>
+</section>
+<section class="sec" id="people">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Leadership</div><h2>Director</h2></div>
+    </div>
+    <article class="dir reveal">
+      <div class="dir-photo">
+        <div class="frame"><img src="assets/avatar-cutout.png?v=1" alt="Portrait of Cong-Thanh Vu"></div>
+        <span class="badge"><img src="assets/rasl-logo.png" alt=""></span>
+      </div>
+      <div class="dir-body">
+        <div class="eyebrow">Director · RASL</div>
+        <h3>Cong-Thanh Vu, Ph.D.</h3>
+        <div class="role">Director, Robotics and Autonomous Systems Lab (RASL)</div>
+        <p>Cong-Thanh Vu received his Ph.D. in Mechanical Engineering from National Cheng Kung University (NCKU), Taiwan, and his M.S. and B.S. in Mechatronics Engineering from Hanoi University of Industry, Vietnam. He leads RASL's research on robots that work alongside people and in the field — from companion and human-following robots to agricultural and legged robots that learn.</p>
+        <ul class="dir-tags"><li>Human–Robot Interaction</li><li>Human-Aware Navigation</li><li>Agricultural Robots</li><li>Legged Locomotion</li><li>Robot Learning</li><li>Vision–Language–Action</li></ul>
+        <div class="socials">
+          <a class="cv-btn" href="cv.html?m=vu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>CV</a>
+          <a href="mailto:vuthanh.cdt@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+          <a href="https://scholar.google.com/citations?user=7FEW5b8AAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.5 9.6V16c0 1.9 2.9 4 6.5 4s6.5-2.1 6.5-4v-3.4L12 16.2l-6.5-3.6z"/></svg>Google Scholar</a>
+        </div>
+        <div class="dir-kpis">
+          <div><b id="dPubs">14</b><span>Peer-reviewed papers</span></div>
+          <div><b id="dJour">2</b><span>Journal articles</span></div>
+          <div><b id="dConf">12</b><span>Conference papers</span></div>
+        </div>
+      </div>
+    </article>
+
+    <div class="dir-grid">
+      <div class="dcard reveal">
+        <div class="dcard-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></i><h4>Education</h4></div>
+        <ul class="dtl">
+          <li><em>2022 – 2026</em><b>Ph.D., Mechanical Engineering</b><span>National Cheng Kung University, Taiwan</span><a class="adv" href="https://scholar.google.com/citations?user=D5p2j08AAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.5 9.6V16c0 1.9 2.9 4 6.5 4s6.5-2.1 6.5-4v-3.4L12 16.2l-6.5-3.6z"/></svg>Advisor: Prof. Yen-Chen Liu</a></li>
+          <li><em>2019 – 2021</em><b>M.S., Mechatronics Engineering</b><span>Hanoi University of Industry, Vietnam</span><a class="adv" href="https://scholar.google.com/citations?user=2jZTByoAAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.5 9.6V16c0 1.9 2.9 4 6.5 4s6.5-2.1 6.5-4v-3.4L12 16.2l-6.5-3.6z"/></svg>Advisor: Assoc. Prof. Anh-Tu Nguyen</a></li>
+          <li><em>2015 – 2019</em><b>B.S., Mechatronics Engineering</b><span>Hanoi University of Industry, Vietnam</span><a class="adv" href="https://scholar.google.com/citations?user=2jZTByoAAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.5 9.6V16c0 1.9 2.9 4 6.5 4s6.5-2.1 6.5-4v-3.4L12 16.2l-6.5-3.6z"/></svg>Advisor: Assoc. Prof. Anh-Tu Nguyen</a></li>
+        </ul>
+      </div>
+      <div class="dcard reveal">
+        <div class="dcard-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg></i><h4>Honors &amp; Awards</h4></div>
+        <ul class="dtl">
+          <li><em>Oct 2026</em><b>Excellent Doctoral Student Award</b><span>National Cheng Kung University</span></li>
+          <li><em>2022 – 2026</em><b>Full Scholarship</b><span>National Cheng Kung University</span></li>
+          <li><em>2024</em><b>Travel Award</b><span>NSTC, Taiwan</span></li>
+          <li><em>2024</em><b>Bronze Award, Smart Manufacturing Data Competition</b><span>NCKU Alliance, MOE Smart Manufacturing Talent Program, Taiwan</span></li>
+          <li><em>2018, 2019</em><b>Award, ABU Robocon Vietnam</b><span>National robot contest, ABU Asia-Pacific Robot Contest</span></li>
+          <li><em>2017, 2018</em><b>Talent Scholarship</b><span>Foxconn Technology Group</span></li>
+        </ul>
+      </div>
+      <div class="dcard reveal">
+        <div class="dcard-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4 3.5 7 8 8 4.5-1 8-4 8-8V7z"/><path d="m9 12 2 2 4-4"/></svg></i><h4>Professional Service</h4></div>
+        <ul class="dtl">
+          <li><em>Journals</em><b>Reviewer</b><span>IEEE/ASME TMECH, IEEE TSMC: Systems, Journal of the Franklin Institute</span></li>
+          <li><em>Conferences</em><b>Reviewer</b><span>ICRA, IROS, AIM, SMC, Humanoids</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="join reveal">
+      <div><h3>Join RASL</h3><p>Students interested in robot learning, human–robot interaction or field robotics are welcome to get in touch.</p></div>
+      <a class="btn primary" href="#apply" data-apply>Apply now</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/rasl-logo.png" alt=""><b>RASL</b><span>Robotics and<br>Autonomous Systems Lab</span></a>
+    <nav class="flinks"><a href="publications.html">Publications</a><a href="news.html">News</a><a href="people.html">People</a><a href="contact.html">Contact</a></nav>
+    <div class="copy">© <span id="yr">2026</span> RASL<span class="upd">Updated October 19, 2026</span></div>
+  </div>
+</footer>
+<script src="assets/pubs.js?v=144c19b0"></script>
+<script src="assets/search-index.js?v=595e7c1d"></script>
+<script src="assets/site.js?v=7bf59314"></script>
+<script src="assets/apply.js?v=2e02a32e"></script>
+</body>
+</html>
