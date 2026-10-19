@@ -20,6 +20,9 @@ DESCS = {
 }
 
 TR = [
+    # director bio first, so shorter award names below do not split it
+    ("Cong-Thanh Vu received the B.S. and M.S. degrees in mechatronics engineering from Hanoi University of Industry, Hanoi, Vietnam, in 2019 and 2021, respectively, and the Ph.D. degree in mechanical engineering from National Cheng Kung University (NCKU), Tainan, Taiwan, in 2026. He is currently the Director of the Robotics and Autonomous Systems Lab (RASL). His research interests include human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, and robot learning, with a focus on robots that understand, assist, and work alongside people in real-world environments. Dr. Vu was a recipient of the Excellent Doctoral Student Award from NCKU in 2026. He serves as a reviewer for IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems, and major robotics conferences, including ICRA and IROS.",
+     f'Cong-Thanh Vu nhận bằng Đại học và Thạc sĩ ngành Kỹ thuật Cơ điện tử tại {HAUI}, Hà Nội, lần lượt vào các năm 2019 và 2021, và bằng Tiến sĩ ngành Kỹ thuật Cơ khí tại {NCKU}, Đài Nam, Đài Loan, năm 2026. Hiện anh là Giám đốc Phòng thí nghiệm Robot và Hệ thống Tự hành (RASL). Các hướng nghiên cứu chính của anh gồm tương tác người – robot, điều hướng robot có nhận thức về con người, robot nông nghiệp, robot đi bằng chân và học máy cho robot, tập trung vào những robot biết thấu hiểu, hỗ trợ và làm việc cùng con người trong môi trường thực tế. Tiến sĩ Vu từng nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc của NCKU năm 2026. Anh là phản biện cho các tạp chí IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems và các hội nghị lớn về robot như ICRA và IROS.'),
     # ---------------- home: hero ----------------
     ('Robots that <em>understand</em>, <em>adapt</em>, and work alongside people.',
      'Robot biết <em>thấu hiểu</em>, <em>thích nghi</em> và đồng hành cùng con người.'),
@@ -122,8 +125,6 @@ TR = [
     ('<h2>Director</h2>', '<h2>Giám đốc</h2>'),
     ('Director · RASL', 'Giám đốc · RASL'),
     ('Director, Robotics and Autonomous Systems Lab (RASL)', 'Giám đốc Phòng thí nghiệm Robot và Hệ thống Tự hành (RASL)'),
-    ("Cong-Thanh Vu received his Ph.D. in Mechanical Engineering from National Cheng Kung University (NCKU), Taiwan, and his M.S. and B.S. in Mechatronics Engineering from Hanoi University of Industry, Vietnam. He leads RASL's research on robots that work alongside people and in the field — from companion and human-following robots to agricultural and legged robots that learn.",
-     f'Cong-Thanh Vu nhận bằng Tiến sĩ ngành Kỹ thuật Cơ khí tại {NCKU}, Đài Loan, và bằng Thạc sĩ, Đại học ngành Kỹ thuật Cơ điện tử tại {HAUI}. Hiện Cong-Thanh Vu dẫn dắt các hướng nghiên cứu của RASL về robot làm việc cùng con người và ngoài thực địa — từ robot đồng hành, robot đi theo người đến robot nông nghiệp và robot đi bằng chân có khả năng tự học.'),
     ('alt="Portrait of Cong-Thanh Vu"', 'alt="Ảnh chân dung Cong-Thanh Vu"'),
     ('<h4>Education</h4>', '<h4>Học vấn</h4>'),
     ('<h4>Honors &amp; Awards</h4>', '<h4>Giải thưởng &amp; Học bổng</h4>'),
