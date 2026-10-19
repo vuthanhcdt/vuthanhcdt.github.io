@@ -31,6 +31,10 @@ TR = [
     ('<span class="dot"></span>Robotics and Autonomous Systems Lab', '<span class="dot"></span>Phòng thí nghiệm Robot và Hệ thống Tự hành'),
     ('">Publications <svg', '">Công bố khoa học <svg'),
     ('<span>Peer-reviewed papers</span>', '<span>Bài báo có phản biện</span>'),
+    # director card numbers (one short word each so the three cells line up)
+    ('</b><span>Papers</span>', '</b><span>Bài báo</span>'),
+    ('</b><span>Journals</span>', '</b><span>Tạp chí</span>'),
+    ('</b><span>Conferences</span>', '</b><span>Hội nghị</span>'),
     ('<span>Journal articles</span>', '<span>Bài báo tạp chí</span>'),
     ('<span>Conference papers</span>', '<span>Bài báo hội nghị</span>'),
     ('aria-label="Venues"', 'aria-label="Tạp chí và hội nghị"'),
