@@ -12,7 +12,7 @@ const cv = box.querySelector("canvas"), ctx = cv.getContext("2d");
 const mark = box.querySelector(".intro-mark");
 const dpr = Math.min(devicePixelRatio || 1, 2);
 let W, H, pts = [], start = 0, raf = 0, ended = false;
-const T_GATHER = 1500, T_HOLD = 900, T_OUT = 650;          // ms
+const T_GATHER = 1500, T_SWAP = 550, T_HOLD = 850, T_OUT = 650;   // ms: gather, particles→logo cross-fade, hold, exit
 
 function finish(){
   if (ended) return; ended = true;
@@ -72,8 +72,10 @@ function frame(now){
     ctx.fillStyle = k < 1 ? `rgba(${Math.round(110 + 145 * k)},${Math.round(210 + 45 * k)},255,${0.55 + 0.45 * k})` : "rgba(255,255,255,.95)";
     ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
   }
-  if (el > T_GATHER * 0.85) box.classList.add("show");      // crisp logo + lab name fade in over the dots
-  if (el > T_GATHER + T_HOLD) { finish(); return; }
+  /* once every particle has landed, cross-fade: dots fade out exactly while the crisp logo fades in */
+  if (el >= T_GATHER && !box.classList.contains("show")) box.classList.add("show");
+  if (el >= T_GATHER + T_SWAP) { ctx.clearRect(0, 0, W, H); cv.style.visibility = "hidden"; }   // nothing left behind the logo
+  if (el > T_GATHER + T_SWAP + T_HOLD) { finish(); return; }
   raf = requestAnimationFrame(frame);
 }
 

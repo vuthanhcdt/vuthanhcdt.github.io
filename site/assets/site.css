@@ -730,11 +730,12 @@ body{animation:pagein .5s ease both}
 .intro-on body{overflow:hidden}
 .intro-on .intro{display:block;position:fixed;inset:0;z-index:300;cursor:pointer;
   background:radial-gradient(900px 520px at 80% 10%,rgba(62,224,208,.22),transparent 60%),radial-gradient(700px 480px at 10% 100%,rgba(124,77,255,.18),transparent 60%),linear-gradient(150deg,#040a14,#0b2547)}
-.intro canvas{position:absolute;inset:0}
+.intro canvas{position:absolute;inset:0;transition:opacity .55s ease}
+.intro.show canvas{opacity:0}
 .intro-c{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:22px;pointer-events:none}
-.intro-mark{width:min(620px,84vw);height:auto;filter:invert(1) drop-shadow(0 0 30px rgba(111,182,255,.45));opacity:0;transition:opacity .7s ease}
+.intro-mark{width:min(620px,84vw);height:auto;filter:invert(1) drop-shadow(0 0 30px rgba(111,182,255,.45));opacity:0;transform:scale(.985);transition:opacity .55s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
 .intro-sub{font:600 clamp(.78rem,1.8vw,1.1rem) Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#9fd2ff;text-align:center;padding:0 16px;opacity:0;transform:translateY(10px);transition:opacity .6s ease .2s,transform .6s ease .2s}
-.intro.show .intro-mark{opacity:1}
+.intro.show .intro-mark{opacity:1;transform:none}
 .intro.show .intro-sub{opacity:1;transform:none}
 .intro.out{opacity:0;transform:scale(1.06);transition:opacity .65s ease,transform .65s ease;pointer-events:none}
 .intro-skip{position:absolute;right:22px;bottom:22px;font:600 .82rem Inter,sans-serif;color:#cfe3ff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 16px;cursor:pointer}
