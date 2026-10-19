@@ -93,7 +93,6 @@ TR = [
     ('Presented at IROS 2025 and Humanoids 2025', 'Báo cáo tại hội nghị IROS 2025 và Humanoids 2025'),
     ('Human-following with deep RL (Hangzhou, China) and learning virtual passive dynamic walking.',
      'Robot đi theo người bằng học tăng cường sâu (Hàng Châu, Trung Quốc) và học dáng đi động lực học thụ động ảo.'),
-    ('Accepted papers, talks and milestones from the lab.', 'Bài báo mới được chấp nhận, các báo cáo hội nghị và các cột mốc của RASL.'),
     ('Latest updates', 'Tin mới nhất'),
     ('Recent papers', 'Bài báo gần đây'),
     ('View all', 'Xem tất cả'),
@@ -105,15 +104,11 @@ TR = [
     ('<h1>Get in touch</h1>', '<h1>Liên hệ với chúng tôi</h1>'),
     ('>Get in touch<', '>Liên hệ ngay<'),
     ('>Apply now<', '>Ứng tuyển ngay<'),
-    ('For collaborations, research questions or joining the lab, send us an email.',
-     'Mọi trao đổi về hợp tác, nghiên cứu hoặc mong muốn tham gia RASL, xin vui lòng gửi email cho chúng tôi.'),
     ('For collaborations, research questions or joining the lab:', 'Về hợp tác, trao đổi nghiên cứu hoặc tham gia RASL:'),
     ('</span>Online</h3>', '</span>Trực tuyến</h3>'),
     (' for citations and full-text links.', ' để xem số trích dẫn và bản đầy đủ của các bài báo.'),
 
     # ---------------- publications page ----------------
-    ('Journal articles and conference proceedings. Filter by type, search by title, author or venue, and copy BibTeX.',
-     'Danh sách bài báo trên tạp chí và hội nghị khoa học. Bạn có thể lọc theo loại, tìm theo tên bài, tác giả hoặc nơi công bố, và sao chép trích dẫn BibTeX.'),
     ('aria-label="Filter by type"', 'aria-label="Lọc theo loại công bố"'),
     ('aria-pressed="true">All<', 'aria-pressed="true">Tất cả<'),
     ('data-f="Journal" aria-pressed="false">Journal<', 'data-f="Journal" aria-pressed="false">Tạp chí<'),
