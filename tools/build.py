@@ -121,7 +121,7 @@ def page_hero(eyebrow,title,sub):
   <div class="wrap">
     <div class="crumbs"><a href="index.html">RASL</a> / {eyebrow}</div>
     <h1>{title}</h1>
-    <p>{sub}</p>
+    {('<p>'+sub+'</p>') if sub else ''}
   </div>
 </section>
 '''
@@ -264,7 +264,7 @@ news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-i
 write('news.html','News · RASL','News and announcements from RASL.','News',
   page_hero('News','News','Accepted papers, talks and milestones from the lab.')+strip_head(news_page))
 write('people.html','People · RASL','People of RASL.','People',
-  page_hero('People','People','Meet the people behind RASL.')+people.replace('class="sec alt"','class="sec"'))
+  page_hero('People','People','')+people.replace('class="sec alt"','class="sec"'))
 write('contact.html','Contact · RASL','Contact RASL.','Contact',
   page_hero('Contact','Get in touch','For collaborations, research questions or joining the lab, send us an email.')+strip_head(contact))
 print('built')

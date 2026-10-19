@@ -123,7 +123,6 @@ TR = [
     ('<span>Try:</span>', '<span>Gợi ý:</span>'),
 
     # ---------------- people page ----------------
-    ('Meet the people behind RASL.', 'Gặp gỡ những con người đứng sau RASL.'),
     ('>Leadership<', '>Lãnh đạo<'),
     ('<h2>Director</h2>', '<h2>Giám đốc</h2>'),
     ('Director · RASL', 'Giám đốc · RASL'),
