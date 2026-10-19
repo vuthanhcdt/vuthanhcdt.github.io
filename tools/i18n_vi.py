@@ -9,12 +9,14 @@ TITLES = {
     'Publications · RASL': 'Công bố khoa học · RASL',
     'News · RASL': 'Tin tức · RASL',
     'People · RASL': 'Thành viên · RASL',
+    'Contact · RASL': 'Liên hệ · RASL',
 }
 DESCS = {
     'index.html': 'RASL — Phòng thí nghiệm Robot và Hệ thống Tự hành: tương tác người – robot, robot nông nghiệp, robot đi bằng chân và học máy cho robot.',
     'publications.html': 'Danh sách công bố khoa học có phản biện của RASL.',
     'news.html': 'Tin tức và hoạt động mới nhất của RASL.',
     'people.html': 'Giới thiệu thành viên của RASL.',
+    'contact.html': 'Thông tin liên hệ với RASL.',
 }
 
 TR = [
@@ -101,8 +103,12 @@ TR = [
     ('Students interested in robot learning, human–robot interaction or field robotics are welcome to get in touch.',
      'Chúng tôi luôn chào đón các bạn sinh viên quan tâm đến học máy cho robot, tương tác người – robot và robot thực địa.'),
     ('>Join RASL<', '>Tham gia RASL<'),
+    ('<h1>Get in touch</h1>', '<h1>Liên hệ với chúng tôi</h1>'),
     ('>Get in touch<', '>Liên hệ ngay<'),
     ('>Apply now<', '>Ứng tuyển ngay<'),
+    ('For collaborations, research questions or joining the lab:', 'Về hợp tác, trao đổi nghiên cứu hoặc tham gia RASL:'),
+    ('</span>Online</h3>', '</span>Trực tuyến</h3>'),
+    (' for citations and full-text links.', ' để xem số trích dẫn và bản đầy đủ của các bài báo.'),
 
     # ---------------- publications page ----------------
     ('aria-label="Filter by type"', 'aria-label="Lọc theo loại công bố"'),
@@ -150,10 +156,11 @@ TR = [
     ('>Publications<', '>Công bố khoa học<'),
     ('>News<', '>Tin tức<'),
     ('>People<', '>Thành viên<'),
+    ('>Contact<', '>Liên hệ<'),
 ]
 
 MON = {'Jan':1,'Feb':2,'Mar':3,'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
-NAV_VI = [('Publications','Công bố khoa học'),('News','Tin tức'),('People','Thành viên')]
+NAV_VI = [('Publications','Công bố khoa học'),('News','Tin tức'),('People','Thành viên'),('Contact','Liên hệ')]
 
 def vi_name(s):
     """Vietnamese pages use the Vietnamese name; paper author lists (rendered from pubs.js) keep "Cong-Thanh Vu"."""
