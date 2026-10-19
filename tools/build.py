@@ -2,7 +2,7 @@ import sys
 import re,sys,os
 SP=os.path.dirname(os.path.abspath(__file__)); OUT=sys.argv[1]
 rd=lambda n: open(os.path.join(SP,n)).read()
-research=rd('sec_research.html'); news=rd('sec_news.html'); pubs=rd('sec_publications.html'); people=rd('sec_people.html'); contact=rd('sec_contact.html')
+research=rd('sec_research.html'); news=rd('sec_news.html'); pubs=rd('sec_publications.html'); people=rd('sec_people.html')
 cards=re.findall(r'<article class="card reveal">\s*<div class="ico">(<svg.*?</svg>)</div>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>',research,re.S)
 assert len(cards)==6
 news_items=re.findall(r'(<div class="news-item reveal">.*?</div></div>)',news,re.S)
@@ -18,7 +18,7 @@ LONG=[
  'Learning lets robots handle situations that are hard to hand-code. Our work uses deep reinforcement learning for human-following and multi-robot planning in dynamic environments, and continual learning so trackers stay reliable as conditions change.',
  'Vision–language models give robots common-sense understanding of scenes and instructions. We use them for adaptive decision making in the field and for interaction, and explore policy learning from generated video without real-world data.',
 ]
-PAGES=[('index.html','Home'),('publications.html','Publications'),('news.html','News'),('people.html','People'),('contact.html','Contact')]
+PAGES=[('index.html','Home'),('publications.html','Publications'),('news.html','News'),('people.html','People')]
 
 SITE_URL='https://vuthanhcdt.github.io/'
 def page_url(name, lang='en'):
@@ -103,7 +103,7 @@ def nav(active):
 FOOT='''<footer class="site-footer">
   <div class="wrap">
     <a class="brand" href="index.html"><img src="assets/rasl-logo.png" alt=""><b>RASL</b><span>Robotics and<br>Autonomous Systems Lab</span></a>
-    <nav class="flinks"><a href="publications.html">Publications</a><a href="news.html">News</a><a href="people.html">People</a><a href="contact.html">Contact</a></nav>
+    <nav class="flinks"><a href="publications.html">Publications</a><a href="news.html">News</a><a href="people.html">People</a></nav>
     <div class="copy">© <span id="yr">2026</span> RASL<span class="upd">__UPDATED__</span></div>
   </div>
 </footer>
@@ -265,8 +265,6 @@ write('news.html','News · RASL','News and announcements from RASL.','News',
   page_hero('News','News','Accepted papers, talks and milestones from the lab.')+strip_head(news_page))
 write('people.html','People · RASL','People of RASL.','People',
   page_hero('People','People','Meet the people behind RASL.')+people.replace('class="sec alt"','class="sec"'))
-write('contact.html','Contact · RASL','Contact RASL.','Contact',
-  page_hero('Contact','Get in touch','For collaborations, research questions or joining the lab, send us an email.')+strip_head(contact))
 print('built')
 
 # ---------- site-wide search index (publications come from pubs.js) ----------
@@ -283,7 +281,6 @@ for li in re.findall(r'<li><em>(.*?)</em><b>(.*?)</b><span>(.*?)</span>(.*?)</li
     IDX.append(dict(type='People',title=txt(li[1]),text=txt(li[2])+(' · '+extra if extra else ''),meta=f'Cong-Thanh Vu · {txt(li[0])}',url='people.html'))
 IDX+= [dict(type='People',title='Cong-Thanh Vu, Ph.D.',text='Director, Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.',meta='Director',url='people.html'),
        dict(type='Page',title='CV — Cong-Thanh Vu',text='Auto-generated CV with education, experience, publications and awards. Download as PDF.',meta='CV',url='cv.html?m=vu'),
-       dict(type='Page',title='Contact',text='Email vuthanh.cdt@gmail.com · Google Scholar',meta='Get in touch',url='contact.html'),
        dict(type='Page',title='Join RASL — apply',text='Application form for students and interns: introduce yourself, your skills, languages and research interests.',meta='Open positions',url='index.html#apply'),
        dict(type='Page',title='Publications',text='All journal articles, conference papers and preprints with BibTeX.',meta='Page',url='publications.html'),
        dict(type='Page',title='News',text='Accepted papers, awards and milestones.',meta='Page',url='news.html')]
@@ -297,7 +294,7 @@ os.makedirs(os.path.join(OUT,'vi'),exist_ok=True)
 VI_FIX={'Curriculum Vitae — Cong-Thanh Vu':'CV — Cong-Thanh Vu',
         'Auto-generated CV with education, experience, publications and awards. Download as PDF.':'CV được tạo tự động gồm học vấn, kinh nghiệm, công bố khoa học và giải thưởng; có thể tải về dạng PDF.',
         'Email vuthanh.cdt@gmail.com · Google Scholar':'Email vuthanh.cdt@gmail.com · Google Scholar',
-        'Get in touch':'Liên hệ','Open positions':'Tuyển sinh viên nghiên cứu','Page':'Trang',
+        'Open positions':'Tuyển sinh viên nghiên cứu','Page':'Trang',
         'All journal articles, conference papers and preprints with BibTeX.':'Toàn bộ bài báo tạp chí và hội nghị, kèm trích dẫn BibTeX.',
         'Accepted papers, awards and milestones.':'Bài báo mới được chấp nhận, giải thưởng và các cột mốc của lab.',
         'Join RASL':'Tham gia RASL','Join RASL — apply':'Ứng tuyển vào RASL',
@@ -345,7 +342,7 @@ nf=re.sub(r'(src|href)="(?!https?:|//|#|mailto:|/)([^"]*)"',r'\1="/\2"',nf)   # 
 open(os.path.join(OUT,'404.html'),'w').write(nf)
 
 # ---------- sitemap.xml + robots.txt ----------
-_pages=['index.html','publications.html','news.html','people.html','contact.html']
+_pages=['index.html','publications.html','news.html','people.html']
 _xml=['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
 for n in _pages:
     for lang in ('en','vi'):
