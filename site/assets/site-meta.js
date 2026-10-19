@@ -1,1 +1,1 @@
-window.SITE_UPDATED = "2026-10-19";
+window.SITE_UPDATED = "2026-10-20";
