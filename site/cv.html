@@ -146,9 +146,6 @@ a.pt:hover{color:var(--accent)}
 .pw-act button{font:600 .9rem Inter;padding:10px 16px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
 .pw-act button.ghost{background:transparent;color:var(--ink-2);border-color:var(--line)}
 .pw-act button:disabled{opacity:.6;cursor:wait}
-.pg.Review h3 em{background:#7c3aed}
-.pg.Review .ven{background:#7c3aed}
-.pg.Review .k{color:#7c3aed}
 .st{display:inline-block;font:700 .62rem Inter;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:1px}
 .st.review{background:#fef3c7;color:#92400e}
 .st.revision{background:#ede9fe;color:#5b21b6}
@@ -326,7 +323,11 @@ const urItem = (p, key) => {
     <div class="pa">${esc(p.authors || "").replace(esc(me), `<b>${esc(me)}</b>`)}</div>
     <div class="pv">${p.short ? `<span class="ven">${esc(p.short)}</span>` : ""}<i>${esc(p.venue || "")}</i>${p.submitted ? `, submitted ${esc(p.submitted)}` : ""}.<span class="st ${st}">${esc(p.status || "Under review")}</span></div></div></div>`;
 };
-const urGroup = UR => UR && UR.length ? `<div class="pg Review"><h3>Manuscripts Under Review / Revision<em>${UR.length}</em></h3>${UR.map((p, i) => urItem(p, "R" + (i + 1))).join("")}</div>` : "";
+/* journal articles: manuscripts under review / revision (full CV only) come first, then published papers, numbered together */
+const journalGroup = UR => {
+  const ur = UR || [], n = ur.length + J.length;
+  return n ? `<div class="pg Journal"><h3>Journal Articles<em>${n}</em></h3>${ur.map((p, i) => urItem(p, "J" + (i + 1))).join("")}${J.map((p, i) => pubItem(p, "J" + (ur.length + i + 1))).join("")}</div>` : "";
+};
 
 const render = UR => { root.innerHTML = `<article class="sheet">
   <header class="hero">
@@ -353,7 +354,7 @@ const render = UR => { root.innerHTML = `<article class="sheet">
     ${sec("user", "Profile", m.summary ? `<p class="lead">${esc(m.summary)}</p>${m.interests?.length ? `<div class="tags">${m.interests.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : ""}` : "")}
     ${sec("edu", "Education", timeline(m.education))}
     ${sec("work", "Research Experience", timeline(m.experience))}
-    ${sec("book", "Publications", group("Journal", "Journal Articles", J, "J") + group("Conference top", "Top-tier Conference Proceedings", CT, "C") + group("Conference", CT.length ? "Other Conference Proceedings" : "Conference Proceedings", CO, "C", CT.length) + group("Preprint", "Preprints", R, "P") + urGroup(UR), mine.length ? `${mine.length} published` : "")}
+    ${sec("book", "Publications", journalGroup(UR) + group("Conference top", "Top-tier Conference Proceedings", CT, "C") + group("Conference", CT.length ? "Other Conference Proceedings" : "Conference Proceedings", CO, "C", CT.length) + group("Preprint", "Preprints", R, "P"), mine.length ? `${mine.length} published` : "")}
     <div class="two">
       ${sec("award", "Honors &amp; Awards", cards(m.honors))}
       ${sec("serv", "Professional Service", cards(m.service))}
