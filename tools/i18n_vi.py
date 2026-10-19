@@ -93,7 +93,7 @@ TR = [
     ('Presented at IROS 2025 and Humanoids 2025', 'Báo cáo tại hội nghị IROS 2025 và Humanoids 2025'),
     ('Human-following with deep RL (Hangzhou, China) and learning virtual passive dynamic walking.',
      'Robot đi theo người bằng học tăng cường sâu (Hàng Châu, Trung Quốc) và học dáng đi động lực học thụ động ảo.'),
-    ('Accepted papers, talks and milestones from the lab.', 'Bài báo mới được chấp nhận, các báo cáo hội nghị và những cột mốc đáng nhớ của RASL.'),
+    ('Accepted papers, talks and milestones from the lab.', 'Bài báo mới được chấp nhận, các báo cáo hội nghị và các cột mốc của RASL.'),
     ('Latest updates', 'Tin mới nhất'),
     ('Recent papers', 'Bài báo gần đây'),
     ('View all', 'Xem tất cả'),
