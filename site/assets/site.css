@@ -581,7 +581,20 @@ body{animation:pagein .5s ease both}
 .pstat-bar i{flex:var(--n) 1 0;border-radius:999px;transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.2,1) .25s}
 .pstat-bar .j{background:var(--journal)}
 .pstat-bar .c{background:linear-gradient(90deg,var(--conf),var(--accent-2))}
-.dir:not(.in) .pstat-bar i{transform:scaleX(0)}
+.dir:not(.in) .pstat-bar i,.pstat.reveal:not(.in) .pstat-bar i{transform:scaleX(0)}
+.pstat.wide{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:32px;padding:20px 28px;margin:0 0 22px}
+.pstat.wide .pstat-top b{font-size:3rem}
+.pstat.wide .pstat-top{padding-right:32px;border-right:1px solid var(--line)}
+.pstat.wide .pstat-bar{height:10px;margin:0 0 12px}
+.pstat.wide .pstat-legend{justify-content:flex-start;gap:30px}
+.pstat.wide .pstat-legend div{font-size:.86rem}
+.pstat.wide .pstat-legend b{font-size:1.2rem}
+@media (max-width:620px){
+  .pstat.wide{grid-template-columns:1fr;gap:14px;padding:16px 18px}
+  .pstat.wide .pstat-top{padding:0;border:0}
+  .pstat.wide .pstat-top b{font-size:2.6rem}
+  .pstat.wide .pstat-legend{justify-content:space-between}
+}
 .pstat-legend{display:flex;justify-content:space-between;gap:10px}
 .pstat-legend div{display:flex;align-items:center;gap:7px;font-size:.8rem;color:var(--muted)}
 .pstat-legend i{width:9px;height:9px;border-radius:3px;flex:none}

@@ -118,13 +118,13 @@ if (statsBar){
   so.observe(statsBar);
 }
 
-/* director card stats follow the publication data */
-if ($("dPubs")){
-  $("dPubs").textContent = PUBS.filter(p => p.c !== "Preprint").length;
-  $("dJour").textContent = PUBS.filter(p => p.c === "Journal").length;
-  $("dConf").textContent = PUBS.filter(p => p.c === "Conference").length;
-  $("dJourBar").style.setProperty("--n", $("dJour").textContent);   // bar segments in proportion
-  $("dConfBar").style.setProperty("--n", $("dConf").textContent);
+/* paper stats cards (People, Publications) follow the publication data */
+if (document.querySelector(".pstat") && window.PUBS){
+  const n = {total: PUBS.filter(p => p.c !== "Preprint").length,
+             j: PUBS.filter(p => p.c === "Journal").length,
+             c: PUBS.filter(p => p.c === "Conference").length};
+  document.querySelectorAll(".pstat [data-n]").forEach(el => { el.textContent = n[el.dataset.n]; });
+  document.querySelectorAll(".pstat [data-bar]").forEach(el => el.style.setProperty("--n", n[el.dataset.bar]));
 }
 
 /* ---------- cursor spotlight on cards ---------- */
