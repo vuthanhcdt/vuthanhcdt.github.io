@@ -10,3 +10,6 @@ __pycache__/
 .idea/
 .vscode/
 *.swp
+
+# Unencrypted CV data (manuscripts under review) — never commit
+tools/private/

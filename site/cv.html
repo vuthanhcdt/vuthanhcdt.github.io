@@ -130,6 +130,29 @@ a.pt:hover{color:var(--accent)}
 
 .upd{margin:0;padding:6px 30px 18px;font-size:.72rem;font-style:italic;color:var(--muted);text-align:right}
 .missing{max-width:520px;margin:80px auto;text-align:center;color:var(--ink-2)}
+/* password-protected full CV */
+.bar .lockbtn.on{background:rgba(62,224,208,.18);border-color:#3ee0d0}
+.pw{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:16px;background:rgba(4,10,20,.55);backdrop-filter:blur(5px)}
+.pw[hidden]{display:none}
+.pw-box{width:min(380px,100%);background:#fff;border-radius:18px;padding:26px 24px 20px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.pw-ic{width:52px;height:52px;margin:0 auto 10px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.pw-ic svg{width:26px;height:26px}
+.pw-box h2{font:700 1.3rem "Space Grotesk";margin:0 0 6px}
+.pw-box p{margin:0 0 16px;color:var(--ink-2);font-size:.88rem}
+.pw-box input{width:100%;font:inherit;font-size:1rem;padding:11px 13px;border-radius:11px;border:1px solid var(--line);background:var(--soft)}
+.pw-box input:focus{outline:2px solid rgba(10,102,216,.35);border-color:var(--accent)}
+.pw-box small{display:block;min-height:1.2em;margin:6px 0 0;color:#e5484d;font-size:.8rem}
+.pw-act{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.pw-act button{font:600 .9rem Inter;padding:10px 16px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.pw-act button.ghost{background:transparent;color:var(--ink-2);border-color:var(--line)}
+.pw-act button:disabled{opacity:.6;cursor:wait}
+.pg.Review h3 em{background:#7c3aed}
+.pg.Review .ven{background:#7c3aed}
+.pg.Review .k{color:#7c3aed}
+.st{display:inline-block;font:700 .62rem Inter;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:1px}
+.st.review{background:#fef3c7;color:#92400e}
+.st.revision{background:#ede9fe;color:#5b21b6}
+.fullflag{display:inline-block;margin-left:10px;font:700 .62rem Inter;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(62,224,208,.18);color:#7fe0d6;vertical-align:middle}
 
 @media (max-width:680px){
   .sheet{border-radius:14px}
@@ -190,11 +213,23 @@ a.pt:hover{color:var(--accent)}
     <select id="who" aria-label="Choose member"></select>
     <a class="b" href="people.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>People</a>
+    <button class="b lockbtn" id="full" type="button" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Full CV</span></button>
     <button class="primary" id="pdf" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download PDF</button>
   </div>
 </div>
 <main id="cv"></main>
+<div class="pw" id="pw" hidden>
+  <form class="pw-box" id="pwForm" autocomplete="off">
+    <div class="pw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+    <h2>Full CV</h2>
+    <p>Includes manuscripts currently under review or revision. Enter the password to unlock it.</p>
+    <input id="pwIn" type="password" placeholder="Password" aria-label="Password" required>
+    <small id="pwErr" role="alert"></small>
+    <div class="pw-act"><button type="button" class="ghost" id="pwCancel">Cancel</button><button type="submit" id="pwGo">Unlock</button></div>
+  </form>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script src="assets/pubs.js?v=144c19b0"></script>
@@ -284,13 +319,22 @@ const cards = list => list?.length ? `<div class="cards">${list.map(r =>
 const built = window.SITE_UPDATED ? new Date(window.SITE_UPDATED + "T12:00:00") : new Date();
 const today = built.toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
 
-root.innerHTML = `<article class="sheet">
+/* manuscripts under review / revision (only after the password unlocks them) */
+const urItem = (p, key) => {
+  const st = /revision/i.test(p.status || "") ? "revision" : "review";
+  return `<div class="pub"><span class="k">[${key}]</span><div><span class="pt">${esc(p.title)}</span>
+    <div class="pa">${esc(p.authors || "").replace(esc(me), `<b>${esc(me)}</b>`)}</div>
+    <div class="pv">${p.short ? `<span class="ven">${esc(p.short)}</span>` : ""}<i>${esc(p.venue || "")}</i>${p.submitted ? `, submitted ${esc(p.submitted)}` : ""}.<span class="st ${st}">${esc(p.status || "Under review")}</span></div></div></div>`;
+};
+const urGroup = UR => UR && UR.length ? `<div class="pg Review"><h3>Manuscripts Under Review / Revision<em>${UR.length}</em></h3>${UR.map((p, i) => urItem(p, "R" + (i + 1))).join("")}</div>` : "";
+
+const render = UR => { root.innerHTML = `<article class="sheet">
   <header class="hero">
     <img class="wm" src="assets/rasl-logo.png" alt="">
     <div class="hero-top">
       ${m.photo ? `<img class="ph" src="${esc(m.photo)}" alt="Portrait of ${esc(m.name)}">` : ""}
       <div>
-        <h1>${esc(m.name)}${m.suffix ? ", " + esc(m.suffix) : ""}</h1>
+        <h1>${esc(m.name)}${m.suffix ? ", " + esc(m.suffix) : ""}${UR ? `<span class="fullflag">Full CV</span>` : ""}</h1>
         ${m.role ? `<p class="role">${esc(m.role)}</p>` : ""}
         <div class="chips">${m.website ? `<a href="${esc(m.website)}">${ic("globe")}${esc(m.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</a>` : ""}${(m.contact || []).map(chip).join("")}</div>
       </div>
@@ -302,20 +346,67 @@ root.innerHTML = `<article class="sheet">
       ${CT.length ? `<div><b>${CT.length}</b><span>Top-tier conf.</span></div>` : ""}
       <div><b>${C.length}</b><span>Conference</span></div>
       ${R.length ? `<div><b>${R.length}</b><span>Preprint</span></div>` : ""}
+      ${UR && UR.length ? `<div><b>${UR.length}</b><span>Under review</span></div>` : ""}
     </div>` : ""}
   </header>
   <div class="body">
     ${sec("user", "Profile", m.summary ? `<p class="lead">${esc(m.summary)}</p>${m.interests?.length ? `<div class="tags">${m.interests.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : ""}` : "")}
     ${sec("edu", "Education", timeline(m.education))}
     ${sec("work", "Research Experience", timeline(m.experience))}
-    ${sec("book", "Publications", group("Journal", "Journal Articles", J, "J") + group("Conference top", "Top-tier Conference Proceedings", CT, "C") + group("Conference", CT.length ? "Other Conference Proceedings" : "Conference Proceedings", CO, "C", CT.length) + group("Preprint", "Preprints", R, "P"), mine.length ? `${mine.length} total` : "")}
+    ${sec("book", "Publications", group("Journal", "Journal Articles", J, "J") + group("Conference top", "Top-tier Conference Proceedings", CT, "C") + group("Conference", CT.length ? "Other Conference Proceedings" : "Conference Proceedings", CO, "C", CT.length) + group("Preprint", "Preprints", R, "P") + urGroup(UR), mine.length ? `${mine.length} published` : "")}
     <div class="two">
       ${sec("award", "Honors &amp; Awards", cards(m.honors))}
       ${sec("serv", "Professional Service", cards(m.service))}
     </div>
   </div>
   <p class="upd">Updated ${today}</p>
-</article>`;
+</article>`; };
+render(null);
+
+/* ---------- password-protected full CV ----------
+   assets/cv-private.enc = base64 of `openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -md sha256 -salt` (see tools/encrypt_cv.sh).
+   Decrypted in the browser with WebCrypto; the plain list is never stored. */
+const fullBtn = document.getElementById("full"), pw = document.getElementById("pw"), pwForm = document.getElementById("pwForm"),
+      pwIn = document.getElementById("pwIn"), pwErr = document.getElementById("pwErr"), pwGo = document.getElementById("pwGo");
+let blob = null, unlocked = false;
+fetch("assets/cv-private.enc", {cache: "no-store"}).then(r => r.ok ? r.text() : null).then(t => {
+  if (t && t.trim()){ blob = t.trim(); fullBtn.hidden = false; if (params.get("full") === "1") askPw(); }
+}).catch(() => {});
+async function decrypt(b64, pass){
+  const raw = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  if (new TextDecoder().decode(raw.slice(0, 8)) !== "Salted__") throw new Error("format");
+  const enc = new TextEncoder();
+  const base = await crypto.subtle.importKey("raw", enc.encode(pass), "PBKDF2", false, ["deriveBits"]);
+  const bits = new Uint8Array(await crypto.subtle.deriveBits({name: "PBKDF2", salt: raw.slice(8, 16), iterations: 200000, hash: "SHA-256"}, base, 384));
+  const key = await crypto.subtle.importKey("raw", bits.slice(0, 32), "AES-CBC", false, ["decrypt"]);
+  const plain = await crypto.subtle.decrypt({name: "AES-CBC", iv: bits.slice(32, 48)}, key, raw.slice(16));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+function askPw(){ pw.hidden = false; pwErr.textContent = ""; pwIn.value = ""; setTimeout(() => pwIn.focus(), 30); }
+const closePw = () => { pw.hidden = true; fullBtn.focus(); };
+fullBtn.addEventListener("click", () => {
+  if (unlocked){ unlocked = false; render(null); fullBtn.classList.remove("on"); fullBtn.querySelector("span").textContent = "Full CV"; document.title = `CV_${m.name.replace(/\s+/g, "_")}`; return; }
+  askPw();
+});
+document.getElementById("pwCancel").addEventListener("click", closePw);
+pw.addEventListener("click", e => { if (e.target === pw) closePw(); });
+addEventListener("keydown", e => { if (e.key === "Escape" && !pw.hidden) closePw(); });
+pwForm.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!pwIn.value) return;
+  pwGo.disabled = true; pwGo.textContent = "Checking…"; pwErr.textContent = "";
+  try {
+    const data = await decrypt(blob, pwIn.value);
+    const UR = (data.manuscripts || []).filter(p => !p.member || p.member === m.id);
+    unlocked = true; render(UR); pw.hidden = true;
+    fullBtn.classList.add("on"); fullBtn.querySelector("span").textContent = "Public CV";
+    document.title = `CV_${m.name.replace(/\s+/g, "_")}_full`;
+  } catch(err){
+    pwErr.textContent = "Wrong password. Please try again."; pwIn.select();
+  } finally {
+    pwIn.value = ""; pwGo.disabled = false; pwGo.textContent = "Unlock";
+  }
+});
 })();
 </script>
 </body>

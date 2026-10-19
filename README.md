@@ -32,3 +32,17 @@ CV, member data and the application form can be edited directly in `site/`.
 - Each page has canonical, `hreflang` (EN/VI) and Open Graph / Twitter card tags.
 - Preview images: `site/assets/og-image.png` and `og-image-vi.png`. To change them, edit `tools/og.html` and run `./tools/make_og.sh` (needs Google Chrome).
 - Google Search Console: add the property `https://vuthanhcdt.github.io/`, then submit `sitemap.xml`.
+
+## Password-protected full CV (manuscripts under review)
+
+The public CV never shows unpublished work. A full version with manuscripts under review / revision unlocks with a password:
+
+1. `cp tools/under_review.example.json tools/private/under_review.json` and edit it
+   (`tools/private/` is git-ignored — the plain list is never committed).
+2. `./tools/encrypt_cv.sh` — type the password twice. It writes `site/assets/cv-private.enc`
+   (AES-256, PBKDF2-SHA256 with 200,000 iterations).
+3. Commit and push `site/assets/cv-private.enc`. The **Full CV** button appears on `cv.html`;
+   `cv.html?m=vu&full=1` opens the password box directly.
+
+To change the list or the password, edit the JSON and run the script again. Use a strong password:
+the encrypted file is public, so its safety depends entirely on the password.
