@@ -123,6 +123,8 @@ if ($("dPubs")){
   $("dPubs").textContent = PUBS.filter(p => p.c !== "Preprint").length;
   $("dJour").textContent = PUBS.filter(p => p.c === "Journal").length;
   $("dConf").textContent = PUBS.filter(p => p.c === "Conference").length;
+  $("dJourBar").style.setProperty("--n", $("dJour").textContent);   // bar segments in proportion
+  $("dConfBar").style.setProperty("--n", $("dConf").textContent);
 }
 
 /* ---------- cursor spotlight on cards ---------- */

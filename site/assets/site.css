@@ -569,21 +569,25 @@ body{animation:pagein .5s ease both}
 .dir-side{display:flex;flex-direction:column;align-items:center;gap:26px}
 .dir-side .socials{justify-content:center;flex-wrap:nowrap;gap:6px;margin-top:6px}
 .dir-side .socials a{padding:7px 11px;white-space:nowrap}
-/* numbers: the total on top, split below into journals | conferences (same on phones) */
-.dir-side .dir-kpis{width:100%;margin-top:0;grid-template-columns:1fr 1fr}
-.dir-side .dir-kpis div{border-top:0;border-left:1px solid var(--line)}
-.dir-side .dir-kpis div:first-child{grid-column:1/-1;border-left:0;border-bottom:1px solid var(--line);background:var(--bg-2)}
-.dir-side .dir-kpis div:nth-child(2){border-left:0}
-.dir-side .dir-kpis div{flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:14px 6px;text-align:center}
-.dir-side .dir-kpis b{font-size:1.7rem;line-height:1}
-.dir-side .dir-kpis div:first-child b{font-size:2.2rem}
-.dir-side .dir-kpis span{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.2}
 .dir-body h3{margin-top:4px}
-.dir-kpis{display:grid;grid-template-columns:repeat(3,1fr);margin-top:22px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.dir-kpis div{display:flex;align-items:baseline;justify-content:center;gap:10px;padding:12px 10px;border-left:1px solid var(--line);white-space:nowrap}
-.dir-kpis div:first-child{border-left:0}
-.dir-kpis b{font:700 1.5rem "Space Grotesk";background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.dir-kpis span{font-size:.8rem;color:var(--muted)}
+/* paper numbers: the total, a bar split by type, and a legend (journals | conferences) */
+.pstat{position:relative;overflow:hidden;width:100%;padding:16px 18px 15px;border-radius:16px;border:1px solid var(--line);
+  background:linear-gradient(140deg,color-mix(in srgb,var(--accent) 7%,var(--surface)),var(--surface) 60%);box-shadow:var(--shadow)}
+.pstat::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent-2) 12%,transparent),transparent 70%);pointer-events:none}
+.pstat-top{display:flex;align-items:baseline;gap:10px}
+.pstat-top b{font:700 2.6rem/1 "Space Grotesk",sans-serif;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pstat-top span{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pstat-bar{display:flex;gap:4px;height:8px;margin:14px 0 12px}
+.pstat-bar i{flex:var(--n) 1 0;border-radius:999px;transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.2,1) .25s}
+.pstat-bar .j{background:var(--journal)}
+.pstat-bar .c{background:linear-gradient(90deg,var(--conf),var(--accent-2))}
+.dir:not(.in) .pstat-bar i{transform:scaleX(0)}
+.pstat-legend{display:flex;justify-content:space-between;gap:10px}
+.pstat-legend div{display:flex;align-items:center;gap:7px;font-size:.8rem;color:var(--muted)}
+.pstat-legend i{width:9px;height:9px;border-radius:3px;flex:none}
+.pstat-legend .j i{background:var(--journal)}
+.pstat-legend .c i{background:var(--conf)}
+.pstat-legend b{font:700 1.05rem "Space Grotesk",sans-serif;color:var(--ink)}
 
 .dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
 .dcard{position:relative;isolation:isolate;overflow:hidden;padding:22px 22px 12px;border-radius:20px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s,border-color .3s}
@@ -605,15 +609,12 @@ body{animation:pagein .5s ease both}
 @media (max-width:980px){
   .dir{grid-template-columns:1fr;gap:28px;padding:28px 22px;text-align:left}
   .dir-side{display:contents}                      /* one column: photo, bio, then links and numbers */
-  .dir-photo{order:0}.dir-body{order:1}.dir-side .socials{order:2;justify-content:flex-start;margin-top:-6px}.dir-side .dir-kpis{order:3;margin-top:-10px;max-width:420px}
+  .dir-photo{order:0}.dir-body{order:1}.dir-side .socials{order:2;justify-content:flex-start;margin-top:-6px}.pstat{order:3;margin-top:-10px;max-width:420px}
   .dir-photo .frame{width:220px}
   .dir-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:620px){
   .dir-grid{grid-template-columns:1fr}
-  .dir-kpis{grid-template-columns:1fr}
-  .dir-kpis div{border-left:0;border-top:1px solid var(--line);justify-content:flex-start}
-  .dir-kpis div:first-child{border-top:0}
 }
 
 /* publications search hints */
