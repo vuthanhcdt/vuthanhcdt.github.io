@@ -32,7 +32,6 @@ INTRO_HEAD='<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").match
 INTRO_BODY='''<div class="intro" aria-hidden="true">
   <canvas></canvas>
   <div class="intro-c"><img class="intro-mark" src="assets/rasl-mark.png" alt=""><div class="intro-sub">Robotics and Autonomous Systems Lab</div></div>
-  <button class="intro-skip" type="button">Skip</button>
 </div>
 <script src="assets/intro.js"></script>
 '''

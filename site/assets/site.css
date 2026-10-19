@@ -728,7 +728,7 @@ body{animation:pagein .5s ease both}
 /* ======== opening animation (home) ======== */
 .intro{display:none}
 .intro-on body{overflow:hidden}
-.intro-on .intro{display:block;position:fixed;inset:0;z-index:300;cursor:pointer;
+.intro-on .intro{display:block;position:fixed;inset:0;z-index:300;
   background:radial-gradient(900px 520px at 80% 10%,rgba(62,224,208,.22),transparent 60%),radial-gradient(700px 480px at 10% 100%,rgba(124,77,255,.18),transparent 60%),linear-gradient(150deg,#040a14,#0b2547)}
 .intro canvas{position:absolute;inset:0;transition:opacity .55s ease}
 .intro.show canvas{opacity:0}
@@ -738,5 +738,3 @@ body{animation:pagein .5s ease both}
 .intro.show .intro-mark{opacity:1;transform:none}
 .intro.show .intro-sub{opacity:1;transform:none}
 .intro.out{opacity:0;transform:scale(1.06);transition:opacity .65s ease,transform .65s ease;pointer-events:none}
-.intro-skip{position:absolute;right:22px;bottom:22px;font:600 .82rem Inter,sans-serif;color:#cfe3ff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 16px;cursor:pointer}
-.intro-skip:hover{background:rgba(255,255,255,.16);color:#fff}

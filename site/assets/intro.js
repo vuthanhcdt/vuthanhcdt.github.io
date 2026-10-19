@@ -1,6 +1,6 @@
 /* RASL opening animation (plays each time the home page is opened).
    Particles fly in and assemble into the RASL logo, the crisp logo and lab name fade in,
-   then the overlay zooms out to reveal the page. Skippable with a click, a key or the Skip button.
+   then the overlay zooms out to reveal the page.
    The page's <head> adds html.intro-on only when the intro should play (see build.py). */
 (() => {
 const root = document.documentElement;
@@ -79,9 +79,6 @@ function frame(now){
   raf = requestAnimationFrame(frame);
 }
 
-box.querySelector(".intro-skip").addEventListener("click", finish);
-box.addEventListener("click", finish);
-addEventListener("keydown", finish, {once: true});
 setTimeout(finish, 6000);                                   // safety net
 
 const img = new Image();
