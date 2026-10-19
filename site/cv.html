@@ -173,6 +173,22 @@ a.pt:hover{color:var(--accent)}
   .tl li{grid-template-columns:1fr}
   .tl .when{grid-column:1;grid-row:auto;justify-self:start}
   .pub{grid-template-columns:1fr}
+  /* keep everything inside the phone width */
+  .sheet,.hero,.hero-top,.hero-top > *,.body,.sec{min-width:0;max-width:100%}
+  .hero h1{font-size:1.55rem;overflow-wrap:anywhere}
+  .hero .role{font-size:.85rem}
+  .chips{flex-wrap:wrap;justify-content:center}
+  .kpis{grid-auto-flow:row;grid-template-columns:1fr 1fr}
+  .kpis div{justify-content:flex-start;padding:10px 12px}
+  .kpis div:nth-child(odd){border-left:0}
+  .kpis div:nth-child(even){border-left:1px solid rgba(255,255,255,.1)}
+  .kpis div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1)}
+  .rows li{flex-direction:column;gap:4px}
+  .rows li em{align-self:flex-start}
+  .pt,.pa,.pv,.tl span,p.lead{overflow-wrap:anywhere}
+  .bar{position:static}
+  .bar .in{gap:8px}
+  .bar select{max-width:46vw}
 }
 
 /* ---------- print / Save as PDF ---------- */
