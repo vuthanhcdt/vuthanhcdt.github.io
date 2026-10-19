@@ -154,6 +154,8 @@ pre.bib.open{display:block}
 /* ---------- contact / footer ---------- */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .contact .card h3{display:flex;align-items:center;gap:10px}
+.contact .book{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.contact .book p{margin-bottom:0}
 footer{background:var(--hero-1);color:var(--hero-muted);padding:44px 0;font-size:.88rem}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 footer .brand span{border-color:rgba(255,255,255,.2)}
