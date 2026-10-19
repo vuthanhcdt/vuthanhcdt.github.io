@@ -1,4 +1,4 @@
-/* RASL opening animation (home page only, once per visit).
+/* RASL opening animation (plays each time the home page is opened).
    Particles fly in and assemble into the RASL logo, the crisp logo and lab name fade in,
    then the overlay zooms out to reveal the page. Skippable with a click, a key or the Skip button.
    The page's <head> adds html.intro-on only when the intro should play (see build.py). */
@@ -17,7 +17,6 @@ const T_GATHER = 1500, T_HOLD = 900, T_OUT = 650;          // ms
 function finish(){
   if (ended) return; ended = true;
   cancelAnimationFrame(raf);
-  try { sessionStorage.setItem("raslIntro", "seen"); } catch(e){}
   box.classList.add("out");
   setTimeout(() => { root.classList.remove("intro-on"); box.remove(); }, T_OUT);
 }
