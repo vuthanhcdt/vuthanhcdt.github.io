@@ -269,7 +269,7 @@ a.pt:hover{color:var(--accent)}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script src="assets/pubs.js?v=619eee3e"></script>
-<script src="assets/members.js?v=19a43d31"></script>
+<script src="assets/members.js?v=7674f77c"></script>
 <script src="assets/site-meta.js?v=bebca26c"></script>
 <script>
 (() => {
@@ -334,7 +334,7 @@ who.addEventListener("change", () => { location.search = "?m=" + encodeURICompon
 document.getElementById("pdf").addEventListener("click", () => window.print());
 
 if (!m){ root.innerHTML = `<div class="missing">${L.missing}</div>`; return; }
-const pdfName = sfx => `CV_${m.name.replace(/\s+/g, "_")}${VI ? "_VI" : ""}${sfx}`;
+const pdfName = sfx => `CV_${m0.name.replace(/\s+/g, "_")}${VI ? "_VI" : ""}${sfx}`;
 document.title = pdfName("");   // default PDF file name
 
 /* icons */
@@ -436,7 +436,7 @@ const render = UR => { FULL = !!UR; root.innerHTML = `<article class="sheet">
     <div class="hero-top">
       ${m.photo ? `<img class="ph" src="${esc(m.photo)}" alt="${L.portrait} ${esc(m.name)}">` : ""}
       <div>
-        <h1>${esc(m.name)}${m.suffix ? ", " + esc(m.suffix) : ""}</h1>
+        <h1>${m.prefix ? esc(m.prefix) + " " : ""}${esc(m.name)}${m.suffix ? ", " + esc(m.suffix) : ""}</h1>
         ${m.role ? `<p class="role">${esc(m.role)}</p>` : ""}
         <div class="chips">${m.website ? `<a href="${esc(m.website)}">${ic("globe")}${esc(m.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</a>` : ""}${(m.contact || []).map(chip).join("")}</div>
       </div>

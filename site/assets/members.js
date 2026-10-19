@@ -54,8 +54,11 @@ window.MEMBERS = [
       { what: "Conference reviewer", where: "ICRA, IROS, AIM, SMC, Humanoids" }
     ],
     vi: {
+      name: "Vũ Công Thành",
+      suffix: "",
+      prefix: "TS.",
       role: "Giám đốc RASL — Phòng thí nghiệm Robot và Hệ thống Tự hành",
-      summary: "Cong-Thanh Vu nhận bằng Đại học và Thạc sĩ ngành Kỹ thuật Cơ điện tử tại Trường Đại học Công nghiệp Hà Nội, Hà Nội, lần lượt vào các năm 2019 và 2021, và bằng Tiến sĩ ngành Kỹ thuật Cơ khí tại Đại học Quốc lập Thành Công (NCKU), Đài Nam, Đài Loan, năm 2026. Các hướng nghiên cứu chính của anh gồm tương tác người – robot, điều hướng có nhận thức về con người và điều hướng xã hội trong môi trường đông người, robot nông nghiệp, robot đi bằng chân và học máy cho robot, tập trung vào những robot biết thấu hiểu, hỗ trợ và làm việc cùng con người trong môi trường thực tế. Tiến sĩ Vu từng nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc của NCKU năm 2026. Anh là phản biện cho các tạp chí IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems và các hội nghị lớn về robot như ICRA và IROS.",
+      summary: "Vũ Công Thành nhận bằng Đại học và Thạc sĩ ngành Kỹ thuật Cơ điện tử tại Trường Đại học Công nghiệp Hà Nội, Hà Nội, lần lượt vào các năm 2019 và 2021, và bằng Tiến sĩ ngành Kỹ thuật Cơ khí tại Đại học Quốc lập Thành Công (NCKU), Đài Nam, Đài Loan, năm 2026. Các hướng nghiên cứu chính của anh gồm tương tác người – robot, điều hướng có nhận thức về con người và điều hướng xã hội trong môi trường đông người, robot nông nghiệp, robot đi bằng chân và học máy cho robot, tập trung vào những robot biết thấu hiểu, hỗ trợ và làm việc cùng con người trong môi trường thực tế. Anh từng nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc của NCKU năm 2026. Anh là phản biện cho các tạp chí IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems và các hội nghị lớn về robot như ICRA và IROS.",
       interests: ["Tương tác người – robot", "Điều hướng giữa con người", "Robot nông nghiệp", "Robot đi bằng chân", "Học máy cho robot", "Vision–Language–Action"],
       education: [
         { what: "Tiến sĩ ngành Kỹ thuật Cơ khí", where: "Đại học Quốc lập Thành Công (NCKU), Đài Nam, Đài Loan", badge: "Top 200 thế giới (QS)", advisor: { name: "GS. Yen-Chen Liu" } },

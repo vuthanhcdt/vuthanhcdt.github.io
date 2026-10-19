@@ -22,7 +22,7 @@ DESCS = {
 TR = [
     # director bio first, so shorter award names below do not split it
     ("Cong-Thanh Vu received the B.S. and M.S. degrees in mechatronics engineering from Hanoi University of Industry, Hanoi, Vietnam, in 2019 and 2021, respectively, and the Ph.D. degree in mechanical engineering from National Cheng Kung University (NCKU), Tainan, Taiwan, in 2026. His research interests include human–robot interaction, human-aware and social navigation in crowded environments, agricultural robots, legged locomotion, and robot learning, with a focus on robots that understand, assist, and work alongside people in real-world environments. Dr. Vu was a recipient of the Excellent Doctoral Student Award from NCKU in 2026. He serves as a reviewer for IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems, and major robotics conferences, including ICRA and IROS.",
-     f'Cong-Thanh Vu nhận bằng Đại học và Thạc sĩ ngành Kỹ thuật Cơ điện tử tại {HAUI}, Hà Nội, lần lượt vào các năm 2019 và 2021, và bằng Tiến sĩ ngành Kỹ thuật Cơ khí tại {NCKU}, Đài Nam, Đài Loan, năm 2026. Các hướng nghiên cứu chính của anh gồm tương tác người – robot, điều hướng có nhận thức về con người và điều hướng xã hội trong môi trường đông người, robot nông nghiệp, robot đi bằng chân và học máy cho robot, tập trung vào những robot biết thấu hiểu, hỗ trợ và làm việc cùng con người trong môi trường thực tế. Tiến sĩ Vu từng nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc của NCKU năm 2026. Anh là phản biện cho các tạp chí IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems và các hội nghị lớn về robot như ICRA và IROS.'),
+     f'Cong-Thanh Vu nhận bằng Đại học và Thạc sĩ ngành Kỹ thuật Cơ điện tử tại {HAUI}, Hà Nội, lần lượt vào các năm 2019 và 2021, và bằng Tiến sĩ ngành Kỹ thuật Cơ khí tại {NCKU}, Đài Nam, Đài Loan, năm 2026. Các hướng nghiên cứu chính của anh gồm tương tác người – robot, điều hướng có nhận thức về con người và điều hướng xã hội trong môi trường đông người, robot nông nghiệp, robot đi bằng chân và học máy cho robot, tập trung vào những robot biết thấu hiểu, hỗ trợ và làm việc cùng con người trong môi trường thực tế. Anh từng nhận Giải thưởng Nghiên cứu sinh Tiến sĩ Xuất sắc của NCKU năm 2026. Anh là phản biện cho các tạp chí IEEE/ASME Transactions on Mechatronics, IEEE Transactions on Systems, Man, and Cybernetics: Systems và các hội nghị lớn về robot như ICRA và IROS.'),
     # ---------------- home: hero ----------------
     ('Robots that <em>understand</em>, <em>adapt</em>, and work alongside people.',
      'Robot biết <em>thấu hiểu</em>, <em>thích nghi</em> và đồng hành cùng con người.'),
@@ -162,6 +162,10 @@ TR = [
 MON = {'Jan':1,'Feb':2,'Mar':3,'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
 NAV_VI = [('Publications','Công bố khoa học'),('News','Tin tức'),('People','Thành viên'),('Contact','Liên hệ')]
 
+def vi_name(s):
+    """Vietnamese pages use the Vietnamese name; paper author lists (rendered from pubs.js) keep "Cong-Thanh Vu"."""
+    return s.replace('Cong-Thanh Vu, Ph.D.', 'TS. Vũ Công Thành').replace('Cong-Thanh Vu', 'Vũ Công Thành')
+
 def translate(html, page):
     for a, b in TR:
         html = html.replace(a, b)
@@ -177,7 +181,9 @@ def translate(html, page):
     html = re.sub(r'<time>(\w{3}) (\d{4})</time>', lambda m: m2(m, lambda mo, y: f'<time>Tháng {mo}/{y}</time>'), html)
     html = re.sub(r'<b>(\w{3})</b><span>(\d{4})</span>', lambda m: m2(m, lambda mo, y: f'<b>T{mo}</b><span>{y}</span>'), html)
     html = re.sub(r'<em>(\w{3}) (\d{4})</em>', lambda m: m2(m, lambda mo, y: f'<em>{mo:02d}/{y}</em>'), html)
-    return html
+    # name: everywhere except the JSON-LD blocks, which keep the English name for search engines
+    parts = re.split(r'(<script type="application/ld\+json">.*?</script>)', html, flags=re.S)
+    return ''.join(x if x.startswith('<script type="application/ld+json">') else vi_name(x) for x in parts)
 
 def translate_text(s):
     """For search-index strings (plain text, no tags)."""
@@ -185,4 +191,4 @@ def translate_text(s):
         a2, b2 = re.sub(r'<[^>]+>', '', a).strip('>< '), re.sub(r'<[^>]+>', '', b).strip('>< ')
         if a2 and '"' not in a2 and '=' not in a2:
             s = s.replace(a2, b2)
-    return s
+    return vi_name(s)
