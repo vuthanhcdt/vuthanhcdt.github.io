@@ -30,7 +30,7 @@ TR = [
     ('<span>Peer-reviewed papers</span>', '<span>Bài báo có phản biện</span>'),
     ('<span>Journal articles</span>', '<span>Bài báo tạp chí</span>'),
     ('<span>Conference papers</span>', '<span>Bài báo hội nghị</span>'),
-    ('aria-label="Venues"', 'aria-label="Tạp chí và hội nghị đã công bố"'),
+    ('aria-label="Venues"', 'aria-label="Tạp chí và hội nghị"'),
 
     # ---------------- home: research ----------------
     ('We combine learning, perception and control so that robots can act safely and usefully in dynamic, human-centered and unstructured environments.',
