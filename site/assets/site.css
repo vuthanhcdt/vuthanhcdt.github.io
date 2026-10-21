@@ -23,10 +23,10 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px;background:var(--hero-1)}
-/* Safari 26 ignores theme-color and tints its bar from the page: a full-width strip fixed to the top
-   (and the navy root background above) give it the header colour instead of white */
-body::before{content:"";position:fixed;inset:0 0 auto 0;height:env(safe-area-inset-top,0px);min-height:3px;background:var(--hero-1);z-index:19;pointer-events:none}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+/* Safari 26+ ignores theme-color and tints its bar from the body background, so the body is navy
+   (like the header and footer) and the page content sits on <main> with the normal background */
+main{display:block;background:var(--bg)}
+body{margin:0;background:var(--hero-1);color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
