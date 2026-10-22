@@ -164,6 +164,16 @@ if (list){
       const again = q.value.trim() === y && filter === type;      // same choice twice = clear
       setType(again ? "all" : type);
       q.value = again ? "" : y; q.dispatchEvent(new Event("input"));
+      picked = again ? null : {y, type};
+    });
+    /* a click on empty space outside the chart clears the chart's choice (clicks in the list, search or filters keep it) */
+    let picked = null;
+    document.addEventListener("click", e => {
+      if (!picked || e.target.closest("#yrChart, .toolbar, #pubList, #qhint, #qrel, .nav, .ap-fab, .ap-hint, .ap-modal")) return;
+      if ($("q").value.trim() === picked.y && filter === picked.type){
+        setType("all"); $("q").value = ""; $("q").dispatchEvent(new Event("input"));
+      }
+      picked = null;
     });
     $("q").addEventListener("input", mark);
     document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", mark));
