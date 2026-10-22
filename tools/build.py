@@ -5,7 +5,7 @@ rd=lambda n: open(os.path.join(SP,n)).read()
 research=rd('sec_research.html'); news=rd('sec_news.html'); pubs=rd('sec_publications.html'); people=rd('sec_people.html'); contact=rd('sec_contact.html')
 cards=re.findall(r'<article class="card reveal">\s*<div class="ico">(<svg.*?</svg>)</div>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>',research,re.S)
 assert len(cards)==6
-news_items=re.findall(r'(<div class="news-item reveal">.*?</div></div>)',news,re.S)
+news_items=re.findall(r'(<div class="news-item reveal"(?: data-pub="[^"]*")?>.*?</div></div>)',news,re.S)
 assert len(news_items)==6,len(news_items)
 ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 SLUG=['hri','navigation','agriculture','locomotion','learning','vla']
@@ -164,7 +164,8 @@ def write(name,title,desc,active,body):
 # ---------- home ----------
 def _tl(n,i):
     d=re.search(r'<b>(.*?)</b><span>(.*?)</span>',n); h=re.search(r'<h3>(.*?)</h3>',n).group(1); p=re.search(r'<p>(.*?)</p>',n).group(1)
-    return f'        <a class="news-item" href="news.html#news-{i}"><div class="date"><b>{d.group(1)}</b><span>{d.group(2)}</span></div><div><h3>{h}</h3><p>{p}</p></div></a>'
+    pk=re.search(r'data-pub="([^"]*)"',n); href=f'publications.html#p={pk.group(1)}' if pk else f'news.html#news-{i}'
+    return f'        <a class="news-item" href="{href}"><div class="date"><b>{d.group(1)}</b><span>{d.group(2)}</span></div><div><h3>{h}</h3><p>{p}</p></div></a>'
 TL="\n".join(_tl(n,i) for i,n in enumerate(news_items[:5],1))
 VENUES=''.join(f'<span>{v}</span>' for v in ['TSMC','COMPAG','THMS','T-RO','IJRR','RA-L','TII','TIE','TMECH','ICRA','IROS','AIM','Humanoids']*2)
 KW=[['Companion robots','Proactive assistance','Elderly care'],
@@ -197,9 +198,9 @@ home=f'''<section class="hero" id="top">
   </div>
   <div class="wrap">
     <div class="stats">
-      <div><b id="sPubs">0</b><span>Peer-reviewed papers</span></div>
-      <div><b id="sJour">0</b><span>Journal articles</span></div>
-      <div><b id="sConf">0</b><span>Conference papers</span></div>
+      <div data-href="publications.html"><b id="sPubs">0</b><span>Peer-reviewed papers</span></div>
+      <div data-href="publications.html?type=Journal"><b id="sJour">0</b><span>Journal articles</span></div>
+      <div data-href="publications.html?type=Conference"><b id="sConf">0</b><span>Conference papers</span></div>
     </div>
   </div>
 </section>
@@ -260,7 +261,7 @@ rows='\n'.join(f'''    <div class="area reveal" id="{SLUG[i]}">
 write('publications.html','Publications · RASL','Peer-reviewed publications of RASL.','Publications',
   page_hero('Publications','Publications','Journal articles and conference proceedings. Filter by type, search by title, author or venue, and copy BibTeX.')+strip_head(pubs))
 _n=iter(range(1,100))
-news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}">',news.replace('class="sec alt"','class="sec"'))
+news_page=re.sub(r'<div class="news-item reveal"((?: data-pub="[^"]*")?)>',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}"{m.group(1)}>',news.replace('class="sec alt"','class="sec"'))
 write('news.html','News · RASL','News and announcements from RASL.','News',
   page_hero('News','News','Accepted papers, talks and milestones from the lab.')+strip_head(news_page))
 write('people.html','People · RASL','People of RASL.','People',

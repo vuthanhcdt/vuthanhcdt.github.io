@@ -26,7 +26,7 @@ function pubCard(p, i, opts = {}){
     p.b ? `<button class="chip" type="button" data-bib="${i}" aria-expanded="false">BibTeX</button>` : ""
   ].join("");
   const fig = p.f && !opts.compact;
-  return `<article class="pub${fig ? " fig" : ""}">
+  return `<article class="pub${fig ? " fig" : ""}" data-key="${esc((p.s + "-" + p.y).toLowerCase())}">
     <div class="venue ${p.c}">${esc(p.s)}<small>${CAT[p.c] || p.c}</small></div>
     ${fig ? `<figure><img src="${esc(p.f)}" alt=""></figure>` : ""}
     <div>${title}
@@ -139,6 +139,19 @@ if (list){
   }));
   $("q").addEventListener("input", () => document.querySelectorAll("#qhint [data-q]").forEach(x => x.classList.toggle("on", x.dataset.q === $("q").value)));
   render();
+
+  /* publications.html#p=tsmc-2026[,aim-2026] (from News): show everything, scroll to those papers and highlight them */
+  const showLinked = () => {
+    const m = location.hash.match(/^#p=([\w,-]+)/); if (!m) return;
+    const keys = m[1].split(",");
+    if (filter !== "all") document.querySelector('.seg button[data-f="all"]')?.click();
+    if (query){ $("q").value = ""; $("q").dispatchEvent(new Event("input")); }
+    const cards = [...list.querySelectorAll(".pub")].filter(c => keys.includes(c.dataset.key));
+    if (!cards.length) return;
+    cards[0].scrollIntoView({behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto" : "smooth", block: "center"});
+    cards.forEach(c => { c.classList.remove("flash"); void c.offsetWidth; c.classList.add("flash"); });
+  };
+  setTimeout(showLinked, 350); addEventListener("hashchange", showLinked);
 
   /* papers per year: one column per year (journals at the bottom, conferences on top, one smooth gradient).
      Hover a part to see its count; click it to list that year's journals or conferences; click the year for all of it. */
@@ -497,3 +510,21 @@ $("yr").textContent = new Date().getFullYear();
     el.addEventListener("pointerleave", () => { el.style.translate = ""; });
   });
 })();
+
+/* ---------- news about a paper: the card opens that paper on Publications ---------- */
+document.querySelectorAll(".news .news-item[data-pub]").forEach(item => {
+  const href = "publications.html#p=" + item.dataset.pub;
+  item.querySelector("div:last-child").insertAdjacentHTML("beforeend",
+    `<a class="news-link" href="${href}">${document.documentElement.lang === "vi" ? "Xem bài báo" : "View paper"} <span aria-hidden="true">→</span></a>`);
+  item.classList.add("linked");
+  item.addEventListener("click", e => { if (!e.target.closest("a")) location.href = href; });
+});
+
+/* ---------- home: the numbers under the hero open Publications (all / journals / conferences) ---------- */
+document.querySelectorAll(".stats [data-href]").forEach(el => {
+  el.setAttribute("role", "link"); el.tabIndex = 0;
+  el.title = el.querySelector("span")?.textContent || "";
+  const go = () => { location.href = el.dataset.href; };
+  el.addEventListener("click", go);
+  el.addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); go(); } });
+});

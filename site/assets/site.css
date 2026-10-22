@@ -933,3 +933,21 @@ body{animation:pagein .5s ease both}
 .pstat-legend>div:hover,.pstat-legend>div:focus-visible{background:var(--bg-2);color:var(--ink);outline:none}
 .pstat-legend>div.on{background:var(--accent-soft);color:var(--ink)}
 .pstat.has-type .pstat-legend>div:not(.on){opacity:.45}
+
+/* contact: the email card fills the row now that it is alone */
+.contact .wide{grid-column:1/-1}
+
+/* home hero numbers are links to Publications */
+.stats [data-href]{cursor:pointer;transition:background .25s}
+.stats [data-href]:hover,.stats [data-href]:focus-visible{background:rgba(255,255,255,.06);outline:none}
+.stats [data-href]:hover span{color:#fff}
+
+/* news cards about a paper: whole card opens it, with a small "View paper →" cue */
+.news-item.linked{cursor:pointer}
+.news-link{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:.82rem;font-weight:600;color:var(--accent)}
+.news-link span{transition:transform .2s}
+.news-item.linked:hover .news-link span{transform:translateX(3px)}
+.news-link:hover{text-decoration:none}
+
+/* a paper opened from News is highlighted for a moment */
+.pub.flash{animation:flash 2.4s ease}
