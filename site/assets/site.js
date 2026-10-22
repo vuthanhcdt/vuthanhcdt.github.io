@@ -500,7 +500,7 @@ $("yr").textContent = new Date().getFullYear();
 /* ---------- magnetic buttons: lean a little towards the mouse ---------- */
 (() => {
   if (!matchMedia("(pointer:fine)").matches || matchMedia("(prefers-reduced-motion:reduce)").matches) return;
-  const SEL = ".ap-fab, .btn, .socials a";
+  const SEL = ".ap-fab, .btn, .socials a, .view-all, .pstat-link";
   document.addEventListener("pointerover", e => {
     const el = e.target.closest && e.target.closest(SEL);
     if (!el || el.dataset.magnet) return;
