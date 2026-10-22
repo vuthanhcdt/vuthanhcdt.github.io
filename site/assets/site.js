@@ -339,6 +339,14 @@ const hl = (s, terms) => {
   return out;
 };
 const ORDER = ["Publication", "News", "Research", "People", "Page"];
+/* one small line icon per kind of result (all in the accent colour, so no kind looks like journal vs conference) */
+const SK_IC = {
+  Publication: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+  News: '<path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a3 3 0 0 1 0 6M19 6a7 7 0 0 1 0 12"/>',
+  Research: '<path d="M9 3h6M10 3v6L5 18a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 14h9"/>',
+  People: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  Page: '<path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>'
+};
 function search(){
   const q = norm(skq.value.trim()), terms = q.split(/\s+/).filter(Boolean);
   if (!terms.length){
@@ -363,7 +371,7 @@ function draw(terms){
   hits.forEach((d, i) => {
     if (d.type !== group){ group = d.type; html += `<div class="sk-group">${GROUP[group] || group}</div>`; }
     html += `<a class="sk-item${i === sel ? " on" : ""}" role="option" aria-selected="${i === sel}" href="${esc(d.url)}" data-i="${i}" style="--i:${i}">
-      <span class="sk-top"><span class="sk-type ${d.type}">${TYPE[d.type] || d.type}</span><span class="sk-meta">${esc(d.meta)}</span></span>
+      <span class="sk-top"><span class="sk-type ${d.type}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${SK_IC[d.type] || SK_IC.Page}</svg>${TYPE[d.type] || d.type}</span><span class="sk-meta">${esc(d.meta)}</span></span>
       <span class="sk-main"><b>${hl(d.title, terms)}</b><small>${hl(d.text, terms)}</small></span></a>`;
   });
   skr.innerHTML = html;
