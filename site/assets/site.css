@@ -809,9 +809,7 @@ body{animation:pagein .5s ease both}
 .links.has-ind a.active{color:#fff}
 
 /* ---------- magnetic buttons (mouse only) ---------- */
-.magnet{transition:translate .45s cubic-bezier(.2,.9,.25,1.15),transform .15s,background .15s,border-color .15s,color .15s,box-shadow .2s}
-.magnet.pulled{transition:translate .18s ease-out,transform .15s,background .15s,border-color .15s,color .15s,box-shadow .2s}
-.magnet svg{translate:var(--ix,0) var(--iy,0);transition:translate .3s cubic-bezier(.2,.9,.25,1.15)}
+.magnet{transition:translate .35s cubic-bezier(.2,.7,.2,1),transform .15s,background .15s,border-color .15s,color .15s,box-shadow .2s}
 
 @media (prefers-reduced-motion:reduce){.hero::before,.page-hero::before{animation:none}}
 

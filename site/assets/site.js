@@ -497,35 +497,21 @@ $("yr").textContent = new Date().getFullYear();
   ind.style.transition = "none"; home(); ind.offsetWidth; ind.style.transition = "";   // start in place, no slide on load
 })();
 
-/* ---------- magnetic buttons: they start pulling towards the mouse a little before it reaches them,
-   follow it while it is on them (the icon a bit further), and spring back when it leaves the field ---------- */
+/* ---------- magnetic buttons: lean a little towards the mouse ---------- */
 (() => {
   if (!matchMedia("(pointer:fine)").matches || matchMedia("(prefers-reduced-motion:reduce)").matches) return;
-  const SEL = ".ap-fab, .btn, .socials a, .view-all, .icon-btn, .search-btn, .lang-sw, .pstat-link";
-  const FIELD = 36, PULL = 0.35;                                   // px of field around a button, strength
-  let els = [], x = -1e4, y = -1e4, raf = 0;
-  const collect = () => { els = [...document.querySelectorAll(SEL)]; els.forEach(el => el.classList.add("magnet")); };
-  const frame = () => {
-    raf = 0;
-    els.forEach(el => {
-      const r = el.getBoundingClientRect(); if (!r.width) return;
-      const dx = x - (r.left + r.width / 2), dy = y - (r.top + r.height / 2);
-      const inX = Math.abs(dx) < r.width / 2 + FIELD, inY = Math.abs(dy) < r.height / 2 + FIELD;
-      if (inX && inY){
-        const out = Math.max(Math.abs(dx) - r.width / 2, Math.abs(dy) - r.height / 2, 0);   // distance outside the button
-        const f = 1 - out / FIELD;                                                          // fades to 0 at the field edge
-        const cl = (v, m) => Math.max(-m, Math.min(m, v));
-        el.style.translate = `${(cl(dx * PULL, 12) * f).toFixed(1)}px ${(cl(dy * PULL * 1.3, 8) * f).toFixed(1)}px`;
-        el.style.setProperty("--ix", (dx * 0.12).toFixed(1) + "px"); el.style.setProperty("--iy", (dy * 0.12).toFixed(1) + "px");
-        el.classList.add("pulled");
-      } else if (el.classList.contains("pulled")){
-        el.style.translate = ""; el.style.removeProperty("--ix"); el.style.removeProperty("--iy"); el.classList.remove("pulled");
-      }
+  const SEL = ".ap-fab, .btn, .socials a";
+  document.addEventListener("pointerover", e => {
+    const el = e.target.closest && e.target.closest(SEL);
+    if (!el || el.dataset.magnet) return;
+    el.dataset.magnet = "1"; el.classList.add("magnet");
+    el.addEventListener("pointermove", ev => {
+      const r = el.getBoundingClientRect();
+      const x = (ev.clientX - r.left - r.width / 2) * 0.22, y = (ev.clientY - r.top - r.height / 2) * 0.3;
+      el.style.translate = `${x.toFixed(1)}px ${y.toFixed(1)}px`;
     });
-  };
-  addEventListener("pointermove", e => { if (e.pointerType !== "mouse") return; x = e.clientX; y = e.clientY; raf ||= requestAnimationFrame(frame); }, {passive: true});
-  document.addEventListener("pointerleave", () => { x = y = -1e4; raf ||= requestAnimationFrame(frame); });
-  collect(); setTimeout(collect, 1500);                             // the Apply button is added a moment later
+    el.addEventListener("pointerleave", () => { el.style.translate = ""; });
+  });
 })();
 
 /* ---------- news about a paper: the card opens that paper on Publications ---------- */
