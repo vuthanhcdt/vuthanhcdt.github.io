@@ -162,10 +162,11 @@ def write(name,title,desc,active,body):
     open(os.path.join(OUT,name),'w').write(h)
 
 # ---------- home ----------
-def _tl(n,i):
+def _tl(n,i,seen):
     d=re.search(r'<b>(.*?)</b><span>(.*?)</span>',n); h=re.search(r'<h3>(.*?)</h3>',n).group(1); p=re.search(r'<p>(.*?)</p>',n).group(1)
-    return f'        <li><a href="news.html#news-{i}"><time>{d.group(1)} {d.group(2)}</time><b>{h}</b><span>{p}</span></a></li>'
-TL='\n'.join(_tl(n,i) for i,n in enumerate(news_items[:5],1))
+    yr='' if d.group(2) in seen else f'        <div class="tl-year">{d.group(2)}</div>\n'; seen.add(d.group(2))
+    return yr+f'        <a class="news-item" href="news.html#news-{i}"><div class="date"><b>{d.group(1)}</b><span>{d.group(2)}</span></div><div><h3>{h}</h3><p>{p}</p></div></a>'
+_seen=set(); TL='\n'.join(_tl(n,i,_seen) for i,n in enumerate(news_items[:5],1))
 VENUES=''.join(f'<span>{v}</span>' for v in ['TSMC','COMPAG','THMS','T-RO','IJRR','RA-L','TII','TIE','TMECH','ICRA','IROS','AIM','Humanoids']*2)
 KW=[['Companion robots','Proactive assistance','Elderly care'],
     ['Human/group following','Social navigation','Crowd navigation'],
@@ -227,9 +228,9 @@ home=f'''<section class="hero" id="top">
         <div><div class="eyebrow">News</div><h2>Latest updates</h2></div>
         <a class="view-all" href="news.html">View all {ARROW}</a>
       </div>
-      <ol class="tl">
+      <div class="news ntl compact">
 {TL}
-      </ol>
+      </div>
     </div>
     <div class="panel reveal">
       <div class="panel-head">
@@ -260,12 +261,7 @@ rows='\n'.join(f'''    <div class="area reveal" id="{SLUG[i]}">
 write('publications.html','Publications · RASL','Peer-reviewed publications of RASL.','Publications',
   page_hero('Publications','Publications','Journal articles and conference proceedings. Filter by type, search by title, author or venue, and copy BibTeX.')+strip_head(pubs))
 _n=iter(range(1,100))
-news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}">',news.replace('class="sec alt"','class="sec"').replace('<div class="news">','<div class="news ntl">',1))
-_seen=set()
-def _yr(m):
-    y=m.group(2); h='' if y in _seen else f'<div class="tl-year reveal">{y}</div>\n      '
-    _seen.add(y); return h+m.group(1)
-news_page=re.sub(r'(<div class="news-item reveal" id="news-\d+"><div class="date"><b>\w+</b><span>(\d{4})</span>)',_yr,news_page)
+news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}">',news.replace('class="sec alt"','class="sec"'))
 write('news.html','News · RASL','News and announcements from RASL.','News',
   page_hero('News','News','Accepted papers, talks and milestones from the lab.')+strip_head(news_page))
 write('people.html','People · RASL','People of RASL.','People',

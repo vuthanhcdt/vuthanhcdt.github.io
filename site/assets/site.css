@@ -830,7 +830,7 @@ body{animation:pagein .5s ease both}
   .yr-chart{justify-content:space-between}
 }
 
-/* ---------- news page: timeline grouped by year (month | line + dot | card) ---------- */
+/* ---------- news timeline grouped by year (month | line + dot | card); used on the home page ---------- */
 .news.ntl{display:block;max-width:860px;margin:0 auto}
 .tl-year{display:flex;align-items:center;gap:14px;margin:6px 0 18px 100px;font:700 1.5rem/1 "Space Grotesk",sans-serif;color:var(--ink)}
 .tl-year::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
@@ -855,3 +855,19 @@ body{animation:pagein .5s ease both}
   .news.ntl .date b{font-size:.8rem}
   .news.ntl .news-item>div:last-child{padding:14px 16px}
 }
+
+/* home panel: narrower columns, two-line summaries */
+.news.ntl.compact{max-width:none;padding-top:4px}
+.news.ntl.compact .tl-year{margin:0 0 12px 76px;font-size:1.15rem}
+.news.ntl.compact .tl-year:not(:first-child){margin-top:8px}
+.news.ntl.compact .news-item{grid-template-columns:50px 1fr;gap:0 26px;padding-bottom:12px;color:inherit}
+.news.ntl.compact .news-item:hover{text-decoration:none}
+.news.ntl.compact .news-item::before{left:62px}
+.news.ntl.compact .news-item::after{left:54px;top:16px}
+.news.ntl.compact .date{padding:12px 10px 0 0}
+.news.ntl.compact .date b{font-size:.78rem}
+.news.ntl.compact .news-item>div:last-child{padding:10px 14px;box-shadow:none;min-width:0}
+.news.ntl.compact h3{font-size:.95rem;margin-bottom:2px;transition:color .2s}
+.news.ntl.compact .news-item:hover h3{color:var(--accent)}
+.news.ntl.compact p{font-size:.84rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.news.ntl.compact .news-item:hover h3,.news.ntl.compact .news-item:hover p{white-space:normal}
