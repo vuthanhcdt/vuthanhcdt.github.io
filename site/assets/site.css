@@ -840,7 +840,7 @@ body{animation:pagein .5s ease both}
 .news.ntl .news-item::before{content:"";position:absolute;left:85px;top:0;bottom:0;width:2px;background:var(--line)}
 .news.ntl .news-item::after{content:"";position:absolute;left:77px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);transition:box-shadow .25s,background .25s}
 .news.ntl .news-item:hover::after{background:var(--accent);box-shadow:0 0 0 6px var(--accent-soft)}
-.news.ntl .tl-year:first-child+.news-item::after{background:var(--accent);box-shadow:0 0 0 6px var(--accent-soft)}
+.news.ntl .news-item:first-child::after{background:var(--accent);box-shadow:0 0 0 6px var(--accent-soft)}
 .news.ntl .date{background:none;padding:16px 12px 0 0;text-align:right;color:var(--muted)}
 .news.ntl .date b{font:700 .95rem "Space Grotesk",sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
 .news.ntl .date span{display:none}
@@ -869,5 +869,9 @@ body{animation:pagein .5s ease both}
 .news.ntl.compact .news-item>div:last-child{padding:10px 14px;box-shadow:none;min-width:0}
 .news.ntl.compact h3{font-size:.95rem;margin-bottom:2px;transition:color .2s}
 .news.ntl.compact .news-item:hover h3{color:var(--accent)}
-.news.ntl.compact p{font-size:.84rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.news.ntl.compact .news-item:hover h3,.news.ntl.compact .news-item:hover p{white-space:normal}
+.news.ntl.compact p{font-size:.84rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news.ntl.compact .news-item:hover p{-webkit-line-clamp:unset}
+/* home: month above year; only the hovered item lights up (the latest one when nothing is hovered) */
+.news.ntl.compact .date{line-height:1.15}
+.news.ntl.compact .date span{display:block;margin-top:2px;font-size:.68rem;font-weight:600;color:var(--muted)}
+.news.ntl:hover .news-item:not(:hover)::after{background:var(--surface);box-shadow:none}

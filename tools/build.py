@@ -162,11 +162,10 @@ def write(name,title,desc,active,body):
     open(os.path.join(OUT,name),'w').write(h)
 
 # ---------- home ----------
-def _tl(n,i,seen):
+def _tl(n,i):
     d=re.search(r'<b>(.*?)</b><span>(.*?)</span>',n); h=re.search(r'<h3>(.*?)</h3>',n).group(1); p=re.search(r'<p>(.*?)</p>',n).group(1)
-    yr='' if d.group(2) in seen else f'        <div class="tl-year">{d.group(2)}</div>\n'; seen.add(d.group(2))
-    return yr+f'        <a class="news-item" href="news.html#news-{i}"><div class="date"><b>{d.group(1)}</b><span>{d.group(2)}</span></div><div><h3>{h}</h3><p>{p}</p></div></a>'
-_seen=set(); TL='\n'.join(_tl(n,i,_seen) for i,n in enumerate(news_items[:5],1))
+    return f'        <a class="news-item" href="news.html#news-{i}"><div class="date"><b>{d.group(1)}</b><span>{d.group(2)}</span></div><div><h3>{h}</h3><p>{p}</p></div></a>'
+TL="\n".join(_tl(n,i) for i,n in enumerate(news_items[:5],1))
 VENUES=''.join(f'<span>{v}</span>' for v in ['TSMC','COMPAG','THMS','T-RO','IJRR','RA-L','TII','TIE','TMECH','ICRA','IROS','AIM','Humanoids']*2)
 KW=[['Companion robots','Proactive assistance','Elderly care'],
     ['Human/group following','Social navigation','Crowd navigation'],
