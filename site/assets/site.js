@@ -322,3 +322,40 @@ if (cv){
 
 $("yr").textContent = new Date().getFullYear();
 })();
+
+/* ---------- menu: sliding highlight under the hovered / current item (desktop only) ---------- */
+(() => {
+  const ul = document.getElementById("links");
+  if (!ul || !matchMedia("(min-width:821px)").matches) return;
+  const ind = document.createElement("span"); ind.className = "nav-ind"; ind.setAttribute("aria-hidden", "true");
+  ul.prepend(ind); ul.classList.add("has-ind");
+  const items = [...ul.querySelectorAll("a")];
+  const move = a => {
+    if (!a) { ind.style.opacity = 0; return; }
+    ind.style.width = a.offsetWidth + "px";
+    ind.style.transform = `translateX(${a.offsetLeft}px)`;
+    ind.style.opacity = 1;
+  };
+  const home = () => move(ul.querySelector("a.active"));
+  items.forEach(a => a.addEventListener("pointerenter", () => move(a)));
+  ul.addEventListener("pointerleave", home);
+  addEventListener("resize", home);
+  ind.style.transition = "none"; home(); ind.offsetWidth; ind.style.transition = "";   // start in place, no slide on load
+})();
+
+/* ---------- magnetic buttons: lean a little towards the mouse ---------- */
+(() => {
+  if (!matchMedia("(pointer:fine)").matches || matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  const SEL = ".ap-fab, .btn, .socials a";
+  document.addEventListener("pointerover", e => {
+    const el = e.target.closest && e.target.closest(SEL);
+    if (!el || el.dataset.magnet) return;
+    el.dataset.magnet = "1"; el.classList.add("magnet");
+    el.addEventListener("pointermove", ev => {
+      const r = el.getBoundingClientRect();
+      const x = (ev.clientX - r.left - r.width / 2) * 0.22, y = (ev.clientY - r.top - r.height / 2) * 0.3;
+      el.style.translate = `${x.toFixed(1)}px ${y.toFixed(1)}px`;
+    });
+    el.addEventListener("pointerleave", () => { el.style.translate = ""; });
+  });
+})();

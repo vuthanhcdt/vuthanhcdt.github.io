@@ -327,7 +327,7 @@ body{animation:pagein .5s ease both}
 
 /* page hero polish */
 .page-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(111,182,255,.5),transparent)}
-.page-hero h1{background:linear-gradient(180deg,#fff,#b9d4f5);-webkit-background-clip:text;background-clip:text;color:transparent}
+.page-hero h1{width:fit-content;background:linear-gradient(100deg,#fff 0%,#e3eeff 30%,#9cc9ff 62%,#7ff0e4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* simple footer (as in the earlier version) */
 .site-footer{background:var(--hero-1);color:var(--hero-muted);padding:36px 0;font-size:.88rem}
@@ -782,3 +782,27 @@ body{animation:pagein .5s ease both}
   @keyframes vt-in{from{opacity:0;transform:translateY(12px)}}
   @supports (view-transition-name:none){body{animation:none}}   /* the transition replaces the old fade-in */
 }
+
+/* ---------- aurora: soft colour fields drifting slowly behind the page headers ---------- */
+.hero::before,.page-hero::before{content:"";position:absolute;inset:-35% -15%;pointer-events:none;
+  background:radial-gradient(38% 48% at 18% 32%,rgba(80,140,255,.30),transparent 70%),
+             radial-gradient(34% 44% at 78% 18%,rgba(62,224,208,.20),transparent 70%),
+             radial-gradient(44% 54% at 58% 85%,rgba(167,139,250,.24),transparent 70%);
+  filter:blur(36px);animation:aurora 22s ease-in-out infinite alternate}
+@keyframes aurora{
+  0%{transform:translate3d(-5%,-3%,0) rotate(0deg) scale(1)}
+  50%{transform:translate3d(4%,2%,0) rotate(7deg) scale(1.1)}
+  100%{transform:translate3d(-2%,5%,0) rotate(-5deg) scale(1.04)}}
+
+/* ---------- menu: one highlight that slides to the hovered item (desktop) ---------- */
+.links .nav-ind{position:absolute;top:0;left:0;height:100%;border-radius:8px;background:rgba(255,255,255,.11);opacity:0;pointer-events:none;z-index:0;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),width .35s cubic-bezier(.2,.7,.2,1),opacity .2s}
+.links.has-ind{position:relative}
+.links.has-ind a{position:relative;z-index:1}
+.links.has-ind a:hover,.links.has-ind a.active{background:transparent}
+.links.has-ind a.active{color:#fff}
+
+/* ---------- magnetic buttons (mouse only) ---------- */
+.magnet{transition:translate .35s cubic-bezier(.2,.7,.2,1),transform .15s,background .15s,border-color .15s,color .15s,box-shadow .2s}
+
+@media (prefers-reduced-motion:reduce){.hero::before,.page-hero::before{animation:none}}
