@@ -53,12 +53,6 @@ h1,h2,h3,.display{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.
 .icon-btn svg{width:18px;height:18px}
 .menu-btn{display:none}
 .nav.solid{background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);border-bottom-color:var(--line)}
-.nav.solid .brand{color:var(--ink)}
-.nav.solid .brand img{filter:var(--logo-filter)}
-.nav.solid .brand span{color:var(--muted);border-color:var(--line)}
-.nav.solid .links a{color:var(--ink-2)}
-.nav.solid .links a:hover{color:var(--ink);background:var(--bg-2)}
-.nav.solid .icon-btn{color:var(--ink);border-color:var(--line)}
 .nav-actions{display:flex;gap:8px;align-items:center}
 
 /* ---------- hero ---------- */
@@ -201,7 +195,6 @@ footer a{color:#fff}
 
 /* ======== multi-page additions ======== */
 .links a.active{color:#fff;background:rgba(255,255,255,.1)}
-.nav.solid .links a.active{color:var(--accent);background:var(--accent-soft)}
 
 /* home hero with full lab logo */
 .hero .wrap.hero-grid{grid-template-columns:1fr}
@@ -268,7 +261,13 @@ body{animation:pagein .5s ease both}
 .nav{inset:14px 0 auto 0;border:0;background:transparent}
 .nav .wrap{height:60px;border-radius:18px;padding:0 10px 0 18px;transition:background .3s,box-shadow .3s,border-color .3s;border:1px solid transparent}
 .nav.solid{background:transparent;backdrop-filter:none;border:0}
-.nav.solid .wrap{background:color-mix(in srgb,var(--surface) 72%,transparent);backdrop-filter:blur(16px) saturate(1.6);-webkit-backdrop-filter:blur(16px) saturate(1.6);border-color:var(--line);box-shadow:0 10px 30px rgba(6,16,31,.12)}
+/* scrolled: dark navy glass pill (matches Safari's navy bar), text stays white */
+.nav .wrap{position:relative}
+.nav.solid .wrap{background:color-mix(in srgb,var(--hero-1) 86%,transparent);backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);border-color:rgba(255,255,255,.1);box-shadow:0 14px 34px rgba(3,8,18,.28),inset 0 1px 0 rgba(255,255,255,.06)}
+/* reading progress: a thin gradient line along the bottom edge of the pill */
+.nav .wrap::after{content:"";position:absolute;left:18px;right:18px;bottom:-1px;height:2px;border-radius:2px;background:var(--grad);transform:scaleX(var(--prog,0));transform-origin:left;opacity:0;transition:opacity .3s}
+.nav.solid .wrap::after{opacity:1}
+@media (max-width:820px){.nav .links a.active{color:var(--accent);background:var(--accent-soft)}}   /* light drop-down menu on phones */
 .links a{border-radius:999px}
 @media (max-width:820px){.nav{inset:10px 0 auto 0}.links{top:66px;left:16px;right:16px;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}}
 
@@ -422,8 +421,6 @@ body{animation:pagein .5s ease both}
 .search-btn:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.1)}
 .search-btn svg{width:16px;height:16px}
 .search-btn kbd{font:600 .7rem Inter,sans-serif;padding:3px 6px;border-radius:6px;background:rgba(255,255,255,.12);color:inherit}
-.nav.solid .search-btn{border-color:var(--line);background:var(--bg-2);color:var(--ink-2)}
-.nav.solid .search-btn kbd{background:var(--surface);border:1px solid var(--line)}
 @media (max-width:980px){.search-btn span,.search-btn kbd{display:none}.search-btn{width:38px;padding:0;justify-content:center}}
 
 .sk-open{overflow:hidden}
@@ -657,9 +654,6 @@ body{animation:pagein .5s ease both}
 .lang-sw a{font:700 .74rem Inter,sans-serif;letter-spacing:.04em;padding:0 9px;height:30px;display:grid;place-items:center;border-radius:7px;color:rgba(255,255,255,.75)}
 .lang-sw a:hover{text-decoration:none;color:#fff}
 .lang-sw a.on{background:#fff;color:#0b1424}
-.nav.solid .lang-sw{border-color:var(--line);background:var(--bg-2)}
-.nav.solid .lang-sw a{color:var(--ink-2)}
-.nav.solid .lang-sw a.on{background:var(--accent);color:#fff}
 .site-footer .upd{display:inline-block;margin-left:10px;padding-left:10px;border-left:1px solid rgba(255,255,255,.2);color:var(--hero-muted);font-style:italic}
 @media (max-width:560px){.site-footer .upd{display:block;margin:6px 0 0;padding:0;border:0}}
 
@@ -776,3 +770,15 @@ body{animation:pagein .5s ease both}
 .intro.show .intro-mark{opacity:1;transform:none}
 .intro.show .intro-sub{opacity:1;transform:none}
 .intro.out{opacity:0;transform:scale(1.06);transition:opacity .65s ease,transform .65s ease;pointer-events:none}
+
+/* ---------- page transitions ---------- */
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto}
+  .nav{view-transition-name:site-nav}
+  .ap-fab{view-transition-name:apply-fab}
+  ::view-transition-old(root){animation:vt-out .22s ease both}
+  ::view-transition-new(root){animation:vt-in .38s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes vt-out{to{opacity:0;transform:translateY(-8px)}}
+  @keyframes vt-in{from{opacity:0;transform:translateY(12px)}}
+  @supports (view-transition-name:none){body{animation:none}}   /* the transition replaces the old fade-in */
+}

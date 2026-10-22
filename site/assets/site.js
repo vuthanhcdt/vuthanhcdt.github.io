@@ -136,7 +136,11 @@ document.querySelectorAll(".card, .spot, .lead-card, .dir, .dcard").forEach(el =
 
 /* ---------- nav ---------- */
 const nav = $("nav"), links = $("links"), menuBtn = $("menuBtn");
-const onScroll = () => nav.classList.toggle("solid", scrollY > 40 || links.classList.contains("open"));
+const onScroll = () => {
+  nav.classList.toggle("solid", scrollY > 40 || links.classList.contains("open"));
+  const max = document.documentElement.scrollHeight - innerHeight;                 // reading progress line
+  nav.style.setProperty("--prog", max > 0 ? Math.min(1, scrollY / max).toFixed(4) : 0);
+};
 addEventListener("scroll", onScroll, {passive:true}); onScroll();
 menuBtn.addEventListener("click", () => {
   const open = links.classList.toggle("open");
