@@ -277,12 +277,22 @@ if (location.hash === "#apply") openForm();
    closing it with × or opening the form hides it for the rest of the visit ---------- */
 const EVERY = 60000, SHOW = 6000;
 const ss = (k, v) => { try { return v === undefined ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch(e){ return null; } };
-function hideHint(){ hint.hidden = true; ss("apHintOff", "1"); }
+let hideT, hovering = false;
+const reveal = () => { clearTimeout(hideT); hint.classList.remove("bye"); hint.hidden = false; };
+const fadeOut = delay => { clearTimeout(hideT); hideT = setTimeout(() => {
+  if (hovering) return;
+  hint.classList.add("bye"); hideT = setTimeout(() => { hint.hidden = true; hint.classList.remove("bye"); }, 400);
+}, delay); };
+function hideHint(){ clearTimeout(hideT); hint.hidden = true; ss("apHintOff", "1"); }
 function showHint(){
   if (ss("apHintOff") || !modal.hidden || document.hidden) return;
-  hint.hidden = false;
-  setTimeout(() => { hint.classList.add("bye"); setTimeout(() => { hint.hidden = true; hint.classList.remove("bye"); }, 400); }, SHOW);
+  reveal(); fadeOut(SHOW);
 }
+/* hovering the Apply button (or the bubble itself) always shows the bubble; it fades shortly after the mouse leaves */
+[fab, hint].forEach(el => {
+  el.addEventListener("pointerenter", e => { if (e.pointerType === "touch" || !modal.hidden) return; hovering = true; reveal(); });
+  el.addEventListener("pointerleave", e => { if (e.pointerType === "touch") return; hovering = false; fadeOut(500); });
+});
 setTimeout(() => { showHint(); setInterval(showHint, EVERY); },
   document.documentElement.classList.contains("intro-on") ? 5000 : 3000);   // wait for the home intro to finish
 hint.querySelector(".ap-hint-text").addEventListener("click", openForm);
