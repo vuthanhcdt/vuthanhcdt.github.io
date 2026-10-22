@@ -892,3 +892,9 @@ body{animation:pagein .5s ease both}
 .pstat-link svg{width:14px;height:14px;color:var(--accent)}
 .pstat-link span{font-size:.75rem;color:var(--muted)}
 .pstat-link:hover{text-decoration:none;color:var(--accent);border-color:var(--accent)}
+
+/* search suggestions that depend on the query (related topics / spelling fix) */
+.qrel{margin-top:-10px}
+.qrel span{color:var(--accent)}
+.qrel button{border-style:solid;border-color:color-mix(in srgb,var(--accent) 28%,transparent);background:var(--accent-soft);color:var(--accent)}
+.qrel button:hover{background:var(--accent);border-color:var(--accent);color:#fff}

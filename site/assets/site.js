@@ -82,7 +82,43 @@ if (list){
       html += pubCard(p, i, words.length ? {hl} : {});
     });
     list.innerHTML = html || `<div class="empty">${t("No publications match", "Không có bài báo nào khớp với")} “${esc(query)}”.</div>`;
+    suggest(shown.map(([, i]) => i));
   };
+  /* suggestions under the search box: topics that also appear in the papers found, or a spelling fix when nothing matches */
+  const TOPICS = ["companion robot", "human-following", "group following", "elderly care", "service robot", "tracking", "agricultural",
+    "orchard", "pesticide spraying", "navigation", "obstacle avoidance", "path planning", "reinforcement learning", "continual learning",
+    "vision–language", "multimodal language model", "humanoid", "walking", "multi-robot", "fuzzy logic"];
+  const VOCAB = [...new Set(DOCS.flatMap(d => d.w).filter(w => w.length >= 4 && !/\d/.test(w)))];
+  const dist = (a, b) => { const d = Array.from({length: b.length + 1}, (_, i) => i);
+    for (let i = 1; i <= a.length; i++){ let p = d[0]; d[0] = i;
+      for (let k = 1; k <= b.length; k++){ const tmp = d[k]; d[k] = Math.min(d[k] + 1, d[k - 1] + 1, p + (a[i - 1] === b[k - 1] ? 0 : 1)); p = tmp; } }
+    return d[b.length]; };
+  const relBox = $("qrel");
+  const suggest = found => {
+    const q = query.trim();
+    if (!relBox) return;
+    if (!q){ relBox.hidden = true; return; }
+    let label, items = [];
+    if (found.length){
+      const qa = words.flat();
+      items = TOPICS.filter(tp => !parse(tp).every(alts => alts.some(a => qa.includes(a))))          // not what was searched
+        .map(tp => [tp, found.filter(i => parse(tp).every(alts => hit(DOCS[i], alts))).length])
+        .filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([tp]) => tp);
+      label = t("Related:", "Liên quan:");
+    } else {
+      const fix = norm(q).split(" ").map(w => { if (w.length < 4 || VOCAB.includes(w)) return w;
+        let best = w, bd = Math.max(2, Math.floor(w.length / 3)) + 1;
+        VOCAB.forEach(v => { const d = dist(w, v); if (d < bd){ bd = d; best = v; } }); return best; }).join(" ");
+      if (fix !== norm(q)) items = [fix];
+      label = t("Did you mean:", "Có phải bạn muốn tìm:");
+    }
+    relBox.hidden = !items.length;
+    relBox.innerHTML = items.length ? `<span>${label}</span>` + items.map(x => `<button type="button" data-q="${esc(x)}">${esc(x)}</button>`).join("") : "";
+  };
+  relBox?.addEventListener("click", e => {
+    const b = e.target.closest("[data-q]"); if (!b) return;
+    $("q").value = b.dataset.q; $("q").dispatchEvent(new Event("input"));
+  });
   list.addEventListener("click", e => {
     const b = e.target.closest("[data-bib]"), c = e.target.closest("[data-copy]");
     if (b) b.setAttribute("aria-expanded", $("bib" + b.dataset.bib).classList.toggle("open"));
