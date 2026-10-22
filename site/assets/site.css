@@ -537,7 +537,6 @@ body{animation:pagein .5s ease both}
 .prow:hover small{color:var(--ink-2);white-space:normal}
 .ptag{transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
 .prow:hover .ptag{transform:scale(1.08);box-shadow:0 0 0 4px color-mix(in srgb,currentColor 0%,transparent),0 4px 14px color-mix(in srgb,var(--accent) 45%,transparent)}
-@media (hover:hover){.plist:hover .prow:not(:hover){opacity:.55}}
 @media (prefers-reduced-motion: reduce){.prow,.prow::after,.ptag{transition:none}.prow:hover{transform:none}}
 
 /* CV button on people cards */
@@ -875,3 +874,21 @@ body{animation:pagein .5s ease both}
 .news.ntl.compact .date{line-height:1.15}
 .news.ntl.compact .date span{display:block;margin-top:2px;font-size:.68rem;font-weight:600;color:var(--muted)}
 .news.ntl:hover .news-item:not(:hover)::after{background:var(--surface);box-shadow:none}
+
+/* search matches highlighted in publication titles */
+.pub .t mark{background:color-mix(in srgb,var(--accent) 16%,transparent);color:inherit;border-radius:4px;padding:0 2px;margin:0 -2px}
+
+/* home "Recent papers": same cards and hover as the news timeline next to it */
+.plist .prow{border:1px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:10px;background:var(--surface);
+  transition:transform .25s,border-color .25s}
+.plist .prow:last-child{border-bottom:1px solid var(--line);margin-bottom:0}
+.plist .prow:hover,.plist .prow:focus-visible{background:var(--surface);box-shadow:none;transform:translateX(4px);border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.plist .prow::after{display:none}
+
+/* publications card: Google Scholar link under the total */
+.pstat.wide .pstat-top{display:grid;grid-template-columns:max-content 1fr;align-items:baseline;justify-content:start;column-gap:10px;row-gap:12px}
+.pstat-link{grid-column:1/-1;justify-self:start;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface);
+  font-size:.78rem;font-weight:600;color:var(--ink-2);transition:border-color .2s,color .2s}
+.pstat-link svg{width:14px;height:14px;color:var(--accent)}
+.pstat-link span{font-size:.75rem;color:var(--muted)}
+.pstat-link:hover{text-decoration:none;color:var(--accent);border-color:var(--accent)}

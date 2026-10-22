@@ -18,7 +18,8 @@ const $ = id => document.getElementById(id);
 
 /* ---------- publication card ---------- */
 function pubCard(p, i, opts = {}){
-  const title = p.u ? `<a class="t" href="${esc(p.u)}" target="_blank" rel="noopener">${esc(p.t)}</a>` : `<span class="t">${esc(p.t)}</span>`;
+  const tt = opts.hl ? opts.hl(p.t) : esc(p.t);
+  const title = p.u ? `<a class="t" href="${esc(p.u)}" target="_blank" rel="noopener">${tt}</a>` : `<span class="t">${tt}</span>`;
   const links = opts.compact ? "" : [
     p.u ? `<a class="chip" href="${esc(p.u)}" target="_blank" rel="noopener">${t("Paper", "Bài báo")}</a>` : "",
     p.ax ? `<a class="chip ax" href="https://arxiv.org/abs/${esc(p.ax)}" target="_blank" rel="noopener">arXiv</a>` : "",
@@ -42,15 +43,43 @@ if (list){
   let filter = "all", query = "";
   const params = new URLSearchParams(location.search);
   if (params.get("q")){ query = params.get("q"); $("q").value = query; }
+  /* smarter search: every query word must match (any order); word forms count (agriculture ≈ agricultural),
+     related topics and abbreviations expand, Vietnamese works without accents; matches are highlighted in titles */
+  const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").toLowerCase()
+    .replace(/[\u2010-\u2015\-\/:,.;()'"“”’]+/g, " ").replace(/\s+/g, " ").trim();
+  const VI_EN = [["robot dong hanh", "companion robot"], ["nong nghiep", "agricultural"], ["dong hanh", "companion"], ["dieu huong", "navigation"],
+    ["di theo nguoi", "human following"], ["theo nguoi", "human following"], ["di theo nhom", "group following"], ["hoc tang cuong", "reinforcement learning"],
+    ["nguoi cao tuoi", "elderly"], ["hinh nguoi", "humanoid"], ["tranh vat can", "obstacle avoidance"], ["thi giac", "vision"], ["ngon ngu", "language"],
+    ["di bo", "walking"], ["phun thuoc", "spraying"], ["hoc lien tuc", "continual learning"]];
+  const ABBR = {rl: "reinforcement learning", drl: "deep reinforcement learning", vlm: "vision language model", llm: "language model",
+    lmm: "multimodal language model", hri: "human robot interaction", agv: "guided vehicle"};
+  const GROUPS = [["agricult", "orchard", "farm", "crop", "pesticide", "spray"], ["companion", "service robot", "elderly"],
+    ["navig", "path plann", "obstacle avoid"], ["humanoid", "legged", "walk"], ["follow", "track"]];
+  const SUF = ["ational", "ation", "ments", "ment", "ings", "ing", "ural", "ure", "ally", "al", "ies", "es", "ed", "s"];
+  const stem = w => { for (const s of SUF) if (w.length - s.length >= 4 && w.endsWith(s)) return w.slice(0, -s.length); return w; };
+  const parse = q => {
+    q = " " + norm(q) + " ";
+    VI_EN.forEach(([vi, en]) => { q = q.split(" " + vi + " ").join(" " + en + " "); });
+    return q.trim().split(" ").filter(Boolean).flatMap(w => (ABBR[w] || w).split(" ")).map(w => {
+      const s = stem(w), g = GROUPS.find(g => g.some(x => !x.includes(" ") && s.startsWith(x)));
+      return g ? [s, ...g] : [s];                             // alternatives for this word
+    });
+  };
+  const DOCS = PUBS.map(p => { const t = norm([p.t, p.a, p.v, p.s, p.y].join(" ")); return {t, w: t.split(" ")}; });
+  const hit = (d, alts) => alts.some(a => a.includes(" ") ? d.t.includes(a) : d.w.some(w => w.startsWith(a)));
+  let words = [];
+  const hl = text => esc(text).replace(/[A-Za-z0-9]+/g, w => {
+    const n = norm(w); return words.flat().some(a => !a.includes(" ") && n.startsWith(a)) ? `<mark>${w}</mark>` : w;
+  });
   const render = () => {
-    const q = query.trim().toLowerCase();
-    const shown = PUBS.map((p, i) => [p, i]).filter(([p]) => (filter === "all" || p.c === filter) &&
-      (!q || [p.t, p.a, p.v, p.s, p.y].join(" ").toLowerCase().includes(q)));
+    words = parse(query);
+    const shown = PUBS.map((p, i) => [p, i]).filter(([p, i]) => (filter === "all" || p.c === filter) &&
+      words.every(alts => hit(DOCS[i], alts)));
     $("count").textContent = t(`${shown.length} of ${PUBS.length}`, `${shown.length}/${PUBS.length} bài báo`);
     let html = "", year = null;
     shown.forEach(([p, i]) => {
       if (p.y !== year){ year = p.y; html += `<div class="year">${year}</div>`; }
-      html += pubCard(p, i);
+      html += pubCard(p, i, words.length ? {hl} : {});
     });
     list.innerHTML = html || `<div class="empty">${t("No publications match", "Không có bài báo nào khớp với")} “${esc(query)}”.</div>`;
   };
