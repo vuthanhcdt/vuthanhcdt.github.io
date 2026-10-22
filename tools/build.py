@@ -260,7 +260,12 @@ rows='\n'.join(f'''    <div class="area reveal" id="{SLUG[i]}">
 write('publications.html','Publications · RASL','Peer-reviewed publications of RASL.','Publications',
   page_hero('Publications','Publications','Journal articles and conference proceedings. Filter by type, search by title, author or venue, and copy BibTeX.')+strip_head(pubs))
 _n=iter(range(1,100))
-news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}">',news.replace('class="sec alt"','class="sec"').replace('<div class="news">','<div class="news tl">',1))
+news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}">',news.replace('class="sec alt"','class="sec"').replace('<div class="news">','<div class="news ntl">',1))
+_seen=set()
+def _yr(m):
+    y=m.group(2); h='' if y in _seen else f'<div class="tl-year reveal">{y}</div>\n      '
+    _seen.add(y); return h+m.group(1)
+news_page=re.sub(r'(<div class="news-item reveal" id="news-\d+"><div class="date"><b>\w+</b><span>(\d{4})</span>)',_yr,news_page)
 write('news.html','News · RASL','News and announcements from RASL.','News',
   page_hero('News','News','Accepted papers, talks and milestones from the lab.')+strip_head(news_page))
 write('people.html','People · RASL','People of RASL.','People',

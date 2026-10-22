@@ -830,18 +830,28 @@ body{animation:pagein .5s ease both}
   .yr-chart{justify-content:space-between}
 }
 
-/* ---------- news page: vertical timeline (alternating on wide screens) ---------- */
-.news.tl{grid-template-columns:1fr;position:relative;gap:20px;max-width:940px;margin:0 auto}
-.news.tl::before{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:2px;margin-left:-1px;border-radius:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2) 55%,color-mix(in srgb,var(--accent-2) 0%,transparent))}
-.news.tl .news-item{position:relative;width:calc(50% - 36px)}
-.news.tl .news-item:nth-child(even){margin-left:auto}
-.news.tl .news-item::before{content:"";position:absolute;top:28px;right:-45px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
-.news.tl .news-item:nth-child(even)::before{right:auto;left:-45px}
-.news.tl .news-item::after{content:"";position:absolute;top:35px;right:-30px;width:28px;height:2px;background:color-mix(in srgb,var(--accent) 35%,transparent)}
-.news.tl .news-item:nth-child(even)::after{right:auto;left:-30px}
-@media (max-width:760px){
-  .news.tl::before{left:9px}
-  .news.tl .news-item,.news.tl .news-item:nth-child(even){width:auto;margin-left:36px}
-  .news.tl .news-item::before,.news.tl .news-item:nth-child(even)::before{left:-35px;right:auto}
-  .news.tl .news-item::after,.news.tl .news-item:nth-child(even)::after{left:-21px;right:auto;width:20px}
+/* ---------- news page: timeline grouped by year (month | line + dot | card) ---------- */
+.news.ntl{display:block;max-width:860px;margin:0 auto}
+.tl-year{display:flex;align-items:center;gap:14px;margin:6px 0 18px 100px;font:700 1.5rem/1 "Space Grotesk",sans-serif;color:var(--ink)}
+.tl-year::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.tl-year:not(:first-child){margin-top:18px}
+.news.ntl .news-item{position:relative;display:grid;grid-template-columns:72px 1fr;gap:0 28px;padding:0 0 18px;background:none;border:0;border-radius:0}
+.news.ntl .news-item:hover{transform:none}
+.news.ntl .news-item::before{content:"";position:absolute;left:85px;top:0;bottom:0;width:2px;background:var(--line)}
+.news.ntl .news-item::after{content:"";position:absolute;left:77px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);transition:box-shadow .25s,background .25s}
+.news.ntl .news-item:hover::after{background:var(--accent);box-shadow:0 0 0 6px var(--accent-soft)}
+.news.ntl .tl-year:first-child+.news-item::after{background:var(--accent);box-shadow:0 0 0 6px var(--accent-soft)}
+.news.ntl .date{background:none;padding:16px 12px 0 0;text-align:right;color:var(--muted)}
+.news.ntl .date b{font:700 .95rem "Space Grotesk",sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.news.ntl .date span{display:none}
+.news.ntl .news-item>div:last-child{padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow);transition:transform .25s,border-color .25s}
+.news.ntl .news-item:hover>div:last-child{transform:translateX(4px);border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.news.ntl .news-item h3{font-size:1.02rem}
+@media (max-width:620px){
+  .tl-year{margin-left:66px;font-size:1.3rem}
+  .news.ntl .news-item{grid-template-columns:44px 1fr;gap:0 22px}
+  .news.ntl .news-item::before{left:54px}
+  .news.ntl .news-item::after{left:46px}
+  .news.ntl .date b{font-size:.8rem}
+  .news.ntl .news-item>div:last-child{padding:14px 16px}
 }
