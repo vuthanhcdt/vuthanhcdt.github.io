@@ -230,6 +230,39 @@ if (document.querySelector(".pstat") && window.PUBS){
              c: PUBS.filter(p => p.c === "Conference").length};
   document.querySelectorAll(".pstat [data-n]").forEach(el => { el.textContent = n[el.dataset.n]; });
   document.querySelectorAll(".pstat [data-bar]").forEach(el => el.style.setProperty("--n", n[el.dataset.bar]));
+
+  /* the journal / conference bar and its legend are interactive: hover shows the count; on Publications a click filters
+     the list by type (click again or on empty space to clear); elsewhere it opens Publications with that filter */
+  const TYPE = {j: "Journal", c: "Conference"}, onPubs = !!$("pubList");
+  const key = el => el.dataset.bar || (el.classList.contains("j") ? "j" : "c");
+  const seg = f => document.querySelector(`.seg button[data-f="${f}"]`);
+  const current = () => document.querySelector('.seg button[aria-pressed="true"]')?.dataset.f || "all";
+  const parts = [...document.querySelectorAll(".pstat [data-bar], .pstat-legend > div")];
+  const markType = () => { const f = onPubs ? current() : "all";
+    document.querySelectorAll(".pstat").forEach(c => c.classList.toggle("has-type", f !== "all"));
+    parts.forEach(el => el.classList.toggle("on", TYPE[key(el)] === f)); };
+  let typePicked = false;
+  parts.forEach(el => {
+    const k = key(el);
+    el.title = k === "j" ? t(`${n.j} journal articles`, `${n.j} bài tạp chí`) : t(`${n.c} conference papers`, `${n.c} bài hội nghị`);
+    if (!el.dataset.bar){ el.setAttribute("role", "button"); el.tabIndex = 0; }
+    const go = () => {
+      if (!onPubs){ location.href = "publications.html?type=" + TYPE[k]; return; }
+      const again = current() === TYPE[k]; seg(again ? "all" : TYPE[k]).click(); typePicked = !again; markType();
+    };
+    el.addEventListener("click", go);
+    el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); go(); } });
+  });
+  if (onPubs){
+    document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", markType));
+    document.addEventListener("click", e => {
+      if (!typePicked || e.target.closest(".pstat-bar, .pstat-legend, .toolbar, #pubList, #qhint, #qrel, #yrChart, .nav, .ap-fab, .ap-hint, .ap-modal")) return;
+      typePicked = false; if (current() !== "all") seg("all").click();
+    });
+    const tp = new URLSearchParams(location.search).get("type");      // ?type=Journal|Conference from the People page
+    if (tp === TYPE.j || tp === TYPE.c) seg(tp).click();
+    markType();
+  }
 }
 
 /* ---------- cursor spotlight on cards ---------- */

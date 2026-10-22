@@ -922,3 +922,14 @@ body{animation:pagein .5s ease both}
 @keyframes hint-out{0%{opacity:1;transform:none}100%{opacity:0;transform:translateY(12px) scale(.82);filter:blur(2px)}}
 @keyframes hint-txt-out{to{opacity:0;transform:translateX(6px)}}
 @media (prefers-reduced-motion:reduce){.ap-hint:not([hidden]):not(.bye),.ap-hint .ap-hint-text b,.ap-hint .ap-hint-text span,.ap-hint.bye{animation:none}}
+
+/* journal / conference bar + legend: hover to see the count, click to filter */
+.pstat-bar i,.pstat-legend>div{cursor:pointer}
+.pstat-bar i{transition:transform .9s cubic-bezier(.2,.7,.2,1) .25s,opacity .25s,filter .2s,box-shadow .2s}
+.pstat-bar i:hover{filter:brightness(1.15) saturate(1.15);box-shadow:0 0 0 3px var(--accent-soft)}
+.pstat-bar i.on{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 35%,transparent)}
+.pstat.has-type .pstat-bar i:not(.on){opacity:.3}
+.pstat-legend>div{border-radius:8px;padding:3px 7px;margin:-3px -7px;transition:background .2s,color .2s,opacity .25s}
+.pstat-legend>div:hover,.pstat-legend>div:focus-visible{background:var(--bg-2);color:var(--ink);outline:none}
+.pstat-legend>div.on{background:var(--accent-soft);color:var(--ink)}
+.pstat.has-type .pstat-legend>div:not(.on){opacity:.45}
