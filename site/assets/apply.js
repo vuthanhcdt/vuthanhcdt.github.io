@@ -284,9 +284,11 @@ const fadeOut = delay => { clearTimeout(hideT); hideT = setTimeout(() => {
   hint.classList.add("bye"); hideT = setTimeout(() => { hint.hidden = true; hint.classList.remove("bye"); }, 400);
 }, delay); };
 function hideHint(){ clearTimeout(hideT); hint.hidden = true; ss("apHintOff", "1"); }
+const AUTO = /(^|\/)(index\.html|people\.html|contact\.html)?$/.test(location.pathname);   // timed hint on Home, People, Contact only
 function showHint(){
-  if (ss("apHintOff") || !modal.hidden || document.hidden) return;
+  if (!AUTO || ss("apHintOff") || !modal.hidden || document.hidden) return;
   reveal(); fadeOut(SHOW);
+  fab.classList.remove("nudge"); void fab.offsetWidth; fab.classList.add("nudge");
 }
 /* hovering the Apply button (or the bubble itself) always shows the bubble; it fades shortly after the mouse leaves */
 [fab, hint].forEach(el => {

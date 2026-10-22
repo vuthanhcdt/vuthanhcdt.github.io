@@ -905,3 +905,13 @@ body{animation:pagein .5s ease both}
 .qrel span{color:var(--accent)}
 .qrel button{border-style:solid;border-color:color-mix(in srgb,var(--accent) 28%,transparent);background:var(--accent-soft);color:var(--accent)}
 .qrel button:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Apply hint: springs up from the button each time it appears; the button gives a small nudge with it */
+.ap-hint:not([hidden]):not(.bye){transform-origin:calc(100% - 42px) 100%;animation:hint-in .55s cubic-bezier(.2,1.35,.4,1) both}
+.ap-hint:not([hidden]):not(.bye) .ap-hint-text b,.ap-hint:not([hidden]):not(.bye) .ap-hint-text span{animation:hint-txt .5s ease both}
+.ap-hint:not([hidden]):not(.bye) .ap-hint-text span{animation-delay:.12s}
+@keyframes hint-in{0%{opacity:0;transform:translateY(14px) scale(.85)}60%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes hint-txt{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
+.ap-fab.nudge{animation:fab-nudge .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes fab-nudge{0%,100%{transform:none}30%{transform:translateY(-4px) scale(1.05)}60%{transform:translateY(1px) scale(.98)}}
+@media (prefers-reduced-motion:reduce){.ap-hint:not([hidden]):not(.bye),.ap-hint .ap-hint-text b,.ap-hint .ap-hint-text span,.ap-fab.nudge{animation:none}}
