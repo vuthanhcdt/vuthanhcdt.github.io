@@ -951,3 +951,18 @@ body{animation:pagein .5s ease both}
 
 /* a paper opened from News is highlighted for a moment */
 .pub.flash{animation:flash 2.4s ease}
+
+/* ---------- search panel: grows out of the Search button with a soft spring, results cascade in ---------- */
+.sk-back{opacity:0;-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0);transition:opacity .3s ease,backdrop-filter .35s ease,-webkit-backdrop-filter .35s ease}
+.sk.show .sk-back{opacity:1;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.sk-panel{transform-origin:var(--fx,50%) var(--fy,0);transform:scale(.3);opacity:0;filter:blur(8px);
+  transition:transform .5s cubic-bezier(.2,1.15,.3,1),opacity .22s ease,filter .35s ease}
+.sk.show .sk-panel{transform:none;opacity:1;filter:none}
+.sk.closing .sk-panel{transition:transform .24s cubic-bezier(.5,0,.75,0),opacity .2s ease .04s,filter .2s ease}
+.sk.closing .sk-back{transition-duration:.22s}
+.sk-bar svg{transition:transform .5s cubic-bezier(.3,1.6,.5,1) .15s}
+.sk:not(.show) .sk-bar svg{transform:scale(.4) rotate(-40deg)}
+.sk.intro .sk-group,.sk.intro .sk-item{animation:sk-item .42s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.12s + var(--i,0) * 35ms)}
+@keyframes sk-item{from{opacity:0;transform:translateY(10px)}}
+.search-btn:active{transform:scale(.94)}
+@media (prefers-reduced-motion:reduce){.sk-panel,.sk-back,.sk-bar svg{transition:none!important;filter:none}.sk.intro .sk-group,.sk.intro .sk-item{animation:none}}

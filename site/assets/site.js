@@ -359,7 +359,7 @@ function draw(terms){
   hits = groups;
   hits.forEach((d, i) => {
     if (d.type !== group){ group = d.type; html += `<div class="sk-group">${terms.length ? GROUP[group] || group : t("Suggested", "Gợi ý")}</div>`; if (!terms.length) group = "_"; }
-    html += `<a class="sk-item${i === sel ? " on" : ""}" role="option" aria-selected="${i === sel}" href="${esc(d.url)}" data-i="${i}">
+    html += `<a class="sk-item${i === sel ? " on" : ""}" role="option" aria-selected="${i === sel}" href="${esc(d.url)}" data-i="${i}" style="--i:${i}">
       <span class="sk-type ${d.type}">${TYPE[d.type] || d.type}</span>
       <span class="sk-main"><b>${hl(d.title, terms)}</b><small>${hl(d.text, terms)}</small></span>
       <span class="sk-meta">${esc(d.meta)}</span></a>`;
@@ -372,13 +372,26 @@ const move = k => {
   skr.querySelectorAll(".sk-item").forEach((el, i) => { el.classList.toggle("on", i === sel); el.setAttribute("aria-selected", i === sel); });
   skr.querySelector(".sk-item.on")?.scrollIntoView({block:"nearest"});
 };
-function openSearch(){
-  lastFocus = document.activeElement; modal.hidden = false; document.documentElement.classList.add("sk-open");
-  requestAnimationFrame(() => modal.classList.add("show")); skq.value = ""; search(); skq.focus();
+/* the panel grows out of the Search button (or drops from the top when opened with ⌘K / Ctrl K),
+   the first results cascade in; closing shrinks it back to where it came from */
+let skT;
+function openSearch(e){
+  clearTimeout(skT);
+  lastFocus = document.activeElement; modal.hidden = false; modal.classList.remove("closing"); document.documentElement.classList.add("sk-open");
+  const panel = modal.querySelector(".sk-panel"), btn = $("searchBtn"), p = {left: panel.offsetLeft, top: panel.offsetTop};   // layout box (the fixed overlay starts at 0,0), not the scaled one
+  if (e && e.type === "click" && btn.offsetParent){
+    const b = btn.getBoundingClientRect();
+    panel.style.setProperty("--fx", (b.left + b.width / 2 - p.left) + "px"); panel.style.setProperty("--fy", (b.top + b.height / 2 - p.top) + "px");
+  } else { panel.style.setProperty("--fx", "50%"); panel.style.setProperty("--fy", "-40px"); }
+  skq.value = ""; search();
+  modal.classList.add("intro"); skT = setTimeout(() => modal.classList.remove("intro"), 900);
+  void panel.offsetWidth; modal.classList.add("show");          // commit the start state, then animate to the open one
+  skq.focus({preventScroll: true});
 }
 function closeSearch(){
-  modal.classList.remove("show"); document.documentElement.classList.remove("sk-open");
-  setTimeout(() => { modal.hidden = true; }, 160); lastFocus?.focus?.();
+  clearTimeout(skT);
+  modal.classList.add("closing"); modal.classList.remove("show", "intro"); document.documentElement.classList.remove("sk-open");
+  skT = setTimeout(() => { modal.hidden = true; modal.classList.remove("closing"); }, 260); lastFocus?.focus?.();
 }
 $("searchBtn").addEventListener("click", openSearch);
 skq.addEventListener("input", search);
