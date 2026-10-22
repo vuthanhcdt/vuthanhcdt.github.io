@@ -196,8 +196,12 @@ def translate(html, page):
 
 def translate_text(s):
     """For search-index strings (plain text, no tags)."""
-    for a, b in TR:
-        a2, b2 = re.sub(r'<[^>]+>', '', a).strip('>< '), re.sub(r'<[^>]+>', '', b).strip('>< ')
-        if a2 and '"' not in a2 and '=' not in a2:
-            s = s.replace(a2, b2)
+    pairs = [(re.sub(r'<[^>]+>', '', a).strip('>< '), re.sub(r'<[^>]+>', '', b).strip('>< ')) for a, b in TR]
+    # longest phrases first, in one pass (placeholders), so a short label such as "Humanoids" from a tag list
+    # can neither break a longer sentence nor re-translate text that is already Vietnamese
+    out = []
+    for a2, b2 in sorted(pairs, key=lambda p: -len(p[0])):
+        if a2 and '"' not in a2 and '=' not in a2 and a2 in s:
+            s = s.replace(a2, f'\x00{len(out)}\x00'); out.append(b2)
+    s = re.sub('\x00(\\d+)\x00', lambda m: out[int(m.group(1))], s)
     return vi_name(s)
