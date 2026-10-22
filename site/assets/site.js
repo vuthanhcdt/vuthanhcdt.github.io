@@ -140,22 +140,34 @@ if (list){
   $("q").addEventListener("input", () => document.querySelectorAll("#qhint [data-q]").forEach(x => x.classList.toggle("on", x.dataset.q === $("q").value)));
   render();
 
-  /* papers per year (stacked journal / conference); clicking a year searches for it, click again to clear */
+  /* papers per year: one column per year (journals at the bottom, conferences on top, one smooth gradient).
+     Hover a part to see its count; click it to list that year's journals or conferences; click the year for all of it. */
   const chart = $("yrChart");
   if (chart){
     const by = {};
     PUBS.filter(p => p.c !== "Preprint").forEach(p => { const y = by[p.y] ||= {j: 0, c: 0}; p.c === "Journal" ? y.j++ : y.c++; });
     const years = Object.keys(by).sort(), max = Math.max(...years.map(y => by[y].j + by[y].c));
+    const part = (y, type, n) => n ? `<i data-y="${y}" data-t="${type}" style="--k:${n}" title="${y}: ${n} ${type === "Journal" ? t(n > 1 ? "journal articles" : "journal article", "bài tạp chí") : t(n > 1 ? "conference papers" : "conference paper", "bài hội nghị")}"></i>` : "";
     chart.innerHTML = years.map(y => { const {j, c} = by[y], n = j + c;
-      return `<button type="button" class="yr" data-y="${y}" style="--h:${(n / max).toFixed(3)}" title="${y}: ${t(`${j} journal, ${c} conference`, `${j} tạp chí, ${c} hội nghị`)}">
-        <span class="n">${n}</span><span class="col">${j ? `<i class="j" style="--k:${j}"></i>` : ""}${c ? `<i class="c" style="--k:${c}"></i>` : ""}</span><span class="y">${y}</span></button>`; }).join("");
-    const mark = () => chart.querySelectorAll(".yr").forEach(b => b.classList.toggle("on", b.dataset.y === $("q").value.trim()));
+      return `<div class="yr" data-y="${y}" style="--h:${(n / max).toFixed(3)};--jp:${Math.round(100 * j / n)}">
+        <span class="n">${n}</span><span class="col">${part(y, "Journal", j)}${part(y, "Conference", c)}</span>
+        <button type="button" class="y" data-y="${y}">${y}</button></div>`; }).join("");
+    const setType = f => document.querySelector(`.seg button[data-f="${f}"]`)?.click();
+    const mark = () => {
+      const q = $("q").value.trim();
+      chart.querySelectorAll(".yr").forEach(b => b.classList.toggle("on", b.dataset.y === q && filter === "all"));
+      chart.querySelectorAll(".col i").forEach(i => i.classList.toggle("on", i.dataset.y === q && i.dataset.t === filter));
+    };
     chart.addEventListener("click", e => {
-      const b = e.target.closest(".yr"); if (!b) return;
-      const q = $("q"); q.value = q.value.trim() === b.dataset.y ? "" : b.dataset.y;
-      q.dispatchEvent(new Event("input"));
+      const seg = e.target.closest(".col i"), yr = e.target.closest(".yr"); if (!yr) return;
+      const y = yr.dataset.y, type = seg ? seg.dataset.t : "all", q = $("q");
+      const again = q.value.trim() === y && filter === type;      // same choice twice = clear
+      setType(again ? "all" : type);
+      q.value = again ? "" : y; q.dispatchEvent(new Event("input"));
     });
-    $("q").addEventListener("input", mark); mark();
+    $("q").addEventListener("input", mark);
+    document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", mark));
+    mark();
   }
 }
 
