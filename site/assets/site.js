@@ -372,26 +372,41 @@ const move = k => {
   skr.querySelectorAll(".sk-item").forEach((el, i) => { el.classList.toggle("on", i === sel); el.setAttribute("aria-selected", i === sel); });
   skr.querySelector(".sk-item.on")?.scrollIntoView({block:"nearest"});
 };
-/* the panel grows out of the Search button (or drops from the top when opened with ⌘K / Ctrl K),
-   the first results cascade in; closing shrinks it back to where it came from */
-let skT;
+/* the panel grows out of the Search button (or drops from the top when opened with ⌘K / Ctrl K), the backdrop
+   fades and blurs in, the first results cascade in; closing shrinks it back. Driven by the Web Animations API so it
+   also plays on the very first frame after the overlay is un-hidden. */
+let skT, skAnim = [];
+const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
 function openSearch(e){
-  clearTimeout(skT);
-  lastFocus = document.activeElement; modal.hidden = false; modal.classList.remove("closing"); document.documentElement.classList.add("sk-open");
-  const panel = modal.querySelector(".sk-panel"), btn = $("searchBtn"), p = {left: panel.offsetLeft, top: panel.offsetTop};   // layout box (the fixed overlay starts at 0,0), not the scaled one
+  clearTimeout(skT); skAnim.forEach(a => a.cancel()); skAnim = [];
+  lastFocus = document.activeElement; modal.hidden = false; modal.classList.add("show"); document.documentElement.classList.add("sk-open");
+  const panel = modal.querySelector(".sk-panel"), back = modal.querySelector(".sk-back"), btn = $("searchBtn");
   if (e && e.type === "click" && btn.offsetParent){
     const b = btn.getBoundingClientRect();
-    panel.style.setProperty("--fx", (b.left + b.width / 2 - p.left) + "px"); panel.style.setProperty("--fy", (b.top + b.height / 2 - p.top) + "px");
-  } else { panel.style.setProperty("--fx", "50%"); panel.style.setProperty("--fy", "-40px"); }
+    panel.style.transformOrigin = `${b.left + b.width / 2 - panel.offsetLeft}px ${b.top + b.height / 2 - panel.offsetTop}px`;
+  } else panel.style.transformOrigin = "50% -40px";
   skq.value = ""; search();
-  modal.classList.add("intro"); skT = setTimeout(() => modal.classList.remove("intro"), 900);
-  void panel.offsetWidth; modal.classList.add("show");          // commit the start state, then animate to the open one
+  if (!calm){
+    modal.classList.add("sk-cascade"); skT = setTimeout(() => modal.classList.remove("sk-cascade"), 900);
+    skAnim = [
+      panel.animate([{transform: "scale(.3)", opacity: 0, filter: "blur(8px)"}, {transform: "scale(1.015)", opacity: 1, filter: "blur(0)", offset: .7}, {transform: "none", opacity: 1, filter: "blur(0)"}],
+                    {duration: 520, easing: "cubic-bezier(.2,.8,.2,1)"}),
+      back.animate([{opacity: 0, backdropFilter: "blur(0px)"}, {opacity: 1, backdropFilter: "blur(8px)"}], {duration: 320, easing: "ease-out"})
+    ];
+  }
   skq.focus({preventScroll: true});
 }
 function closeSearch(){
-  clearTimeout(skT);
-  modal.classList.add("closing"); modal.classList.remove("show", "intro"); document.documentElement.classList.remove("sk-open");
-  skT = setTimeout(() => { modal.hidden = true; modal.classList.remove("closing"); }, 260); lastFocus?.focus?.();
+  clearTimeout(skT); skAnim.forEach(a => a.cancel());
+  document.documentElement.classList.remove("sk-open"); modal.classList.remove("sk-cascade"); lastFocus?.focus?.();
+  const done = () => { modal.hidden = true; modal.classList.remove("show"); skAnim = []; };
+  if (calm){ done(); return; }
+  const panel = modal.querySelector(".sk-panel"), back = modal.querySelector(".sk-back");
+  skAnim = [
+    panel.animate([{transform: "none", opacity: 1}, {transform: "scale(.35)", opacity: 0, filter: "blur(6px)"}], {duration: 240, easing: "cubic-bezier(.5,0,.75,0)", fill: "forwards"}),
+    back.animate([{opacity: 1}, {opacity: 0}], {duration: 220, easing: "ease-in", fill: "forwards"})
+  ];
+  skAnim[0].onfinish = () => { skAnim.forEach(a => a.cancel()); done(); };
 }
 $("searchBtn").addEventListener("click", openSearch);
 skq.addEventListener("input", search);
