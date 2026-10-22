@@ -39,7 +39,7 @@ const SECTIONS = [
   {title: t("Position", "Vị trí ứng tuyển"), fields: [
     {id: "position", type: "radio", label: t("I am applying as", "Bạn ứng tuyển vị trí"), req: true, options: [
       ["Undergraduate researcher", "Sinh viên nghiên cứu"], ["M.S. student", "Học viên Thạc sĩ"], ["Ph.D. student", "Nghiên cứu sinh Tiến sĩ"],
-      ["Research intern", "Thực tập sinh nghiên cứu"], ["Visiting student", "Sinh viên trao đổi / thỉnh giảng"]]},
+      ["Visiting student", "Sinh viên trao đổi / thỉnh giảng"]]},
     {id: "start", type: "month", label: t("Earliest start", "Thời gian có thể bắt đầu"), half: true},
     {id: "hours", type: "select", label: t("Time you can commit", "Thời gian có thể tham gia"), half: true, options: [
       ["< 10 hours/week", "< 10 giờ/tuần"], ["10–20 hours/week", "10–20 giờ/tuần"], ["20+ hours/week", "Trên 20 giờ/tuần"], ["Full-time", "Toàn thời gian"]]},
@@ -93,7 +93,7 @@ const shell = document.createElement("div");
 shell.className = "ap";
 shell.innerHTML = `
   <div class="ap-hint" role="status" hidden>
-    <button class="ap-hint-text" type="button"><b>${t("Join RASL — apply here", "Ứng tuyển vào RASL")}</b><span>${t("Students & interns welcome", "Chào đón sinh viên và thực tập sinh")}</span></button>
+    <button class="ap-hint-text" type="button"><b>${t("Join RASL — apply here", "Ứng tuyển vào RASL")}</b><span>${t("Students are welcome to join RASL", "Chào đón các bạn sinh viên tham gia RASL")}</span></button>
     <button class="ap-hint-x" type="button" aria-label="${t("Hide", "Ẩn")}">×</button>
   </div>
   <button class="ap-fab" type="button" aria-haspopup="dialog" aria-label="${t("Apply to join RASL", "Ứng tuyển vào RASL")}">
@@ -273,15 +273,21 @@ addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden && do
 document.addEventListener("click", e => { const a = e.target.closest("[data-apply]"); if (a){ e.preventDefault(); openForm(); } });
 if (location.hash === "#apply") openForm();
 
-/* ---------- hint bubble: once per visit, fades out by itself ---------- */
-function hideHint(){ hint.hidden = true; try { sessionStorage.setItem("apHint", "off"); } catch(e){} }
-let seen = false; try { seen = sessionStorage.getItem("apHint") === "off"; } catch(e){}
-if (!seen) setTimeout(() => {
-  if (!modal.hidden) return;
+/* ---------- hint bubble: shows a few seconds after a page opens, then again every minute while browsing
+   (at most 4 times per visit); closing it with × or opening the form stops it for the rest of the visit ---------- */
+const EVERY = 60000, SHOW = 6000, MAX = 4;
+const ss = (k, v) => { try { return v === undefined ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch(e){ return null; } };
+function hideHint(){ hint.hidden = true; ss("apHint", "off"); }
+function showHint(){
+  if (ss("apHint") === "off" || !modal.hidden || document.hidden) return;
+  const n = +(ss("apHintN") || 0); if (n >= MAX) return;
+  ss("apHintN", n + 1); ss("apHintAt", Date.now());
   hint.hidden = false;
-  try { sessionStorage.setItem("apHint", "off"); } catch(e){}
-  setTimeout(() => { hint.classList.add("bye"); setTimeout(() => { hint.hidden = true; hint.classList.remove("bye"); }, 400); }, 6000);
-}, document.documentElement.classList.contains("intro-on") ? 4500 : 2000);   // wait for the home intro to finish
+  setTimeout(() => { hint.classList.add("bye"); setTimeout(() => { hint.hidden = true; hint.classList.remove("bye"); }, 400); }, SHOW);
+}
+const since = Date.now() - +(ss("apHintAt") || 0);                       // count the minute across pages
+const first = Math.max(document.documentElement.classList.contains("intro-on") ? 5000 : 3000, EVERY - since);
+setTimeout(() => { showHint(); setInterval(showHint, EVERY); }, first);
 hint.querySelector(".ap-hint-text").addEventListener("click", openForm);
 hint.querySelector(".ap-hint-x").addEventListener("click", hideHint);
 

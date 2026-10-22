@@ -284,7 +284,7 @@ for li in re.findall(r'<li><em>(.*?)</em><b>(.*?)</b><span>(.*?)</span>(.*?)</li
 IDX+= [dict(type='People',title='Cong-Thanh Vu, Ph.D.',text='Director, Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.',meta='Director',url='people.html'),
        dict(type='Page',title='CV — Cong-Thanh Vu',text='Auto-generated CV with education, experience, publications and awards. Download as PDF.',meta='CV',url='cv.html?m=vu'),
        dict(type='Page',title='Contact',text='Email vuthanh.cdt@gmail.com · Google Scholar',meta='Get in touch',url='contact.html'),
-       dict(type='Page',title='Join RASL — apply',text='Application form for students and interns: introduce yourself, your skills, languages and research interests.',meta='Open positions',url='index.html#apply'),
+       dict(type='Page',title='Join RASL — apply',text='Application form for students: introduce yourself, your skills, languages and research interests.',meta='Open positions',url='index.html#apply'),
        dict(type='Page',title='Publications',text='All journal articles, conference papers and preprints with BibTeX.',meta='Page',url='publications.html'),
        dict(type='Page',title='News',text='Accepted papers, awards and milestones.',meta='Page',url='news.html')]
 open(os.path.join(OUT,'assets','search-index.js'),'w').write('window.SEARCH_INDEX = '+json.dumps(IDX,ensure_ascii=False)+';\n')
@@ -301,7 +301,7 @@ VI_FIX={'Curriculum Vitae — Cong-Thanh Vu':'CV — Cong-Thanh Vu',
         'All journal articles, conference papers and preprints with BibTeX.':'Toàn bộ bài báo tạp chí và hội nghị, kèm trích dẫn BibTeX.',
         'Accepted papers, awards and milestones.':'Bài báo mới được chấp nhận, giải thưởng và các cột mốc của lab.',
         'Join RASL':'Tham gia RASL','Join RASL — apply':'Ứng tuyển vào RASL',
-        'Application form for students and interns: introduce yourself, your skills, languages and research interests.':'Form ứng tuyển cho sinh viên và thực tập sinh: giới thiệu bản thân, kỹ năng, ngoại ngữ và hướng nghiên cứu quan tâm.','Contact':'Liên hệ','Publications':'Công bố khoa học','News':'Tin tức','Director':'Giám đốc',
+        'Application form for students: introduce yourself, your skills, languages and research interests.':'Form ứng tuyển cho sinh viên: giới thiệu bản thân, kỹ năng, ngoại ngữ và hướng nghiên cứu quan tâm.','Contact':'Liên hệ','Publications':'Công bố khoa học','News':'Tin tức','Director':'Giám đốc',
         'Cong-Thanh Vu · 2022 – 2026':'Cong-Thanh Vu · 2022 – 2026',
         'Director, Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.':'Giám đốc Phòng thí nghiệm Robot và Hệ thống Tự hành (RASL). Tương tác người – robot, điều hướng robot có nhận thức về con người, robot nông nghiệp, robot đi bằng chân, học máy cho robot.'}
 def tvi(x): return vi_name(VI_FIX.get(x, translate_text(x)))
