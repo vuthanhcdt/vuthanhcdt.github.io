@@ -260,7 +260,7 @@ rows='\n'.join(f'''    <div class="area reveal" id="{SLUG[i]}">
 write('publications.html','Publications · RASL','Peer-reviewed publications of RASL.','Publications',
   page_hero('Publications','Publications','Journal articles and conference proceedings. Filter by type, search by title, author or venue, and copy BibTeX.')+strip_head(pubs))
 _n=iter(range(1,100))
-news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}">',news.replace('class="sec alt"','class="sec"'))
+news_page=re.sub(r'<div class="news-item reveal">',lambda m:f'<div class="news-item reveal" id="news-{next(_n)}">',news.replace('class="sec alt"','class="sec"').replace('<div class="news">','<div class="news tl">',1))
 write('news.html','News · RASL','News and announcements from RASL.','News',
   page_hero('News','News','Accepted papers, talks and milestones from the lab.')+strip_head(news_page))
 write('people.html','People · RASL','People of RASL.','People',

@@ -35,6 +35,7 @@ TR = [
     ('</b><span>Papers</span>', '</b><span>Bài báo</span>'),
     ('</b><span>Journals</span>', '</b><span>Tạp chí</span>'),
     ('</b><span>Conferences</span>', '</b><span>Hội nghị</span>'),
+    ('<span class="pstat-cap">By year</span>', '<span class="pstat-cap">Theo năm</span>'),
     ('<span>Journal articles</span>', '<span>Bài báo tạp chí</span>'),
     ('<span>Conference papers</span>', '<span>Bài báo hội nghị</span>'),
     ('aria-label="Venues"', 'aria-label="Tạp chí và hội nghị"'),

@@ -795,7 +795,7 @@ body{animation:pagein .5s ease both}
   100%{transform:translate3d(-2%,5%,0) rotate(-5deg) scale(1.04)}}
 
 /* ---------- menu: one highlight that slides to the hovered item (desktop) ---------- */
-.links .nav-ind{position:absolute;top:0;left:0;height:100%;border-radius:8px;background:rgba(255,255,255,.11);opacity:0;pointer-events:none;z-index:0;
+.links .nav-ind{position:absolute;top:0;left:0;height:100%;border-radius:12px;background:rgba(255,255,255,.11);opacity:0;pointer-events:none;z-index:0;
   transition:transform .35s cubic-bezier(.2,.7,.2,1),width .35s cubic-bezier(.2,.7,.2,1),opacity .2s}
 .links.has-ind{position:relative}
 .links.has-ind a{position:relative;z-index:1}
@@ -806,3 +806,42 @@ body{animation:pagein .5s ease both}
 .magnet{transition:translate .35s cubic-bezier(.2,.7,.2,1),transform .15s,background .15s,border-color .15s,color .15s,box-shadow .2s}
 
 @media (prefers-reduced-motion:reduce){.hero::before,.page-hero::before{animation:none}}
+
+/* ---------- publications: papers per year, stacked journal / conference (click a year to filter) ---------- */
+.pstat.wide{grid-template-columns:auto 1fr auto}
+.pstat-years{display:flex;flex-direction:column;gap:6px;padding-left:28px;border-left:1px solid var(--line)}
+.pstat-cap{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.yr-chart{display:flex;align-items:flex-end;gap:10px;height:96px}
+.yr{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;min-width:34px;padding:0;border:0;background:none;font:inherit;color:var(--muted);cursor:pointer}
+.yr .n{font:700 .8rem "Space Grotesk",sans-serif;color:var(--ink)}
+.yr .col{display:flex;flex-direction:column-reverse;width:22px;height:calc(var(--h) * 54px);min-height:6px;border-radius:7px;overflow:hidden;transform-origin:bottom;transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
+.yr .col i{display:block;flex:var(--k) 1 0}
+.yr .col .j{background:var(--journal)}
+.yr .col .c{background:linear-gradient(0deg,var(--conf),var(--accent-2))}
+.yr .y{font-size:.72rem;font-weight:600}
+.yr:hover .col{box-shadow:0 0 0 3px var(--accent-soft)}
+.yr.on .col{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 45%,transparent)}
+.yr.on .y{color:var(--accent)}
+.pstat.reveal:not(.in) .yr .col{transform:scaleY(0)}
+@media (max-width:900px){
+  .pstat.wide{grid-template-columns:1fr}
+  .pstat.wide .pstat-top{padding:0;border:0}
+  .pstat-years{padding:14px 0 0;border-left:0;border-top:1px solid var(--line)}
+  .yr-chart{justify-content:space-between}
+}
+
+/* ---------- news page: vertical timeline (alternating on wide screens) ---------- */
+.news.tl{grid-template-columns:1fr;position:relative;gap:20px;max-width:940px;margin:0 auto}
+.news.tl::before{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:2px;margin-left:-1px;border-radius:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2) 55%,color-mix(in srgb,var(--accent-2) 0%,transparent))}
+.news.tl .news-item{position:relative;width:calc(50% - 36px)}
+.news.tl .news-item:nth-child(even){margin-left:auto}
+.news.tl .news-item::before{content:"";position:absolute;top:28px;right:-45px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.news.tl .news-item:nth-child(even)::before{right:auto;left:-45px}
+.news.tl .news-item::after{content:"";position:absolute;top:35px;right:-30px;width:28px;height:2px;background:color-mix(in srgb,var(--accent) 35%,transparent)}
+.news.tl .news-item:nth-child(even)::after{right:auto;left:-30px}
+@media (max-width:760px){
+  .news.tl::before{left:9px}
+  .news.tl .news-item,.news.tl .news-item:nth-child(even){width:auto;margin-left:36px}
+  .news.tl .news-item::before,.news.tl .news-item:nth-child(even)::before{left:-35px;right:auto}
+  .news.tl .news-item::after,.news.tl .news-item:nth-child(even)::after{left:-21px;right:auto;width:20px}
+}

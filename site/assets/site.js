@@ -74,6 +74,24 @@ if (list){
   }));
   $("q").addEventListener("input", () => document.querySelectorAll("#qhint [data-q]").forEach(x => x.classList.toggle("on", x.dataset.q === $("q").value)));
   render();
+
+  /* papers per year (stacked journal / conference); clicking a year searches for it, click again to clear */
+  const chart = $("yrChart");
+  if (chart){
+    const by = {};
+    PUBS.filter(p => p.c !== "Preprint").forEach(p => { const y = by[p.y] ||= {j: 0, c: 0}; p.c === "Journal" ? y.j++ : y.c++; });
+    const years = Object.keys(by).sort(), max = Math.max(...years.map(y => by[y].j + by[y].c));
+    chart.innerHTML = years.map(y => { const {j, c} = by[y], n = j + c;
+      return `<button type="button" class="yr" data-y="${y}" style="--h:${(n / max).toFixed(3)}" title="${y}: ${t(`${j} journal, ${c} conference`, `${j} tạp chí, ${c} hội nghị`)}">
+        <span class="n">${n}</span><span class="col">${j ? `<i class="j" style="--k:${j}"></i>` : ""}${c ? `<i class="c" style="--k:${c}"></i>` : ""}</span><span class="y">${y}</span></button>`; }).join("");
+    const mark = () => chart.querySelectorAll(".yr").forEach(b => b.classList.toggle("on", b.dataset.y === $("q").value.trim()));
+    chart.addEventListener("click", e => {
+      const b = e.target.closest(".yr"); if (!b) return;
+      const q = $("q"); q.value = q.value.trim() === b.dataset.y ? "" : b.dataset.y;
+      q.dispatchEvent(new Event("input"));
+    });
+    $("q").addEventListener("input", mark); mark();
+  }
 }
 
 /* ---------- home: featured papers ---------- */
