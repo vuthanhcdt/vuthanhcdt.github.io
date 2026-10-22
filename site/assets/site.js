@@ -273,7 +273,10 @@ if (document.querySelector(".pstat") && window.PUBS){
       typePicked = false; if (current() !== "all") seg("all").click();
     });
     const tp = new URLSearchParams(location.search).get("type");      // ?type=Journal|Conference from the People page
-    if (tp === TYPE.j || tp === TYPE.c) seg(tp).click();
+    if (tp === TYPE.j || tp === TYPE.c){                              // behaves like a choice made on the bar here:
+      seg(tp).click(); typePicked = true;                               // a click on empty space clears it
+      history.replaceState(null, "", location.pathname + location.hash); // and a reload shows everything again
+    }
     markType();
   }
 }
