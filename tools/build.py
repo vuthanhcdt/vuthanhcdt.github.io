@@ -174,7 +174,7 @@ KW=[['Companion robots','Proactive assistance','Elderly care'],
     ['Passive walking','Humanoids','Whole-body skills'],
     ['Deep RL','Multi-robot planning','Continual learning'],
     ['Vision–language models','Scene reasoning','Synthetic video']]
-grid='\n'.join(f'''      <article class="rcard reveal" style="--d:{i*70}ms">
+grid='\n'.join(f'''      <article class="rcard reveal" id="research-{i+1}" style="--d:{i*70}ms">
         <div class="rtop"><span class="rnum">0{i+1}</span><div class="ico">{svg}</div></div>
         <h3>{h}</h3>
         <p>{p}</p>
@@ -278,11 +278,12 @@ for i,n in enumerate(news_items,1):
     d=re.search(r'<b>(.*?)</b><span>(.*?)</span>',n); h=re.search(r'<h3>(.*?)</h3>',n).group(1); p=re.search(r'<p>(.*?)</p>',n).group(1)
     IDX.append(dict(type='News',title=txt(h),text=txt(p),meta=f'{d.group(1)} {d.group(2)}',url=f'news.html#news-{i}'))
 for i,(svg,h,p) in enumerate(cards):
-    IDX.append(dict(type='Research',title=txt(h),text=txt(p),meta=' · '.join(KW[i]),url='index.html#research'))
-for li in re.findall(r'<li><em>(.*?)</em><b>(.*?)</b><span>(.*?)</span>(.*?)</li>',people):
+    IDX.append(dict(type='Research',title=txt(h),text=txt(p),meta=' · '.join(KW[i]),url=f'index.html#research-{i+1}'))
+for card_id,block in re.findall(r'<div class="dcard reveal" id="(\w+)">(.*?)</ul>',people,re.S):   # education / awards / service
+  for li in re.findall(r'<li><em>(.*?)</em><b>(.*?)</b><span>(.*?)</span>(.*?)</li>',block):
     extra=txt(li[3]) if li[3].strip() else ''
-    IDX.append(dict(type='People',title=txt(li[1]),text=txt(li[2])+(' · '+extra if extra else ''),meta=f'Cong-Thanh Vu · {txt(li[0])}',url='people.html'))
-IDX+= [dict(type='People',title='Cong-Thanh Vu, Ph.D.',text='Director, Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.',meta='Director',url='people.html'),
+    IDX.append(dict(type='People',title=txt(li[1]),text=txt(li[2])+(' · '+extra if extra else ''),meta=f'Cong-Thanh Vu · {txt(li[0])}',url=f'people.html#{card_id}'))
+IDX+= [dict(type='People',title='Cong-Thanh Vu, Ph.D.',text='Director, Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.',meta='Director',url='people.html#director'),
        dict(type='Page',title='CV — Cong-Thanh Vu',text='Auto-generated CV with education, experience, publications and awards. Download as PDF.',meta='CV',url='cv.html?m=vu'),
        dict(type='Page',title='Contact',text='Email vuthanh.cdt@gmail.com · Google Scholar',meta='Get in touch',url='contact.html'),
        dict(type='Page',title='Join RASL — apply',text='Application form for students: introduce yourself, your skills, languages and research interests.',meta='Open positions',url='index.html#apply'),

@@ -326,12 +326,13 @@ modal.innerHTML = `<div class="sk-back" data-close></div>
       <input id="skq" type="search" placeholder="${t("Search papers, authors, venues, news, awards…", "Tìm bài báo, tác giả, hội nghị, tin tức, giải thưởng…")}" autocomplete="off" aria-label="${t("Search the site", "Tìm kiếm trên trang")}" aria-controls="skr">
       <button type="button" class="sk-esc" data-close>Esc</button>
     </div>
+    <div class="sk-tabs" id="skt" role="tablist"></div>
     <div class="sk-res" id="skr" role="listbox"></div>
-    <div class="sk-foot"><span><kbd>↑</kbd><kbd>↓</kbd> ${t("navigate", "di chuyển")}</span><span><kbd>↵</kbd> ${t("open", "mở")}</span><span><kbd>esc</kbd> ${t("close", "đóng")}</span></div>
+    <div class="sk-foot"><span><kbd>↑</kbd><kbd>↓</kbd> ${t("navigate", "di chuyển")}</span><span><kbd>↵</kbd> ${t("open", "mở")}</span><span><kbd>esc</kbd> ${t("close", "đóng")}</span><span class="sk-count" id="skc"></span></div>
   </div>`;
 document.body.appendChild(modal);
-const skq = modal.querySelector("#skq"), skr = modal.querySelector("#skr");
-let hits = [], sel = 0, lastFocus = null;
+const skq = modal.querySelector("#skq"), skr = modal.querySelector("#skr"), skt = modal.querySelector("#skt"), skc = modal.querySelector("#skc");
+let hits = [], sel = 0, lastFocus = null, kind = "all";
 
 const hl = (s, terms) => {
   let out = esc(s);
@@ -349,29 +350,46 @@ const SK_IC = {
 };
 function search(){
   const q = norm(skq.value.trim()), terms = q.split(/\s+/).filter(Boolean);
-  if (!terms.length){
+  /* word forms count: agriculture ≈ agricultural, robots ≈ robot, navigation ≈ navigating */
+  const SUF = ["ational", "ation", "ments", "ment", "ings", "ing", "ural", "ure", "ally", "al", "ies", "es", "ed", "s"];
+  const stems = terms.map(w => { for (const s of SUF) if (w.length - s.length >= 4 && w.endsWith(s)) return w.slice(0, -s.length); return w; });
+  let all;
+  if (!terms.length) all = DOCS;
+  else all = DOCS.map(d => {
+      if (!stems.every(t => d._all.includes(t))) return null;
+      let score = 0; stems.forEach(t => { if (d._t.includes(t)) score += 3; if (d._t.startsWith(t)) score += 2; });
+      return [score, d];
+    }).filter(Boolean).sort((a, b) => b[0] - a[0] || ORDER.indexOf(a[1].type) - ORDER.indexOf(b[1].type)).map(x => x[1]);
+  /* tabs: All + every kind, each with how many results it has for the current query */
+  const count = type => all.filter(d => d.type === type).length;
+  skt.innerHTML = [["all", t("All", "Tất cả"), all.length], ...ORDER.map(k => [k, GROUP[k], count(k)])]
+    .filter(([k, , n]) => k === "all" || n)
+    .map(([k, label, n]) => `<button type="button" role="tab" data-k="${k}" aria-selected="${k === kind}" class="${k === kind ? "on" : ""}">${label}<span>${n}</span></button>`).join("");
+  if (kind !== "all" && !count(kind)) kind = "all", skt.querySelector('[data-k="all"]')?.classList.add("on");
+  if (kind !== "all") hits = all.filter(d => d.type === kind).slice(0, 30);
+  else if (!terms.length){
     /* nothing typed yet: a small sample of every kind of thing the search covers, grouped by kind */
     const pick = (type, n, f = () => true) => DOCS.filter(d => d.type === type && f(d)).slice(0, n);
     hits = [...pick("Publication", 2), ...pick("News", 2), ...pick("Research", 1), ...pick("People", 1, d => /Director|Giám đốc/.test(d.meta)),
             ...pick("Page", 2, d => /cv\.html|#apply/.test(d.url))];
-  } else {
-    hits = DOCS.map(d => {
-      if (!terms.every(t => d._all.includes(t))) return null;
-      let score = 0; terms.forEach(t => { if (d._t.includes(t)) score += 3; if (d._t.startsWith(t)) score += 2; });
-      return [score, d];
-    }).filter(Boolean).sort((a, b) => b[0] - a[0] || ORDER.indexOf(a[1].type) - ORDER.indexOf(b[1].type)).map(x => x[1]).slice(0, 30);
-  }
-  sel = 0; draw(terms);
+  } else hits = all.slice(0, 30);
+  skc.textContent = terms.length ? t(`${all.length} result${all.length === 1 ? "" : "s"}`, `${all.length} kết quả`) : "";
+  sel = 0; draw(stems);
 }
 function draw(terms){
-  if (!hits.length){ skr.innerHTML = `<div class="sk-empty">${t("No results for", "Không tìm thấy kết quả cho")} “${esc(skq.value)}”</div>`; return; }
+  if (!hits.length){
+    skr.innerHTML = `<div class="sk-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8.5 8.5l5 5M13.5 8.5l-5 5"/></svg>
+      <b>${t("No results for", "Không tìm thấy kết quả cho")} “${esc(skq.value)}”</b><span>${t("Try a topic, a venue or a name:", "Thử một chủ đề, hội nghị hoặc tên:")}</span>
+      <div class="sk-try">${["companion robot", "agricultural", "IROS 2026", "Yen-Chen Liu", "award"].map(x => `<button type="button" data-try="${x}">${x}</button>`).join("")}</div></div>`;
+    return;
+  }
   let html = "", group = null;
   const groups = terms.length ? [...hits].sort((a, b) => ORDER.indexOf(a.type) - ORDER.indexOf(b.type)) : hits;
   hits = groups;
   hits.forEach((d, i) => {
     if (d.type !== group){ group = d.type; html += `<div class="sk-group">${GROUP[group] || group}</div>`; }
     html += `<a class="sk-item${i === sel ? " on" : ""}" role="option" aria-selected="${i === sel}" href="${esc(d.url)}" data-i="${i}" style="--i:${i}">
-      <span class="sk-top"><span class="sk-type ${d.type}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${SK_IC[d.type] || SK_IC.Page}</svg>${TYPE[d.type] || d.type}</span><span class="sk-meta">${esc(d.meta)}</span></span>
+      <span class="sk-top"><span class="sk-type ${d.type}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${SK_IC[d.type] || SK_IC.Page}</svg>${TYPE[d.type] || d.type}</span><span class="sk-meta">${esc(d.meta)}<kbd class="sk-enter" aria-hidden="true">↵</kbd></span></span>
       <span class="sk-main"><b>${hl(d.title, terms)}</b><small>${hl(d.text, terms)}</small></span></a>`;
   });
   skr.innerHTML = html;
@@ -395,7 +413,7 @@ function openSearch(e){
     const b = btn.getBoundingClientRect();
     panel.style.transformOrigin = `${b.left + b.width / 2 - panel.offsetLeft}px ${b.top + b.height / 2 - panel.offsetTop}px`;
   } else panel.style.transformOrigin = "50% -40px";
-  skq.value = ""; search();
+  skq.value = ""; kind = "all"; search();
   if (!calm){
     modal.classList.add("sk-cascade"); skT = setTimeout(() => modal.classList.remove("sk-cascade"), 900);
     skAnim = [
@@ -416,11 +434,29 @@ function closeSearch(){
     panel.animate([{transform: "none", opacity: 1}, {transform: "scale(.35)", opacity: 0, filter: "blur(6px)"}], {duration: 240, easing: "cubic-bezier(.5,0,.75,0)", fill: "forwards"}),
     back.animate([{opacity: 1}, {opacity: 0}], {duration: 220, easing: "ease-in", fill: "forwards"})
   ];
-  skAnim[0].onfinish = () => { skAnim.forEach(a => a.cancel()); done(); };
+  const finish = () => { if (modal.hidden) return; skAnim.forEach(a => a.cancel()); done(); };
+  skAnim[0].onfinish = finish; skT = setTimeout(finish, 320);          // fallback if the tab is in the background
 }
 $("searchBtn").addEventListener("click", openSearch);
 skq.addEventListener("input", search);
 modal.addEventListener("click", e => { if (e.target.closest("[data-close]")) closeSearch(); });
+/* opening a result: close the panel first; a target on this same page is scrolled to and highlighted,
+   "Join RASL" opens the application form, anything else navigates normally */
+function openResult(url, ev){
+  const u = new URL(url, location.href);
+  if (u.hash === "#apply" && window.RASLApply){ ev?.preventDefault(); closeSearch(); setTimeout(() => window.RASLApply.open(), 260); return; }
+  const samePage = u.pathname.replace(/index\.html$/, "") === location.pathname.replace(/index\.html$/, "") && u.search === location.search;
+  closeSearch();
+  if (samePage){
+    ev?.preventDefault();
+    if (u.hash && u.hash !== location.hash) location.hash = u.hash; else highlightTarget(u.hash || "#top");
+    return;
+  }
+  if (!ev) location.href = url;
+}
+skr.addEventListener("click", e => { const a = e.target.closest(".sk-item"); if (a) openResult(a.getAttribute("href"), e); });
+skt.addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (!b) return; kind = b.dataset.k; search(); skq.focus({preventScroll: true}); });
+skr.addEventListener("click", e => { const b = e.target.closest("[data-try]"); if (!b) return; skq.value = b.dataset.try; kind = "all"; search(); skq.focus(); });
 skr.addEventListener("mousemove", e => { const a = e.target.closest(".sk-item"); if (a && +a.dataset.i !== sel){ sel = +a.dataset.i; move(0); } });
 addEventListener("keydown", e => {
   const typing = /input|textarea/i.test(document.activeElement?.tagName) && document.activeElement !== skq;
@@ -430,15 +466,23 @@ addEventListener("keydown", e => {
   if (e.key === "Escape"){ e.preventDefault(); closeSearch(); }
   else if (e.key === "ArrowDown"){ e.preventDefault(); move(1); }
   else if (e.key === "ArrowUp"){ e.preventDefault(); move(-1); }
-  else if (e.key === "Enter" && hits[sel]){ e.preventDefault(); location.href = hits[sel].url; }
+  else if (e.key === "Enter" && hits[sel]){ e.preventDefault(); openResult(hits[sel].url); }
 });
 /* show the right shortcut: ⌘K on Apple devices, Ctrl K on Windows / Linux */
 const isApple = /mac|iphone|ipad|ipod/i.test(navigator.userAgentData?.platform || navigator.platform || navigator.userAgent);
 document.querySelectorAll(".search-btn kbd").forEach(k => k.textContent = isApple ? "⌘K" : "Ctrl K");
 $("searchBtn").title = t(`Search (${isApple ? "⌘K" : "Ctrl+K"} or /)`, `Tìm kiếm (${isApple ? "⌘K" : "Ctrl+K"} hoặc /)`);
 
-/* arriving from search on the news page: flash the matching item */
-if (location.hash.startsWith("#news-")) document.querySelector(location.hash)?.classList.add("in", "flash");
+/* a link to a card on a page (#news-3, #research-2, #awards, #director…) scrolls to it and highlights it */
+function highlightTarget(hash){
+  if (!hash || hash === "#top"){ scrollTo({top: 0, behavior: "smooth"}); return; }
+  let el = null; try { el = document.querySelector(hash); } catch(e){}
+  if (!el || !el.matches(".news-item, .rcard, .dcard, .dir")) return;
+  el.classList.add("in"); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+  setTimeout(() => el.scrollIntoView({block: "center", behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto" : "smooth"}), 60);
+}
+highlightTarget(location.hash);
+addEventListener("hashchange", () => highlightTarget(location.hash));
 
 /* ---------- theme ---------- */
 const root = document.documentElement;

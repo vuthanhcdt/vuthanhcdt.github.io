@@ -980,3 +980,29 @@ body{animation:pagein .5s ease both}
 .sk-item .sk-type{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
 .sk-item.on .sk-type{transform:none;color:var(--ink-2)}
 @media (prefers-reduced-motion:reduce){.sk-item,.sk-item.on{transition:none;transform:none}}
+
+/* a card reached from search / a link is highlighted for a moment */
+.rcard.flash,.dcard.flash,.dir.flash{animation:flash 2.2s ease}
+
+/* ---------- search panel, modern touches: gradient edge, kind tabs with counts, Enter hint, friendly empty state ---------- */
+.sk-panel::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--grad);z-index:2}
+.sk-bar{padding:16px 18px}
+.sk-bar input{font-size:1.08rem}
+.sk-tabs{display:flex;gap:4px;padding:8px 12px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.sk-tabs::-webkit-scrollbar{display:none}
+.sk-tabs button{flex:none;display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border:0;border-radius:8px;background:none;color:var(--muted);font:600 .8rem Inter,sans-serif;cursor:pointer;transition:background .2s,color .2s}
+.sk-tabs button span{font-size:.7rem;font-weight:700;padding:1px 6px;border-radius:999px;background:var(--bg-2);color:var(--muted)}
+.sk-tabs button:hover{color:var(--ink);background:var(--bg-2)}
+.sk-tabs button.on{color:var(--accent);background:var(--accent-soft)}
+.sk-tabs button.on span{background:var(--accent);color:#fff}
+.sk-meta{display:inline-flex;align-items:center;gap:8px}
+.sk-enter{display:none;font:600 .7rem Inter,sans-serif;padding:1px 6px;border-radius:5px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));color:var(--accent);background:var(--accent-soft)}
+.sk-item.on .sk-enter{display:inline-block}
+.sk-count{margin-left:auto;font-weight:600}
+.sk-empty{display:flex;flex-direction:column;align-items:center;gap:6px;padding:34px 16px}
+.sk-empty svg{width:40px;height:40px;color:var(--accent);opacity:.7;margin-bottom:4px}
+.sk-empty b{color:var(--ink);font-size:.95rem}
+.sk-empty span{font-size:.84rem}
+.sk-try{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:8px}
+.sk-try button{font:600 .78rem Inter,sans-serif;padding:5px 11px;border-radius:999px;border:1px dashed var(--line);background:none;color:var(--ink-2);cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.sk-try button:hover{border-style:solid;border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
