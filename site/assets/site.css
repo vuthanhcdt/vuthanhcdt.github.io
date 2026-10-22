@@ -281,8 +281,10 @@ body{animation:pagein .5s ease both}
 .pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);backdrop-filter:blur(6px);font-size:.82rem;font-weight:600;letter-spacing:.04em;color:#cfe3ff}
 .pill .dot{width:8px;height:8px;border-radius:50%;background:#3ee0d0;box-shadow:0 0 0 0 rgba(62,224,208,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(62,224,208,0)}100%{box-shadow:0 0 0 0 rgba(62,224,208,0)}}
-.hero h1 em{background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;animation:shine 6s linear infinite}
-@keyframes shine{to{background-position:200% center}}
+/* highlighted words in the home tagline: one smooth blue→teal gradient per phrase, no moving background
+   (Safari drops animated clipped text after a theme switch); inline-block + padding keep Vietnamese accents inside the paint box */
+.hero h1 em{display:inline-block;padding:.1em .02em .06em;margin:-.1em -.02em -.06em;background:linear-gradient(100deg,#7cc0ff 0%,#5fd0ee 55%,#43e0d6 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;transform:translateZ(0)}
 .hero-logo{animation:float 7s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-6px)}}
 .btn.primary{box-shadow:0 8px 24px rgba(95,168,255,.25)}

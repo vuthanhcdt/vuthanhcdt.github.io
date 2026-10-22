@@ -273,21 +273,18 @@ addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden && do
 document.addEventListener("click", e => { const a = e.target.closest("[data-apply]"); if (a){ e.preventDefault(); openForm(); } });
 if (location.hash === "#apply") openForm();
 
-/* ---------- hint bubble: shows a few seconds after a page opens, then again every minute while browsing
-   (at most 4 times per visit); closing it with × or opening the form stops it for the rest of the visit ---------- */
-const EVERY = 60000, SHOW = 6000, MAX = 4;
+/* ---------- hint bubble: shows 3 s after each page opens, then again every minute;
+   closing it with × or opening the form hides it for the rest of the visit ---------- */
+const EVERY = 60000, SHOW = 6000;
 const ss = (k, v) => { try { return v === undefined ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch(e){ return null; } };
-function hideHint(){ hint.hidden = true; ss("apHint", "off"); }
+function hideHint(){ hint.hidden = true; ss("apHintOff", "1"); }
 function showHint(){
-  if (ss("apHint") === "off" || !modal.hidden || document.hidden) return;
-  const n = +(ss("apHintN") || 0); if (n >= MAX) return;
-  ss("apHintN", n + 1); ss("apHintAt", Date.now());
+  if (ss("apHintOff") || !modal.hidden || document.hidden) return;
   hint.hidden = false;
   setTimeout(() => { hint.classList.add("bye"); setTimeout(() => { hint.hidden = true; hint.classList.remove("bye"); }, 400); }, SHOW);
 }
-const since = Date.now() - +(ss("apHintAt") || 0);                       // count the minute across pages
-const first = Math.max(document.documentElement.classList.contains("intro-on") ? 5000 : 3000, EVERY - since);
-setTimeout(() => { showHint(); setInterval(showHint, EVERY); }, first);
+setTimeout(() => { showHint(); setInterval(showHint, EVERY); },
+  document.documentElement.classList.contains("intro-on") ? 5000 : 3000);   // wait for the home intro to finish
 hint.querySelector(".ap-hint-text").addEventListener("click", openForm);
 hint.querySelector(".ap-hint-x").addEventListener("click", hideHint);
 
