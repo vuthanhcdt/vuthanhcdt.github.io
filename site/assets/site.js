@@ -342,7 +342,10 @@ const ORDER = ["Publication", "News", "Research", "People", "Page"];
 function search(){
   const q = norm(skq.value.trim()), terms = q.split(/\s+/).filter(Boolean);
   if (!terms.length){
-    hits = DOCS.filter(d => d.type === "Page" || d.type === "News").slice(0, 8);
+    /* nothing typed yet: a small sample of every kind of thing the search covers, grouped by kind */
+    const pick = (type, n, f = () => true) => DOCS.filter(d => d.type === type && f(d)).slice(0, n);
+    hits = [...pick("Publication", 2), ...pick("News", 2), ...pick("Research", 1), ...pick("People", 1, d => /Director|Giám đốc/.test(d.meta)),
+            ...pick("Page", 2, d => /cv\.html|#apply/.test(d.url))];
   } else {
     hits = DOCS.map(d => {
       if (!terms.every(t => d._all.includes(t))) return null;
@@ -358,8 +361,7 @@ function draw(terms){
   const groups = terms.length ? [...hits].sort((a, b) => ORDER.indexOf(a.type) - ORDER.indexOf(b.type)) : hits;
   hits = groups;
   hits.forEach((d, i) => {
-    const head = terms.length ? d.type : "_";                       // one "Suggested" heading when nothing is typed
-    if (head !== group){ group = head; html += `<div class="sk-group">${terms.length ? GROUP[group] || group : t("Suggested", "Gợi ý")}</div>`; }
+    if (d.type !== group){ group = d.type; html += `<div class="sk-group">${GROUP[group] || group}</div>`; }
     html += `<a class="sk-item${i === sel ? " on" : ""}" role="option" aria-selected="${i === sel}" href="${esc(d.url)}" data-i="${i}" style="--i:${i}">
       <span class="sk-top"><span class="sk-type ${d.type}">${TYPE[d.type] || d.type}</span><span class="sk-meta">${esc(d.meta)}</span></span>
       <span class="sk-main"><b>${hl(d.title, terms)}</b><small>${hl(d.text, terms)}</small></span></a>`;
