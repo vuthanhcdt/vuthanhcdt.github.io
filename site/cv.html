@@ -77,6 +77,7 @@ a:hover{text-decoration:underline}
 .urstat span{display:inline-flex;align-items:center;gap:6px}
 .urstat span::before{content:"";width:7px;height:7px;border-radius:50%;background:#fbbf24}
 .urstat span.revision::before{background:#a78bfa}
+.urstat span.resub::before{background:#34d399}
 .urstat b{color:#fff;font:700 .95rem "Space Grotesk"}
 .kpis span{font-size:.74rem;line-height:1.25;color:#b9c9e2;white-space:normal}
 
@@ -171,6 +172,8 @@ a.pt:hover{color:var(--accent)}
 .st{display:inline-block;font:700 .62rem Inter;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:1px}
 .st.review{background:#fef3c7;color:#92400e}
 .st.revision{background:#ede9fe;color:#5b21b6}
+.st.resub{background:#d1fae5;color:#065f46}
+.st.pending{background:#e0f2fe;color:#075985}
 
 /* phone layout is for the screen only — printing / "Download PDF" always uses the desktop A4 layout */
 @media screen and (max-width:680px){
@@ -264,7 +267,7 @@ a.pt:hover{color:var(--accent)}
   <form class="pw-box" id="pwForm" autocomplete="off">
     <div class="pw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
     <h2 id="pwH">Full CV</h2>
-    <p id="pwP">Includes manuscripts currently under review or revision. Enter the password to unlock it.</p>
+    <p id="pwP">Includes manuscripts currently under review or revision and patents in preparation. Enter the password to unlock it.</p>
     <input id="pwIn" type="password" placeholder="Password" aria-label="Password" required>
     <small id="pwErr" role="alert"></small>
     <div class="pw-act"><button type="button" class="ghost" id="pwCancel">Cancel</button><button type="submit" id="pwGo">Unlock</button></div>
@@ -290,17 +293,19 @@ const L = VI ? {
   profile: "Giới thiệu", edu: "Học vấn", exp: "Kinh nghiệm nghiên cứu", pubs: "Công bố khoa học", honors: "Giải thưởng &amp; Học bổng", service: "Hoạt động học thuật",
   journal: "Bài báo tạp chí", top: "Kỷ yếu hội nghị hàng đầu", other: "Kỷ yếu hội nghị khác", conf: "Kỷ yếu hội nghị", pre: "Bản thảo (preprint)",
   published: n => `${n} đã công bố`, advisor: "Người hướng dẫn", scan: "Quét để truy cập", open: "Mở", updated: "Cập nhật",
-  kPeer: "Bài báo có bình duyệt", kJour: "Bài báo tạp chí", kTop: "Bài hội nghị hàng đầu", kConf: "Bài báo hội nghị", kPre: "Bản thảo (preprint)", urHead: "Bản thảo tạp chí", urRev: "đang chỉnh sửa (revision)", urRew: "đang phản biện",
-  submitted: "nộp", review: "Đang phản biện", revision: "Đang chỉnh sửa (revision)", portrait: "Ảnh chân dung",
-  pwH: "CV đầy đủ", pwP: "Bao gồm các bản thảo đang được phản biện hoặc chỉnh sửa. Nhập mật khẩu để mở.", pwPh: "Mật khẩu",
+  kPeer: "Bài báo có bình duyệt", kJour: "Bài báo tạp chí", kTop: "Bài hội nghị hàng đầu", kConf: "Bài báo hội nghị", kPre: "Bản thảo (preprint)", urHead: "Bản thảo tạp chí", urRev: "đang chỉnh sửa (revision)", urRes: "đã nộp bản chỉnh sửa", urRew: "đang phản biện",
+  submitted: "nộp", review: "Đang phản biện", revision: "Đang chỉnh sửa (revision)", resub: "Đã nộp bản chỉnh sửa", portrait: "Ảnh chân dung",
+  patents: "Bằng sáng chế", pending: "Đang chuẩn bị hồ sơ", ptN: n => `${n} bằng sáng chế`,
+  pwH: "CV đầy đủ", pwP: "Bao gồm các bản thảo đang được phản biện hoặc chỉnh sửa và các bằng sáng chế đang chuẩn bị hồ sơ. Nhập mật khẩu để mở.", pwPh: "Mật khẩu",
   cancel: "Huỷ", unlock: "Mở khoá", checking: "Đang kiểm tra…", wrong: "Sai mật khẩu. Vui lòng thử lại.", locale: "vi-VN"
 } : {
   people: "People", full: "Full CV", pub: "Public CV", pdf: "Download PDF", missing: "No member data found.",
   profile: "Profile", edu: "Education", exp: "Research Experience", pubs: "Publications", honors: "Honors &amp; Awards", service: "Professional Service",
   journal: "Journal Articles", top: "Top-tier Conference Proceedings", other: "Other Conference Proceedings", conf: "Conference Proceedings", pre: "Preprints",
   published: n => `${n} published`, advisor: "Advisor", scan: "Scan to visit", open: "Open", updated: "Updated",
-  kPeer: "Peer-reviewed", kJour: "Journal", kTop: "Top-tier conf.", kConf: "Conference", kPre: "Preprint", urHead: "Journal manuscripts", urRev: "under revision", urRew: "under review",
-  submitted: "submitted", review: "", revision: "", portrait: "Portrait of",
+  kPeer: "Peer-reviewed", kJour: "Journal", kTop: "Top-tier conf.", kConf: "Conference", kPre: "Preprint", urHead: "Journal manuscripts", urRev: "under revision", urRes: "revision submitted", urRew: "under review",
+  submitted: "submitted", review: "", revision: "", resub: "Revision submitted", portrait: "Portrait of",
+  patents: "Patents", pending: "In preparation", ptN: n => `${n} patent${n === 1 ? "" : "s"}`,
   pwH: "Full CV", pwP: "", pwPh: "Password", cancel: "Cancel", unlock: "Unlock", checking: "Checking…", wrong: "Wrong password. Please try again.", locale: "en-US"
 };
 /* "Mar 2022" -> "03/2022" for the Vietnamese CV */
@@ -343,6 +348,7 @@ document.title = pdfName("");   // default PDF file name
 
 /* icons */
 const I = {
+  bulb:'<path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>',
   user:'<path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/>',
   edu:'<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
   work:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>',
@@ -425,8 +431,9 @@ const today = VI ? built.toLocaleDateString("vi-VN", {day:"2-digit", month:"2-di
                  : built.toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
 
 /* manuscripts under review / revision (only after the password unlocks them) */
+const urSt = p => /revision submitted|resubmitted/i.test(p.status || "") ? "resub" : /revision/i.test(p.status || "") ? "revision" : "review";
 const urItem = (p, key) => {
-  const st = /revision/i.test(p.status || "") ? "revision" : "review";
+  const st = urSt(p);
   return `<div class="pub"><span class="k">[${key}]</span><div><span class="pt">${esc(p.title)}</span>
     <div class="pa">${esc(p.authors || "").replace(esc(me), `<b>${esc(me)}</b>`)}</div>
     <div class="pv">${p.short ? `<span class="ven">${esc(p.short)}</span>` : ""}<i>${esc(p.venue || "")}</i>${p.submitted ? `, ${L.submitted} ${esc(vd(p.submitted))}` : ""}.<span class="st ${st}">${esc(L[st] || p.status || "Under review")}</span></div></div></div>`;
@@ -434,9 +441,18 @@ const urItem = (p, key) => {
 /* full CV only: one line under the stat row, e.g. "Journal manuscripts: 1 under revision · 2 under review" */
 const urStats = UR => {
   if (!UR || !UR.length) return "";
-  const rv = UR.filter(p => /revision/i.test(p.status || "")).length, rw = UR.length - rv;
+  const rs = UR.filter(p => urSt(p) === "resub").length, rv = UR.filter(p => urSt(p) === "revision").length, rw = UR.length - rs - rv;
   const part = (n, label, cls) => n ? `<span class="${cls}"><b>${n}</b> ${label}</span>` : "";
-  return `<div class="urstat"><em>${L.urHead}</em>${part(rv, L.urRev, "revision")}${part(rw, L.urRew, "review")}</div>`;
+  return `<div class="urstat"><em>${L.urHead}</em>${part(rs, L.urRes, "resub")}${part(rv, L.urRev, "revision")}${part(rw, L.urRew, "review")}</div>`;
+};
+/* full CV only: patents from the private list — either just a count ("patents": 2) or entries with titles */
+const patentGroup = PT => {
+  if (!PT?.length) return "";
+  const chip = `<span class="st pending">${L.pending}</span>`;
+  if (!PT.some(p => p.title)) return `<ul class="rows"><li><span><b>${L.ptN(PT.length)}</b>${chip}</span></li></ul>`;
+  return `<div class="pg">${PT.map((p, i) => `<div class="pub"><span class="k">[PT${i + 1}]</span><div><span class="pt">${esc(p.title || "")}</span>
+    <div class="pa">${esc(p.inventors || "").replace(esc(me), `<b>${esc(me)}</b>`)}</div>
+    <div class="pv">${p.office ? `<i>${esc(p.office)}</i>.` : ""}${chip}</div></div></div>`).join("")}</div>`;
 };
 /* journal articles: published papers first, then (full CV only) manuscripts under revision / review in the order of the private list */
 const journalGroup = UR => {
@@ -444,7 +460,7 @@ const journalGroup = UR => {
   return n ? `<div class="pg Journal"><h3>${L.journal}<em>${n}</em></h3>${J.map((p, i) => pubItem(p, "J" + (i + 1))).join("")}${ur.map((p, i) => urItem(p, "J" + (J.length + i + 1))).join("")}</div>` : "";
 };
 
-const render = UR => { FULL = !!UR; root.innerHTML = `<article class="sheet">
+const render = (UR, PT) => { FULL = !!UR; root.innerHTML = `<article class="sheet">
   <header class="hero">
     <img class="wm" src="assets/rasl-logo.png" alt="">
     <div class="hero-top">
@@ -470,6 +486,7 @@ const render = UR => { FULL = !!UR; root.innerHTML = `<article class="sheet">
     ${sec("edu", L.edu, timeline(m.education))}
     ${sec("work", L.exp, timeline(m.experience))}
     ${sec("book", L.pubs, journalGroup(UR) + group("Conference top", L.top, CT, "C") + group("Conference", CT.length ? L.other : L.conf, CO, "C", CT.length) + group("Preprint", L.pre, R, "P"), mine.length ? L.published(mine.length) : "")}
+    ${sec("bulb", L.patents, patentGroup(PT), PT?.length ? String(PT.length) : "")}
     ${sec("award", L.honors, rows(m.honors))}
     ${sec("serv", L.service, rows(m.service))}
   </div>
@@ -511,8 +528,9 @@ pwForm.addEventListener("submit", async e => {
   pwGo.disabled = true; pwGo.textContent = L.checking; pwErr.textContent = "";
   try {
     const data = await decrypt(blob, pwIn.value);
-    const UR = (data.manuscripts || []).filter(p => !p.member || p.member === m.id);
-    unlocked = true; render(UR); pw.hidden = true;
+    const mineOnly = p => !p.member || p.member === m.id;
+    const UR = (data.manuscripts || []).filter(mineOnly), PT = typeof data.patents === "number" ? Array(data.patents).fill({}) : (data.patents || []).filter(mineOnly);
+    unlocked = true; render(UR, PT); pw.hidden = true;
     fullBtn.classList.add("on"); fullBtn.querySelector("span").textContent = L.pub;
     document.title = pdfName("_full");
   } catch(err){
