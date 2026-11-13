@@ -295,7 +295,7 @@ const L = VI ? {
   published: n => `${n} đã công bố`, advisor: "Người hướng dẫn", scan: "Quét để truy cập", open: "Mở", updated: "Cập nhật",
   kPeer: "Bài báo có bình duyệt", kJour: "Bài báo tạp chí", kTop: "Bài hội nghị hàng đầu", kConf: "Bài báo hội nghị", kPre: "Bản thảo (preprint)", urHead: "Bản thảo tạp chí", urRev: "đang chỉnh sửa (revision)", urRes: "đã nộp bản chỉnh sửa", urRew: "đang phản biện",
   submitted: "nộp", review: "Đang phản biện", revision: "Đang chỉnh sửa (revision)", resub: "Đã nộp bản chỉnh sửa", portrait: "Ảnh chân dung",
-  patents: "Bằng sáng chế", pending: "Đang chuẩn bị hồ sơ", ptN: n => `${n} bằng sáng chế`,
+  patents: "Bằng sáng chế", pending: "Đang chuẩn bị hồ sơ", ptLine: (n, chip) => `<b>Đang chuẩn bị hồ sơ cho ${n} bằng sáng chế</b>`,
   pwH: "CV đầy đủ", pwP: "Bao gồm các bản thảo đang được phản biện hoặc chỉnh sửa và các bằng sáng chế đang chuẩn bị hồ sơ. Nhập mật khẩu để mở.", pwPh: "Mật khẩu",
   cancel: "Huỷ", unlock: "Mở khoá", checking: "Đang kiểm tra…", wrong: "Sai mật khẩu. Vui lòng thử lại.", locale: "vi-VN"
 } : {
@@ -305,7 +305,7 @@ const L = VI ? {
   published: n => `${n} published`, advisor: "Advisor", scan: "Scan to visit", open: "Open", updated: "Updated",
   kPeer: "Peer-reviewed", kJour: "Journal", kTop: "Top-tier conf.", kConf: "Conference", kPre: "Preprint", urHead: "Journal manuscripts", urRev: "under revision", urRes: "revision submitted", urRew: "under review",
   submitted: "submitted", review: "", revision: "", resub: "Revision submitted", portrait: "Portrait of",
-  patents: "Patents", pending: "In preparation", ptN: n => `${n} patent${n === 1 ? "" : "s"}`,
+  patents: "Patents", pending: "In preparation", ptLine: (n, chip) => `<b>${n} patent${n === 1 ? "" : "s"}</b>${chip}`,
   pwH: "Full CV", pwP: "", pwPh: "Password", cancel: "Cancel", unlock: "Unlock", checking: "Checking…", wrong: "Wrong password. Please try again.", locale: "en-US"
 };
 /* "Mar 2022" -> "03/2022" for the Vietnamese CV */
@@ -449,7 +449,7 @@ const urStats = UR => {
 const patentGroup = PT => {
   if (!PT?.length) return "";
   const chip = `<span class="st pending">${L.pending}</span>`;
-  if (!PT.some(p => p.title)) return `<ul class="rows"><li><span><b>${L.ptN(PT.length)}</b>${chip}</span></li></ul>`;
+  if (!PT.some(p => p.title)) return `<ul class="rows"><li><span>${L.ptLine(PT.length, chip)}</span></li></ul>`;
   return `<div class="pg">${PT.map((p, i) => `<div class="pub"><span class="k">[PT${i + 1}]</span><div><span class="pt">${esc(p.title || "")}</span>
     <div class="pa">${esc(p.inventors || "").replace(esc(me), `<b>${esc(me)}</b>`)}</div>
     <div class="pv">${p.office ? `<i>${esc(p.office)}</i>.` : ""}${chip}</div></div></div>`).join("")}</div>`;
