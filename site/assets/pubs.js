@@ -6,13 +6,13 @@ window.PUBS = [
   "v": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
   "t": "Toward Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning",
   "a": "Cong-Thanh Vu, Yen-Chen Liu",
-  "i": "Early Access, pp. 1–14, 2026",
+  "i": "Vol. 56, no. 11, pp. 6859–6872, Nov. 2026",
   "doi": "10.1109/TSMC.2026.3726038",
   "ax": "2609.25031",
   "h": "Top 5%",
   "u": "https://doi.org/10.1109/TSMC.2026.3726038",
   "f": "",
-  "b": "@article{vu2026toward,\n  title={Toward Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  journal={IEEE Transactions on Systems, Man, and Cybernetics: Systems},\n  year={2026},\n  pages={1--14},\n  doi={10.1109/TSMC.2026.3726038}\n}"
+  "b": "@article{vu2026toward,\n  title={Toward Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning},\n  author={Vu, Cong-Thanh and Liu, Yen-Chen},\n  journal={IEEE Transactions on Systems, Man, and Cybernetics: Systems},\n  year={2026},\n  volume={56},\n  number={11},\n  pages={6859--6872},\n  doi={10.1109/TSMC.2026.3726038}\n}"
  },
  {
   "y": "2026",

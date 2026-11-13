@@ -1,7 +1,7 @@
 import json,sys,re
 # y, category, short venue, full venue, title, authors, info, doi, arxiv, extra url, figure, place
 P=[
- ("2026","Journal","TSMC","IEEE Transactions on Systems, Man, and Cybernetics: Systems","Toward Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning","Cong-Thanh Vu, Yen-Chen Liu","Early Access, pp. 1–14, 2026","10.1109/TSMC.2026.3726038","2609.25031","",""),
+ ("2026","Journal","TSMC","IEEE Transactions on Systems, Man, and Cybernetics: Systems","Toward Adaptive Interaction Strategies for Human Companion Robot via Deep Reinforcement Learning","Cong-Thanh Vu, Yen-Chen Liu","Vol. 56, no. 11, pp. 6859–6872, Nov. 2026","10.1109/TSMC.2026.3726038","2609.25031","",""),
  ("2026","Journal","COMPAG","Computers and Electronics in Agriculture","Context-Aware Adaptive Pesticide Spraying for Agricultural Robots under Changing Weather and Terrain Using Vision–Language Models","Cong-Thanh Vu, Yen-Chen Liu","Vol. 252, Art. no. 112092, Sep. 2026","10.1016/j.compag.2026.112092","2610.08807","https://www.sciencedirect.com/science/article/pii/S0168169926006873",""),
  ("2026","Conference","IROS","IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)","Adaptive Companionship for Group-Following Robots: Handling Dynamically Changing Group Formations","Cong-Thanh Vu, Yen-Chen Liu","Pittsburgh, USA, 2026","","2607.01287","",""),
  ("2026","Conference","AIM","IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)","Gimbal-Based Human Tracking for Companion Robots Using Continual Learning","Cong-Thanh Vu, Ching-Chieh Liu, Yen-Chen Liu","pp. 1–6, Genova, Italy, Jul. 2026","10.1109/AIM65483.2026.11658324","","",""),
@@ -26,6 +26,7 @@ def bib(p):
     elif c=='Preprint': f=[('title',t2),('author',auth),('journal',f'arXiv preprint arXiv:{ax}'),('year',y)]
     else: f=[('title',t2),('author',auth),('booktitle',v),('year',y)]
     m=re.search(r'Vol\. (\d+)',i); f+= [('volume',m.group(1))] if m else []
+    m=re.search(r', no\. (\d+)',i); f+= [('number',m.group(1))] if m else []
     m=re.search(r'pp\. ([\d–]+)',i) or re.search(r'Art\. no\. (\d+)',i); f+= [('pages',m.group(1).replace('–','--'))] if m else []
     if doi: f.append(('doi',doi))
     typ={'Journal':'article','Preprint':'article'}.get(c,'inproceedings')

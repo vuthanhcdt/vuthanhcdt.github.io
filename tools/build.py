@@ -24,8 +24,8 @@ SITE_URL='https://vuthanhcdt.github.io/'
 def page_url(name, lang='en'):
     path=('' if name=='index.html' else name)
     return SITE_URL+('vi/' if lang=='vi' else '')+path
-LAB_JSONLD='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"RASL — Robotics and Autonomous Systems Lab","alternateName":"RASL","url":"https://vuthanhcdt.github.io/","logo":"https://vuthanhcdt.github.io/assets/rasl-logo.png","image":"https://vuthanhcdt.github.io/assets/og-image.png","email":"mailto:vuthanh.cdt@gmail.com","knowsAbout":["Human–robot interaction","Human-aware navigation","Agricultural robots","Legged locomotion","Robot learning","Vision–language–action models"],"founder":{"@type":"Person","name":"Cong-Thanh Vu","jobTitle":"Director, RASL","url":"https://vuthanhcdt.github.io/people.html","sameAs":["https://scholar.google.com/citations?user=7FEW5b8AAAAJ"]}}</script>'''
-PERSON_JSONLD='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Cong-Thanh Vu","honorificSuffix":"Ph.D.","jobTitle":"Director, Robotics and Autonomous Systems Lab (RASL)","url":"https://vuthanhcdt.github.io/people.html","image":"https://vuthanhcdt.github.io/assets/avatar-cutout.png","email":"mailto:vuthanh.cdt@gmail.com","alumniOf":[{"@type":"CollegeOrUniversity","name":"National Cheng Kung University"},{"@type":"CollegeOrUniversity","name":"Hanoi University of Industry"}],"sameAs":["https://scholar.google.com/citations?user=7FEW5b8AAAAJ"]}</script>'''
+LAB_JSONLD='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"RASL — Robotics and Autonomous Systems Lab","alternateName":"RASL","url":"https://vuthanhcdt.github.io/","logo":"https://vuthanhcdt.github.io/assets/rasl-logo.png","image":"https://vuthanhcdt.github.io/assets/og-image.png","email":"mailto:vuthanh.cdt@gmail.com","knowsAbout":["Human–robot interaction","Human-aware navigation","Agricultural robots","Legged locomotion","Robot learning","Vision–language–action models"],"founder":{"@type":"Person","name":"Cong-Thanh Vu","url":"https://vuthanhcdt.github.io/people.html","sameAs":["https://scholar.google.com/citations?user=7FEW5b8AAAAJ"]}}</script>'''
+PERSON_JSONLD='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Cong-Thanh Vu","honorificSuffix":"Ph.D.","url":"https://vuthanhcdt.github.io/people.html","image":"https://vuthanhcdt.github.io/assets/avatar-cutout.png","email":"mailto:vuthanh.cdt@gmail.com","alumniOf":[{"@type":"CollegeOrUniversity","name":"National Cheng Kung University"},{"@type":"CollegeOrUniversity","name":"Hanoi University of Industry"}],"sameAs":["https://scholar.google.com/citations?user=7FEW5b8AAAAJ"]}</script>'''
 JSONLD={'index.html':LAB_JSONLD,'people.html':PERSON_JSONLD}
 # opening animation on every visit to the home page (assets/intro.js); decided before first paint so the page never flashes
 INTRO_HEAD='<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-on")}catch(e){}</script>'
@@ -67,7 +67,6 @@ def head(title,desc):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
-<script>try{{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
 <body>
 '''
@@ -89,9 +88,6 @@ def nav(active):
       <button class="search-btn" id="searchBtn" type="button" aria-label="Search the site">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <span>Search</span><kbd>⌘K</kbd>
-      </button>
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
       <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -283,7 +279,7 @@ for card_id,block in re.findall(r'<div class="dcard reveal" id="(\w+)">(.*?)</ul
   for li in re.findall(r'<li><em>(.*?)</em><b>(.*?)</b><span>(.*?)</span>(.*?)</li>',block):
     extra=txt(li[3]) if li[3].strip() else ''
     IDX.append(dict(type='People',title=txt(li[1]),text=txt(li[2])+(' · '+extra if extra else ''),meta=f'Cong-Thanh Vu · {txt(li[0])}',url=f'people.html#{card_id}'))
-IDX+= [dict(type='People',title='Cong-Thanh Vu, Ph.D.',text='Director, Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.',meta='Director',url='people.html#director'),
+IDX+= [dict(type='People',title='Cong-Thanh Vu, Ph.D.',text='Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.',meta='RASL',url='people.html#director'),
        dict(type='Page',title='CV — Cong-Thanh Vu',text='Auto-generated CV with education, experience, publications and awards. Download as PDF.',meta='CV',url='cv.html?m=vu'),
        dict(type='Page',title='Contact',text='Email vuthanh.cdt@gmail.com · Google Scholar',meta='Get in touch',url='contact.html'),
        dict(type='Page',title='Join RASL — apply',text='Application form for students: introduce yourself, your skills, languages and research interests.',meta='Open positions',url='index.html#apply'),
@@ -303,9 +299,9 @@ VI_FIX={'Curriculum Vitae — Cong-Thanh Vu':'CV — Cong-Thanh Vu',
         'All journal articles, conference papers and preprints with BibTeX.':'Toàn bộ bài báo tạp chí và hội nghị, kèm trích dẫn BibTeX.',
         'Accepted papers, awards and milestones.':'Bài báo mới được chấp nhận, giải thưởng và các cột mốc của lab.',
         'Join RASL':'Tham gia RASL','Join RASL — apply':'Ứng tuyển vào RASL',
-        'Application form for students: introduce yourself, your skills, languages and research interests.':'Form ứng tuyển cho sinh viên: giới thiệu bản thân, kỹ năng, ngoại ngữ và hướng nghiên cứu quan tâm.','Contact':'Liên hệ','Publications':'Công bố khoa học','News':'Tin tức','Director':'Giám đốc',
+        'Application form for students: introduce yourself, your skills, languages and research interests.':'Form ứng tuyển cho sinh viên: giới thiệu bản thân, kỹ năng, ngoại ngữ và hướng nghiên cứu quan tâm.','Contact':'Liên hệ','Publications':'Công bố khoa học','News':'Tin tức','RASL':'RASL',
         'Cong-Thanh Vu · 2022 – 2026':'Cong-Thanh Vu · 2022 – 2026',
-        'Director, Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.':'Giám đốc Phòng thí nghiệm Robot và Hệ thống Tự hành (RASL). Tương tác người – robot, điều hướng robot có nhận thức về con người, robot nông nghiệp, robot đi bằng chân, học máy cho robot.'}
+        'Robotics and Autonomous Systems Lab (RASL). Human–robot interaction, human-aware navigation, agricultural robots, legged locomotion, robot learning.':'Phòng thí nghiệm Robot và Hệ thống Tự hành (RASL). Tương tác người – robot, điều hướng robot có nhận thức về con người, robot nông nghiệp, robot đi bằng chân, học máy cho robot.'}
 def tvi(x): return vi_name(VI_FIX.get(x, translate_text(x)))
 MON_VI={'Jan':1,'Feb':2,'Mar':3,'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
 def vdate(x): return re.sub(r'\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})\b', lambda m: f'{MON_VI[m.group(1)]:02d}/{m.group(2)}', x)

@@ -370,7 +370,7 @@ function search(){
   else if (!terms.length){
     /* nothing typed yet: a small sample of every kind of thing the search covers, grouped by kind */
     const pick = (type, n, f = () => true) => DOCS.filter(d => d.type === type && f(d)).slice(0, n);
-    hits = [...pick("Publication", 2), ...pick("News", 2), ...pick("Research", 1), ...pick("People", 1, d => /Director|Giám đốc/.test(d.meta)),
+    hits = [...pick("Publication", 2), ...pick("News", 2), ...pick("Research", 1), ...pick("People", 1, d => /#director$/.test(d.url)),
             ...pick("Page", 2, d => /cv\.html|#apply/.test(d.url))];
   } else hits = all.slice(0, 30);
   skc.textContent = terms.length ? t(`${all.length} result${all.length === 1 ? "" : "s"}`, `${all.length} kết quả`) : "";
@@ -483,14 +483,6 @@ function highlightTarget(hash){
 }
 highlightTarget(location.hash);
 addEventListener("hashchange", () => highlightTarget(location.hash));
-
-/* ---------- theme ---------- */
-const root = document.documentElement;
-$("themeBtn").addEventListener("click", () => {
-  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = dark ? "light" : "dark";
-  try { localStorage.setItem("theme", root.dataset.theme); } catch(e){}
-});
 
 /* ---------- reveal on scroll ---------- */
 const io = new IntersectionObserver(es => es.forEach(en => {

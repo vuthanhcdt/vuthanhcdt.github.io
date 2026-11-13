@@ -129,7 +129,7 @@ TR = [
     ('<span>Try:</span>', '<span>Gợi ý:</span>'),
 
     # ---------------- people page ----------------
-    ('Director, Robotics and Autonomous Systems Lab (RASL)', 'Giám đốc Phòng thí nghiệm Robot và Hệ thống Tự hành (RASL)'),
+    ('Robotics and Autonomous Systems Lab (RASL)', 'Phòng thí nghiệm Robot và Hệ thống Tự hành (RASL)'),
     ('alt="Portrait of Cong-Thanh Vu"', 'alt="Ảnh chân dung Cong-Thanh Vu"'),
     ('<h4>Education</h4>', '<h4>Học vấn</h4>'),
     ('<h4>Honors &amp; Awards</h4>', '<h4>Giải thưởng &amp; Học bổng</h4>'),
@@ -158,7 +158,6 @@ TR = [
     # ---------------- chrome (nav, search, footer) ----------------
     ('aria-label="Search the site"', 'aria-label="Tìm kiếm trên trang"'),
     ('<span>Search</span>', '<span>Tìm kiếm</span>'),
-    ('aria-label="Toggle dark mode"', 'aria-label="Bật/tắt giao diện tối"'),
     ('aria-label="Open menu"', 'aria-label="Mở menu"'),
     ('aria-label="Language"', 'aria-label="Ngôn ngữ"'),
     ('>Research<', '>Nghiên cứu<'),
